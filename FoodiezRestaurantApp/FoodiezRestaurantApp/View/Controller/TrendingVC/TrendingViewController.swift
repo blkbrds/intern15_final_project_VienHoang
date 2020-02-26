@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  TrendingViewController.swift
 //  FoodiezRestaurantApp
 //
 //  Created by user on 2/26/20.
@@ -8,9 +8,10 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController {
+final class TrendingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Trending"
     }
 }

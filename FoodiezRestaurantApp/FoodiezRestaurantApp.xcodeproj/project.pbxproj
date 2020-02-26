@@ -25,6 +25,8 @@
 		CE3A60BD24061C590031B935 /* TrendingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3A60BB24061C590031B935 /* TrendingViewController.xib */; };
 		CE3A60C024061EB00031B935 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A60BE24061EB00031B935 /* HomeViewController.swift */; };
 		CE3A60C124061EB00031B935 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3A60BF24061EB00031B935 /* HomeViewController.xib */; };
+		CE3A60C5240625D60031B935 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A60C3240625D60031B935 /* CollectionViewCell.swift */; };
+		CE3A60C6240625D60031B935 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3A60C4240625D60031B935 /* CollectionViewCell.xib */; };
 		D2E38AF65A617F98776EE0C2 /* Pods_FoodiezRestaurantApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA09624EECDA8B46ECB3E8F /* Pods_FoodiezRestaurantApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		CE3A60BB24061C590031B935 /* TrendingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingViewController.xib; sourceTree = "<group>"; };
 		CE3A60BE24061EB00031B935 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE3A60BF24061EB00031B935 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		CE3A60C3240625D60031B935 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		CE3A60C4240625D60031B935 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		DBA09624EECDA8B46ECB3E8F /* Pods_FoodiezRestaurantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodiezRestaurantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,7 +134,6 @@
 		CE3A6073240613B70031B935 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CE3A60B924061C430031B935 /* TrendingVC */,
 				CE3A6074240613B70031B935 /* Controller */,
 				CE3A6075240613B70031B935 /* Control */,
 				CE3A6076240613B70031B935 /* Base */,
@@ -141,10 +144,11 @@
 		CE3A6074240613B70031B935 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CE3A60C724062ABC0031B935 /* Home */,
+				CE3A60B924061C430031B935 /* TrendingVC */,
 				CE3A60B4240619FE0031B935 /* DetailViewController */,
 				CE3A60AF240618EA0031B935 /* FavoritesVC */,
 				CE3A60AA240618B60031B935 /* SearchVC */,
-				CE3A60A5240618730031B935 /* HomeVC */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -255,6 +259,24 @@
 			path = TrendingVC;
 			sourceTree = "<group>";
 		};
+		CE3A60C2240625AE0031B935 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE3A60C3240625D60031B935 /* CollectionViewCell.swift */,
+				CE3A60C4240625D60031B935 /* CollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CE3A60C724062ABC0031B935 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CE3A60C2240625AE0031B935 /* Cell */,
+				CE3A60A5240618730031B935 /* HomeVC */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -320,6 +342,7 @@
 				CE3A60AE240618D70031B935 /* SearchViewController.xib in Resources */,
 				CE3A60BD24061C590031B935 /* TrendingViewController.xib in Resources */,
 				CE3A60C124061EB00031B935 /* HomeViewController.xib in Resources */,
+				CE3A60C6240625D60031B935 /* CollectionViewCell.xib in Resources */,
 				CE3A60B3240619080031B935 /* FavoritesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +381,7 @@
 			files = (
 				CE3A609F240614590031B935 /* Session.swift in Sources */,
 				CE3A60B2240619080031B935 /* FavoritesViewController.swift in Sources */,
+				CE3A60C5240625D60031B935 /* CollectionViewCell.swift in Sources */,
 				CE3A60BC24061C590031B935 /* TrendingViewController.swift in Sources */,
 				CE3A6071240613790031B935 /* Errors.swift in Sources */,
 				CE3A60AD240618D70031B935 /* SearchViewController.swift in Sources */,
