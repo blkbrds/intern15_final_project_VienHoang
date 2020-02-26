@@ -10,7 +10,24 @@ import UIKit
 
 final class CollectionViewCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    @IBOutlet private weak var iconImageView: UIImageView!
+    @IBOutlet private weak var categoriesNameLabel: UILabel!
+    @IBOutlet private weak var countNameLabel: UILabel!
+
+    var viewModel: CollectionCellViewModel? {
+        didSet {
+            updateUI()
+        }
+    }
+
+    private func updateUI() {
+        guard let viewModel = viewModel else { return }
+        let imageName = viewModel.image
+        iconImageView.image = UIImage(named: imageName)
+        countNameLabel.text = viewModel.count
+        categoriesNameLabel.text = viewModel.name
     }
 }
+
+
+
