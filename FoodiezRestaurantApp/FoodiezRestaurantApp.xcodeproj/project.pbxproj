@@ -305,6 +305,7 @@
 				CE3A6048240612800031B935 /* Sources */,
 				CE3A6049240612800031B935 /* Frameworks */,
 				CE3A604A240612800031B935 /* Resources */,
+				C2D23E6F2C2FCEDCFD12BAF6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -367,6 +368,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		C2D23E6F2C2FCEDCFD12BAF6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoodiezRestaurantApp/Pods-FoodiezRestaurantApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoodiezRestaurantApp/Pods-FoodiezRestaurantApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodiezRestaurantApp/Pods-FoodiezRestaurantApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C5DFDD67B48D166275EBBD29 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
