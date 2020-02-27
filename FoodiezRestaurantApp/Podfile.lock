@@ -1,4 +1,6 @@
 PODS:
+  - Alamofire (5.0.2)
+  - ObjectMapper (3.5.1)
   - Realm (4.3.2):
     - Realm/Headers (= 4.3.2)
   - Realm/Headers (4.3.2)
@@ -7,20 +9,26 @@ PODS:
   - SwiftLint (0.27.0)
 
 DEPENDENCIES:
+  - Alamofire
+  - ObjectMapper
   - RealmSwift
   - SwiftLint (= 0.27.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - ObjectMapper
     - Realm
     - RealmSwift
     - SwiftLint
 
 SPEC CHECKSUMS:
+  Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
   RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
-PODFILE CHECKSUM: ecfd939f176323fd574dd92cd8e33248953bbb15
+PODFILE CHECKSUM: b97a80a4ad1c88dc9c908113116f60737c797fcb
 
 COCOAPODS: 1.8.4
