@@ -20,10 +20,7 @@ enum APIResult {
     case failure(Error)
 }
 
-// MARK: - Equatable
-
 extension APIResult: Equatable {
-
     public static func == (lhs: APIResult, rhs: APIResult) -> Bool {
         switch (lhs, rhs) {
         case (.success, .success):

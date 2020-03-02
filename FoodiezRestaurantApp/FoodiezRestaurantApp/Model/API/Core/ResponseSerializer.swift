@@ -12,9 +12,9 @@ import SwiftUtils
 
 extension Request {
     static func responseJSONSerializer(log: Bool = true,
-                                       response: HTTPURLResponse?,
-                                       data: Data?,
-                                       error: Error?) -> Result<Any> {
+        response: HTTPURLResponse?,
+        data: Data?,
+        error: Error?) -> Result<Any> {
 
         guard Network.shared.isReachable else {
             return .failure(Api.Error.network)
@@ -23,7 +23,7 @@ extension Request {
         guard let response = response else {
             if let error = error {
                 let errorCode = error.code
-                if abs(errorCode) == Api.Error.cancelRequest.code { // code is 999 or -999
+                if abs(errorCode) == Api.Error.cancelRequest.code {
                     return .failure(Api.Error.cancelRequest)
                 }
                 return .failure(error)
@@ -60,8 +60,8 @@ extension Request {
                 err = NSError(domain: Api.Path.baseURL.host, status: status)
             } else {
                 err = NSError(domain: Api.Path.baseURL.host,
-                              code: statusCode,
-                              message: "Unknown HTTP status code received (\(statusCode)).")
+                    code: statusCode,
+                    message: "Unknown HTTP status code received (\(statusCode)).")
             }
 
             #if DEBUG
@@ -86,18 +86,18 @@ extension DataRequest {
     static func responseSerializer() -> DataResponseSerializer<Any> {
         return DataResponseSerializer { _, response, data, error in
             return Request.responseJSONSerializer(log: true,
-                                                  response: response,
-                                                  data: data,
-                                                  error: error)
+                response: response,
+                data: data,
+                error: error)
         }
     }
 
     @discardableResult
     func responseJSON(queue: DispatchQueue = .global(qos: .background),
-                      completion: @escaping (DataResponse<Any>) -> Void) -> Self {
+        completion: @escaping (DataResponse<Any>) -> Void) -> Self {
         return response(queue: queue,
-                        responseSerializer: DataRequest.responseSerializer(),
-                        completionHandler: completion)
+            responseSerializer: DataRequest.responseSerializer(),
+            completionHandler: completion)
     }
 }
 

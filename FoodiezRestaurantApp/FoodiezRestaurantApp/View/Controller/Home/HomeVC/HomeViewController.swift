@@ -29,29 +29,30 @@ final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionVIew: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Config.numberOfItemsInSection
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.collectionViewCell, for: indexPath) as? CollectionViewCell
-            else { return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.collectionViewCell, for: indexPath) as? CollectionViewCell else {
+            return UICollectionViewCell()
         }
         return cell
     }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: Config.screenWidth / 2, height: (Config.screenWidth / 3) * 7 / 4)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return CGFloat(Config.minimumLineSpacingForSectionAt)
+        return CGFloat(Config.minimumInteritemSpacingForSectionAt)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return CGFloat(Config.minimumLineSpacingForSectionAt)
+        return CGFloat(Config.minimumInteritemSpacingForSectionAt)
     }
 }
 
