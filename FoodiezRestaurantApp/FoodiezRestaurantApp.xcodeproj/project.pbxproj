@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE33DAAB2406531E00DB6127 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE33DAAA2406531E00DB6127 /* HomeViewModel.swift */; };
+		CE33DAB224065E7700DB6127 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE33DAB124065E7700DB6127 /* Categories.swift */; };
+		CE33DAB42406636400DB6127 /* CollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE33DAB32406636400DB6127 /* CollectionCellViewModel.swift */; };
 		CE3A6050240612800031B935 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A604F240612800031B935 /* AppDelegate.swift */; };
 		CE3A6052240612800031B935 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A6051240612800031B935 /* SceneDelegate.swift */; };
 		CE3A6059240612830031B935 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3A6058240612830031B935 /* Assets.xcassets */; };
@@ -33,6 +36,9 @@
 /* Begin PBXFileReference section */
 		4466C0203A8E3D49EF1C1A8E /* Pods-FoodiezRestaurantApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodiezRestaurantApp.release.xcconfig"; path = "Target Support Files/Pods-FoodiezRestaurantApp/Pods-FoodiezRestaurantApp.release.xcconfig"; sourceTree = "<group>"; };
 		AB9D42BDC312D9C7D84F6345 /* Pods-FoodiezRestaurantApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodiezRestaurantApp.debug.xcconfig"; path = "Target Support Files/Pods-FoodiezRestaurantApp/Pods-FoodiezRestaurantApp.debug.xcconfig"; sourceTree = "<group>"; };
+		CE33DAAA2406531E00DB6127 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CE33DAB124065E7700DB6127 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		CE33DAB32406636400DB6127 /* CollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellViewModel.swift; sourceTree = "<group>"; };
 		CE3A604C240612800031B935 /* FoodiezRestaurantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodiezRestaurantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3A604F240612800031B935 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE3A6051240612800031B935 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +91,14 @@
 				DBA09624EECDA8B46ECB3E8F /* Pods_FoodiezRestaurantApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE33DAAC240657EA00DB6127 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				CE33DAB124065E7700DB6127 /* Categories.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 		CE3A6043240612800031B935 = {
@@ -185,6 +199,7 @@
 		CE3A6095240614580031B935 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE33DAAC240657EA00DB6127 /* Objects */,
 				CE3A6096240614580031B935 /* Session.swift */,
 				CE3A6097240614580031B935 /* Schema */,
 				CE3A6098240614580031B935 /* API */,
@@ -219,6 +234,7 @@
 			children = (
 				CE3A60BE24061EB00031B935 /* HomeViewController.swift */,
 				CE3A60BF24061EB00031B935 /* HomeViewController.xib */,
+				CE33DAAA2406531E00DB6127 /* HomeViewModel.swift */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -264,6 +280,7 @@
 			children = (
 				CE3A60C3240625D60031B935 /* CollectionViewCell.swift */,
 				CE3A60C4240625D60031B935 /* CollectionViewCell.xib */,
+				CE33DAB32406636400DB6127 /* CollectionCellViewModel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -380,6 +397,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE3A609F240614590031B935 /* Session.swift in Sources */,
+				CE33DAB224065E7700DB6127 /* Categories.swift in Sources */,
+				CE33DAB42406636400DB6127 /* CollectionCellViewModel.swift in Sources */,
 				CE3A60B2240619080031B935 /* FavoritesViewController.swift in Sources */,
 				CE3A60C5240625D60031B935 /* CollectionViewCell.swift in Sources */,
 				CE3A60BC24061C590031B935 /* TrendingViewController.swift in Sources */,
@@ -387,6 +406,7 @@
 				CE3A60AD240618D70031B935 /* SearchViewController.swift in Sources */,
 				CE3A6070240613790031B935 /* String.swift in Sources */,
 				CE3A6050240612800031B935 /* AppDelegate.swift in Sources */,
+				CE33DAAB2406531E00DB6127 /* HomeViewModel.swift in Sources */,
 				CE3A60C024061EB00031B935 /* HomeViewController.swift in Sources */,
 				CE3A6072240613790031B935 /* App.swift in Sources */,
 				CE3A60B724061A360031B935 /* DetailViewController.swift in Sources */,
