@@ -21,6 +21,7 @@ target 'FoodiezRestaurantApp' do
   # UI
   pod 'SVProgressHUD', '2.2.5'
 
+  pod 'Kingfisher'
   # Tool to enforce Swift style and conventions
   pod 'SwiftLint', '0.27.0'
 end

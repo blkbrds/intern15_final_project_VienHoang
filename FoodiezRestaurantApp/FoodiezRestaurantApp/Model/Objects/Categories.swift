@@ -7,9 +7,20 @@
 //
 
 import Foundation
+import ObjectMapper
+final class Categories: Mappable {
+    var prefixURL: String = ""
+    var suffixURL: String = ""
+    var countURL: String = ""
+    var nameURL: String = ""
+    var shortName: String = ""
 
-final class Categories {
-    var imageURLString: String = ""
-    var nameImageURLString: String = ""
-    var countURLString: String = ""
+    init?(map: Map) { }
+
+    func mapping(map: Map) {
+        prefixURL <- map["icon.prefix"]
+        suffixURL <- map["icon.suffix"]
+        nameURL <- map["name"]
+        shortName <- map["shortName"]
+    }
 }

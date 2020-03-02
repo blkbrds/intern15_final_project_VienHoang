@@ -17,26 +17,44 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Home"
-        configCollectionView()
+        setupData()
+        setupUI()
     }
 
-    private func configCollectionView() {
+    private func setupUI() {
         let nib = UINib(nibName: Identifier.collectionViewCell, bundle: .main)
         collectionView.register(nib, forCellWithReuseIdentifier: Identifier.collectionViewCell)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
+    func setupData() {
+        loadApi()
+    }
+    
+    func loadApi() {
+        viewModel.loadAPIForHome { [weak self] (reslut) in
+            guard let self = self else { return }
+            switch reslut {
+            case .success:
+                self.collectionView.reloadData()
+            case .failure(let error):
+                self.alert(error: error)
+            }
+        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionVIew: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Config.numberOfItemsInSection
+        return viewModel.numberOfItemsInSection(section: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.collectionViewCell, for: indexPath) as? CollectionViewCell else {
             return UICollectionViewCell()
         }
+        cell.viewModel = viewModel.viewModelForCell(at: indexPath)
         return cell
     }
 }
