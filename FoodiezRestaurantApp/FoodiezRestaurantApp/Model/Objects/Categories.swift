@@ -10,6 +10,6 @@ import Foundation
 
 final class Categories {
     var imageURLString: String = ""
-    var nameImageURL: String = ""
-    var countURL: String = ""
+    var nameImageURLString: String = ""
+    var countURLString: String = ""
 }

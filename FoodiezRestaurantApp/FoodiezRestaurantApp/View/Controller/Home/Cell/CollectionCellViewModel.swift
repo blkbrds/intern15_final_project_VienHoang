@@ -15,7 +15,7 @@ final class CollectionCellViewModel {
 
     init(category: Categories) {
         imageName = category.imageURLString
-        name = category.nameImageURL
-        count = category.countURL
+        name = category.nameImageURLString
+        count = category.countURLString
     }
 }
