@@ -1,5 +1,5 @@
 //
-//  APIManager.Home.swift
+//  API.Home.swift
 //  FoodiezRestaurantApp
 //
 //  Created by user on 3/2/20.
