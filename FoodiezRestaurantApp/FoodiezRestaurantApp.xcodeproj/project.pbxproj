@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,15 @@
 		CE3A60C124061EB00031B935 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3A60BF24061EB00031B935 /* HomeViewController.xib */; };
 		CE3A60C5240625D60031B935 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A60C3240625D60031B935 /* CollectionViewCell.swift */; };
 		CE3A60C6240625D60031B935 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3A60C4240625D60031B935 /* CollectionViewCell.xib */; };
+		CEEAAF78240CBEB800BEF784 /* RequestSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF77240CBEB800BEF784 /* RequestSerializer.swift */; };
+		CEEAAF7A240CC26300BEF784 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF79240CC26300BEF784 /* Error.swift */; };
+		CEEAAF7C240CC27C00BEF784 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF7B240CC27C00BEF784 /* ApiManager.swift */; };
+		CEEAAF7E240CC2A600BEF784 /* ResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF7D240CC2A600BEF784 /* ResponseSerializer.swift */; };
+		CEEAAF80240CC2CD00BEF784 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF7F240CC2CD00BEF784 /* Api.swift */; };
+		CEEAAF83240CC40B00BEF784 /* CollectionExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF82240CC40B00BEF784 /* CollectionExt.swift */; };
+		CEEAAF85240CC42000BEF784 /* NSErrorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF84240CC42000BEF784 /* NSErrorExt.swift */; };
+		CEEAAF87240CC43C00BEF784 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF86240CC43C00BEF784 /* UIViewControllerExt.swift */; };
+		CEEAAF89240CC45100BEF784 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF88240CC45100BEF784 /* UIViewExt.swift */; };
 		D2E38AF65A617F98776EE0C2 /* Pods_FoodiezRestaurantApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA09624EECDA8B46ECB3E8F /* Pods_FoodiezRestaurantApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +70,15 @@
 		CE3A60BF24061EB00031B935 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		CE3A60C3240625D60031B935 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		CE3A60C4240625D60031B935 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		CEEAAF77240CBEB800BEF784 /* RequestSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSerializer.swift; sourceTree = "<group>"; };
+		CEEAAF79240CC26300BEF784 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		CEEAAF7B240CC27C00BEF784 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		CEEAAF7D240CC2A600BEF784 /* ResponseSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseSerializer.swift; sourceTree = "<group>"; };
+		CEEAAF7F240CC2CD00BEF784 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		CEEAAF82240CC40B00BEF784 /* CollectionExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExt.swift; sourceTree = "<group>"; };
+		CEEAAF84240CC42000BEF784 /* NSErrorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSErrorExt.swift; sourceTree = "<group>"; };
+		CEEAAF86240CC43C00BEF784 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
+		CEEAAF88240CC45100BEF784 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		DBA09624EECDA8B46ECB3E8F /* Pods_FoodiezRestaurantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodiezRestaurantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -122,13 +140,12 @@
 		CE3A604E240612800031B935 /* FoodiezRestaurantApp */ = {
 			isa = PBXGroup;
 			children = (
+				CEEAAF73240CBE6100BEF784 /* Library */,
+				CEEAAF72240CBDFD00BEF784 /* AppDelegate */,
 				CE3A605D240612830031B935 /* Info.plist */,
-				CE3A604F240612800031B935 /* AppDelegate.swift */,
-				CE3A6051240612800031B935 /* SceneDelegate.swift */,
 				CE3A6058240612830031B935 /* Assets.xcassets */,
 				CE3A606C240613790031B935 /* Define */,
 				CE3A605A240612830031B935 /* LaunchScreen.storyboard */,
-				CE3A608B240613DA0031B935 /* Library */,
 				CE3A6095240614580031B935 /* Model */,
 				CE3A6073240613B70031B935 /* View */,
 			);
@@ -181,52 +198,15 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		CE3A608B240613DA0031B935 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				CE3A608C240613DA0031B935 /* Ext */,
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
-		CE3A608C240613DA0031B935 /* Ext */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Ext;
-			sourceTree = "<group>";
-		};
 		CE3A6095240614580031B935 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CEEAAF75240CBE7F00BEF784 /* API */,
+				CEEAAF74240CBE7400BEF784 /* Schema */,
 				CE33DAAC240657EA00DB6127 /* Objects */,
 				CE3A6096240614580031B935 /* Session.swift */,
-				CE3A6097240614580031B935 /* Schema */,
-				CE3A6098240614580031B935 /* API */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		CE3A6097240614580031B935 /* Schema */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Schema;
-			sourceTree = "<group>";
-		};
-		CE3A6098240614580031B935 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				CE3A6099240614580031B935 /* Core */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
-		CE3A6099240614580031B935 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		CE3A60A5240618730031B935 /* HomeVC */ = {
@@ -294,6 +274,62 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		CEEAAF72240CBDFD00BEF784 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				CE3A604F240612800031B935 /* AppDelegate.swift */,
+				CE3A6051240612800031B935 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		CEEAAF73240CBE6100BEF784 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				CEEAAF81240CC3FB00BEF784 /* Ext */,
+			);
+			name = Library;
+			path = "Librảy";
+			sourceTree = "<group>";
+		};
+		CEEAAF74240CBE7400BEF784 /* Schema */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Schema;
+			sourceTree = "<group>";
+		};
+		CEEAAF75240CBE7F00BEF784 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CEEAAF76240CBE8900BEF784 /* Core */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		CEEAAF76240CBE8900BEF784 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				CEEAAF77240CBEB800BEF784 /* RequestSerializer.swift */,
+				CEEAAF79240CC26300BEF784 /* Error.swift */,
+				CEEAAF7B240CC27C00BEF784 /* ApiManager.swift */,
+				CEEAAF7D240CC2A600BEF784 /* ResponseSerializer.swift */,
+				CEEAAF7F240CC2CD00BEF784 /* Api.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		CEEAAF81240CC3FB00BEF784 /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				CEEAAF82240CC40B00BEF784 /* CollectionExt.swift */,
+				CEEAAF84240CC42000BEF784 /* NSErrorExt.swift */,
+				CEEAAF86240CC43C00BEF784 /* UIViewControllerExt.swift */,
+				CEEAAF88240CC45100BEF784 /* UIViewExt.swift */,
+			);
+			path = Ext;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -305,6 +341,7 @@
 				CE3A6048240612800031B935 /* Sources */,
 				CE3A6049240612800031B935 /* Frameworks */,
 				CE3A604A240612800031B935 /* Resources */,
+				25A2ECE5F3DCF45F030248A0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -367,6 +404,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		25A2ECE5F3DCF45F030248A0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoodiezRestaurantApp/Pods-FoodiezRestaurantApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoodiezRestaurantApp/Pods-FoodiezRestaurantApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodiezRestaurantApp/Pods-FoodiezRestaurantApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C5DFDD67B48D166275EBBD29 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -401,15 +455,24 @@
 				CE33DAB42406636400DB6127 /* CollectionCellViewModel.swift in Sources */,
 				CE3A60B2240619080031B935 /* FavoritesViewController.swift in Sources */,
 				CE3A60C5240625D60031B935 /* CollectionViewCell.swift in Sources */,
+				CEEAAF83240CC40B00BEF784 /* CollectionExt.swift in Sources */,
+				CEEAAF78240CBEB800BEF784 /* RequestSerializer.swift in Sources */,
 				CE3A60BC24061C590031B935 /* TrendingViewController.swift in Sources */,
+				CEEAAF87240CC43C00BEF784 /* UIViewControllerExt.swift in Sources */,
 				CE3A6071240613790031B935 /* Errors.swift in Sources */,
 				CE3A60AD240618D70031B935 /* SearchViewController.swift in Sources */,
+				CEEAAF7A240CC26300BEF784 /* Error.swift in Sources */,
+				CEEAAF89240CC45100BEF784 /* UIViewExt.swift in Sources */,
+				CEEAAF7C240CC27C00BEF784 /* ApiManager.swift in Sources */,
 				CE3A6070240613790031B935 /* String.swift in Sources */,
 				CE3A6050240612800031B935 /* AppDelegate.swift in Sources */,
 				CE33DAAB2406531E00DB6127 /* HomeViewModel.swift in Sources */,
+				CEEAAF85240CC42000BEF784 /* NSErrorExt.swift in Sources */,
 				CE3A60C024061EB00031B935 /* HomeViewController.swift in Sources */,
+				CEEAAF7E240CC2A600BEF784 /* ResponseSerializer.swift in Sources */,
 				CE3A6072240613790031B935 /* App.swift in Sources */,
 				CE3A60B724061A360031B935 /* DetailViewController.swift in Sources */,
+				CEEAAF80240CC2CD00BEF784 /* Api.swift in Sources */,
 				CE3A6052240612800031B935 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
