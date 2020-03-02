@@ -22,7 +22,7 @@ final class CollectionViewCell: UICollectionViewCell {
 
     private func updateUI() {
         guard let viewModel = viewModel else { return }
-        let imageName = viewModel.image
+        let imageName = viewModel.imageName
         iconImageView.image = UIImage(named: imageName)
         countNameLabel.text = viewModel.count
         categoriesNameLabel.text = viewModel.name

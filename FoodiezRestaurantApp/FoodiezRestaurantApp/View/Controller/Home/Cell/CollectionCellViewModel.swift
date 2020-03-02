@@ -9,12 +9,12 @@
 import Foundation
 
 final class CollectionCellViewModel {
-    var image: String
+    var imageName: String
     var name: String
     var count: String
-    
+
     init(category: Categories) {
-        image = category.imageURL
+        imageName = category.imageURLString
         name = category.nameImageURL
         count = category.countURL
     }

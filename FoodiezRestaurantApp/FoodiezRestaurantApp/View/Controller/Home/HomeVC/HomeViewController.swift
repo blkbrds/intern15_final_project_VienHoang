@@ -12,8 +12,8 @@ final class HomeViewController: UIViewController {
 
     @IBOutlet private weak var collectionView: UICollectionView!
 
-    private var collectionViewCell = "CollectionViewCell"
     var viewModel = HomeViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Home"
@@ -21,8 +21,8 @@ final class HomeViewController: UIViewController {
     }
 
     private func configCollectionView() {
-        let nib = UINib(nibName: collectionViewCell, bundle: .main)
-        collectionView.register(nib, forCellWithReuseIdentifier: collectionViewCell)
+        let nib = UINib(nibName: Identifier.collectionViewCell, bundle: .main)
+        collectionView.register(nib, forCellWithReuseIdentifier: Identifier.collectionViewCell)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -30,11 +30,11 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return Config.numberOfItemsInSection
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.collectionViewCell, for: indexPath) as? CollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.collectionViewCell, for: indexPath) as? CollectionViewCell
             else { return UICollectionViewCell()
         }
         return cell
@@ -43,18 +43,28 @@ extension HomeViewController: UICollectionViewDataSource {
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenWidth = UIScreen.main.bounds.width - 30
-        _ = UIScreen.main.bounds.height
-        return CGSize(width: screenWidth / 2, height: (screenWidth / 3) * 7 / 4)
+        return CGSize(width: Config.screenWidth / 2, height: (Config.screenWidth / 3) * 7 / 4)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5 }
+        return CGFloat(Config.minimumLineSpacingForSectionAt)
+    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+        return CGFloat(Config.minimumLineSpacingForSectionAt)
     }
 }
 
+extension HomeViewController {
+    struct Config {
+        static let numberOfItemsInSection: Int = 6
+        static let minimumLineSpacingForSectionAt: Float = 5
+        static let minimumInteritemSpacingForSectionAt: Int = 5
+        static let screenWidth = UIScreen.main.bounds.width - 30
+    }
 
+    struct Identifier {
+        static let collectionViewCell = "CollectionViewCell"
+    }
+}
 

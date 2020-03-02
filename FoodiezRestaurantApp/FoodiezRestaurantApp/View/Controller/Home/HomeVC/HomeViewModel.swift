@@ -9,6 +9,6 @@
 import Foundation
 
 final class HomeViewModel {
+
     var categories: [Categories] = []
-    
 }
