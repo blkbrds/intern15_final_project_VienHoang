@@ -5,9 +5,7 @@
 //  Created by user on 3/2/20.
 //  Copyright © 2020 VienH. All rights reserved.
 //
-
-import Foundation
-import  UIKit
+import UIKit
 
 extension UIViewController {
     func alert(error: Error) {

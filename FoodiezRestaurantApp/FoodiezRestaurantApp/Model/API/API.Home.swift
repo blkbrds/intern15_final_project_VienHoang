@@ -36,8 +36,7 @@ extension Api.Home {
                 case .success(let json):
                     guard let json = json as? JSObject,
                         let response = json["response"] as? JSObject,
-                        let venues = response["venues"] as? JSArray
-                        else {
+                        let venues = response["venues"] as? JSArray else {
                             return
                     }
                     var categories: JSArray = []

@@ -16,10 +16,10 @@ final class CollectionCellViewModel {
     var count: String
 
     init(category: Categories) {
-        prefix = category.prefixURL
-        name = category.nameURL
-        suffix = category.suffixURL
+        prefix = category.prefixURLString
+        name = category.name
+        suffix = category.suffix
         shortName = category.shortName
-        count = category.countURL
+        count = category.count
     }
 }

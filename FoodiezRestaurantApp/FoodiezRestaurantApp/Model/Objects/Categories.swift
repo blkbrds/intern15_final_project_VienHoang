@@ -9,18 +9,18 @@
 import Foundation
 import ObjectMapper
 final class Categories: Mappable {
-    var prefixURL: String = ""
-    var suffixURL: String = ""
-    var countURL: String = ""
-    var nameURL: String = ""
+    var prefixURLString: String = ""
+    var suffix: String = ""
+    var count: String = ""
+    var name: String = ""
     var shortName: String = ""
 
     init?(map: Map) { }
 
     func mapping(map: Map) {
-        prefixURL <- map["icon.prefix"]
-        suffixURL <- map["icon.suffix"]
-        nameURL <- map["name"]
+        prefixURLString <- map["icon.prefix"]
+        suffix <- map["icon.suffix"]
+        name <- map["name"]
         shortName <- map["shortName"]
     }
 }
