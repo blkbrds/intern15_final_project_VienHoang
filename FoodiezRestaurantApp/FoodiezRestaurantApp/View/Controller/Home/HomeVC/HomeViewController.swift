@@ -27,11 +27,11 @@ final class HomeViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    
+
     func setupData() {
         loadApi()
     }
-    
+
     func loadApi() {
         viewModel.loadAPIForHome { [weak self] (reslut) in
             guard let self = self else { return }
@@ -49,7 +49,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionVIew: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItemsInSection(section: section)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.collectionViewCell, for: indexPath) as? CollectionViewCell else {
             return UICollectionViewCell()
@@ -60,7 +60,6 @@ extension HomeViewController: UICollectionViewDataSource {
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: Config.screenWidth / 2, height: (Config.screenWidth / 3) * 7 / 4)
     }

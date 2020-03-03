@@ -26,7 +26,7 @@ extension Api.Home {
     }
 
     @discardableResult
-    static func getCategories(params: Params, completion:@escaping Completion<[Categories]>) -> Request? {
+    static func getCategories(params: Params, completion: @escaping Completion<[Categories]>) -> Request? {
         let path = Api.Path.Home.path
         return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
             DispatchQueue.main.async {
