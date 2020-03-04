@@ -33,7 +33,6 @@
                     </label>
                 </subviews>
             </view>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="4rI-JQ-yZE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7sH-U0-N6a"/>
                 <constraint firstItem="xiV-7K-f6n" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9Ol-gi-dfy"/>
@@ -49,9 +48,9 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="143" height="187"/>
             <connections>
-                <outlet property="categoriesNameLabel" destination="Suw-f6-UVN" id="tK5-8X-ahu"/>
-                <outlet property="countNameLabel" destination="xiV-7K-f6n" id="eBk-tt-RgO"/>
-                <outlet property="iconImageView" destination="4rI-JQ-yZE" id="VpM-0S-3UJ"/>
+                <outlet property="nameImageView" destination="4rI-JQ-yZE" id="VpM-0S-3UJ"/>
+                <outlet property="nameLabel" destination="xiV-7K-f6n" id="eBk-tt-RgO"/>
+                <outlet property="shortNameLabel" destination="Suw-f6-UVN" id="tK5-8X-ahu"/>
             </connections>
             <point key="canvasLocation" x="58.695652173913047" y="65.959821428571431"/>
         </collectionViewCell>

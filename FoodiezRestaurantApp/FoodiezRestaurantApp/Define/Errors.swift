@@ -18,6 +18,7 @@ extension App {
         case initFailure
     }
 }
+
 extension App.Errors: CustomStringConvertible {
 
      var description: String {

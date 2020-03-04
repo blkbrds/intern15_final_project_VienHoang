@@ -14,4 +14,5 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
         title = "Detail"
     }
+    var viewModel = DetailViewModel()
 }
