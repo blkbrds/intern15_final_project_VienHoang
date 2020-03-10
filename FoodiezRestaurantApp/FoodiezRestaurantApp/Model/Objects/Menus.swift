@@ -8,7 +8,7 @@
 
 import Foundation
 import ObjectMapper
-final class Categories: Mappable {
+final class Menus: Mappable {
     var prefixURLString: String = ""
     var suffix: String = ""
     var count: String = ""
