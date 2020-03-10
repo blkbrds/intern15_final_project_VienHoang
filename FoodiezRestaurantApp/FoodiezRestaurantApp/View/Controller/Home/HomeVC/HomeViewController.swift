@@ -13,12 +13,14 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
 
     var viewModel = HomeViewModel()
+    let backgroundImageView = UIImageView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home"
+        title = "Discovery"
         setupData()
         setupUI()
+        setupBackground()
     }
 
     private func setupUI() {
@@ -43,11 +45,30 @@ final class HomeViewController: UIViewController {
             }
         }
     }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        cell.alpha = 0
+        cell.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        UIView.animate(withDuration: 0.25) {
+            cell.alpha = 1
+            cell.transform = .identity
+        }
+    }
+    
+    func setupBackground() {
+        view.addSubview(backgroundImageView)
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        backgroundImageView.image = UIImage(named: "hinhnen")
+        view.sendSubviewToBack(backgroundImageView)
+    }
 }
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionVIew: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.numberOfItemsInSection(section: section)
+        return viewModel.numberOfIemsInSection(section: section)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -75,14 +96,13 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = DetailViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        let mapViewController = DetailViewController()
+        navigationController?.pushViewController(mapViewController, animated: true)
     }
 }
 
 extension HomeViewController {
     struct Config {
-        static let numberOfItemsInSection: Int = 6
         static let minimumLineSpacingForSectionAt: Float = 5
         static let minimumInteritemSpacingForSectionAt: Int = 5
         static let screenWidth = UIScreen.main.bounds.width - 30

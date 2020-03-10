@@ -9,18 +9,22 @@
 import Foundation
 import ObjectMapper
 final class Menus: Mappable {
+    
     var prefixURLString: String = ""
     var suffix: String = ""
-    var count: String = ""
     var name: String = ""
-    var shortName: String = ""
-
+    var lat: String = ""
+    var long: String = ""
+    var id: String = ""
+    
     init?(map: Map) { }
 
     func mapping(map: Map) {
         prefixURLString <- map["icon.prefix"]
         suffix <- map["icon.suffix"]
         name <- map["name"]
-        shortName <- map["shortName"]
+        lat <- map["location.lat"]
+        long <- map["location.long"]
+        id <- map["id"]
     }
 }

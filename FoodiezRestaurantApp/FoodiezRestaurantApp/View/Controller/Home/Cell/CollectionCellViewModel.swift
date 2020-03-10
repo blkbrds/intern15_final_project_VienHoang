@@ -10,16 +10,12 @@ import Foundation
 
 final class CollectionCellViewModel {
     var prefix: String
-    var name: String
+    var name: String = ""
     var suffix: String
-    var shortName: String
-    var count: String
 
-    init(category: Categories) {
-        prefix = category.prefixURLString
-        name = category.name
-        suffix = category.suffix
-        shortName = category.shortName
-        count = category.count
+    init(menu: Menus) {
+        prefix = menu.prefixURLString
+        name = menu.name
+        suffix = menu.suffix
     }
 }

@@ -14,8 +14,8 @@ extension Api.Home {
     struct Params {
         var clientID: String
         var clientSecret: String
-        var v: String
-        var ll: String
+        var v = "20150624"
+        var ll = "16.0776738,108.197205"
 
         func toJSON() -> [String: Any] {
             ["client_id": clientID,
@@ -26,7 +26,7 @@ extension Api.Home {
     }
 
     @discardableResult
-    static func getCategories(params: Params, completion: @escaping Completion<[Categories]>) -> Request? {
+    static func getMenus(params: Params, completion: @escaping Completion<[Menus]>) -> Request? {
         let path = Api.Path.Home.path
         return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
             DispatchQueue.main.async {
@@ -36,18 +36,19 @@ extension Api.Home {
                 case .success(let json):
                     guard let json = json as? JSObject,
                         let response = json["response"] as? JSObject,
-                        let venues = response["venues"] as? JSArray else {
+                        let categories = response["categories"] as? JSArray else {
                             return
                     }
-                    var categories: JSArray = []
-                    for item in venues {
+
+                    var menus: JSArray = []
+                    for item in categories {
                         guard let item = item["categories"] as? JSArray else {
                             return
                         }
-                        categories.append(contentsOf: item)
+                        menus.append(contentsOf: item)
                     }
-                    let category = Mapper<Categories>().mapArray(JSONArray: categories)
-                    completion(.success(category))
+                    let menu = Mapper<Menus>().mapArray(JSONArray: menus)
+                    completion(.success(menu))
                 }
             }
         }

@@ -11,7 +11,6 @@ import UIKit
 final class CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var nameImageView: UIImageView!
-    @IBOutlet private weak var shortNameLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
 
     var viewModel: CollectionCellViewModel? {
@@ -22,7 +21,6 @@ final class CollectionViewCell: UICollectionViewCell {
 
     private func updateUI() {
         guard let viewModel = viewModel else { return }
-        shortNameLabel.text = viewModel.shortName
         nameLabel.text = viewModel.name
         let image = "\(viewModel.prefix)bg_88\(viewModel.suffix)"
         nameImageView.setImage(url: image)
