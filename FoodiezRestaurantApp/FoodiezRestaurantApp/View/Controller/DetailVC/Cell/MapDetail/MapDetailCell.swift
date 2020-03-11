@@ -8,6 +8,4 @@
 
 import UIKit
 
-final class MapDetailCell: UITableViewCell {
-
-}
+final class MapDetailCell: UITableViewCell { }

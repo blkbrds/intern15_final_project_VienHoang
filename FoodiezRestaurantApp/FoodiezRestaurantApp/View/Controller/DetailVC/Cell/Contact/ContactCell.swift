@@ -15,14 +15,14 @@ class ContactCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var facebookNameLabel: UILabel!
     @IBOutlet weak var twitterLabel: UILabel!
-    
-    
+
+
     var viewModel: ContactViewModel? {
         didSet {
             updateUI()
         }
     }
-    
+
     func updateUI() {
         guard let viewModel = viewModel else {
             return
