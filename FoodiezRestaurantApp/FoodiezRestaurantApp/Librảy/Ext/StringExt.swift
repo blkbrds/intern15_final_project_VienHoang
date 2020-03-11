@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+enum CellIdentifier: String {
+    case slideImageCell = "SlideImageCell"
+    case contactCell = "ContactCell"
+    case mapDetailCell = "MapDetailCell"
+}

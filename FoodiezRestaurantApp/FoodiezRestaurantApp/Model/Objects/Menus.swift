@@ -16,6 +16,8 @@ final class Menus: Mappable {
     var lat: String = ""
     var long: String = ""
     var id: String = ""
+    var contact: Contact?
+    var detailImage: DetailImage?
     
     init?(map: Map) { }
 

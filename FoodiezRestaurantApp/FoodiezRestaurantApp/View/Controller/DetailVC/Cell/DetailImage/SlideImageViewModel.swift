@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+final class SlideImageViewModel {
+    var prefix: String = ""
+    var suffit: String = ""
+    
+    init(menu: Menus) {
+        prefix = menu.detailImage?.prefix ?? ""
+        suffit = menu.detailImage?.suffix ?? ""
+    }
+}

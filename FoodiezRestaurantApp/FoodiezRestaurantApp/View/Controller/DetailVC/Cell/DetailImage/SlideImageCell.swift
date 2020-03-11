@@ -11,11 +11,17 @@ import UIKit
 class SlideImageCell: UITableViewCell {
 
     @IBOutlet weak var slideImage: UIImageView!
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    
+    var viewModel: SlideImageViewModel? {
+        didSet {
+            updateUI()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func updateUI() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        let image = "\(viewModel.prefix)900x600\(viewModel.suffit)"
+        slideImage.image = UIImage(named: image)
     }
 }

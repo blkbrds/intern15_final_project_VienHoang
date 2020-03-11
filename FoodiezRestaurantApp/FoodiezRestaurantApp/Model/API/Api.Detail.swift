@@ -42,15 +42,15 @@ extension Api.Detail {
 
                     var menus: JSArray = []
                     for item in venues {
-                        guard let item = item["location"] as? JSArray else {
+//                        guard let item = item["location"] as? JSArray else {
                             return
                         }
-                        menus.append(item)
+//                        menus.append(item)
                     }
-                    let menu = Mapper<Menus>().mapArray(JSONArray: menus)
-                    completion(.success(menu))
+//                    let menu = Mapper<Menus>().mapArray(JSONArray: menus)
+//                    completion(.success(menu))
                 }
             }
         }
     }
-}
+
