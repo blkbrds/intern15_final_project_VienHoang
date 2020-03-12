@@ -25,17 +25,14 @@ final class Api {
 extension Api.Path {
     struct Home {
         static var path: String {
-            return baseURL / "categories"
+            return baseURL / "search"
         }
     }
 
-    struct Search {
+    struct Detail {
+        static var vien: String = ""
         static var path: String {
-            return baseURL / "search"
-        }
-        
-        static var query: String {
-            return baseURL / "query="
+            return baseURL / vien
         }
     }
 }

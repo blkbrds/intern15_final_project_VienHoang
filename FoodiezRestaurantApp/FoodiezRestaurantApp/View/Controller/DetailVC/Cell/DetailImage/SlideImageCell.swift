@@ -22,6 +22,6 @@ class SlideImageCell: UITableViewCell {
             return
         }
         let image = "\(viewModel.prefix)900x600\(viewModel.suffit)"
-        slideImage.image = UIImage(named: image)
+        slideImage.setImage(url: image)
     }
 }

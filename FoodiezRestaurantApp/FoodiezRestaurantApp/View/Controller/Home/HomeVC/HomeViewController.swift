@@ -96,8 +96,9 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let mapViewController = DetailViewController()
-        navigationController?.pushViewController(mapViewController, animated: true)
+        let vc = DetailViewController()
+        vc.viewModel = viewModel.detailViewModelForCell(at: indexPath)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

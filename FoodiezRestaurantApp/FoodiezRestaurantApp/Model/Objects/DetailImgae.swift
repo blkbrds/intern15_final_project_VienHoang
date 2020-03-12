@@ -7,7 +7,15 @@
 //
 
 import Foundation
-final class DetailImage {
+import ObjectMapper
+final class DetailImage: Mappable {
     var prefix: String = ""
     var suffix: String = ""
+    
+    init?(map: Map) { }
+    
+    func mapping(map: Map) {
+        prefix <- map["prefix"]
+        suffix <- map["suffix"]
+    }
 }

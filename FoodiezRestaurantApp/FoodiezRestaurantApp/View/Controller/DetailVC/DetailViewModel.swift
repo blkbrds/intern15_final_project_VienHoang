@@ -11,6 +11,9 @@ import UIKit
 final class DetailViewModel {
     var menu: Menus?
 
+    init(menu: Menus) {
+        self.menu = menu
+    }
     func numberOfSections() -> Int {
         return SectionType.allCases.count
     }
@@ -32,6 +35,31 @@ final class DetailViewModel {
             return UITableView.automaticDimension
         }
     }
+    
+    func loadApiSlide(completion: @escaping APICompletion) {
+        guard let id = menu?.id else {
+            return
+        }
+        Api.Path.Detail.vien = id
+        let params = Api.Detail.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: "20162502", ll: "16.0776738,108.197205")
+        Api.Detail.getLocation(params: params) { [weak self] (result) in
+            guard let self = self else { return }
+            switch result {
+            case .success(let channel):
+                self.menu?.detailImage = channel
+                completion(.success)
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    func viewModelForDetailViewModel() -> SlideImageViewModel? {
+        guard let menu = menu else {
+            return nil
+        }
+        return SlideImageViewModel(menu: menu)
+    }
+    
 }
 extension DetailViewModel {
     enum SectionType: Int, CaseIterable {

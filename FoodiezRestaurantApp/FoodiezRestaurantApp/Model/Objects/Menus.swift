@@ -22,11 +22,11 @@ final class Menus: Mappable {
     init?(map: Map) { }
 
     func mapping(map: Map) {
+        id <- map["id"]
         prefixURLString <- map["icon.prefix"]
         suffix <- map["icon.suffix"]
         name <- map["name"]
         lat <- map["location.lat"]
         long <- map["location.long"]
-        id <- map["id"]
     }
 }

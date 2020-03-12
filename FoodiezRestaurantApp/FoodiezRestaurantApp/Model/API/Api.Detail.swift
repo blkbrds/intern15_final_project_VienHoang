@@ -14,11 +14,11 @@ extension Api.Detail {
     struct Params {
         var clientID: String
         var clientSecret: String
-        var v = "20150624"
-        var ll = "16.0776738,108.197205"
+        var v: String
+        var ll: String
 
         func toJSON() -> [String: Any] {
-            ["client_id": clientID,
+            [ "client_id": clientID,
                 "client_secret": clientSecret,
                 "v": v,
                 "ll": ll]
@@ -26,8 +26,8 @@ extension Api.Detail {
     }
 
     @discardableResult
-    static func getLocation(params: Params, completion: @escaping Completion<[Menus]>) -> Request? {
-        let path = Api.Path.Search.path + Api.Path.Search.query
+    static func getLocation(params: Params, completion: @escaping Completion<DetailImage?>) -> Request? {
+        let path = Api.Path.Detail.path
         return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
             DispatchQueue.main.async {
                 switch result {
@@ -36,21 +36,22 @@ extension Api.Detail {
                 case .success(let json):
                     guard let json = json as? JSObject,
                         let response = json["response"] as? JSObject,
-                        let venues = response["venues"] as? JSObject else {
-                            return
-                    }
-
-                    var menus: JSArray = []
-                    for item in venues {
-//                        guard let item = item["location"] as? JSArray else {
+                        let venues = response["venues"] as? JSObject,
+                        let photos = venues["photos"] as? JSObject,
+                        let groups = photos["groups"] as? JSArray
+                        else {
+                            completion(.failure(Api.Error.json))
+                            return }
+                    for item in groups {
+                        guard let items = item["items"] as? JSArray else {
                             return
                         }
-//                        menus.append(item)
+                        let channel = Mapper<DetailImage>().mapArray(JSONArray: items).first
+                        completion(.success(channel))
                     }
-//                    let menu = Mapper<Menus>().mapArray(JSONArray: menus)
-//                    completion(.success(menu))
                 }
             }
         }
     }
+}
 

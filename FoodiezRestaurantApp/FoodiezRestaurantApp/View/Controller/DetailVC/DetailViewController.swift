@@ -12,10 +12,11 @@ final class DetailViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var viewModel = DetailViewModel()
+    var viewModel: DetailViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Detail"
+        setupData()
         setupUI()
     }
 
@@ -26,14 +27,39 @@ final class DetailViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+
+    func setupData() {
+        fetchData()
+    }
+
+    func fetchData() {
+        viewModel?.loadApiSlide { [weak self] (result) in
+            switch result {
+            case .success:
+                self?.updateUI()
+            case .failure(let error):
+                self?.alert(error: error)
+            }
+        }
+    }
+
+    func updateUI() {
+        tableView.reloadData()
+    }
 }
 
 extension DetailViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
+        guard let viewModel = viewModel else {
+            return 0
+        }
         return viewModel.numberOfSections()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let viewModel = viewModel else {
+            return 0
+        }
         return viewModel.numberOfRowsInSection(section: section)
     }
 
@@ -46,6 +72,7 @@ extension DetailViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.slideImageCell.rawValue, for: indexPath) as? SlideImageCell else {
                 return UITableViewCell()
             }
+            cell.viewModel = viewModel?.viewModelForDetailViewModel()
             return cell
         case .contact:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.contactCell.rawValue, for: indexPath) as? ContactCell else {
@@ -63,6 +90,9 @@ extension DetailViewController: UITableViewDataSource {
 
 extension DetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let viewModel = viewModel else {
+            return .zero
+        }
         return viewModel.heightForRowAt(at: indexPath)
     }
 }

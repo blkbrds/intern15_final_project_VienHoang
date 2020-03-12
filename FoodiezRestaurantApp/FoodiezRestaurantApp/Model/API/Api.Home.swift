@@ -14,8 +14,8 @@ extension Api.Home {
     struct Params {
         var clientID: String
         var clientSecret: String
-        var v = "20150624"
-        var ll = "16.0776738,108.197205"
+        var v: String
+        var ll: String
 
         func toJSON() -> [String: Any] {
             ["client_id": clientID,
@@ -36,18 +36,18 @@ extension Api.Home {
                 case .success(let json):
                     guard let json = json as? JSObject,
                         let response = json["response"] as? JSObject,
-                        let categories = response["categories"] as? JSArray else {
+                        let venues = response["venues"] as? JSArray else {
                             return
                     }
 
                     var menus: JSArray = []
-                    for item in categories {
-                        guard let item = item["categories"] as? JSArray else {
+                    for item in venues {
+                        guard let items = item["categories"] as? JSArray, let id = item["id"] as? String else {
                             return
                         }
-                        menus.append(contentsOf: item)
+                        menus.append(contentsOf: items)
                     }
-                    let menu = Mapper<Menus>().mapArray(JSONArray: menus)
+                    let menu = Mapper<Menus>().mapArray(JSONArray:  menus)
                     completion(.success(menu))
                 }
             }

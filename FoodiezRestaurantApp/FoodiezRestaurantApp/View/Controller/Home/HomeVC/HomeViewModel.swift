@@ -10,19 +10,24 @@ import Foundation
 
 final class HomeViewModel {
     var menus: [Menus] = []
+    var id: String = ""
 
     func loadAPIForHome(completion: @escaping APICompletion) {
         let params = Api.Home.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll)
         Api.Home.getMenus(params: params) { [weak self] (result) in
             guard let self = self else { return }
             switch result {
-            case .success(let menu):
-                self.menus = menu
+            case .success(let result):
+                self.menus = result
                 completion(.success)
             case .failure(let error):
                 completion(.failure(error))
             }
         }
+    }
+    
+    func detailViewModelForCell(at indexPath: IndexPath) -> DetailViewModel {
+        return DetailViewModel(menu: menus[indexPath.row])
     }
 
     func viewModelForCell(at indexPath: IndexPath) -> CollectionCellViewModel {
