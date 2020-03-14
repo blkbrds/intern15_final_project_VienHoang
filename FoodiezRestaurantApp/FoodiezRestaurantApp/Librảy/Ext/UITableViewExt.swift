@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import UIKit
+
+extension UITableView {
+  func register(name: String) {
+    let nib = UINib(nibName: name, bundle: Bundle.main)
+    register(nib, forCellReuseIdentifier: name)
+  }
+}

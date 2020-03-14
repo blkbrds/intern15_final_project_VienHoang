@@ -8,8 +8,8 @@
 
 import Foundation
 import ObjectMapper
-final class Menu: Mappable {
-    
+
+final class Menu: Mappable {    
     var prefixURLString: String = ""
     var suffix: String = ""
     var name: String = ""

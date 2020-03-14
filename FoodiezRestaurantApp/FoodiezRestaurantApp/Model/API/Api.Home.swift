@@ -26,7 +26,7 @@ extension Api.Home {
     }
 
     @discardableResult
-    static func getMenus(params: Params, completion: @escaping Completion<[Menus]>) -> Request? {
+    static func getMenus(params: Params, completion: @escaping Completion<[Menu]>) -> Request? {
         let path = Api.Path.Home.path
         return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
             DispatchQueue.main.async {
@@ -36,18 +36,10 @@ extension Api.Home {
                 case .success(let json):
                     guard let json = json as? JSObject,
                         let response = json["response"] as? JSObject,
-                        let categories = response["categories"] as? JSArray else {
+                        let venues = response["venues"] as? JSArray else {
                             return
                     }
-
-                    var menus: JSArray = []
-                    for item in categories {
-                        guard let item = item["categories"] as? JSArray else {
-                            return
-                        }
-                        menus.append(contentsOf: item)
-                    }
-                    let menu = Mapper<Menus>().mapArray(JSONArray: menus)
+                    let menu = Mapper<Menu>().mapArray(JSONArray: venues)
                     completion(.success(menu))
                 }
             }

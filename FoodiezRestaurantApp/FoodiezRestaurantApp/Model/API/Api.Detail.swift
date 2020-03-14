@@ -26,7 +26,7 @@ extension Api.Detail {
     }
 
     @discardableResult
-    static func getLocation(params: Params, completion: @escaping Completion<[Menus]>) -> Request? {
+    static func getLocation(params: Params, completion: @escaping Completion<[Menu]>) -> Request? {
         let path = Api.Path.Search.path + Api.Path.Search.query
         return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
             DispatchQueue.main.async {
@@ -39,18 +39,13 @@ extension Api.Detail {
                         let venues = response["venues"] as? JSObject else {
                             return
                     }
-
                     var menus: JSArray = []
                     for item in venues {
-//                        guard let item = item["location"] as? JSArray else {
-                            return
-                        }
-//                        menus.append(item)
+                        return
                     }
-//                    let menu = Mapper<Menus>().mapArray(JSONArray: menus)
-//                    completion(.success(menu))
                 }
             }
         }
     }
+}
 

@@ -15,7 +15,7 @@ final class ContactViewModel {
     var facebookContact: String = ""
     var twitter: String = ""
 
-    init(menu: Menus) {
+    init(menu: Menu) {
         nameContact = menu.contact?.name ?? ""
         formattedPhoneContact = menu.contact?.formattedPhone ?? ""
         addressContact = menu.contact?.address ?? ""

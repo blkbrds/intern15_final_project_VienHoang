@@ -10,15 +10,18 @@ import UIKit
 
 final class CollectionViewCell: UICollectionViewCell {
 
+    //MARK: - IBOutlet
     @IBOutlet private weak var nameImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
 
+    //MARK: - Properties
     var viewModel: CollectionCellViewModel? {
         didSet {
             updateUI()
         }
     }
-
+    
+    //MARK: - Private functions
     private func updateUI() {
         guard let viewModel = viewModel else { return }
         nameLabel.text = viewModel.name

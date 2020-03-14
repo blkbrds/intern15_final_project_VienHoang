@@ -9,32 +9,44 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
+    
+    enum CellIdentifier: String {
+        case slideImageCell = "SlideImageCell"
+        case contactCell = "ContactCell"
+        case mapDetailCell = "MapDetailCell"
+    }
 
-    @IBOutlet weak var tableView: UITableView!
-
+    //MARK: - IBOutlet
+    @IBOutlet private weak var tableView: UITableView!
+    
+    //MARK: - Properties
     var viewModel = DetailViewModel()
+    
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Detail"
         setupUI()
     }
-
+    
+    //MARK: - Private functions
     private func setupUI () {
+        tableView.register(name: CellIdentifier.mapDetailCell.rawValue)
         tableView.register(name: CellIdentifier.slideImageCell.rawValue)
         tableView.register(name: CellIdentifier.contactCell.rawValue)
-        tableView.register(name: CellIdentifier.mapDetailCell.rawValue)
         tableView.delegate = self
         tableView.dataSource = self
     }
 }
 
+//MARK: - Extension TableViewDataSource
 extension DetailViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection(section: section)
+        return viewModel.numberOfRows(in: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,6 +73,7 @@ extension DetailViewController: UITableViewDataSource {
     }
 }
 
+//MARK: - Extension TableViewDelegate
 extension DetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return viewModel.heightForRowAt(at: indexPath)

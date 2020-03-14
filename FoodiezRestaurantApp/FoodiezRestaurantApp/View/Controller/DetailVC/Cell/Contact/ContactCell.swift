@@ -8,21 +8,23 @@
 
 import UIKit
 
-class ContactCell: UITableViewCell {
+final class ContactCell: UITableViewCell {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var formattedPhoneLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var facebookNameLabel: UILabel!
-    @IBOutlet weak var twitterLabel: UILabel!
+    //MARK: - IBOutlet
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var formattedPhoneLabel: UILabel!
+    @IBOutlet private weak var addressLabel: UILabel!
+    @IBOutlet private weak var facebookNameLabel: UILabel!
+    @IBOutlet private weak var twitterLabel: UILabel!
 
-
+    //MARK: Properties
     var viewModel: ContactViewModel? {
         didSet {
             updateUI()
         }
     }
 
+    //MARK: - Public functions
     func updateUI() {
         guard let viewModel = viewModel else {
             return

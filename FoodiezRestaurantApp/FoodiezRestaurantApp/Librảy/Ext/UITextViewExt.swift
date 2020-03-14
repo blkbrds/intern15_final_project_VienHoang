@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
+extension UITextView {
+  var string: String { return text ?? "" }
+}

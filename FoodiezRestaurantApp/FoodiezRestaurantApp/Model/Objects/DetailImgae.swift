@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 final class DetailImage {
     var prefix: String = ""
     var suffix: String = ""

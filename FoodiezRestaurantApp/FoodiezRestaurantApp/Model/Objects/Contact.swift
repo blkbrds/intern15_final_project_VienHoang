@@ -8,8 +8,8 @@
 
 import Foundation
 import ObjectMapper
+
 final class Contact {
-    
     var facebookName: String = ""
     var formattedPhone: String = ""
     var name: String = ""
