@@ -10,12 +10,18 @@ import UIKit
 import MapKit
 
 final class MapViewController: UIViewController {
+    
+    //MARK: - Properties
     let locationManager = CLLocationManager()
+    
+    //MARK: - IBOutlet
     @IBOutlet private weak var mapView: MKMapView!
 
+    //MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //MARK: - Properties
         let dannangLocation = CLLocation(latitude: 16.072163, longitude: 108.227071)
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: dannangLocation.coordinate, span: span)

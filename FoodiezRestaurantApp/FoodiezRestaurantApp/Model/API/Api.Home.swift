@@ -10,13 +10,17 @@ import Foundation
 import Alamofire
 import ObjectMapper
 
+//MARK: - Extension Api
 extension Api.Home {
     struct Params {
+        
+        //MARK: - Properties
         var clientID: String
         var clientSecret: String
         var v = "20150624"
         var ll = "16.0776738,108.197205"
-
+        
+        //MARk: - Public functions
         func toJSON() -> [String: Any] {
             ["client_id": clientID,
                 "client_secret": clientSecret,
@@ -25,6 +29,7 @@ extension Api.Home {
         }
     }
 
+    //MARK: - Static functions
     @discardableResult
     static func getMenus(params: Params, completion: @escaping Completion<[Menu]>) -> Request? {
         let path = Api.Path.Home.path

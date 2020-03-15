@@ -10,10 +10,13 @@ import Foundation
 import MapKit
 
 class MyPin: NSObject, MKAnnotation {
+    
+    //MARk: - Properties
     let title: String?
     let locationName: String
     let coordinate: CLLocationCoordinate2D
     
+    //MARK: - Init
     init(title: String, locationName: String, coordinate: CLLocationCoordinate2D) {
         self.title = title
         self.locationName = locationName

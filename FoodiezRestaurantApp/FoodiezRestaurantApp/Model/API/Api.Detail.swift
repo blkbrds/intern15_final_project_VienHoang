@@ -10,8 +10,11 @@ import Foundation
 import ObjectMapper
 import Alamofire
 
+//MARK: - Api
 extension Api.Detail {
     struct Params {
+
+        //MARK: - Properties
         var clientID: String
         var clientSecret: String
         var v = "20150624"
@@ -25,6 +28,7 @@ extension Api.Detail {
         }
     }
 
+    //MARk: - Static functions
     @discardableResult
     static func getLocation(params: Params, completion: @escaping Completion<[Menu]>) -> Request? {
         let path = Api.Path.Search.path + Api.Path.Search.query

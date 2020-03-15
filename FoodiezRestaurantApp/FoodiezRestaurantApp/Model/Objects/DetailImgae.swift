@@ -9,6 +9,8 @@
 import Foundation
 
 final class DetailImage {
+    
+    //MARK: - Properties
     var prefix: String = ""
     var suffix: String = ""
 }
