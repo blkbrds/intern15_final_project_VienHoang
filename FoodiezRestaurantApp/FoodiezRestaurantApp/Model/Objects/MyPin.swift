@@ -24,6 +24,7 @@ class MyPin: NSObject, MKAnnotation {
         super.init()
     }
     
+    //MARK: - Properties
     var subtitle: String? {
         return locationName
     }
