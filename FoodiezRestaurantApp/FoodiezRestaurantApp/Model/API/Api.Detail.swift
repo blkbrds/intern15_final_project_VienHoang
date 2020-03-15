@@ -21,7 +21,7 @@ extension Api.Detail {
         var ll: String
 
         func toJSON() -> [String: Any] {
-            [ "client_id": clientID,
+            ["client_id": clientID,
                 "client_secret": clientSecret,
                 "v": v,
                 "ll": ll]
@@ -40,19 +40,19 @@ extension Api.Detail {
                 case .success(let json):
                     guard let json = json as? JSObject,
                         let response = json["response"] as? JSObject,
-                        let venues = response["venues"] as? JSObject,
-                        let photos = venues["photos"] as? JSObject,
+                        let venue = response["venue"] as? JSObject,
+                        let photos = venue["photos"] as? JSObject,
                         let groups = photos["groups"] as? JSArray
                         else {
                             completion(.failure(Api.Error.json))
                             return }
+                    var vien: JSArray = []
                     for item in groups {
-                        guard let items = item["items"] as? JSArray else {
-                            return
-                        }
-                        let channel = Mapper<DetailImage>().mapArray(JSONArray: items).first
-                        completion(.success(channel))
+                        guard let items = item["items"] as? JSArray else { return }
+                        vien.append(contentsOf: items)
                     }
+                    let channel = Mapper<DetailImage>().mapArray(JSONArray: vien).first
+                    completion(.success(channel))
                 }
             }
         }

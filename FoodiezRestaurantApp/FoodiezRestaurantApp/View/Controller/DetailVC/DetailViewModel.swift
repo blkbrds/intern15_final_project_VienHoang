@@ -17,8 +17,9 @@ final class DetailViewModel {
         case mapDetail
     }
     var menu: Menu?
-    
-    
+    init(menu: Menu = Menu()) {
+        self.menu = menu
+    }
 
     //MARK: - Public functions
     func numberOfSections() -> Int {
@@ -38,16 +39,18 @@ final class DetailViewModel {
             return .zero
         }
         switch sectionType {
-        case .slideImageCell, .contact, .mapDetail:
+        case .slideImageCell:
+            return 200
+        case .contact, .mapDetail:
             return UITableView.automaticDimension
         }
     }
     
     func loadApiSlide(completion: @escaping APICompletion) {
-        guard let id = menu?.id else {
+        guard let menu = menu else {
             return
         }
-        Api.Path.Detail.vien = id
+        Api.Path.Detail.vien = menu.id
         let params = Api.Detail.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: "20162502", ll: "16.0776738,108.197205")
         Api.Detail.getLocation(params: params) { [weak self] (result) in
             guard let self = self else { return }
@@ -62,8 +65,8 @@ final class DetailViewModel {
     }
     func viewModelForDetailViewModel() -> SlideImageViewModel? {
         guard let menu = menu else {
-            return nil
-        }
+                   return nil
+               }
         return SlideImageViewModel(menu: menu)
     }
     

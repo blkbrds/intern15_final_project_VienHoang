@@ -8,7 +8,6 @@
 
 import Foundation
 import ObjectMapper
-
 final class Menu: Mappable {
     
     //MARK: - Properties
@@ -23,7 +22,9 @@ final class Menu: Mappable {
     
     //MARK: - Init
     init?(map: Map) { }
-
+    
+    init() { }
+    
     //MARK: Public functions
     func mapping(map: Map) {
         id <- map["id"]

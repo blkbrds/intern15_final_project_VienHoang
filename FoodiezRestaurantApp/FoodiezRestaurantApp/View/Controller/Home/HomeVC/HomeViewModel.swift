@@ -27,9 +27,9 @@ final class HomeViewModel {
         }
     }
     
-//    func detailViewModelForCell(at indexPath: IndexPath) -> DetailViewModel {
-//        return DetailViewModel(menu: menus[indexPath.row])
-//    }
+    func detailViewModelForCell(at indexPath: IndexPath) -> DetailViewModel {
+        return DetailViewModel(menu: menus[indexPath.row])
+    }
 
     func viewModelForCell(at indexPath: IndexPath) -> CollectionCellViewModel {
         return CollectionCellViewModel(menu: menus[indexPath.row])
