@@ -15,7 +15,7 @@
 		CE309D5B2410FD7100E817E1 /* MyPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE309D5A2410FD7100E817E1 /* MyPinView.swift */; };
 		CE309D5D2411407E00E817E1 /* Api.Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE309D5C2411407E00E817E1 /* Api.Detail.swift */; };
 		CE33DAAB2406531E00DB6127 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE33DAAA2406531E00DB6127 /* HomeViewModel.swift */; };
-		CE33DAB224065E7700DB6127 /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE33DAB124065E7700DB6127 /* Menus.swift */; };
+		CE33DAB224065E7700DB6127 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE33DAB124065E7700DB6127 /* Menu.swift */; };
 		CE33DAB42406636400DB6127 /* CollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE33DAB32406636400DB6127 /* CollectionCellViewModel.swift */; };
 		CE36708F240CED6200684C1D /* Data.Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36708E240CED6200684C1D /* Data.Ext.swift */; };
 		CE367093240D3B2900684C1D /* Api.Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE367092240D3B2900684C1D /* Api.Home.swift */; };
@@ -59,10 +59,12 @@
 		CEFEF2FE2418A4B50003B352 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF2FD2418A4B50003B352 /* Contact.swift */; };
 		CEFEF3002418A73E0003B352 /* SlideImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF2FF2418A73E0003B352 /* SlideImageViewModel.swift */; };
 		CEFEF3022418BED70003B352 /* DetailImgae.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF3012418BED70003B352 /* DetailImgae.swift */; };
-		CEFEF3042418C2030003B352 /* InputViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF3032418C2030003B352 /* InputViewExt.swift */; };
 		CEFEF3062418C2F90003B352 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF3052418C2F90003B352 /* DetailViewModel.swift */; };
 		CEFEF30A2418C75B0003B352 /* MapDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF3082418C75B0003B352 /* MapDetailCell.swift */; };
 		CEFEF30B2418C75B0003B352 /* MapDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFEF3092418C75B0003B352 /* MapDetailCell.xib */; };
+		CEFEF30D241A3F760003B352 /* UITextViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF30C241A3F760003B352 /* UITextViewExt.swift */; };
+		CEFEF30F241A3FBA0003B352 /* UITextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF30E241A3FBA0003B352 /* UITextFieldExt.swift */; };
+		CEFEF311241A3FF50003B352 /* UITableViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF310241A3FF50003B352 /* UITableViewExt.swift */; };
 		D2E38AF65A617F98776EE0C2 /* Pods_FoodiezRestaurantApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA09624EECDA8B46ECB3E8F /* Pods_FoodiezRestaurantApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,7 +79,7 @@
 		CE309D5A2410FD7100E817E1 /* MyPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPinView.swift; sourceTree = "<group>"; };
 		CE309D5C2411407E00E817E1 /* Api.Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Detail.swift; sourceTree = "<group>"; };
 		CE33DAAA2406531E00DB6127 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		CE33DAB124065E7700DB6127 /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
+		CE33DAB124065E7700DB6127 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		CE33DAB32406636400DB6127 /* CollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellViewModel.swift; sourceTree = "<group>"; };
 		CE36708E240CED6200684C1D /* Data.Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.Ext.swift; sourceTree = "<group>"; };
 		CE367092240D3B2900684C1D /* Api.Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Home.swift; sourceTree = "<group>"; };
@@ -123,10 +125,12 @@
 		CEFEF2FD2418A4B50003B352 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		CEFEF2FF2418A73E0003B352 /* SlideImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideImageViewModel.swift; sourceTree = "<group>"; };
 		CEFEF3012418BED70003B352 /* DetailImgae.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImgae.swift; sourceTree = "<group>"; };
-		CEFEF3032418C2030003B352 /* InputViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewExt.swift; sourceTree = "<group>"; };
 		CEFEF3052418C2F90003B352 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		CEFEF3082418C75B0003B352 /* MapDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailCell.swift; sourceTree = "<group>"; };
 		CEFEF3092418C75B0003B352 /* MapDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapDetailCell.xib; sourceTree = "<group>"; };
+		CEFEF30C241A3F760003B352 /* UITextViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExt.swift; sourceTree = "<group>"; };
+		CEFEF30E241A3FBA0003B352 /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
+		CEFEF310241A3FF50003B352 /* UITableViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExt.swift; sourceTree = "<group>"; };
 		DBA09624EECDA8B46ECB3E8F /* Pods_FoodiezRestaurantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodiezRestaurantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -172,7 +176,7 @@
 		CE33DAAC240657EA00DB6127 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				CE33DAB124065E7700DB6127 /* Menus.swift */,
+				CE33DAB124065E7700DB6127 /* Menu.swift */,
 				CE309D562410F27B00E817E1 /* MyPin.swift */,
 				CE309D5A2410FD7100E817E1 /* MyPinView.swift */,
 				CEFEF2FD2418A4B50003B352 /* Contact.swift */,
@@ -398,7 +402,9 @@
 				CE367094240D428400684C1D /* UIImageExt.swift */,
 				CE367096240D474000684C1D /* UIKitExt.swift */,
 				CEFEF2F324189E120003B352 /* StringExt.swift */,
-				CEFEF3032418C2030003B352 /* InputViewExt.swift */,
+				CEFEF30C241A3F760003B352 /* UITextViewExt.swift */,
+				CEFEF30E241A3FBA0003B352 /* UITextFieldExt.swift */,
+				CEFEF310241A3FF50003B352 /* UITableViewExt.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -570,9 +576,8 @@
 				CE3A609F240614590031B935 /* Session.swift in Sources */,
 				CEFEF3062418C2F90003B352 /* DetailViewModel.swift in Sources */,
 				CE52E5472415E1060090B9A0 /* DetailViewController.swift in Sources */,
-				CE33DAB224065E7700DB6127 /* Menus.swift in Sources */,
+				CE33DAB224065E7700DB6127 /* Menu.swift in Sources */,
 				CE33DAB42406636400DB6127 /* CollectionCellViewModel.swift in Sources */,
-				CEFEF3042418C2030003B352 /* InputViewExt.swift in Sources */,
 				CEFEF30A2418C75B0003B352 /* MapDetailCell.swift in Sources */,
 				CE367093240D3B2900684C1D /* Api.Home.swift in Sources */,
 				CE309D5B2410FD7100E817E1 /* MyPinView.swift in Sources */,
@@ -597,11 +602,14 @@
 				CEEAAF7C240CC27C00BEF784 /* ApiManager.swift in Sources */,
 				CE3A6070240613790031B935 /* String.swift in Sources */,
 				CEFEF3022418BED70003B352 /* DetailImgae.swift in Sources */,
+				CEFEF30F241A3FBA0003B352 /* UITextFieldExt.swift in Sources */,
 				CE3A6050240612800031B935 /* AppDelegate.swift in Sources */,
 				CEFEF2FC2418A47D0003B352 /* ContactViewModel.swift in Sources */,
 				CE33DAAB2406531E00DB6127 /* HomeViewModel.swift in Sources */,
 				CEEAAF85240CC42000BEF784 /* NSErrorExt.swift in Sources */,
 				CE3A60C024061EB00031B935 /* HomeViewController.swift in Sources */,
+				CEFEF30D241A3F760003B352 /* UITextViewExt.swift in Sources */,
+				CEFEF311241A3FF50003B352 /* UITableViewExt.swift in Sources */,
 				CEEAAF7E240CC2A600BEF784 /* ResponseSerializer.swift in Sources */,
 				CE3A6072240613790031B935 /* App.swift in Sources */,
 				CE309D572410F27B00E817E1 /* MyPin.swift in Sources */,

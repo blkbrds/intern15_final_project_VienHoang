@@ -8,8 +8,10 @@
 
 import Foundation
 import ObjectMapper
-final class Menus: Mappable {
+
+final class Menu: Mappable {
     
+    //MARK: - Properties
     var prefixURLString: String = ""
     var suffix: String = ""
     var name: String = ""
@@ -19,8 +21,10 @@ final class Menus: Mappable {
     var contact: Contact?
     var detailImage: DetailImage?
     
+    //MARK: - Init
     init?(map: Map) { }
 
+    //MARK: Public functions
     func mapping(map: Map) {
         id <- map["id"]
         prefixURLString <- map["icon.prefix"]

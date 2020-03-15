@@ -8,17 +8,24 @@
 
 import Foundation
 import UIKit
-final class DetailViewModel {
-    var menu: Menus?
 
-    init(menu: Menus) {
-        self.menu = menu
+final class DetailViewModel {
+   
+    enum SectionType: Int, CaseIterable {
+        case slideImageCell
+        case contact
+        case mapDetail
     }
+    var menu: Menu?
+    
+    
+
+    //MARK: - Public functions
     func numberOfSections() -> Int {
         return SectionType.allCases.count
     }
 
-    func numberOfRowsInSection(section: Int) -> Int {
+    func numberOfRows(in section: Int) -> Int {
         guard let sectionType = SectionType(rawValue: section) else { return 0 }
         switch sectionType {
         case .slideImageCell, .contact, .mapDetail:
@@ -61,13 +68,8 @@ final class DetailViewModel {
     }
     
 }
-extension DetailViewModel {
-    enum SectionType: Int, CaseIterable {
-        case slideImageCell
-        case contact
-        case mapDetail
-    }
 
+extension DetailViewModel {
     struct Config {
         static let numberOfRowsInSection: Int = 1
     }

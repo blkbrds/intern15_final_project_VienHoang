@@ -8,15 +8,16 @@
 
 import UIKit
 
-class SlideImageCell: UITableViewCell {
+final class SlideImageCell: UITableViewCell {
 
-    @IBOutlet weak var slideImage: UIImageView!
-    
+    @IBOutlet private weak var slideImage: UIImageView!
+
     var viewModel: SlideImageViewModel? {
         didSet {
             updateUI()
         }
     }
+
     func updateUI() {
         guard let viewModel = viewModel else {
             return

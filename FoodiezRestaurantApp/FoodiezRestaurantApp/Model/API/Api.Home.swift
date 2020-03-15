@@ -10,8 +10,11 @@ import Foundation
 import Alamofire
 import ObjectMapper
 
+//MARK: - Extension Api
 extension Api.Home {
     struct Params {
+        
+        //MARK: - Properties
         var clientID: String
         var clientSecret: String
         var v: String
@@ -25,8 +28,9 @@ extension Api.Home {
         }
     }
 
+    //MARK: - Static functions
     @discardableResult
-    static func getMenus(params: Params, completion: @escaping Completion<[Menus]>) -> Request? {
+    static func getMenus(params: Params, completion: @escaping Completion<[Menu]>) -> Request? {
         let path = Api.Path.Home.path
         return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
             DispatchQueue.main.async {
@@ -40,14 +44,7 @@ extension Api.Home {
                             return
                     }
 
-                    var menus: JSArray = []
-                    for item in venues {
-                        guard let items = item["categories"] as? JSArray, let id = item["id"] as? String else {
-                            return
-                        }
-                        menus.append(contentsOf: items)
-                    }
-                    let menu = Mapper<Menus>().mapArray(JSONArray:  menus)
+                    let menu = Mapper<Menu>().mapArray(JSONArray:  venues)
                     completion(.success(menu))
                 }
             }

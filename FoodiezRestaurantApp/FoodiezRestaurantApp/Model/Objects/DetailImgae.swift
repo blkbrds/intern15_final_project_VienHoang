@@ -9,6 +9,8 @@
 import Foundation
 import ObjectMapper
 final class DetailImage: Mappable {
+    
+    //MARK: - Properties
     var prefix: String = ""
     var suffix: String = ""
     

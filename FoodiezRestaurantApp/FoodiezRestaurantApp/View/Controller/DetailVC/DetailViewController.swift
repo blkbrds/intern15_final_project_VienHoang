@@ -9,21 +9,31 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
-
-    var viewModel: DetailViewModel?
+    
+    enum CellIdentifier: String {
+        case slideImageCell = "SlideImageCell"
+        case contactCell = "ContactCell"
+        case mapDetailCell = "MapDetailCell"
+    }
+    //MARK: - IBOutlet
+    @IBOutlet private weak var tableView: UITableView!
+    
+    //MARK: - Properties
+    var viewModel = DetailViewModel()
+    
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Detail"
         setupData()
         setupUI()
     }
-
+    
+    //MARK: - Private functions
     private func setupUI () {
+        tableView.register(name: CellIdentifier.mapDetailCell.rawValue)
         tableView.register(name: CellIdentifier.slideImageCell.rawValue)
         tableView.register(name: CellIdentifier.contactCell.rawValue)
-        tableView.register(name: CellIdentifier.mapDetailCell.rawValue)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -33,7 +43,7 @@ final class DetailViewController: UIViewController {
     }
 
     func fetchData() {
-        viewModel?.loadApiSlide { [weak self] (result) in
+        viewModel.loadApiSlide { [weak self] (result) in
             switch result {
             case .success:
                 self?.updateUI()
@@ -48,19 +58,14 @@ final class DetailViewController: UIViewController {
     }
 }
 
+//MARK: - Extension TableViewDataSource
 extension DetailViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        guard let viewModel = viewModel else {
-            return 0
-        }
         return viewModel.numberOfSections()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else {
-            return 0
-        }
-        return viewModel.numberOfRowsInSection(section: section)
+        return viewModel.numberOfRows(in: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,7 +77,7 @@ extension DetailViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.slideImageCell.rawValue, for: indexPath) as? SlideImageCell else {
                 return UITableViewCell()
             }
-            cell.viewModel = viewModel?.viewModelForDetailViewModel()
+            cell.viewModel = viewModel.viewModelForDetailViewModel()
             return cell
         case .contact:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.contactCell.rawValue, for: indexPath) as? ContactCell else {
@@ -88,11 +93,9 @@ extension DetailViewController: UITableViewDataSource {
     }
 }
 
+//MARK: - Extension TableViewDelegate
 extension DetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let viewModel = viewModel else {
-            return .zero
-        }
         return viewModel.heightForRowAt(at: indexPath)
     }
 }

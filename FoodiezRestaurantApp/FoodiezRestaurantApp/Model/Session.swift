@@ -11,10 +11,8 @@ import Foundation
 final class Session {
 
     static let shared = Session()
-
-    private init() {}
+    private init() { }
 }
 
 // MARK: - Protocol
-protocol SessionProtocol: class {
-}
+protocol SessionProtocol: class { }

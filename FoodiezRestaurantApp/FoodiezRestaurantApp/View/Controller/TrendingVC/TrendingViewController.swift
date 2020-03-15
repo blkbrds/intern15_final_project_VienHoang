@@ -10,6 +10,7 @@ import UIKit
 
 final class TrendingViewController: UIViewController {
 
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Trending"

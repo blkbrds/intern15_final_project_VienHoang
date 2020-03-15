@@ -12,7 +12,7 @@ final class SlideImageViewModel {
     var prefix: String = ""
     var suffit: String = ""
     
-    init(menu: Menus) {
+    init(menu: Menu) {
         prefix = menu.detailImage?.prefix ?? ""
         suffit = menu.detailImage?.suffix ?? ""
     }
