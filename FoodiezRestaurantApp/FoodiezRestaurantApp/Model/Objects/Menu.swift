@@ -11,14 +11,15 @@ import ObjectMapper
 final class Menu: Mappable {
     
     //MARK: - Properties
-    var prefixURLString: String = ""
-    var suffix: String = ""
     var name: String = ""
     var lat: String = ""
     var long: String = ""
     var id: String = ""
     var contact: Contact?
     var detailImage: DetailImage?
+    var category: JSArray = []
+    var prefixCategories = ""
+    var suffixCategories = ""
     
     //MARK: - Init
     init?(map: Map) { }
@@ -28,10 +29,14 @@ final class Menu: Mappable {
     //MARK: Public functions
     func mapping(map: Map) {
         id <- map["id"]
-        prefixURLString <- map["icon.prefix"]
-        suffix <- map["icon.suffix"]
         name <- map["name"]
         lat <- map["location.lat"]
         long <- map["location.long"]
+        category <- map["categories"]
+        for item in category {
+            guard let icon = item["icon"] as? JSObject else { return }
+            prefixCategories = (icon["prefix"] as? String)!
+            suffixCategories = (icon["suffix"] as? String)!
+        }
     }
 }

@@ -17,8 +17,8 @@ final class CollectionCellViewModel {
 
     //MARK: Init
     init(menu: Menu) {
-        prefix = menu.prefixURLString
+        prefix = menu.prefixCategories
         name = menu.name
-        suffix = menu.suffix
+        suffix = menu.suffixCategories
     }
 }

@@ -21,6 +21,11 @@ final class CollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        nameImageView.layer.cornerRadius = nameImageView.frame.width / 2
+    }
+    
     //MARK: - Private functions
     private func updateUI() {
         guard let viewModel = viewModel else { return }

@@ -27,10 +27,20 @@ extension Api.Home {
                 "ll": ll]
         }
     }
+    
+    struct Result: Mappable {
+      var venues: JSArray = []
+      var menu: [Menu] = []
+      init?(map: Map) { }
+      mutating func mapping(map: Map) {
+        venues <- map["response.venues"]
+        menu <- map["response.venues"]
+      }
+    }
 
     //MARK: - Static functions
     @discardableResult
-    static func getMenus(params: Params, completion: @escaping Completion<[Menu]>) -> Request? {
+    static func getMenus(params: Params, completion: @escaping Completion<Result>) -> Request? {
         let path = Api.Path.Home.path
         return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
             DispatchQueue.main.async {
@@ -38,14 +48,15 @@ extension Api.Home {
                 case .failure(let error):
                     completion(.failure(error))
                 case .success(let json):
-                    guard let json = json as? JSObject,
-                        let response = json["response"] as? JSObject,
-                        let venues = response["venues"] as? JSArray else {
+                    guard let json = json as? JSObject, let result = Mapper<Result>().map(JSON: json) else
+//                        let response = json["response"] as? JSObject,
+//                        let venues = response["venues"] as? JSArray else {
+                        {
                             return
                     }
 
-                    let menu = Mapper<Menu>().mapArray(JSONArray:  venues)
-                    completion(.success(menu))
+//                    let menu = Mapper<Result>().mapArray(JSONArray: result)
+                    completion(.success(result))
                 }
             }
         }

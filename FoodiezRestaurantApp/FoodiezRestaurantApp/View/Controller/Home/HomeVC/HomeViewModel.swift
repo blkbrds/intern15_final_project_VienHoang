@@ -19,7 +19,7 @@ final class HomeViewModel {
             guard let self = self else { return }
             switch result {
             case .success(let result):
-                self.menus = result
+                self.menus = result.menu
                 completion(.success)
             case .failure(let error):
                 completion(.failure(error))
