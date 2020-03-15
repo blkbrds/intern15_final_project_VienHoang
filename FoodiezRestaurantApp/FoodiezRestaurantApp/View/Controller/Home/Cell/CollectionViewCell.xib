@@ -24,13 +24,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRd-mL-e9K">
-                        <rect key="frame" x="20" y="120" width="128" height="21"/>
+                        <rect key="frame" x="10" y="120" width="148" height="21"/>
                         <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfC-RC-zRY">
-                        <rect key="frame" x="20" y="151" width="128" height="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfC-RC-zRY">
+                        <rect key="frame" x="10" y="146" width="148" height="21"/>
                         <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -39,19 +39,19 @@
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="nfC-RC-zRY" secondAttribute="bottom" constant="20" id="5me-M2-IQh"/>
-                <constraint firstItem="nfC-RC-zRY" firstAttribute="top" secondItem="sRd-mL-e9K" secondAttribute="bottom" constant="10" id="H2I-ZM-9Fh"/>
+                <constraint firstItem="nfC-RC-zRY" firstAttribute="top" secondItem="sRd-mL-e9K" secondAttribute="bottom" constant="5" id="H2I-ZM-9Fh"/>
                 <constraint firstItem="nuV-hv-RYp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="40" id="QYs-FV-9jh"/>
-                <constraint firstAttribute="trailing" secondItem="sRd-mL-e9K" secondAttribute="trailing" constant="20" id="doW-30-bRh"/>
+                <constraint firstAttribute="trailing" secondItem="sRd-mL-e9K" secondAttribute="trailing" constant="10" id="doW-30-bRh"/>
                 <constraint firstItem="nuV-hv-RYp" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="eqT-4C-i8a"/>
-                <constraint firstItem="nfC-RC-zRY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="h2J-lN-LbE"/>
-                <constraint firstAttribute="trailing" secondItem="nfC-RC-zRY" secondAttribute="trailing" constant="20" id="oQU-Ea-fuJ"/>
-                <constraint firstItem="sRd-mL-e9K" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="rxr-a0-Di0"/>
+                <constraint firstItem="nfC-RC-zRY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="h2J-lN-LbE"/>
+                <constraint firstAttribute="trailing" secondItem="nfC-RC-zRY" secondAttribute="trailing" constant="10" id="oQU-Ea-fuJ"/>
+                <constraint firstItem="sRd-mL-e9K" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="rxr-a0-Di0"/>
                 <constraint firstItem="sRd-mL-e9K" firstAttribute="top" secondItem="nuV-hv-RYp" secondAttribute="bottom" constant="10" id="zXd-sh-nsq"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="168" height="201"/>
             <connections>
+                <outlet property="addressLabel" destination="nfC-RC-zRY" id="Dqf-1n-QxQ"/>
                 <outlet property="nameImageView" destination="nuV-hv-RYp" id="DJf-Lv-OS0"/>
                 <outlet property="nameLabel" destination="sRd-mL-e9K" id="bAO-Ii-AHa"/>
             </connections>

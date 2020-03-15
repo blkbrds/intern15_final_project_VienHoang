@@ -17,9 +17,10 @@ final class Menu: Mappable {
     var name: String = ""
     var lat: String = ""
     var long: String = ""
+    var detailImage: DetailImage?
     var id: String = ""
     var contact: Contact?
-    var detailImage: DetailImage?
+    var address: String = ""
     
     //MARK: - Init
     init?(map: Map) { }
@@ -32,5 +33,6 @@ final class Menu: Mappable {
         lat <- map["location.lat"]
         long <- map["location.long"]
         id <- map["id"]
+        address <- map["location.address"]
     }
 }

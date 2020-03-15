@@ -11,14 +11,16 @@ import Foundation
 final class CollectionCellViewModel {
     
     //MARK: Properties
-    var prefix: String
+    var prefix: String = ""
     var name: String = ""
-    var suffix: String
+    var suffix: String = ""
+    var address: String = ""
 
     //MARK: Init
     init(menu: Menu) {
         prefix = menu.prefixURLString
         name = menu.name
         suffix = menu.suffix
+        address = menu.address
     }
 }
