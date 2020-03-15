@@ -13,7 +13,7 @@ final class CollectionViewCell: UICollectionViewCell {
     //MARK: - IBOutlet
     @IBOutlet private weak var nameImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
-
+    @IBOutlet weak var addressLabel: UILabel!
     //MARK: - Properties
     var viewModel: CollectionCellViewModel? {
         didSet {
@@ -32,6 +32,7 @@ final class CollectionViewCell: UICollectionViewCell {
         nameLabel.text = viewModel.name
         let image = "\(viewModel.prefix)bg_88\(viewModel.suffix)"
         nameImageView.setImage(url: image)
+        addressLabel.text = viewModel.address
     }
 }
 

@@ -14,12 +14,13 @@ final class Menu: Mappable {
     var name: String = ""
     var lat: String = ""
     var long: String = ""
+    var detailImage: DetailImage?
     var id: String = ""
     var contact: Contact?
-    var detailImage: DetailImage?
     var category: JSArray = []
     var prefixCategories = ""
     var suffixCategories = ""
+    var address: String = ""
     
     //MARK: - Init
     init?(map: Map) { }
@@ -38,5 +39,7 @@ final class Menu: Mappable {
             prefixCategories = (icon["prefix"] as? String)!
             suffixCategories = (icon["suffix"] as? String)!
         }
+        id <- map["id"]
+        address <- map["location.address"]
     }
 }
