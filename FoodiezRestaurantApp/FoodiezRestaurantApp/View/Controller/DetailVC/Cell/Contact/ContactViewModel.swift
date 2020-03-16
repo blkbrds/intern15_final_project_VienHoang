@@ -1,3 +1,4 @@
+
 //
 //  ContactViewModel.swift
 //  FoodiezRestaurantApp
@@ -16,10 +17,11 @@ final class ContactViewModel {
     var twitter: String = ""
 
     init(menu: Menu) {
-        nameContact = menu.contact?.name ?? ""
-        formattedPhoneContact = menu.contact?.formattedPhone ?? ""
-        addressContact = menu.contact?.address ?? ""
-        facebookContact = menu.contact?.facebookName ?? ""
-        twitter = menu.contact?.twitter ?? ""
+        guard let menu = menu.contact else { return }
+        nameContact = menu.name
+        formattedPhoneContact = menu.formattedPhone
+        addressContact = menu.address
+        facebookContact = menu.facebookName
+        twitter = menu.twitter
     }
 }

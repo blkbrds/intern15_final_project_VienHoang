@@ -10,10 +10,11 @@ import Foundation
 
 final class SlideImageViewModel {
     var prefix: String = ""
-    var suffit: String = ""
+    var suffix: String = ""
     
     init(menu: Menu) {
-        prefix = menu.detailImage?.prefix ?? ""
-        suffit = menu.detailImage?.suffix ?? ""
+        guard let menu = menu.detailImage else { return }
+        prefix = menu.prefix
+        suffix = menu.suffix 
     }
 }

@@ -22,7 +22,7 @@ final class SlideImageCell: UITableViewCell {
         guard let viewModel = viewModel else {
             return
         }
-        let image = "\(viewModel.prefix)900x600\(viewModel.suffit)"
+        let image = "\(viewModel.prefix)900x600\(viewModel.suffix)"
         slideImage.image = UIImage(named: image)
     }
 }
