@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 
 extension ApiManager {
-
     @discardableResult
     func request(method: HTTPMethod,
         urlString: URLStringConvertible,

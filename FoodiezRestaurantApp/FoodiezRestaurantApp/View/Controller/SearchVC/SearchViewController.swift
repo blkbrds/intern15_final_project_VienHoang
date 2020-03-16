@@ -10,6 +10,7 @@ import UIKit
 
 final class SearchViewController: UIViewController {
 
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Search"

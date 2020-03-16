@@ -9,17 +9,18 @@
 import Foundation
 
 final class CollectionCellViewModel {
-    var prefix: String
-    var name: String
-    var suffix: String
-    var shortName: String
-    var count: String
+    
+    //MARK: Properties
+    var prefix: String = ""
+    var name: String = ""
+    var suffix: String = ""
+    var address: String = ""
 
-    init(category: Categories) {
-        prefix = category.prefixURLString
-        name = category.name
-        suffix = category.suffix
-        shortName = category.shortName
-        count = category.count
+    //MARK: Init
+    init(menu: Menu) {
+        prefix = menu.prefixURLString
+        name = menu.name
+        suffix = menu.suffix
+        address = menu.address
     }
 }

@@ -1,21 +1,24 @@
 //
-//  API.Home.swift
+//  API.Location.swift
 //  FoodiezRestaurantApp
 //
-//  Created by user on 3/2/20.
+//  Created by user on 3/5/20.
 //  Copyright © 2020 VienH. All rights reserved.
 //
 
 import Foundation
-import Alamofire
 import ObjectMapper
+import Alamofire
 
-extension Api.Home {
+//MARK: - Api
+extension Api.Detail {
     struct Params {
+
+        //MARK: - Properties
         var clientID: String
         var clientSecret: String
-        var v: String
-        var ll: String
+        var v = "20150624"
+        var ll = "16.0776738,108.197205"
 
         func toJSON() -> [String: Any] {
             ["client_id": clientID,
@@ -25,9 +28,10 @@ extension Api.Home {
         }
     }
 
+    //MARk: - Static functions
     @discardableResult
-    static func getCategories(params: Params, completion: @escaping Completion<[Categories]>) -> Request? {
-        let path = Api.Path.Home.path
+    static func getLocation(params: Params, completion: @escaping Completion<[Menu]>) -> Request? {
+        let path = Api.Path.Search.path + Api.Path.Search.query
         return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
             DispatchQueue.main.async {
                 switch result {
@@ -36,20 +40,16 @@ extension Api.Home {
                 case .success(let json):
                     guard let json = json as? JSObject,
                         let response = json["response"] as? JSObject,
-                        let venues = response["venues"] as? JSArray else {
+                        let venues = response["venues"] as? JSObject else {
                             return
                     }
-                    var categories: JSArray = []
+                    var menus: JSArray = []
                     for item in venues {
-                        guard let item = item["categories"] as? JSArray else {
-                            return
-                        }
-                        categories.append(contentsOf: item)
+                        return
                     }
-                    let category = Mapper<Categories>().mapArray(JSONArray: categories)
-                    completion(.success(category))
                 }
             }
         }
     }
 }
+

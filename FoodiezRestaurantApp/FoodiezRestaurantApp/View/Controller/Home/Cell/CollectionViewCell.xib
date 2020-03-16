@@ -10,49 +10,52 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionViewCell" customModule="FoodiezRestaurantApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="143" height="187"/>
+            <rect key="frame" x="0.0" y="0.0" width="168" height="201"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="143" height="187"/>
+                <rect key="frame" x="0.0" y="0.0" width="168" height="201"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4rI-JQ-yZE">
-                        <rect key="frame" x="0.0" y="0.0" width="143" height="138"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nuV-hv-RYp">
+                        <rect key="frame" x="49" y="40" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="5eC-Sn-j60"/>
+                            <constraint firstAttribute="width" constant="70" id="gfL-Qk-Nww"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiV-7K-f6n">
-                        <rect key="frame" x="0.0" y="168.5" width="143" height="13.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRd-mL-e9K">
+                        <rect key="frame" x="10" y="120" width="148" height="21"/>
+                        <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Suw-f6-UVN">
-                        <rect key="frame" x="0.0" y="143" width="143" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfC-RC-zRY">
+                        <rect key="frame" x="10" y="146" width="148" height="21"/>
+                        <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="4rI-JQ-yZE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7sH-U0-N6a"/>
-                <constraint firstItem="xiV-7K-f6n" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9Ol-gi-dfy"/>
-                <constraint firstAttribute="trailing" secondItem="Suw-f6-UVN" secondAttribute="trailing" id="Cfe-Qx-t3k"/>
-                <constraint firstAttribute="trailing" secondItem="xiV-7K-f6n" secondAttribute="trailing" id="TT6-Uf-PtO"/>
-                <constraint firstItem="Suw-f6-UVN" firstAttribute="top" secondItem="4rI-JQ-yZE" secondAttribute="bottom" constant="5" id="WNt-fd-pwH"/>
-                <constraint firstItem="Suw-f6-UVN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kum-ae-kSa"/>
-                <constraint firstAttribute="trailing" secondItem="4rI-JQ-yZE" secondAttribute="trailing" id="rMK-t3-nmq"/>
-                <constraint firstItem="xiV-7K-f6n" firstAttribute="top" secondItem="Suw-f6-UVN" secondAttribute="bottom" constant="5" id="s4y-vK-OzP"/>
-                <constraint firstItem="4rI-JQ-yZE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tem-Qs-TdX"/>
-                <constraint firstAttribute="bottom" secondItem="xiV-7K-f6n" secondAttribute="bottom" constant="5" id="wwo-0g-r60"/>
+                <constraint firstItem="nfC-RC-zRY" firstAttribute="top" secondItem="sRd-mL-e9K" secondAttribute="bottom" constant="5" id="H2I-ZM-9Fh"/>
+                <constraint firstItem="nuV-hv-RYp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="40" id="QYs-FV-9jh"/>
+                <constraint firstAttribute="trailing" secondItem="sRd-mL-e9K" secondAttribute="trailing" constant="10" id="doW-30-bRh"/>
+                <constraint firstItem="nuV-hv-RYp" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="eqT-4C-i8a"/>
+                <constraint firstItem="nfC-RC-zRY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="h2J-lN-LbE"/>
+                <constraint firstAttribute="trailing" secondItem="nfC-RC-zRY" secondAttribute="trailing" constant="10" id="oQU-Ea-fuJ"/>
+                <constraint firstItem="sRd-mL-e9K" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="rxr-a0-Di0"/>
+                <constraint firstItem="sRd-mL-e9K" firstAttribute="top" secondItem="nuV-hv-RYp" secondAttribute="bottom" constant="10" id="zXd-sh-nsq"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="143" height="187"/>
+            <size key="customSize" width="168" height="201"/>
             <connections>
-                <outlet property="nameImageView" destination="4rI-JQ-yZE" id="VpM-0S-3UJ"/>
-                <outlet property="nameLabel" destination="xiV-7K-f6n" id="eBk-tt-RgO"/>
-                <outlet property="shortNameLabel" destination="Suw-f6-UVN" id="tK5-8X-ahu"/>
+                <outlet property="addressLabel" destination="nfC-RC-zRY" id="Dqf-1n-QxQ"/>
+                <outlet property="nameImageView" destination="nuV-hv-RYp" id="DJf-Lv-OS0"/>
+                <outlet property="nameLabel" destination="sRd-mL-e9K" id="bAO-Ii-AHa"/>
             </connections>
-            <point key="canvasLocation" x="58.695652173913047" y="65.959821428571431"/>
+            <point key="canvasLocation" x="76.811594202898561" y="69.977678571428569"/>
         </collectionViewCell>
     </objects>
 </document>

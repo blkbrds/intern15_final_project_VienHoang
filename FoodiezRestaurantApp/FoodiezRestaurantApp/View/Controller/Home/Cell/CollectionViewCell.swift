@@ -10,22 +10,24 @@ import UIKit
 
 final class CollectionViewCell: UICollectionViewCell {
 
+    //MARK: - IBOutlet
     @IBOutlet private weak var nameImageView: UIImageView!
-    @IBOutlet private weak var shortNameLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
-
+    @IBOutlet weak var addressLabel: UILabel!
+    //MARK: - Properties
     var viewModel: CollectionCellViewModel? {
         didSet {
             updateUI()
         }
     }
-
+    
+    //MARK: - Private functions
     private func updateUI() {
         guard let viewModel = viewModel else { return }
-        shortNameLabel.text = viewModel.shortName
         nameLabel.text = viewModel.name
         let image = "\(viewModel.prefix)bg_88\(viewModel.suffix)"
         nameImageView.setImage(url: image)
+        addressLabel.text = viewModel.address
     }
 }
 
