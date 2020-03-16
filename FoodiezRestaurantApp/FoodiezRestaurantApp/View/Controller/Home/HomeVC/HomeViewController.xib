@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="FoodiezRestaurantApp" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="b1z-j1-MW3" id="i4m-Rj-oa5"/>
+                <outlet property="collectionView" destination="bdk-Em-KT3" id="ymD-AO-wXH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,42 +18,23 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2EP-nb-PAU">
-                    <rect key="frame" x="15" y="74" width="384" height="812"/>
-                    <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="b1z-j1-MW3">
-                            <rect key="frame" x="0.0" y="0.0" width="384" height="812"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cc7-zL-PQO">
-                                <size key="itemSize" width="50" height="50"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                        </collectionView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jkv-do-I5b">
-                            <rect key="frame" x="0.0" y="0.0" width="384" height="812"/>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <constraints>
-                        <constraint firstItem="jkv-do-I5b" firstAttribute="leading" secondItem="2EP-nb-PAU" secondAttribute="leading" id="5nw-o4-XC6"/>
-                        <constraint firstAttribute="trailing" secondItem="b1z-j1-MW3" secondAttribute="trailing" id="QIo-Gs-ODm"/>
-                        <constraint firstItem="b1z-j1-MW3" firstAttribute="leading" secondItem="2EP-nb-PAU" secondAttribute="leading" id="e2R-UM-hsn"/>
-                        <constraint firstAttribute="bottom" secondItem="jkv-do-I5b" secondAttribute="bottom" id="edA-EV-kaB"/>
-                        <constraint firstItem="jkv-do-I5b" firstAttribute="top" secondItem="2EP-nb-PAU" secondAttribute="top" id="iy3-8T-PEY"/>
-                        <constraint firstItem="b1z-j1-MW3" firstAttribute="top" secondItem="2EP-nb-PAU" secondAttribute="top" id="lNe-P9-uNf"/>
-                        <constraint firstAttribute="trailing" secondItem="jkv-do-I5b" secondAttribute="trailing" id="uBa-FH-HUT"/>
-                        <constraint firstAttribute="bottom" secondItem="b1z-j1-MW3" secondAttribute="bottom" id="vvC-LP-9dA"/>
-                    </constraints>
-                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bdk-Em-KT3">
+                    <rect key="frame" x="15" y="59" width="384" height="788"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EN3-RY-bMu">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2EP-nb-PAU" secondAttribute="trailing" constant="15" id="F8o-5n-o2B"/>
-                <constraint firstItem="2EP-nb-PAU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="btF-4Z-Z88"/>
-                <constraint firstItem="2EP-nb-PAU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="wHV-et-BsB"/>
-                <constraint firstAttribute="bottom" secondItem="2EP-nb-PAU" secondAttribute="bottom" constant="10" id="yH3-a8-WWY"/>
+                <constraint firstItem="bdk-Em-KT3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="8a7-wP-Yyp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bdk-Em-KT3" secondAttribute="trailing" constant="15" id="OPe-by-rc7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bdk-Em-KT3" secondAttribute="bottom" constant="15" id="cNy-iA-w5z"/>
+                <constraint firstItem="bdk-Em-KT3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="15" id="zs1-i2-wpv"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="128.57142857142856"/>

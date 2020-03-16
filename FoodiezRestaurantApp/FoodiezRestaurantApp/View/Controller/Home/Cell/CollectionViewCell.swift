@@ -24,13 +24,12 @@ final class CollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         nameImageView.layer.cornerRadius = nameImageView.frame.width / 2
-        backgroundColor = .white
+        backgroundColor = .clear
         layer.masksToBounds = true
         layer.shadowOpacity = 1
         layer.shadowRadius = 4
-//        layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowColor = UIColor.black.cgColor
-        contentView.backgroundColor = UIColor(displayP3Red: 140/255, green: 140/255, blue: 140/255, alpha: 0.5)
+        contentView.backgroundColor = UIColor(displayP3Red: 83/255, green: 27/255, blue: 220/255, alpha: 0.5)
         contentView.layer.cornerRadius = 40
         
     }
