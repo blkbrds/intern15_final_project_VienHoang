@@ -61,6 +61,4 @@ extension Api.Home {
             }
         }
     }
-    
-    
 }

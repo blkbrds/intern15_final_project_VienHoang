@@ -28,7 +28,7 @@ final class LocationManager: NSObject {
     private var currentLocation: CLLocation?
     private var currentCompletion: LocationCompletion?
     private var locationCompletion: LocationCompletion?
-    private var isUpdatingLocation = false
+    private var isUpdatingLocation: Bool = false
 
     //MARK: - init
     override init() {
@@ -37,7 +37,7 @@ final class LocationManager: NSObject {
     }
 
     //MARK: - Public functions
-    func request() {
+    func requestStatus() {
         let status = CLLocationManager.authorizationStatus()
         if(status == .denied || status == .restricted || !CLLocationManager.locationServicesEnabled()) {
             return
@@ -73,7 +73,7 @@ final class LocationManager: NSObject {
     private func configLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 10
+        locationManager.distanceFilter = CLLocationDistance(Config.distanceFilter)
         locationManager.allowsBackgroundLocationUpdates = true
     }
 }
@@ -123,3 +123,8 @@ extension LocationManager: CLLocationManagerDelegate {
     }
 }
 
+extension LocationManager {
+    struct Config {
+        static var distanceFilter: Int = 10
+    }
+}

@@ -10,7 +10,7 @@ import Foundation
 
 final class SlideImageViewModel {
     var prefix: String = ""
-    var suffit: String = ""
+    var suffix: String = ""
     var userName: String = ""
     var prefixUser: String = ""
     var suffitUser: String = ""
@@ -19,7 +19,7 @@ final class SlideImageViewModel {
     
     init(menu: Menu) {
         prefix = menu.detailImage?.prefix ?? ""
-        suffit = menu.detailImage?.suffix ?? ""
+        suffix = menu.detailImage?.suffix ?? ""
         userName = menu.detailImage?.userName ?? ""
         prefixUser = menu.detailImage?.prefixUser ?? ""
         suffitUser = menu.detailImage?.suffixUser ?? ""
