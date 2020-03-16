@@ -18,12 +18,13 @@ final class SlideImageViewModel {
     var firstName: String = ""
     
     init(menu: Menu) {
-        prefix = menu.detailImage?.prefix ?? ""
-        suffix = menu.detailImage?.suffix ?? ""
-        userName = menu.detailImage?.userName ?? ""
-        prefixUser = menu.detailImage?.prefixUser ?? ""
-        suffitUser = menu.detailImage?.suffixUser ?? ""
-        lastName = menu.detailImage?.lastName ?? ""
-        firstName = menu.detailImage?.userName ?? ""
+        guard let menu = menu.detailImage else { return }
+        prefix = menu.prefix
+        suffix = menu.suffix
+        userName = menu.userName
+        prefixUser = menu.prefixUser
+        suffitUser = menu.suffixUser
+        lastName = menu.lastName
+        firstName = menu.userName
     }
 }
