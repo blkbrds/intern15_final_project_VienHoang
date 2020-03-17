@@ -13,12 +13,20 @@ final class CollectionViewCell: UICollectionViewCell {
     //MARK: - IBOutlet
     @IBOutlet private weak var nameImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet private weak var addressLabel: UILabel!
+    
     //MARK: - Properties
     var viewModel: CollectionCellViewModel? {
         didSet {
             updateUI()
         }
+    }
+    
+    //MARK: - Life cycle
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        nameImageView.layer.cornerRadius = nameImageView.frame.width / 2
+        nameImageView.frame.size.width = 20
     }
     
     //MARK: - Private functions

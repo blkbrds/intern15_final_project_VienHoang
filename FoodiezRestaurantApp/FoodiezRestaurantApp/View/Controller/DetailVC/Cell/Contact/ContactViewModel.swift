@@ -10,12 +10,15 @@
 import Foundation
 
 final class ContactViewModel {
+
+    //MARK: - Properties
     var nameContact: String = ""
     var formattedPhoneContact: String = ""
     var addressContact: String = ""
     var facebookContact: String = ""
     var twitter: String = ""
 
+    //MARK: - Init
     init(menu: Menu) {
         guard let menu = menu.contact else { return }
         nameContact = menu.name

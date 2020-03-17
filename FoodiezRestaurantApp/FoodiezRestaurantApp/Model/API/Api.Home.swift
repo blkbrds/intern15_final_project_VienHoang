@@ -13,14 +13,14 @@ import ObjectMapper
 //MARK: - Extension Api
 extension Api.Home {
     struct Params {
-        
+
         //MARK: - Properties
         var clientID: String
         var clientSecret: String
-        var v = "20150624"
-        var ll = "16.0776738,108.197205"
-        
-        //MARk: - Public functions
+        var v: String
+        var ll: String
+
+        //MARK: Public Functions
         func toJSON() -> [String: Any] {
             ["client_id": clientID,
                 "client_secret": clientSecret,
@@ -29,9 +29,21 @@ extension Api.Home {
         }
     }
 
+    struct ValueResult: Mappable {
+        var venues: JSArray = []
+        var menu: [Menu] = []
+
+        //MARK: - Init
+        init?(map: Map) { }
+        mutating func mapping(map: Map) {
+            venues <- map["response.venues"]
+            menu <- map["response.venues"]
+        }
+    }
+
     //MARK: - Static functions
     @discardableResult
-    static func getMenus(params: Params, completion: @escaping Completion<[Menu]>) -> Request? {
+    static func getMenus(params: Params, completion: @escaping Completion<ValueResult>) -> Request? {
         let path = Api.Path.Home.path
         return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
             DispatchQueue.main.async {
@@ -39,13 +51,10 @@ extension Api.Home {
                 case .failure(let error):
                     completion(.failure(error))
                 case .success(let json):
-                    guard let json = json as? JSObject,
-                        let response = json["response"] as? JSObject,
-                        let venues = response["venues"] as? JSArray else {
-                            return
+                    guard let json = json as? JSObject, let result = Mapper<ValueResult>().map(JSON: json) else {
+                        return
                     }
-                    let menu = Mapper<Menu>().mapArray(JSONArray: venues)
-                    completion(.success(menu))
+                    completion(.success(result))
                 }
             }
         }

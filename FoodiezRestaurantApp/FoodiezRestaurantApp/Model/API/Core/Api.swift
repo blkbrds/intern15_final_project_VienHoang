@@ -29,13 +29,10 @@ extension Api.Path {
         }
     }
 
-    struct Search {
+    struct Detail {
+        static var base_bath: String = ""
         static var path: String {
-            return baseURL / "search"
-        }
-        
-        static var query: String {
-            return baseURL / "query="
+            return baseURL / base_bath
         }
     }
 }

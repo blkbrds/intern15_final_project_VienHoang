@@ -10,28 +10,36 @@ import Foundation
 import ObjectMapper
 
 final class Menu: Mappable {
-    
+
     //MARK: - Properties
-    var prefixURLString: String = ""
-    var suffix: String = ""
     var name: String = ""
     var lat: String = ""
     var long: String = ""
     var detailImage: DetailImage?
     var id: String = ""
     var contact: Contact?
+    var category: JSArray = []
+    var prefixCategories = ""
+    var suffixCategories = ""
     var address: String = ""
-    
+
     //MARK: - Init
     init?(map: Map) { }
 
+    init() { }
+
     //MARK: Public functions
     func mapping(map: Map) {
-        prefixURLString <- map["icon.prefix"]
-        suffix <- map["icon.suffix"]
+        id <- map["id"]
         name <- map["name"]
         lat <- map["location.lat"]
         long <- map["location.long"]
+        category <- map["categories"]
+        for item in category {
+            guard let icon = item["icon"] as? JSObject else { return }
+            prefixCategories = (icon["prefix"] as? String) ?? ""
+            suffixCategories = (icon["suffix"] as? String) ?? ""
+        }
         id <- map["id"]
         address <- map["location.address"]
     }
