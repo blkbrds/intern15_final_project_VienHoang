@@ -24,8 +24,7 @@ final class MyPinView: MKPinAnnotationView {
         imageView.layer.cornerRadius = 5.0
         imageView.layer.masksToBounds = true
     }
-    
-    //MARK: - Life cycle
+
     override var image: UIImage? {
         get {
             return imageView.image

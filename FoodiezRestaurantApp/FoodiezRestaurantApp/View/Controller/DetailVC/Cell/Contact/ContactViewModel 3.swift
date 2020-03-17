@@ -1,4 +1,3 @@
-
 //
 //  ContactViewModel.swift
 //  FoodiezRestaurantApp
@@ -10,21 +9,17 @@
 import Foundation
 
 final class ContactViewModel {
-
-    //MARK: - Properties
     var nameContact: String = ""
     var formattedPhoneContact: String = ""
     var addressContact: String = ""
     var facebookContact: String = ""
     var twitter: String = ""
 
-    //MARK: - Init
     init(menu: Menu) {
-        guard let menu = menu.contact else { return }
-        nameContact = menu.name
-        formattedPhoneContact = menu.formattedPhone
-        addressContact = menu.address
-        facebookContact = menu.facebookName
-        twitter = menu.twitter
+        nameContact = menu.contact?.name ?? ""
+        formattedPhoneContact = menu.contact?.formattedPhone ?? ""
+        addressContact = menu.contact?.address ?? ""
+        facebookContact = menu.contact?.facebookName ?? ""
+        twitter = menu.contact?.twitter ?? ""
     }
 }

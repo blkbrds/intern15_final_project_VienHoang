@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-final class MyPin: NSObject, MKAnnotation {
+class MyPin: NSObject, MKAnnotation {
     
     //MARk: - Properties
     let title: String?
@@ -24,7 +24,6 @@ final class MyPin: NSObject, MKAnnotation {
         super.init()
     }
     
-    //MARK: - Properties
     var subtitle: String? {
         return locationName
     }
