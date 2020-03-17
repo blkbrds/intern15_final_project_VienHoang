@@ -78,6 +78,6 @@ final class DetailViewModel {
 extension DetailViewModel {
     struct Config {
         static let numberOfRowsInSection: Int = 1
-        static let heightForRowAt: CGFloat = 20
+        static let heightForRowAt: CGFloat = 200
     }
 }

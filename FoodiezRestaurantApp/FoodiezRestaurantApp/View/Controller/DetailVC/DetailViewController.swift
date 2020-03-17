@@ -38,7 +38,6 @@ final class DetailViewController: UIViewController {
         tableView.dataSource = self
     }
 
-    //MARK: - Public functions
     private func setupData() {
         fetchData()
     }
