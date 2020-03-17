@@ -22,27 +22,19 @@ final class SlideImageViewModel {
     var imageUser: String = ""
     var nameUserLabel: String = ""
 
-    init(menu: Menu) {
-        prefix = menu.detailImage?.prefix ?? ""
-        suffix = menu.detailImage?.suffix ?? ""
-        userName = menu.detailImage?.userName ?? ""
-        prefixUser = menu.detailImage?.prefixUser ?? ""
-        suffitUser = menu.detailImage?.suffixUser ?? ""
-        lastName = menu.detailImage?.lastName ?? ""
-        firstName = menu.detailImage?.userName ?? ""
-
-        //MARK: Init
-        init(detailImage: Menu) {
-            guard let menu = detailImage.detailImage else { return }
-            prefix = menu.prefix
-            suffix = menu.suffix
-            userName = menu.userName
-            prefixUser = menu.prefixUser
-            suffixUser = menu.suffixUser
-            lastName = menu.lastName
-            firstName = menu.userName
-            image = "\(prefix)900x600\(suffix)"
-            imageUser = "\(prefixUser)50x50\(suffixUser)"
-            nameUserLabel = "\(lastName).\(firstName)"
-        }
+    //MARK: Init
+    init(detailImage: Menu) {
+        guard let menu = detailImage.detailImage else { return }
+        prefix = menu.prefix
+        suffix = menu.suffix
+        userName = menu.userName
+        prefixUser = menu.prefixUser
+        suffixUser = menu.suffixUser
+        lastName = menu.lastName
+        firstName = menu.userName
+        image = "\(prefix)900x600\(suffix)"
+        imageUser = "\(prefixUser)50x50\(suffixUser)"
+        nameUserLabel = "\(lastName).\(firstName)"
     }
+}
+

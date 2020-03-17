@@ -39,7 +39,7 @@ final class CollectionViewCell: UICollectionViewCell {
     private func updateUI() {
         guard let viewModel = viewModel else { return }
         nameLabel.text = viewModel.name
-        let image = "\(prefix)bg_88\(suffix)"
+        let image = viewModel.image
         nameImageView.setImage(url: image)
         addressLabel.text = viewModel.address
     }

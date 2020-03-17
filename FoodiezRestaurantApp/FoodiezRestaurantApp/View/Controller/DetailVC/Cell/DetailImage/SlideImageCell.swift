@@ -29,9 +29,6 @@ final class SlideImageCell: UITableViewCell {
 
     //MARK: - Public Functions
     func updateUI() {
-        guard let viewModel = viewModel else {
-            return
-        }
         guard let viewModel = viewModel else { return }
         let image = viewModel.image
         slideImage.setImage(url: image)

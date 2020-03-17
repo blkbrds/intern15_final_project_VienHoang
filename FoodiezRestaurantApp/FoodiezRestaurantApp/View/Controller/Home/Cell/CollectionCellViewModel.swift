@@ -15,6 +15,7 @@ final class CollectionCellViewModel {
     var name: String = ""
     var suffix: String = ""
     var address: String = ""
+    var image: String = ""
 
     //MARK: Init
     init(menu: Menu) {
@@ -22,5 +23,6 @@ final class CollectionCellViewModel {
         name = menu.name
         suffix = menu.suffixCategories
         address = menu.address
+        image = "\(prefix)bg_88\(suffix)"
     }
 }
