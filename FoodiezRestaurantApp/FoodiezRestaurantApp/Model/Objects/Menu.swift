@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 final class Menu: Mappable {
-    
+
     //MARK: - Properties
     var name: String = ""
     var lat: String = ""
@@ -22,12 +22,12 @@ final class Menu: Mappable {
     var prefixCategories = ""
     var suffixCategories = ""
     var address: String = ""
-    
+
     //MARK: - Init
     init?(map: Map) { }
-    
+
     init() { }
-    
+
     //MARK: Public functions
     func mapping(map: Map) {
         id <- map["id"]
