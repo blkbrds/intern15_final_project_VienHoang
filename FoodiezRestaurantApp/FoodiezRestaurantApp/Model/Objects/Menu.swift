@@ -8,8 +8,9 @@
 
 import Foundation
 import ObjectMapper
+
 final class Menu: Mappable {
-    
+
     //MARK: - Properties
     var name: String = ""
     var lat: String = ""
@@ -21,12 +22,12 @@ final class Menu: Mappable {
     var prefixCategories = ""
     var suffixCategories = ""
     var address: String = ""
-    
+
     //MARK: - Init
     init?(map: Map) { }
-    
+
     init() { }
-    
+
     //MARK: Public functions
     func mapping(map: Map) {
         id <- map["id"]
@@ -36,8 +37,8 @@ final class Menu: Mappable {
         category <- map["categories"]
         for item in category {
             guard let icon = item["icon"] as? JSObject else { return }
-            prefixCategories = (icon["prefix"] as? String)!
-            suffixCategories = (icon["suffix"] as? String)!
+            prefixCategories = (icon["prefix"] as? String) ?? ""
+            suffixCategories = (icon["suffix"] as? String) ?? ""
         }
         id <- map["id"]
         address <- map["location.address"]

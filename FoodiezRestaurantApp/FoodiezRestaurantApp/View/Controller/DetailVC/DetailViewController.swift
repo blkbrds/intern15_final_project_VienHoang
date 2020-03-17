@@ -9,7 +9,7 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-    
+
     enum CellIdentifier: String {
         case slideImageCell = "SlideImageCell"
         case contactCell = "ContactCell"
@@ -17,10 +17,10 @@ final class DetailViewController: UIViewController {
     }
     //MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
-    
+
     //MARK: - Properties
     var viewModel = DetailViewModel()
-    
+
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ final class DetailViewController: UIViewController {
         setupData()
         setupUI()
     }
-    
+
     //MARK: - Private functions
     private func setupUI () {
         tableView.register(name: CellIdentifier.mapDetailCell.rawValue)
@@ -38,11 +38,12 @@ final class DetailViewController: UIViewController {
         tableView.dataSource = self
     }
 
-    func setupData() {
+    //MARK: - Public functions
+    private func setupData() {
         fetchData()
     }
 
-    func fetchData() {
+    private func fetchData() {
         viewModel.loadApiSlide { [weak self] (result) in
             switch result {
             case .success:
@@ -53,7 +54,7 @@ final class DetailViewController: UIViewController {
         }
     }
 
-    func updateUI() {
+    private func updateUI() {
         tableView.reloadData()
     }
 }
@@ -77,7 +78,7 @@ extension DetailViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.slideImageCell.rawValue, for: indexPath) as? SlideImageCell else {
                 return UITableViewCell()
             }
-            cell.viewModel = viewModel.viewModelForDetailViewModel()
+            cell.viewModel = viewModel.viewModelForSlideImage()
             return cell
         case .contact:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.contactCell.rawValue, for: indexPath) as? ContactCell else {

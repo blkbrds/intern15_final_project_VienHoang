@@ -13,14 +13,16 @@ final class CollectionViewCell: UICollectionViewCell {
     //MARK: - IBOutlet
     @IBOutlet private weak var nameImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet private weak var addressLabel: UILabel!
+
     //MARK: - Properties
     var viewModel: CollectionCellViewModel? {
         didSet {
             updateUI()
         }
     }
-    
+
+    //MARK: - Life cycle
     override func layoutSubviews() {
         super.layoutSubviews()
         nameImageView.layer.cornerRadius = nameImageView.frame.width / 2
@@ -29,16 +31,15 @@ final class CollectionViewCell: UICollectionViewCell {
         layer.shadowOpacity = 1
         layer.shadowRadius = 4
         layer.shadowColor = UIColor.black.cgColor
-        contentView.backgroundColor = UIColor(displayP3Red: 83/255, green: 27/255, blue: 220/255, alpha: 0.5)
+        contentView.backgroundColor = UIColor(displayP3Red: 83 / 255, green: 27 / 255, blue: 220 / 255, alpha: 0.5)
         contentView.layer.cornerRadius = 40
-        
     }
-    
+
     //MARK: - Private functions
     private func updateUI() {
         guard let viewModel = viewModel else { return }
         nameLabel.text = viewModel.name
-        let image = "\(viewModel.prefix)bg_88\(viewModel.suffix)"
+        let image = "\(prefix)bg_88\(suffix)"
         nameImageView.setImage(url: image)
         addressLabel.text = viewModel.address
     }

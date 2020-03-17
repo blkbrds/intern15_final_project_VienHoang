@@ -9,6 +9,7 @@
 import Foundation
 
 final class HomeViewModel {
+    
     //MARK: Properties
     var menus: [Menu] = []
 
@@ -16,10 +17,10 @@ final class HomeViewModel {
     func loadAPIForHome(completion: @escaping APICompletion) {
         let params = Api.Home.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll)
         Api.Home.getMenus(params: params) { [weak self] (result) in
-            guard let self = self else { return }
+            guard let this = self else { return }
             switch result {
             case .success(let result):
-                self.menus = result.menu
+                this.menus = result.menu
                 completion(.success)
             case .failure(let error):
                 completion(.failure(error))
@@ -27,7 +28,7 @@ final class HomeViewModel {
         }
     }
     
-    func detailViewModelForCell(at indexPath: IndexPath) -> DetailViewModel {
+    func viewModelForDetailCell(at indexPath: IndexPath) -> DetailViewModel {
         return DetailViewModel(menu: menus[indexPath.row])
     }
 

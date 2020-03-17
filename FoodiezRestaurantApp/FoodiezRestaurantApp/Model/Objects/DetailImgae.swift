@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+
 final class DetailImage: Mappable {
     
     //MARK: - Properties
@@ -24,6 +25,7 @@ final class DetailImage: Mappable {
     init() {
     }
     
+    //MARK: Public Func
     func mapping(map: Map) {
         prefix <- map["prefix"]
         suffix <- map["suffix"]

@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class MyPin: NSObject, MKAnnotation {
+final class MyPin: NSObject, MKAnnotation {
     
     //MARk: - Properties
     let title: String?

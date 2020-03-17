@@ -10,13 +10,17 @@ import Foundation
 import UIKit
 
 final class DetailViewModel {
-   
+
     enum SectionType: Int, CaseIterable {
         case slideImageCell
         case contact
         case mapDetail
     }
+
+    //MARK: - Properties
     var menu: Menu?
+
+    //MARK: Init
     init(menu: Menu = Menu()) {
         self.menu = menu
     }
@@ -40,17 +44,17 @@ final class DetailViewModel {
         }
         switch sectionType {
         case .slideImageCell:
-            return 200
+            return Config.heightForRowAt
         case .contact, .mapDetail:
             return UITableView.automaticDimension
         }
     }
-    
+
     func loadApiSlide(completion: @escaping APICompletion) {
         guard let menu = menu else {
             return
         }
-        Api.Path.Detail.vien = menu.id
+        Api.Path.Detail.base_bath = menu.id
         let params = Api.Detail.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: "20162502", ll: "16.0776738,108.197205")
         Api.Detail.getLocation(params: params) { [weak self] (result) in
             guard let self = self else { return }
@@ -63,17 +67,17 @@ final class DetailViewModel {
             }
         }
     }
-    func viewModelForDetailViewModel() -> SlideImageViewModel? {
-        guard let menu = menu else {
-                   return nil
-               }
-        return SlideImageViewModel(menu: menu)
+
+    func viewModelForSlideImage() -> SlideImageViewModel? {
+        guard let menu = menu else { return nil }
+        return SlideImageViewModel(detailImage: menu)
     }
-    
 }
 
+//MARK: - Extension DetailViewModel
 extension DetailViewModel {
     struct Config {
         static let numberOfRowsInSection: Int = 1
+        static let heightForRowAt: CGFloat = 20
     }
 }

@@ -30,9 +30,9 @@ extension Api.Path {
     }
 
     struct Detail {
-        static var vien: String = ""
+        static var base_bath: String = ""
         static var path: String {
-            return baseURL / vien
+            return baseURL / base_bath
         }
     }
 }

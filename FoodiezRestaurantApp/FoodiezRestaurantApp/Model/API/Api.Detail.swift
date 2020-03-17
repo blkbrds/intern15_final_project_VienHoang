@@ -46,12 +46,12 @@ extension Api.Detail {
                         else {
                             completion(.failure(Api.Error.json))
                             return }
-                    var vien: JSArray = []
+                    var place: JSArray = []
                     for item in groups {
                         guard let items = item["items"] as? JSArray else { return }
-                        vien.append(contentsOf: items)
+                        place.append(contentsOf: items)
                     }
-                    let channel = Mapper<DetailImage>().mapArray(JSONArray: vien).first
+                    let channel = Mapper<DetailImage>().mapArray(JSONArray: place).first
                     completion(.success(channel))
                 }
             }
