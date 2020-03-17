@@ -26,9 +26,7 @@ final class ContactCell: UITableViewCell {
 
     //MARK: - Public functions
     func updateUI() {
-        guard let viewModel = viewModel else {
-            return
-        }
+        guard let viewModel = viewModel else { return }
         nameLabel.text = viewModel.nameContact
         formattedPhoneLabel.text = viewModel.formattedPhoneContact
         addressLabel.text = viewModel.addressContact

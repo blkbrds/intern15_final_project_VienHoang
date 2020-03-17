@@ -10,26 +10,30 @@ import UIKit
 
 final class SlideImageCell: UITableViewCell {
 
+    //MARK: - Properties
     @IBOutlet private weak var slideImage: UIImageView!
-    @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var nameUserLabel: UILabel!
+    @IBOutlet private weak var userImageView: UIImageView!
+    @IBOutlet private weak var nameUserLabel: UILabel!
+
     var viewModel: SlideImageViewModel? {
         didSet {
             updateUI()
         }
     }
+
+    //MARK: - Life cycle
     override func layoutSubviews() {
         super.layoutSubviews()
         userImageView.layer.cornerRadius = userImageView.frame.width / 2
     }
+
+    //MARK: - Public Functions
     func updateUI() {
-        guard let viewModel = viewModel else {
-            return
-        }
-        let image = "\(viewModel.prefix)900x600\(viewModel.suffix)"
+        guard let viewModel = viewModel else { return }
+        let image = viewModel.image
         slideImage.setImage(url: image)
-        let imageUser = "\(viewModel.prefixUser)50x50\(viewModel.suffitUser)"
+        let imageUser = viewModel.imageUser
         userImageView.setImage(url: imageUser)
-        nameUserLabel.text = "\(viewModel.lastName).\(viewModel.firstName)"
+        nameUserLabel.text = viewModel.nameUserLabel
     }
 }
