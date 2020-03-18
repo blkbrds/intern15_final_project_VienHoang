@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseViewController: UINavigationController {
+class BaseViewController: UIViewController {
 
     //MARK: - Life cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -20,7 +20,6 @@ class BaseViewController: UINavigationController {
 final class HomeViewController: BaseViewController {
 
     //MARK: - IBOutlet
-
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var collectionView: UICollectionView!
 
@@ -35,7 +34,6 @@ final class HomeViewController: BaseViewController {
         title = "Discovery"
         setupData()
         setupUI()
-        //       setupBackground()
     }
 
     //MARK: - Private functions
@@ -71,17 +69,6 @@ final class HomeViewController: BaseViewController {
             cell.transform = .identity
         }
     }
-//
-//    func setupBackground() {
-//        view.addSubview(backgroundImageView)
-//        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-//        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-//        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-//        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        backgroundImageView.image = UIImage(named: "hinhnen10")
-//        view.sendSubviewToBack(backgroundImageView)
-//    }
 }
 
 //MARK: - Extention CollectionViewDataSource
@@ -102,15 +89,15 @@ extension HomeViewController: UICollectionViewDataSource {
 //MARK: - Extension CollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (Config.screenWidth / 2) - 10, height: (Config.screenWidth / 3) * 6 / 4)
+        return CGSize(width: (Config.screenWidth / 2) - 15, height: (Config.screenWidth / 3) * 6 / 4)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return CGFloat(Config.minimumInteritemSpacingForSectionAt)
+        return 15
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return CGFloat(Config.minimumInteritemSpacingForSectionAt)
+        return 15
     }
 }
 

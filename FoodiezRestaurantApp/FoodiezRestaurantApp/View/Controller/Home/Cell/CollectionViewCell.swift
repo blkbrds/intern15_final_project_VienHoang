@@ -11,8 +11,8 @@ import UIKit
 final class CollectionViewCell: UICollectionViewCell {
 
     //MARK: - IBOutlet
-    
-    @IBOutlet private weak var visualView: UIVisualEffectView!
+
+    @IBOutlet private weak var blurView: UIView!
     @IBOutlet private weak var nameImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
 
@@ -23,13 +23,23 @@ final class CollectionViewCell: UICollectionViewCell {
         }
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        DispatchQueue.main.async {
+            self.nameImageView.layer.cornerRadius = self.nameImageView.frame.width / 2
+            self.layer.cornerRadius = 40
+            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = self.blurView.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.blurView.addSubview(blurEffectView)
+        }
+    }
+
     //MARK: - Life cycle
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        nameImageView.layer.cornerRadius = nameImageView.frame.width / 2
-        self.layer.cornerRadius = 40
-}
+    }
 
     //MARK: - Private functions
     private func updateUI() {
