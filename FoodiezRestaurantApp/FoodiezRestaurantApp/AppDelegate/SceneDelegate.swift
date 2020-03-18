@@ -27,16 +27,14 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let searchNavi = UINavigationController(rootViewController: searchVC)
         searchNavi.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), tag: 2)
 
-        let trendingVC = TrendingViewController()
-        let trendingNavi = UINavigationController(rootViewController: trendingVC)
-        trendingNavi.tabBarItem = UITabBarItem(title: "Trending", image: UIImage(named: "trending"), tag: 3)
-
         let tabbarController = UITabBarController()
-        tabbarController.viewControllers = [homeNavi, favoritesNavi, searchNavi, trendingNavi]
+        tabbarController.viewControllers = [homeNavi, favoritesNavi, searchNavi]
 
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = tabbarController
         self.window = window
         window.makeKeyAndVisible()
+        
+        UITabBar.appearance().barTintColor = UIColor(red: 61, green: 55, blue: 91, alpha: 1)
     }
 }

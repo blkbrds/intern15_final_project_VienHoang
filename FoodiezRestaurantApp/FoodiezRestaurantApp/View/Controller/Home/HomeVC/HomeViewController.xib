@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -9,17 +9,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="FoodiezRestaurantApp" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="5js-Oi-lZx" id="jrE-N8-cgP"/>
+                <outlet property="collectionView" destination="5js-Oi-lZx" id="iIr-J7-Y5P"/>
+                <outlet property="imageView" destination="YeE-yj-ryX" id="wJX-bN-epp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hinhnen10" translatesAutoresizingMaskIntoConstraints="NO" id="YeE-yj-ryX">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5js-Oi-lZx">
-                    <rect key="frame" x="10" y="54" width="394" height="832"/>
+                    <rect key="frame" x="15" y="10" width="345" height="647"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O5f-OI-z7U">
                         <size key="itemSize" width="50" height="50"/>
@@ -32,12 +36,19 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="5js-Oi-lZx" secondAttribute="bottom" constant="10" id="BUj-3m-inw"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5js-Oi-lZx" secondAttribute="trailing" constant="10" id="I5Z-Bz-AKu"/>
+                <constraint firstItem="YeE-yj-ryX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Fva-jH-xzB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5js-Oi-lZx" secondAttribute="trailing" constant="15" id="I5Z-Bz-AKu"/>
                 <constraint firstItem="5js-Oi-lZx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="L7M-d8-QF1"/>
-                <constraint firstItem="5js-Oi-lZx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="e8P-Sk-H4n"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YeE-yj-ryX" secondAttribute="bottom" id="bvt-22-kNi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YeE-yj-ryX" secondAttribute="trailing" id="dXG-Cv-NMf"/>
+                <constraint firstItem="5js-Oi-lZx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="e8P-Sk-H4n"/>
+                <constraint firstItem="YeE-yj-ryX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="fcz-Hi-sbc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="129"/>
         </view>
     </objects>
+    <resources>
+        <image name="hinhnen10" width="2800" height="2800"/>
+    </resources>
 </document>

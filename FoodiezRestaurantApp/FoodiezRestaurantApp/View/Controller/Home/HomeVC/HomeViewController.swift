@@ -8,10 +8,22 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController {
+class BaseViewController: UINavigationController {
+
+    //MARK: - Life cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+}
+
+final class HomeViewController: BaseViewController {
 
     //MARK: - IBOutlet
+
+    @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var collectionView: UICollectionView!
+
 
     //MARK: - Properties
     var viewModel = HomeViewModel()
@@ -23,7 +35,7 @@ final class HomeViewController: UIViewController {
         title = "Discovery"
         setupData()
         setupUI()
-        setupBackground()
+        //       setupBackground()
     }
 
     //MARK: - Private functions
@@ -59,16 +71,17 @@ final class HomeViewController: UIViewController {
             cell.transform = .identity
         }
     }
-
-    func setupBackground() {
-        view.addSubview(backgroundImageView)
-        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        view.sendSubviewToBack(backgroundImageView)
-    }
+//
+//    func setupBackground() {
+//        view.addSubview(backgroundImageView)
+//        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+//        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+//        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+//        backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//        backgroundImageView.image = UIImage(named: "hinhnen10")
+//        view.sendSubviewToBack(backgroundImageView)
+//    }
 }
 
 //MARK: - Extention CollectionViewDataSource
@@ -89,7 +102,7 @@ extension HomeViewController: UICollectionViewDataSource {
 //MARK: - Extension CollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: Config.screenWidth / 2, height: (Config.screenWidth / 3) * 7 / 4)
+        return CGSize(width: (Config.screenWidth / 2) - 10, height: (Config.screenWidth / 3) * 6 / 4)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -113,8 +126,8 @@ extension HomeViewController: UICollectionViewDelegate {
 //MARK: - Extension HomeViewController
 extension HomeViewController {
     struct Config {
-        static let minimumLineSpacingForSectionAt: Float = 5
-        static let minimumInteritemSpacingForSectionAt: Int = 5
+        static let minimumLineSpacingForSectionAt: Float = 10
+        static let minimumInteritemSpacingForSectionAt: CGFloat = 10
         static let screenWidth = UIScreen.main.bounds.width - 30
     }
 
