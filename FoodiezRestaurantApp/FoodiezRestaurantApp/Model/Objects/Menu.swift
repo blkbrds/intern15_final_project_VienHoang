@@ -22,6 +22,12 @@ final class Menu: Mappable {
     var prefixCategories = ""
     var suffixCategories = ""
     var address: String = ""
+    var phoneContact: String = ""
+    var twitterContact: String = ""
+    var instagramContact: String = ""
+    var facebookNameContact: String = ""
+    var count: String = ""
+    var rating: String = ""
 
     //MARK: - Init
     init?(map: Map) { }
@@ -35,6 +41,13 @@ final class Menu: Mappable {
         lat <- map["location.lat"]
         long <- map["location.long"]
         category <- map["categories"]
+        phoneContact <- map["contact.phoneContact"]
+        twitterContact <- map["contact.twitterContact"]
+        instagramContact <- map["contact.instagramContact"]
+        facebookNameContact <- map["contact.facebookNameContact"]
+        count <- map["likes.count"]
+        rating <- map["likes.rating"]
+        
         for item in category {
             guard let icon = item["icon"] as? JSObject else { return }
             prefixCategories = (icon["prefix"] as? String) ?? ""

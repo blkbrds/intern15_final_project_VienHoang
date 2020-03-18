@@ -14,7 +14,7 @@ final class DetailViewModel {
     enum SectionType: Int, CaseIterable {
         case slideImageCell
         case contact
-        case mapDetail
+  //      case mapDetail
     }
 
     //MARK: - Properties
@@ -33,7 +33,7 @@ final class DetailViewModel {
     func numberOfRows(in section: Int) -> Int {
         guard let sectionType = SectionType(rawValue: section) else { return 0 }
         switch sectionType {
-        case .slideImageCell, .contact, .mapDetail:
+        case .slideImageCell, .contact :
             return Config.numberOfRowsInSection
         }
     }
@@ -45,15 +45,13 @@ final class DetailViewModel {
         switch sectionType {
         case .slideImageCell:
             return Config.heightForRowAt
-        case .contact, .mapDetail:
+        case .contact:
             return UITableView.automaticDimension
         }
     }
 
     func loadApiSlide(completion: @escaping APICompletion) {
-        guard let menu = menu else {
-            return
-        }
+        guard let menu = menu else { return }
         Api.Path.Detail.base_bath = menu.id
         let params = Api.Detail.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: "20162502", ll: "16.0776738,108.197205")
         Api.Detail.getLocation(params: params) { [weak self] (result) in

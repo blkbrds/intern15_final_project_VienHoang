@@ -13,7 +13,7 @@ final class DetailViewController: UIViewController {
     enum CellIdentifier: String {
         case slideImageCell = "SlideImageCell"
         case contactCell = "ContactCell"
-        case mapDetailCell = "MapDetailCell"
+        //      case mapDetailCell = "MapDetailCell"
     }
     //MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
@@ -31,7 +31,7 @@ final class DetailViewController: UIViewController {
 
     //MARK: - Private functions
     private func setupUI () {
-        tableView.register(name: CellIdentifier.mapDetailCell.rawValue)
+        //      tableView.register(name: CellIdentifier.mapDetailCell.rawValue)
         tableView.register(name: CellIdentifier.slideImageCell.rawValue)
         tableView.register(name: CellIdentifier.contactCell.rawValue)
         tableView.delegate = self
@@ -84,11 +84,11 @@ extension DetailViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             return cell
-        case .mapDetail:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.mapDetailCell.rawValue, for: indexPath) as? MapDetailCell else {
-                return UITableViewCell()
-            }
-            return cell
+//        case .mapDetail:
+//            guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.mapDetailCell.rawValue, for: indexPath) as? MapDetailCell else {
+//                return UITableViewCell()
+//            }
+//            return cell
         }
     }
 }

@@ -11,11 +11,11 @@ import UIKit
 final class ContactCell: UITableViewCell {
 
     //MARK: - IBOutlet
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var formattedPhoneLabel: UILabel!
-    @IBOutlet private weak var addressLabel: UILabel!
-    @IBOutlet private weak var facebookNameLabel: UILabel!
+    @IBOutlet private weak var phoneLabel: UILabel!
     @IBOutlet private weak var twitterLabel: UILabel!
+    @IBOutlet private weak var instagramLabel: UILabel!
+    @IBOutlet private weak var facebookNameLabel: UILabel!
+    @IBOutlet private weak var likeCountLabel: UILabel!
 
     //MARK: Properties
     var viewModel: ContactViewModel? {
@@ -27,10 +27,10 @@ final class ContactCell: UITableViewCell {
     //MARK: - Public functions
     func updateUI() {
         guard let viewModel = viewModel else { return }
-        nameLabel.text = viewModel.nameContact
-        formattedPhoneLabel.text = viewModel.formattedPhoneContact
-        addressLabel.text = viewModel.addressContact
-        facebookNameLabel.text = viewModel.facebookContact
-        twitterLabel.text = viewModel.twitter
+        phoneLabel.text = viewModel.nameContact
+        twitterLabel.text = viewModel.stateContact
+        instagramLabel.text = viewModel.countryContact
+        facebookNameLabel.text = viewModel.cityContact
+        twitterLabel.text = viewModel.distanceContact
     }
 }

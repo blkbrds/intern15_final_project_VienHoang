@@ -22,8 +22,7 @@ final class DetailImage: Mappable {
     
     init?(map: Map) { }
     
-    init() {
-    }
+    init() { }
     
     //MARK: Public Func
     func mapping(map: Map) {
