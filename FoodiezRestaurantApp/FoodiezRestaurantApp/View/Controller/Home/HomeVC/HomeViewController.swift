@@ -26,7 +26,6 @@ final class HomeViewController: BaseViewController {
 
     //MARK: - Properties
     var viewModel = HomeViewModel()
-    let backgroundImageView = UIImageView()
 
     //MARK: - Life cycle
     override func viewDidLoad() {
