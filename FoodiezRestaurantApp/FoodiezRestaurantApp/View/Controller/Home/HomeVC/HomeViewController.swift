@@ -20,7 +20,7 @@ class BaseViewController: UIViewController {
 final class HomeViewController: BaseViewController {
 
     //MARK: - IBOutlet
-    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var collectionView: UICollectionView!
 
 
@@ -88,15 +88,15 @@ extension HomeViewController: UICollectionViewDataSource {
 //MARK: - Extension CollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (Config.screenWidth / 2) - 15, height: (Config.screenWidth / 3) * 6 / 4)
+        return CGSize(width: Config.widthSize, height: Config.heightSize)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
+        return CGFloat(Config.minimumLineSpacingForSectionAt)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
+        return CGFloat (Config.minimumInteritemSpacingForSectionAt)
     }
 }
 
@@ -115,6 +115,8 @@ extension HomeViewController {
         static let minimumLineSpacingForSectionAt: Float = 10
         static let minimumInteritemSpacingForSectionAt: CGFloat = 10
         static let screenWidth = UIScreen.main.bounds.width - 30
+        static let widthSize = (Config.screenWidth / 2) - 15
+        static let heightSize = (Config.screenWidth / 3) * 6 / 4
     }
 
     struct Identifier {
