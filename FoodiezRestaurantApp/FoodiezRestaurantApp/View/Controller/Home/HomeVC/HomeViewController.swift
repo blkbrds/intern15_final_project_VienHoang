@@ -8,14 +8,24 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController {
+class BaseViewController: UIViewController {
+
+    //MARK: - Life cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+}
+
+final class HomeViewController: BaseViewController {
 
     //MARK: - IBOutlet
+    @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var collectionView: UICollectionView!
+
 
     //MARK: - Properties
     var viewModel = HomeViewModel()
-    let backgroundImageView = UIImageView()
 
     //MARK: - Life cycle
     override func viewDidLoad() {
@@ -23,7 +33,6 @@ final class HomeViewController: UIViewController {
         title = "Discovery"
         setupData()
         setupUI()
-        setupBackground()
     }
 
     //MARK: - Private functions
@@ -59,16 +68,6 @@ final class HomeViewController: UIViewController {
             cell.transform = .identity
         }
     }
-
-    func setupBackground() {
-        view.addSubview(backgroundImageView)
-        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        view.sendSubviewToBack(backgroundImageView)
-    }
 }
 
 //MARK: - Extention CollectionViewDataSource
@@ -89,15 +88,15 @@ extension HomeViewController: UICollectionViewDataSource {
 //MARK: - Extension CollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: Config.screenWidth / 2, height: (Config.screenWidth / 3) * 7 / 4)
+        return CGSize(width: Config.widthSize, height: Config.heightSize)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return CGFloat(Config.minimumInteritemSpacingForSectionAt)
+        return CGFloat(Config.minimumLineSpacingForSectionAt)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return CGFloat(Config.minimumInteritemSpacingForSectionAt)
+        return CGFloat (Config.minimumInteritemSpacingForSectionAt)
     }
 }
 
@@ -113,9 +112,11 @@ extension HomeViewController: UICollectionViewDelegate {
 //MARK: - Extension HomeViewController
 extension HomeViewController {
     struct Config {
-        static let minimumLineSpacingForSectionAt: Float = 5
-        static let minimumInteritemSpacingForSectionAt: Int = 5
+        static let minimumLineSpacingForSectionAt: Float = 10
+        static let minimumInteritemSpacingForSectionAt: CGFloat = 10
         static let screenWidth = UIScreen.main.bounds.width - 30
+        static let widthSize = (Config.screenWidth / 2) - 15
+        static let heightSize = (Config.screenWidth / 3) * 6 / 4
     }
 
     struct Identifier {

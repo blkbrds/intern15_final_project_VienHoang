@@ -41,6 +41,7 @@
 		CE3A60C6240625D60031B935 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3A60C4240625D60031B935 /* CollectionViewCell.xib */; };
 		CE52E5472415E1060090B9A0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52E5452415E1060090B9A0 /* DetailViewController.swift */; };
 		CE52E5482415E1060090B9A0 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE52E5462415E1060090B9A0 /* DetailViewController.xib */; };
+		CE5AD8A3242221C20029A201 /* BaseTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AD8A2242221C10029A201 /* BaseTabbarController.swift */; };
 		CEACACD72420758A0076F930 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACACD62420758A0076F930 /* Results.swift */; };
 		CEEAAF78240CBEB800BEF784 /* RequestSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF77240CBEB800BEF784 /* RequestSerializer.swift */; };
 		CEEAAF7A240CC26300BEF784 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF79240CC26300BEF784 /* Error.swift */; };
@@ -108,6 +109,7 @@
 		CE3A60C4240625D60031B935 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		CE52E5452415E1060090B9A0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CE52E5462415E1060090B9A0 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		CE5AD8A2242221C10029A201 /* BaseTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarController.swift; sourceTree = "<group>"; };
 		CEACACD62420758A0076F930 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		CEEAAF77240CBEB800BEF784 /* RequestSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSerializer.swift; sourceTree = "<group>"; };
 		CEEAAF79240CC26300BEF784 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 		CE3A604E240612800031B935 /* FoodiezRestaurantApp */ = {
 			isa = PBXGroup;
 			children = (
+				CE5AD8A1242221AD0029A201 /* Base */,
 				CEEAAF73240CBE6100BEF784 /* Library */,
 				CEEAAF72240CBDFD00BEF784 /* AppDelegate */,
 				CE3A605D240612830031B935 /* Info.plist */,
@@ -345,6 +348,14 @@
 				CEFEF2EE24189C5A0003B352 /* Cell */,
 			);
 			path = DetailVC;
+			sourceTree = "<group>";
+		};
+		CE5AD8A1242221AD0029A201 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				CE5AD8A2242221C10029A201 /* BaseTabbarController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		CEEAAF72240CBDFD00BEF784 /* AppDelegate */ = {
@@ -607,6 +618,7 @@
 				CEFEF3022418BED70003B352 /* DetailImgae.swift in Sources */,
 				CEFEF30F241A3FBA0003B352 /* UITextFieldExt.swift in Sources */,
 				CE3A6050240612800031B935 /* AppDelegate.swift in Sources */,
+				CE5AD8A3242221C20029A201 /* BaseTabbarController.swift in Sources */,
 				CEFEF2FC2418A47D0003B352 /* ContactViewModel.swift in Sources */,
 				CE33DAAB2406531E00DB6127 /* HomeViewModel.swift in Sources */,
 				CEEAAF85240CC42000BEF784 /* NSErrorExt.swift in Sources */,

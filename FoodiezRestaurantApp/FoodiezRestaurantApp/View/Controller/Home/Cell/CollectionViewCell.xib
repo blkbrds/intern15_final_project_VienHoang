@@ -10,12 +10,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionViewCell" customModule="FoodiezRestaurantApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="168" height="201"/>
+            <rect key="frame" x="0.0" y="0.0" width="168" height="170"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="168" height="201"/>
+                <rect key="frame" x="0.0" y="0.0" width="168" height="170"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wcd-Et-Pw4">
+                        <rect key="frame" x="0.0" y="0.0" width="168" height="170"/>
+                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nuV-hv-RYp">
                         <rect key="frame" x="49" y="40" width="70" height="70"/>
                         <constraints>
@@ -23,15 +26,10 @@
                             <constraint firstAttribute="width" constant="70" id="gfL-Qk-Nww"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRd-mL-e9K">
-                        <rect key="frame" x="10" y="120" width="148" height="21"/>
-                        <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfC-RC-zRY">
-                        <rect key="frame" x="10" y="146" width="148" height="21"/>
-                        <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suF-dW-SBk">
+                        <rect key="frame" x="8" y="130" width="155" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -39,23 +37,21 @@
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="nfC-RC-zRY" firstAttribute="top" secondItem="sRd-mL-e9K" secondAttribute="bottom" constant="5" id="H2I-ZM-9Fh"/>
+                <constraint firstAttribute="trailing" secondItem="wcd-Et-Pw4" secondAttribute="trailing" id="6Sy-fI-GQn"/>
                 <constraint firstItem="nuV-hv-RYp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="40" id="QYs-FV-9jh"/>
-                <constraint firstAttribute="trailing" secondItem="sRd-mL-e9K" secondAttribute="trailing" constant="10" id="doW-30-bRh"/>
+                <constraint firstAttribute="bottom" secondItem="wcd-Et-Pw4" secondAttribute="bottom" id="Rql-L6-E5M"/>
+                <constraint firstItem="wcd-Et-Pw4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="d61-Yh-9lc"/>
                 <constraint firstItem="nuV-hv-RYp" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="eqT-4C-i8a"/>
-                <constraint firstItem="nfC-RC-zRY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="h2J-lN-LbE"/>
-                <constraint firstAttribute="trailing" secondItem="nfC-RC-zRY" secondAttribute="trailing" constant="10" id="oQU-Ea-fuJ"/>
-                <constraint firstItem="sRd-mL-e9K" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="rxr-a0-Di0"/>
-                <constraint firstItem="sRd-mL-e9K" firstAttribute="top" secondItem="nuV-hv-RYp" secondAttribute="bottom" constant="10" id="zXd-sh-nsq"/>
+                <constraint firstItem="wcd-Et-Pw4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="oWQ-ZG-oSD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="168" height="201"/>
+            <size key="customSize" width="168" height="170"/>
             <connections>
-                <outlet property="addressLabel" destination="nfC-RC-zRY" id="Dqf-1n-QxQ"/>
+                <outlet property="blurView" destination="wcd-Et-Pw4" id="Vgx-CX-6Cs"/>
                 <outlet property="nameImageView" destination="nuV-hv-RYp" id="DJf-Lv-OS0"/>
-                <outlet property="nameLabel" destination="sRd-mL-e9K" id="bAO-Ii-AHa"/>
+                <outlet property="nameLabel" destination="suF-dW-SBk" id="oRF-B3-oXX"/>
             </connections>
-            <point key="canvasLocation" x="76.811594202898561" y="69.977678571428569"/>
+            <point key="canvasLocation" x="76.811594202898561" y="59.598214285714285"/>
         </collectionViewCell>
     </objects>
 </document>
