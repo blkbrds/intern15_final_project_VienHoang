@@ -22,6 +22,11 @@ final class DetailViewController: UIViewController {
         blurViewDetail.layer.cornerRadius = 20
         addFavoritesButton.layer.cornerRadius = 5
     }
+    
+    //MARK: - Life cucle
+      override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
+      }
 }
 
 extension DetailViewController {

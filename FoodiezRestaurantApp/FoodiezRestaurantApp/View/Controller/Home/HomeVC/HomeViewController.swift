@@ -15,6 +15,11 @@ class BaseViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
+    //MARK: - Life cucle
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 final class HomeViewController: BaseViewController {
