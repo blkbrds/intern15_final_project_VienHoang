@@ -11,7 +11,6 @@ import UIKit
 final class CollectionViewCell: UICollectionViewCell {
 
     //MARK: - IBOutlet
-
     @IBOutlet private weak var blurView: UIView!
     @IBOutlet private weak var nameImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!

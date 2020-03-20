@@ -42,7 +42,6 @@
 		CE52E5472415E1060090B9A0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52E5452415E1060090B9A0 /* DetailViewController.swift */; };
 		CE52E5482415E1060090B9A0 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE52E5462415E1060090B9A0 /* DetailViewController.xib */; };
 		CE5AD8A3242221C20029A201 /* BaseTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AD8A2242221C10029A201 /* BaseTabbarController.swift */; };
-		CEACACD72420758A0076F930 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACACD62420758A0076F930 /* Results.swift */; };
 		CEEAAF78240CBEB800BEF784 /* RequestSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF77240CBEB800BEF784 /* RequestSerializer.swift */; };
 		CEEAAF7A240CC26300BEF784 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF79240CC26300BEF784 /* Error.swift */; };
 		CEEAAF7C240CC27C00BEF784 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF7B240CC27C00BEF784 /* ApiManager.swift */; };
@@ -52,18 +51,10 @@
 		CEEAAF85240CC42000BEF784 /* NSErrorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF84240CC42000BEF784 /* NSErrorExt.swift */; };
 		CEEAAF87240CC43C00BEF784 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF86240CC43C00BEF784 /* UIViewControllerExt.swift */; };
 		CEEAAF89240CC45100BEF784 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF88240CC45100BEF784 /* UIViewExt.swift */; };
-		CEFEF2F124189C7C0003B352 /* SlideImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF2EF24189C7C0003B352 /* SlideImageCell.swift */; };
-		CEFEF2F224189C7C0003B352 /* SlideImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFEF2F024189C7C0003B352 /* SlideImageCell.xib */; };
 		CEFEF2F424189E120003B352 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF2F324189E120003B352 /* StringExt.swift */; };
-		CEFEF2F924189F620003B352 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF2F724189F620003B352 /* ContactCell.swift */; };
-		CEFEF2FA24189F620003B352 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFEF2F824189F620003B352 /* ContactCell.xib */; };
-		CEFEF2FC2418A47D0003B352 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF2FB2418A47D0003B352 /* ContactViewModel.swift */; };
 		CEFEF2FE2418A4B50003B352 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF2FD2418A4B50003B352 /* Contact.swift */; };
-		CEFEF3002418A73E0003B352 /* SlideImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF2FF2418A73E0003B352 /* SlideImageViewModel.swift */; };
-		CEFEF3022418BED70003B352 /* DetailImgae.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF3012418BED70003B352 /* DetailImgae.swift */; };
+		CEFEF3022418BED70003B352 /* DetailImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF3012418BED70003B352 /* DetailImage.swift */; };
 		CEFEF3062418C2F90003B352 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF3052418C2F90003B352 /* DetailViewModel.swift */; };
-		CEFEF30A2418C75B0003B352 /* MapDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF3082418C75B0003B352 /* MapDetailCell.swift */; };
-		CEFEF30B2418C75B0003B352 /* MapDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFEF3092418C75B0003B352 /* MapDetailCell.xib */; };
 		CEFEF30D241A3F760003B352 /* UITextViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF30C241A3F760003B352 /* UITextViewExt.swift */; };
 		CEFEF30F241A3FBA0003B352 /* UITextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF30E241A3FBA0003B352 /* UITextFieldExt.swift */; };
 		CEFEF311241A3FF50003B352 /* UITableViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF310241A3FF50003B352 /* UITableViewExt.swift */; };
@@ -110,7 +101,6 @@
 		CE52E5452415E1060090B9A0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CE52E5462415E1060090B9A0 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		CE5AD8A2242221C10029A201 /* BaseTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarController.swift; sourceTree = "<group>"; };
-		CEACACD62420758A0076F930 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		CEEAAF77240CBEB800BEF784 /* RequestSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSerializer.swift; sourceTree = "<group>"; };
 		CEEAAF79240CC26300BEF784 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		CEEAAF7B240CC27C00BEF784 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
@@ -120,18 +110,10 @@
 		CEEAAF84240CC42000BEF784 /* NSErrorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSErrorExt.swift; sourceTree = "<group>"; };
 		CEEAAF86240CC43C00BEF784 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		CEEAAF88240CC45100BEF784 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
-		CEFEF2EF24189C7C0003B352 /* SlideImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideImageCell.swift; sourceTree = "<group>"; };
-		CEFEF2F024189C7C0003B352 /* SlideImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideImageCell.xib; sourceTree = "<group>"; };
 		CEFEF2F324189E120003B352 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
-		CEFEF2F724189F620003B352 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
-		CEFEF2F824189F620003B352 /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
-		CEFEF2FB2418A47D0003B352 /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		CEFEF2FD2418A4B50003B352 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
-		CEFEF2FF2418A73E0003B352 /* SlideImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideImageViewModel.swift; sourceTree = "<group>"; };
-		CEFEF3012418BED70003B352 /* DetailImgae.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImgae.swift; sourceTree = "<group>"; };
+		CEFEF3012418BED70003B352 /* DetailImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImage.swift; sourceTree = "<group>"; };
 		CEFEF3052418C2F90003B352 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		CEFEF3082418C75B0003B352 /* MapDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailCell.swift; sourceTree = "<group>"; };
-		CEFEF3092418C75B0003B352 /* MapDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapDetailCell.xib; sourceTree = "<group>"; };
 		CEFEF30C241A3F760003B352 /* UITextViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExt.swift; sourceTree = "<group>"; };
 		CEFEF30E241A3FBA0003B352 /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
 		CEFEF310241A3FF50003B352 /* UITableViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExt.swift; sourceTree = "<group>"; };
@@ -184,8 +166,7 @@
 				CE309D562410F27B00E817E1 /* MyPin.swift */,
 				CE309D5A2410FD7100E817E1 /* MyPinView.swift */,
 				CEFEF2FD2418A4B50003B352 /* Contact.swift */,
-				CEFEF3012418BED70003B352 /* DetailImgae.swift */,
-				CEACACD62420758A0076F930 /* Results.swift */,
+				CEFEF3012418BED70003B352 /* DetailImage.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -345,7 +326,6 @@
 				CE52E5452415E1060090B9A0 /* DetailViewController.swift */,
 				CE52E5462415E1060090B9A0 /* DetailViewController.xib */,
 				CEFEF3052418C2F90003B352 /* DetailViewModel.swift */,
-				CEFEF2EE24189C5A0003B352 /* Cell */,
 			);
 			path = DetailVC;
 			sourceTree = "<group>";
@@ -423,45 +403,6 @@
 			path = Ext;
 			sourceTree = "<group>";
 		};
-		CEFEF2EE24189C5A0003B352 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				CEFEF3072418C73C0003B352 /* MapDetail */,
-				CEFEF2F624189F420003B352 /* Contact */,
-				CEFEF2F524189EF10003B352 /* DetailImage */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		CEFEF2F524189EF10003B352 /* DetailImage */ = {
-			isa = PBXGroup;
-			children = (
-				CEFEF2EF24189C7C0003B352 /* SlideImageCell.swift */,
-				CEFEF2F024189C7C0003B352 /* SlideImageCell.xib */,
-				CEFEF2FF2418A73E0003B352 /* SlideImageViewModel.swift */,
-			);
-			path = DetailImage;
-			sourceTree = "<group>";
-		};
-		CEFEF2F624189F420003B352 /* Contact */ = {
-			isa = PBXGroup;
-			children = (
-				CEFEF2F724189F620003B352 /* ContactCell.swift */,
-				CEFEF2F824189F620003B352 /* ContactCell.xib */,
-				CEFEF2FB2418A47D0003B352 /* ContactViewModel.swift */,
-			);
-			path = Contact;
-			sourceTree = "<group>";
-		};
-		CEFEF3072418C73C0003B352 /* MapDetail */ = {
-			isa = PBXGroup;
-			children = (
-				CEFEF3082418C75B0003B352 /* MapDetailCell.swift */,
-				CEFEF3092418C75B0003B352 /* MapDetailCell.xib */,
-			);
-			path = MapDetail;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -525,13 +466,10 @@
 				CE3A605C240612830031B935 /* LaunchScreen.storyboard in Resources */,
 				CE3A6059240612830031B935 /* Assets.xcassets in Resources */,
 				CE309D532410E84500E817E1 /* MapViewController.xib in Resources */,
-				CEFEF30B2418C75B0003B352 /* MapDetailCell.xib in Resources */,
 				CE3A60AE240618D70031B935 /* SearchViewController.xib in Resources */,
 				CE52E5482415E1060090B9A0 /* DetailViewController.xib in Resources */,
 				CE3A60BD24061C590031B935 /* TrendingViewController.xib in Resources */,
 				CE3A60C124061EB00031B935 /* HomeViewController.xib in Resources */,
-				CEFEF2F224189C7C0003B352 /* SlideImageCell.xib in Resources */,
-				CEFEF2FA24189F620003B352 /* ContactCell.xib in Resources */,
 				CE3A60C6240625D60031B935 /* CollectionViewCell.xib in Resources */,
 				CE3A60B3240619080031B935 /* FavoritesViewController.xib in Resources */,
 			);
@@ -592,7 +530,6 @@
 				CE52E5472415E1060090B9A0 /* DetailViewController.swift in Sources */,
 				CE33DAB224065E7700DB6127 /* Menu.swift in Sources */,
 				CE33DAB42406636400DB6127 /* CollectionCellViewModel.swift in Sources */,
-				CEFEF30A2418C75B0003B352 /* MapDetailCell.swift in Sources */,
 				CE367093240D3B2900684C1D /* Api.Home.swift in Sources */,
 				CE309D5B2410FD7100E817E1 /* MyPinView.swift in Sources */,
 				CE36708F240CED6200684C1D /* Data.Ext.swift in Sources */,
@@ -602,9 +539,7 @@
 				CE309D552410F25C00E817E1 /* MapViewModel.swift in Sources */,
 				CEEAAF78240CBEB800BEF784 /* RequestSerializer.swift in Sources */,
 				CE3A60BC24061C590031B935 /* TrendingViewController.swift in Sources */,
-				CEFEF2F124189C7C0003B352 /* SlideImageCell.swift in Sources */,
 				CEEAAF87240CC43C00BEF784 /* UIViewControllerExt.swift in Sources */,
-				CEFEF2F924189F620003B352 /* ContactCell.swift in Sources */,
 				CE367095240D428400684C1D /* UIImageExt.swift in Sources */,
 				CE309D5D2411407E00E817E1 /* Api.Detail.swift in Sources */,
 				CE367097240D474000684C1D /* UIKitExt.swift in Sources */,
@@ -615,11 +550,10 @@
 				CEFEF2F424189E120003B352 /* StringExt.swift in Sources */,
 				CEEAAF7C240CC27C00BEF784 /* ApiManager.swift in Sources */,
 				CE3A6070240613790031B935 /* String.swift in Sources */,
-				CEFEF3022418BED70003B352 /* DetailImgae.swift in Sources */,
+				CEFEF3022418BED70003B352 /* DetailImage.swift in Sources */,
 				CEFEF30F241A3FBA0003B352 /* UITextFieldExt.swift in Sources */,
 				CE3A6050240612800031B935 /* AppDelegate.swift in Sources */,
 				CE5AD8A3242221C20029A201 /* BaseTabbarController.swift in Sources */,
-				CEFEF2FC2418A47D0003B352 /* ContactViewModel.swift in Sources */,
 				CE33DAAB2406531E00DB6127 /* HomeViewModel.swift in Sources */,
 				CEEAAF85240CC42000BEF784 /* NSErrorExt.swift in Sources */,
 				CE3A60C024061EB00031B935 /* HomeViewController.swift in Sources */,
@@ -629,11 +563,9 @@
 				CE3A6072240613790031B935 /* App.swift in Sources */,
 				CE309D572410F27B00E817E1 /* MyPin.swift in Sources */,
 				CEEAAF80240CC2CD00BEF784 /* Api.swift in Sources */,
-				CEFEF3002418A73E0003B352 /* SlideImageViewModel.swift in Sources */,
 				CE3A6052240612800031B935 /* SceneDelegate.swift in Sources */,
 				CE309D522410E84500E817E1 /* MapViewController.swift in Sources */,
 				CE309D592410FCDF00E817E1 /* LocationManager.swift in Sources */,
-				CEACACD72420758A0076F930 /* Results.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

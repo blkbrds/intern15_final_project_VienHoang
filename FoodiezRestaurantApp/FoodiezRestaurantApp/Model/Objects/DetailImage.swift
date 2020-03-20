@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 final class DetailImage: Mappable {
-    
+
     //MARK: - Properties
     var prefix: String = ""
     var suffix: String = ""
@@ -30,12 +30,12 @@ final class DetailImage: Mappable {
     var country: String = ""
     var menu: Menu?
     var id: String = ""
-    
+
+    //MARK: - Init
     init?(map: Map) { }
-    
-    init() {
-    }
-    
+
+    init() { }
+
     //MARK: Public Func
     func mapping(map: Map) {
         id <- map["id"]

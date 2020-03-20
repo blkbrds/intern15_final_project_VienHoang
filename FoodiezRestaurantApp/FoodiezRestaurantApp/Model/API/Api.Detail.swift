@@ -38,24 +38,13 @@ extension Api.Detail {
                 case .failure(let error):
                     completion(.failure(error))
                 case .success(let json):
-                    guard let json = json as? JSObject,
-                        let response = json["response"] as? JSObject,
-                        let venue = response["venue"] as? JSObject,
-                        let photos = venue["photos"] as? JSObject,
-                        let groups = photos["groups"] as? JSArray
-                        else {
-                            completion(.failure(Api.Error.json))
-                            return }
-                    var place: JSArray = []
-                    for item in groups {
-                        guard let items = item["items"] as? JSArray else { return }
-                        place.append(contentsOf: items)
+                    guard let json = json as? JSObject, let response = json["response"] as? JSObject, let venue = response["venue"] as? JSObject else {
+                        return
                     }
-                    let channel = Mapper<DetailImage>().mapArray(JSONArray: place).first
+                    let channel = Mapper<DetailImage>().map(JSONObject: venue)
                     completion(.success(channel))
                 }
             }
         }
     }
 }
-
