@@ -15,7 +15,7 @@ final class DetailImage: Mappable {
     var prefix: String = ""
     var suffix: String = ""
     var nameSource: String = ""
-    var userName: String = ""
+    var firstName: String = ""
     var prefixUser: String = ""
     var suffixUser: String = ""
     var lastName: String = ""
@@ -28,9 +28,8 @@ final class DetailImage: Mappable {
     var address: String = ""
     var city: String = ""
     var country: String = ""
-    var menu: Menu?
     var id: String = ""
-
+    var groups: JSArray = []
     //MARK: - Init
     init?(map: Map) { }
 
@@ -39,21 +38,33 @@ final class DetailImage: Mappable {
     //MARK: Public Func
     func mapping(map: Map) {
         id <- map["id"]
-        prefix <- map["prefix"]
-        suffix <- map["suffix"]
         nameSource <- map["source.name"]
-        userName <- map["user.firstName"]
-        prefixUser <- map["user.photo.prefix"]
-        suffixUser <- map["user.photo.suffix"]
-        lastName <- map["user.lastName"]
         name <- map["name"]
         formattedPhone <- map["contact.formattedPhone"]
         twitter <- map["contact.twitter"]
         facebookName <- map["contact.facebookName"]
         rating <- map["rating"]
-        count <- map["like.count"]
+        count <- map["likes.count"]
         address <- map["location.address"]
         city <- map["city"]
         country <- map["country"]
+        groups <- map["photos.groups"]
+        var array: JSArray = []
+        for index in groups {
+            guard let items = index["items"] as? JSArray else { return }
+            array = items
+        }
+        for item in array{
+            guard let prefix = item["prefix"] as? String else { return }
+            self.prefix = prefix
+            guard let suffix = item["suffix"] as? String else { return }
+            self.suffix = suffix
+            firstName <- map["user.firstName"]
+            guard let  user = item["user"] as? JSObject, let firstName = user["firstName"] as? String, let lastName = user["user.lastName"] as? String, let photo = user["photo"] as? JSObject, let prefixUser = photo["prefixUser"] as? String, let suffixUser = photo["suffixUser"] as? String  else { return }
+            self.firstName = firstName
+            self.lastName = lastName
+            self.prefixUser = prefixUser
+            self.suffixUser = suffixUser
+        }
     }
 }

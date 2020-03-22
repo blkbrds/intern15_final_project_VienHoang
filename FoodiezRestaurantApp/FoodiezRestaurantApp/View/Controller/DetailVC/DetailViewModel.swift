@@ -24,7 +24,7 @@ final class DetailViewModel {
         guard let menu = menu else {
             return
         }
-        Api.Path.Detail.baseBath = menu.id
+        Api.Path.Detail.basePath = menu.id
         let params = Api.Detail.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll)
         Api.Detail.getLocation(params: params) { [weak self] (result) in
             guard let self = self else { return }
