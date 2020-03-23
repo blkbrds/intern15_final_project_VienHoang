@@ -6,7 +6,7 @@
 //  Copyright © 2020 VienH. All rights reserved.
 //
 import UIKit
-
+import RealmSwift
 final class DetailViewController: UIViewController {
 
     //MARK: - IBOutlet
@@ -26,20 +26,22 @@ final class DetailViewController: UIViewController {
     @IBOutlet private weak var nameUserLabel: UILabel!
     @IBOutlet private weak var likeCount: UILabel!
     @IBOutlet private weak var idFacebookLabel: UILabel!
-    
+
     //MARK: - Properties
     var viewModel: DetailViewModel?
+    var isCouponFav = UserDefaults.standard.bool(forKey: "isCouponFav")
 
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("----RealmURL: ", Realm.Configuration.defaultConfiguration.fileURL)
         loadApi()
     }
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         blurViewDetail.layer.cornerRadius = Config.connerBlurView
-        
+
     }
 
     //MARK: - Life cycle
@@ -68,19 +70,52 @@ final class DetailViewController: UIViewController {
         guard let viewModel = viewModel else {
             return
         }
+        let imageUser = "\(viewModel.menu?.detailImage?.prefixUser ?? "")60x60\(viewModel.menu?.detailImage?.suffixUser ?? "")"
+        userImageView.setImage(url: imageUser)
         let imageDetail = "\(viewModel.menu?.detailImage?.prefix ?? "")400x800\(viewModel.menu?.detailImage?.suffix ?? "")"
+        
+        let userName = "\(viewModel.menu?.detailImage?.firstName ?? "").\(viewModel.menu?.detailImage?.lastName ?? ""))"
+        nameUserLabel.text = userName
         imageView.setImage(url: imageDetail, defaultImage: #imageLiteral(resourceName: "ic-detail"))
         countryLabel.text = viewModel.menu?.detailImage?.country
-        nameLocationLabel.text = viewModel.menu?.detailImage?.name
-        twitterLabel.text = viewModel.menu?.detailImage?.twitter
+        let nameLocation = viewModel.menu?.detailImage?.name
+        if nameLocation != "" {
+            nameLocationLabel.text = "\(nameLocation ?? "")"
+        } else {
+            nameLocationLabel.text = "NhàViên"
+        }
+        let twitters = viewModel.menu?.detailImage?.twitter
+        if twitters != "" {
+            twitterLabel.text = "\(twitters ?? "")"
+        } else {
+            twitterLabel.text = "twitterforvien"
+        }
         facebookNameLabel.text = viewModel.menu?.detailImage?.facebookName
         ratingLabel.text = viewModel.menu?.detailImage?.rating
         addressLabel.text = viewModel.menu?.detailImage?.address
         cityLabel.text = viewModel.menu?.detailImage?.city
-        formattedPhoneLabel.text = "\(viewModel.menu?.detailImage?.formattedPhone ?? "")"
+        let formattedPhone = viewModel.menu?.detailImage?.formattedPhone
+        if  formattedPhone != "" {
+            formattedPhoneLabel.text = "\(formattedPhone ?? "")"
+        } else {
+            formattedPhoneLabel.text = "\(0799118690)"
+        }
         nameUserLabel.text = "\(viewModel.menu?.detailImage?.lastName ?? "").\(viewModel.menu?.detailImage?.firstName ?? "")"
         likeCount.text = "\(viewModel.menu?.detailImage?.count ?? 0)"
         idFacebookLabel.text = viewModel.menu?.detailImage?.idFacebook
+    }
+
+    @IBAction func favButtonTapped(sender: UIButton) {
+        var imgae: UIImage?
+        if isCouponFav {
+            imgae = #imageLiteral(resourceName: "icons8-love-32")
+        } else {
+            imgae = #imageLiteral(resourceName: "icons8-love-31")
+        }
+        isCouponFav = !isCouponFav
+        sender.setImage(imgae, for: .normal)
+        UserDefaults.standard.set(isCouponFav, forKey: "isCouponFav")
+        UserDefaults.standard.synchronize()
     }
 }
 

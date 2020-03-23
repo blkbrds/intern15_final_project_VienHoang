@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 final class DetailViewModel {
 
@@ -35,6 +36,14 @@ final class DetailViewModel {
             case .failure(let error):
                 completion(.failure(error))
             }
+        }
+    }
+    
+    func isFavorites(completion : RealmCompletion) {
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.create(DetailImage.self, value: "id")
         }
     }
 }

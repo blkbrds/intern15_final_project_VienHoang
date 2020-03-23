@@ -7,24 +7,21 @@
 //
 
 import UIKit
+import RealmSwift
 
-class FavoriteViewController: UIViewController {
-
+final class FavoriteViewController: ViewController {
+    
+    //MARK: - IBOutlet
+    @IBOutlet private weak var tableView: UITableView!
+    
+    private var refreshControl = UIRefreshControl()
+    private var cellRegister: String = "CollectionViewCell"
+    private var notificationToken = NotificationToken()
+    
+    var viewModel = FavoriteViewModel()
+    
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

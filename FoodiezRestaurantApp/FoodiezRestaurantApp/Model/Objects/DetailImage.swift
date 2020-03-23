@@ -8,34 +8,35 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
-final class DetailImage: Mappable {
+final class DetailImage: Object, Mappable {
 
     //MARK: - Properties
-    var prefix: String = ""
-    var suffix: String = ""
+    @objc dynamic var prefix: String = ""
+    @objc dynamic var suffix: String = ""
     var nameSource: String = ""
     var firstName: String = ""
     var prefixUser: String = ""
     var suffixUser: String = ""
     var lastName: String = ""
-    var name: String = ""
+    @objc dynamic var name: String = ""
     var formattedPhone: String = ""
     var twitter: String = ""
     var facebookName: String = ""
-    var rating: String = ""
+    @objc dynamic var rating: String = ""
     var count: Int = 0
-    var address: String = ""
+    @objc dynamic var address: String = ""
     var city: String = ""
     var country: String = ""
-    var id: String = ""
+    @objc dynamic var id: String = ""
     var groups: JSArray = []
     var idFacebook: String = ""
-    
+
     //MARK: - Init
     init?(map: Map) { }
 
-    init() { }
+    required init() { }
 
     //MARK: Public Func
     func mapping(map: Map) {
@@ -62,13 +63,35 @@ final class DetailImage: Mappable {
             self.prefix = prefix
             guard let suffix = item["suffix"] as? String else { return }
             self.suffix = suffix
-            firstName <- map["user.firstName"]
-            if let user = item["user"] as? JSObject, let firstName = user["firstName"] as? String, let lastName = user["user.lastName"] as? String, let photo = user["photo"] as? JSObject, let prefixUser = photo["prefixUser"] as? String, let suffixUser = photo["suffixUser"] as? String {
-                self.firstName = firstName
-                self.lastName = lastName
+//            firstName <- map["user.firstName"]
+            guard let user = item["user"] as? JSObject else {
+                return
+            }
+            guard let lastName = user["lastName"] as? String, let firstName = user["firstName"] as? String else { return }
+            self.lastName = lastName
+            self.firstName = firstName
+            
+            guard let photo = user["photo"] as? JSObject else { return }
+            if let prefixUser = photo["prefix"] as? String {
                 self.prefixUser = prefixUser
+            } else {
+                self.prefixUser = ""
+            }
+            if let suffixUser = photo["suffix"] as? String {
                 self.suffixUser = suffixUser
+            } else {
+                self.suffixUser = ""
             }
         }
     }
+
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+
+    override class func ignoredProperties() -> [String] {
+        return ["nameSource", "firstName", "prefixUser", "suffixUser", "lastName", "formattedPhone", "twitter", "facebookName", "count", "city", "country", "groups", "idFacebook"]
+    }
 }
+
+

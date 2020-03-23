@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+final class FavoriteViewModel {
+    
+    //MARK: - Properties
+    private var favoritesPlaces: [Menu] = []
+}
+

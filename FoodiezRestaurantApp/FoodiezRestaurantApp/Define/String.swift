@@ -18,8 +18,8 @@ extension App {
 }
 
 extension App.String {
-    static let clientID = "CEXVTR55IF1UJYBUT32SZH4JEXT5PSF4RA2V1WNL25IWTYAO"
-    static let clientSecret = "4YPRBPIW0AYAM5DH0OLUTN1IOCGIXINXPUPWFNBI3RVKG2TU"
+    static let clientID = "WIY1IT2ODH0EGBJR4CF5NHGTC5MWRG2SPPJOA0VBPYTS2QHR"
+    static let clientSecret = "PP1ZWRSAJSZBGQHHCEYFNPORQZKLAOWCRGNVKZQDZTGCVOG3"
 
     static let ll = "40.7,-74"
     static let v = "20162504"
