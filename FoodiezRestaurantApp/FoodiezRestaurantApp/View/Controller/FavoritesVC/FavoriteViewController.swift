@@ -1,5 +1,5 @@
 //
-//  SearchViewController.swift
+//  FavoriteViewController.swift
 //  FoodiezRestaurantApp
 //
 //  Created by user on 3/23/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class FavoriteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
