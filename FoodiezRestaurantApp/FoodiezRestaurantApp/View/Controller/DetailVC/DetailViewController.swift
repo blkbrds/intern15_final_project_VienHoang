@@ -25,6 +25,8 @@ final class DetailViewController: UIViewController {
     @IBOutlet private weak var userImageView: UIImageView!
     @IBOutlet private weak var nameUserLabel: UILabel!
     @IBOutlet private weak var likeCount: UILabel!
+    @IBOutlet private weak var idFacebookLabel: UILabel!
+    
     //MARK: - Properties
     var viewModel: DetailViewModel?
 
@@ -75,9 +77,10 @@ final class DetailViewController: UIViewController {
         ratingLabel.text = viewModel.menu?.detailImage?.rating
         addressLabel.text = viewModel.menu?.detailImage?.address
         cityLabel.text = viewModel.menu?.detailImage?.city
-        formattedPhoneLabel.text = viewModel.menu?.detailImage?.formattedPhone
+        formattedPhoneLabel.text = "\(viewModel.menu?.detailImage?.formattedPhone ?? "")"
         nameUserLabel.text = "\(viewModel.menu?.detailImage?.lastName ?? "").\(viewModel.menu?.detailImage?.firstName ?? "")"
-        likeCount.text = viewModel.menu?.detailImage?.count
+        likeCount.text = "\(viewModel.menu?.detailImage?.count ?? 0)"
+        idFacebookLabel.text = viewModel.menu?.detailImage?.idFacebook
     }
 }
 

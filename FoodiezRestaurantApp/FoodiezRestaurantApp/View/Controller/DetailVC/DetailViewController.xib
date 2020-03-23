@@ -17,6 +17,7 @@
                 <outlet property="facebookNameLabel" destination="skz-ho-HCb" id="bAy-ae-gmz"/>
                 <outlet property="formattedPhoneLabel" destination="VLg-Pl-rCr" id="lf3-wg-cHH"/>
                 <outlet property="idFacebook" destination="wCd-aC-nOo" id="0kb-pk-Zzw"/>
+                <outlet property="idFacebookLabel" destination="wCd-aC-nOo" id="dGf-dZ-XOv"/>
                 <outlet property="imageView" destination="3ut-k9-7W7" id="pjV-74-epr"/>
                 <outlet property="likeCount" destination="IjN-Xu-qsJ" id="xj9-zG-Pqg"/>
                 <outlet property="nameLocationLabel" destination="ATD-dJ-F9X" id="WQg-5t-epL"/>

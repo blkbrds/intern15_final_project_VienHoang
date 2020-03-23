@@ -24,12 +24,14 @@ final class DetailImage: Mappable {
     var twitter: String = ""
     var facebookName: String = ""
     var rating: String = ""
-    var count: String = ""
+    var count: Int = 0
     var address: String = ""
     var city: String = ""
     var country: String = ""
     var id: String = ""
     var groups: JSArray = []
+    var idFacebook: String = ""
+    
     //MARK: - Init
     init?(map: Map) { }
 
@@ -49,22 +51,24 @@ final class DetailImage: Mappable {
         city <- map["city"]
         country <- map["country"]
         groups <- map["photos.groups"]
+        idFacebook <- map["contact.facebook"]
         var array: JSArray = []
         for index in groups {
             guard let items = index["items"] as? JSArray else { return }
             array = items
         }
-        for item in array{
+        for item in array {
             guard let prefix = item["prefix"] as? String else { return }
             self.prefix = prefix
             guard let suffix = item["suffix"] as? String else { return }
             self.suffix = suffix
             firstName <- map["user.firstName"]
-            guard let  user = item["user"] as? JSObject, let firstName = user["firstName"] as? String, let lastName = user["user.lastName"] as? String, let photo = user["photo"] as? JSObject, let prefixUser = photo["prefixUser"] as? String, let suffixUser = photo["suffixUser"] as? String  else { return }
-            self.firstName = firstName
-            self.lastName = lastName
-            self.prefixUser = prefixUser
-            self.suffixUser = suffixUser
+            if let user = item["user"] as? JSObject, let firstName = user["firstName"] as? String, let lastName = user["user.lastName"] as? String, let photo = user["photo"] as? JSObject, let prefixUser = photo["prefixUser"] as? String, let suffixUser = photo["suffixUser"] as? String {
+                self.firstName = firstName
+                self.lastName = lastName
+                self.prefixUser = prefixUser
+                self.suffixUser = suffixUser
+            }
         }
     }
 }
