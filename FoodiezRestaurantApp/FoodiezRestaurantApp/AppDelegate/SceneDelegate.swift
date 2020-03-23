@@ -17,15 +17,15 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let homeVC = HomeViewController()
         let homeNavi = UINavigationController(rootViewController: homeVC)
-        homeNavi.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
+        homeNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
 
         let favoritesVC = FavoritesViewController()
         let favoritesNavi = UINavigationController(rootViewController: favoritesVC)
-        favoritesNavi.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(named: "favorite"), selectedImage: UIImage(named: "favorite"))
+        favoritesNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "favorite"), selectedImage: UIImage(named: "favorite"))
 
         let searchVC = SearchViewController()
         let searchNavi = UINavigationController(rootViewController: searchVC)
-        searchNavi.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), tag: 2)
+        searchNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "search"), tag: 2)
 
         let tabbarController = UITabBarController()
         tabbarController.viewControllers = [homeNavi, favoritesNavi, searchNavi]

@@ -18,9 +18,10 @@ extension App {
 }
 
 extension App.String {
-    static let clientID = "U15EYIZEPQYA1J4OD4RDOX3AODLXS2BEVPB0Q50MDV51CIQL"
-    static let clientSecret = "Z11A3B140OMH0NZEMM2URPCCFEE1FVPB0YEPAOD5G3NB1DXE"
-    static let ll = "16.0776738,108.197205"
+    static let clientID = "CEXVTR55IF1UJYBUT32SZH4JEXT5PSF4RA2V1WNL25IWTYAO"
+    static let clientSecret = "4YPRBPIW0AYAM5DH0OLUTN1IOCGIXINXPUPWFNBI3RVKG2TU"
+
+    static let ll = "40.7,-74"
     static let v = "20162504"
     static let slideImageCell = "SlideImageCell"
 }

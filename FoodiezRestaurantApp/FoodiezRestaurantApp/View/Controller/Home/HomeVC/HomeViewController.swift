@@ -9,6 +9,11 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    
+    //MARK: - Life cycle
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     //MARK: - Life cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -23,14 +28,12 @@ final class HomeViewController: BaseViewController {
     @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var collectionView: UICollectionView!
 
-
     //MARK: - Properties
     var viewModel = HomeViewModel()
 
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Discovery"
         setupData()
         setupUI()
     }
