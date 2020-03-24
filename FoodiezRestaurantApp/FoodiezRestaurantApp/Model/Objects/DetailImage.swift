@@ -15,21 +15,21 @@ final class DetailImage: Object, Mappable {
     //MARK: - Properties
     @objc dynamic var prefix: String = ""
     @objc dynamic var suffix: String = ""
+    @objc dynamic var name: String = ""
+//    @objc dynamic var rating: String = ""
+    @objc dynamic var address: String = ""
+    @objc dynamic var id: String = ""
     var nameSource: String = ""
     var firstName: String = ""
     var prefixUser: String = ""
     var suffixUser: String = ""
     var lastName: String = ""
-    @objc dynamic var name: String = ""
     var formattedPhone: String = ""
     var twitter: String = ""
     var facebookName: String = ""
-    @objc dynamic var rating: String = ""
     var count: Int = 0
-    @objc dynamic var address: String = ""
     var city: String = ""
     var country: String = ""
-    @objc dynamic var id: String = ""
     var groups: JSArray = []
     var idFacebook: String = ""
 
@@ -46,7 +46,7 @@ final class DetailImage: Object, Mappable {
         formattedPhone <- map["contact.formattedPhone"]
         twitter <- map["contact.twitter"]
         facebookName <- map["contact.facebookName"]
-        rating <- map["rating"]
+  //      rating <- map["rating"]
         count <- map["likes.count"]
         address <- map["location.address"]
         city <- map["city"]
@@ -61,7 +61,7 @@ final class DetailImage: Object, Mappable {
         for item in array {
             guard let prefix = item["prefix"] as? String else { return }
             self.prefix = prefix
-            
+
             guard let suffix = item["suffix"] as? String else { return }
             self.suffix = suffix
             guard let user = item["user"] as? JSObject else {

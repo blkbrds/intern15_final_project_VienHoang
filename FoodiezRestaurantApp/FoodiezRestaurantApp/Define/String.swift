@@ -24,4 +24,5 @@ extension App.String {
     static let ll = "40.7,-74"
     static let v = "20162504"
     static let slideImageCell = "SlideImageCell"
+    static let favoritesCell = "FavoritesTableViewCell"
 }

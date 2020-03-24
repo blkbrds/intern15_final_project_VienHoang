@@ -95,7 +95,7 @@ final class DetailViewController: UIViewController {
             twitterLabel.text = "twitterforvien"
         }
         facebookNameLabel.text = viewModel.menu.detailImage?.facebookName
-        ratingLabel.text = viewModel.menu.detailImage?.rating
+ //       ratingLabel.text = viewModel.menu.detailImage?.rating
         addressLabel.text = viewModel.menu.detailImage?.address
         cityLabel.text = viewModel.menu.detailImage?.city
         let formattedPhone = viewModel.menu.detailImage?.formattedPhone
@@ -109,7 +109,7 @@ final class DetailViewController: UIViewController {
         idFacebookLabel.text = viewModel.menu.detailImage?.idFacebook
     }
 
-    @IBAction func favButtonTapped(sender: UIButton) {
+    @IBAction func favoriteButtonTapped(sender: UIButton) {
         guard let viewModel = viewModel?.menu.isFavorite else {
             return
         }
@@ -117,16 +117,16 @@ final class DetailViewController: UIViewController {
     }
 
     func configFavoritesCustom(isFavorites: Bool, sender: UIButton?) {
-        var imgae: UIImage?
+        var image: UIImage?
         if !isFavorites {
-            imgae = #imageLiteral(resourceName: "icons8-love-32")
+            image = #imageLiteral(resourceName: "icons8-love-32")
         } else {
-            imgae = #imageLiteral(resourceName: "icons8-love-31")
+            image = #imageLiteral(resourceName: "icons8-love-31")
         }
         guard let sender = sender else {
             return
         }
-        sender.setImage(imgae, for: .normal)
+        sender.setImage(image, for: .normal)
         handleFavoritesButton()
     }
 

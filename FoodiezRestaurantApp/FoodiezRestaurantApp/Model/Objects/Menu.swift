@@ -23,17 +23,17 @@ final class Menu: Object, Mappable {
     var suffixCategories = ""
     var address: String = ""
     var distance: String = ""
-    var rating: String = ""
+ //   var rating: String = ""
     @objc dynamic var isFavorite: Bool = false
-    
+
     //MARK: - Init
     init?(map: Map) { }
 
     required init() { }
-    
+
     struct GoogleApiResult {
-           var places: [Menu]
-       }
+        var places: [Menu]
+    }
 
     //MARK: Public functions
     func mapping(map: Map) {
@@ -50,12 +50,12 @@ final class Menu: Object, Mappable {
         id <- map["id"]
         address <- map["location.address"]
     }
-    
+
     override static func primaryKey() -> String? {
-      return "id"
+        return "id"
     }
-    
-     override class func ignoredProperties() -> [String] {
-      return ["name", "lat", "long", "tagcategorys", "prefixCategories", "suffixCategories", "address", "distance", "rating"]
+
+    override class func ignoredProperties() -> [String] {
+        return ["name", "lat", "long", "tagcategorys", "prefixCategories", "suffixCategories", "address", "distance", "rating"]
     }
 }

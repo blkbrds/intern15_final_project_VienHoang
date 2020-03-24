@@ -12,7 +12,7 @@ final class FavoritesCell: UITableViewCell {
 
     //MARK: - Properties
     @IBOutlet private weak var addressLocationLabel: UILabel!
-    @IBOutlet private weak var ratingLocationLabel: UILabel!
+    @IBOutlet private weak var phoneLocationLabel: UILabel!
     @IBOutlet private weak var nameLocationLabel: UILabel!
     @IBOutlet private weak var locationImageView: UIImageView!
     

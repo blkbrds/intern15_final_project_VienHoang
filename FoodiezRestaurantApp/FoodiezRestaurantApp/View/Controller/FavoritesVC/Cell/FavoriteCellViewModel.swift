@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+final class FavoritesCellViewModel {
+    var nameLacation: String = ""
+    var addressLocation: String = ""
+    var phoneNumberLocation: String = ""
+    var imageLocation: String = ""
+    
+    init(menu: Menu) {
+        nameLacation = menu.detailImage?.name ?? ""
+        addressLocation = menu.detailImage?.address ?? ""
+        phoneNumberLocation = menu.detailImage?.formattedPhone ?? ""
+        imageLocation = "\(menu.detailImage?.prefix ?? "")80x100\(menu.detailImage?.suffix ?? "")"
+    }
+}

@@ -13,6 +13,9 @@
 		CE13FE7A2428603000D25315 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE13FE782428603000D25315 /* SearchViewController.xib */; };
 		CE13FE7C242861CD00D25315 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE13FE7B242861CD00D25315 /* FavoriteViewModel.swift */; };
 		CE13FE7E242866D700D25315 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE13FE7D242866D700D25315 /* ViewController.swift */; };
+		CE13FE832429E7BE00D25315 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE13FE812429E7BE00D25315 /* FavoritesCell.swift */; };
+		CE13FE842429E7BE00D25315 /* FavoritesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE13FE822429E7BE00D25315 /* FavoritesTableViewCell.xib */; };
+		CE13FE8A2429FCB400D25315 /* FavoriteCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE13FE892429FCB400D25315 /* FavoriteCellViewModel.swift */; };
 		CE309D522410E84500E817E1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE309D502410E84500E817E1 /* MapViewController.swift */; };
 		CE309D532410E84500E817E1 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE309D512410E84500E817E1 /* MapViewController.xib */; };
 		CE309D552410F25C00E817E1 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE309D542410F25C00E817E1 /* MapViewModel.swift */; };
@@ -68,6 +71,9 @@
 		CE13FE782428603000D25315 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		CE13FE7B242861CD00D25315 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		CE13FE7D242866D700D25315 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = FoodiezRestaurantApp/View/Controller/FavoritesVC/ViewController.swift; sourceTree = SOURCE_ROOT; };
+		CE13FE812429E7BE00D25315 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
+		CE13FE822429E7BE00D25315 /* FavoritesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesTableViewCell.xib; sourceTree = "<group>"; };
+		CE13FE892429FCB400D25315 /* FavoriteCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCellViewModel.swift; sourceTree = "<group>"; };
 		CE309D502410E84500E817E1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CE309D512410E84500E817E1 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		CE309D542410F25C00E817E1 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -159,6 +165,16 @@
 				CE13FE782428603000D25315 /* SearchViewController.xib */,
 			);
 			path = SearchVC;
+			sourceTree = "<group>";
+		};
+		CE13FE802429E79F00D25315 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE13FE812429E7BE00D25315 /* FavoritesCell.swift */,
+				CE13FE822429E7BE00D25315 /* FavoritesTableViewCell.xib */,
+				CE13FE892429FCB400D25315 /* FavoriteCellViewModel.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		CE309D4F2410E82600E817E1 /* MapVC */ = {
@@ -288,6 +304,7 @@
 		CE3A60AF240618EA0031B935 /* FavoritesVC */ = {
 			isa = PBXGroup;
 			children = (
+				CE13FE802429E79F00D25315 /* Cell */,
 				CE13FE7224285F3D00D25315 /* FavoriteViewController.swift */,
 				CE13FE7324285F3D00D25315 /* FavoriteViewController.xib */,
 				CE13FE7B242861CD00D25315 /* FavoriteViewModel.swift */,
@@ -456,6 +473,7 @@
 				CE52E5482415E1060090B9A0 /* DetailViewController.xib in Resources */,
 				CE3A60C124061EB00031B935 /* HomeViewController.xib in Resources */,
 				CE13FE7A2428603000D25315 /* SearchViewController.xib in Resources */,
+				CE13FE842429E7BE00D25315 /* FavoritesTableViewCell.xib in Resources */,
 				CE3A60C6240625D60031B935 /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,7 +539,9 @@
 				CE13FE7424285F3D00D25315 /* FavoriteViewController.swift in Sources */,
 				CE3A60C5240625D60031B935 /* CollectionViewCell.swift in Sources */,
 				CEEAAF83240CC40B00BEF784 /* CollectionExt.swift in Sources */,
+				CE13FE8A2429FCB400D25315 /* FavoriteCellViewModel.swift in Sources */,
 				CE309D552410F25C00E817E1 /* MapViewModel.swift in Sources */,
+				CE13FE832429E7BE00D25315 /* FavoritesCell.swift in Sources */,
 				CEEAAF78240CBEB800BEF784 /* RequestSerializer.swift in Sources */,
 				CE13FE792428603000D25315 /* SearchViewController.swift in Sources */,
 				CEEAAF87240CC43C00BEF784 /* UIViewControllerExt.swift in Sources */,
