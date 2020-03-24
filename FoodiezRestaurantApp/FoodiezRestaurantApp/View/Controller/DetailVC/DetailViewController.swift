@@ -7,6 +7,7 @@
 //
 import UIKit
 import RealmSwift
+
 final class DetailViewController: UIViewController {
 
     //MARK: - IBOutlet
@@ -29,38 +30,29 @@ final class DetailViewController: UIViewController {
 
     //MARK: - Properties
     var viewModel: DetailViewModel?
-//    var isCouponFav = UserDefaults.standard.bool(forKey: "isCouponFav")
 
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         loadApi()
-//        setupUI()
         print(Realm.Configuration.defaultConfiguration.fileURL?.absoluteURL)
     }
-
-//    override func viewWillLayoutSubviews() {
-//        super.viewWillLayoutSubviews()
-//        blurViewDetail.layer.cornerRadius = Config.connerBlurView
-//
-//    }
 
     //MARK: - Life cycle
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchDataRealm()
     }
-    
+
+    //MARK: - Public funtions
     func setupUI() {
-//        handleFavoritesButton()
         configFavoritesCustom(isFavorites: false, sender: nil)
     }
 
-    //MARK: - Public functions
     func loadApi() {
         fetchData()
     }
@@ -84,8 +76,8 @@ final class DetailViewController: UIViewController {
         }
         let imageUser = "\(viewModel.menu.detailImage?.prefixUser ?? "")60x60\(viewModel.menu.detailImage?.suffixUser ?? "")"
         userImageView.setImage(url: imageUser)
+        userImageView.layer.cornerRadius = userImageView.frame.width / 2
         let imageDetail = "\(viewModel.menu.detailImage?.prefix ?? "")400x800\(viewModel.menu.detailImage?.suffix ?? "")"
-
         let userName = "\(viewModel.menu.detailImage?.firstName ?? "").\(viewModel.menu.detailImage?.lastName ?? ""))"
         nameUserLabel.text = userName
         imageView.setImage(url: imageDetail, defaultImage: #imageLiteral(resourceName: "ic-detail"))
@@ -131,13 +123,10 @@ final class DetailViewController: UIViewController {
         } else {
             imgae = #imageLiteral(resourceName: "icons8-love-31")
         }
-//        isCouponFav = !isCouponFav
         guard let sender = sender else {
             return
         }
         sender.setImage(imgae, for: .normal)
-//        UserDefaults.standard.set(isFavorites, forKey: "isCouponFav")
-//        UserDefaults.standard.synchronize()
         handleFavoritesButton()
     }
 

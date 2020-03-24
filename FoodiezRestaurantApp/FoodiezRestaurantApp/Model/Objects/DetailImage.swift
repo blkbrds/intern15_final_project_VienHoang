@@ -61,16 +61,15 @@ final class DetailImage: Object, Mappable {
         for item in array {
             guard let prefix = item["prefix"] as? String else { return }
             self.prefix = prefix
+            
             guard let suffix = item["suffix"] as? String else { return }
             self.suffix = suffix
-//            firstName <- map["user.firstName"]
             guard let user = item["user"] as? JSObject else {
                 return
             }
             guard let lastName = user["lastName"] as? String, let firstName = user["firstName"] as? String else { return }
             self.lastName = lastName
             self.firstName = firstName
-            
             guard let photo = user["photo"] as? JSObject else { return }
             if let prefixUser = photo["prefix"] as? String {
                 self.prefixUser = prefixUser

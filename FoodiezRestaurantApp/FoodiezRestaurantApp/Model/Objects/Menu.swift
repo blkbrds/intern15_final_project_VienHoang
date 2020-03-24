@@ -56,6 +56,6 @@ final class Menu: Object, Mappable {
     }
     
      override class func ignoredProperties() -> [String] {
-      return ["name", "lat", "long", "detailImage", "tagcategorys", "prefixCategories", "suffixCategories", "address", "distance", "rating"]
+      return ["name", "lat", "long", "tagcategorys", "prefixCategories", "suffixCategories", "address", "distance", "rating"]
     }
 }

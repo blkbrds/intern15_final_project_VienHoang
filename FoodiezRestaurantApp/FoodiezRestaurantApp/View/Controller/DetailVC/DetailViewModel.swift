@@ -15,7 +15,6 @@ final class DetailViewModel {
     //MARK: - Properties
     var menu: Menu
     
-    
     //MARK: Init
     init(menu: Menu = Menu()) {
         self.menu = menu
