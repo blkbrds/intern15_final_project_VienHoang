@@ -15,13 +15,16 @@ final class FavoritesCell: UITableViewCell {
     @IBOutlet private weak var phoneLocationLabel: UILabel!
     @IBOutlet private weak var nameLocationLabel: UILabel!
     @IBOutlet private weak var locationImageView: UIImageView!
-    
-    //MARK: - Lyfe cycle
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    var viewModel: FavoritesCellViewModel? {
+        didSet {
+            updateUI()
+        }
+    }
+    func updateUI() {
+        addressLocationLabel.text = viewModel?.addressLocation
+        phoneLocationLabel.text = viewModel?.phoneNumberLocation
+        nameLocationLabel.text = viewModel?.nameLacation
+        locationImageView.setImage(url: viewModel?.imageLocation, defaultImage: #imageLiteral(resourceName: "icons8-user-60"))
     }
 }

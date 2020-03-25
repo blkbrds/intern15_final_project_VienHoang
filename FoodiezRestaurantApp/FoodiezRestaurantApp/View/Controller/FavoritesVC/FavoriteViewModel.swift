@@ -11,6 +11,14 @@ import Foundation
 final class FavoriteViewModel {
     
     //MARK: - Properties
-    private var favoritesPlaces: [Menu] = []
+    var menu: [Menu] = []
+    
+    func numberOfRowsInSection(section: Int) -> Int {
+        return menu.count
+    }
+    
+    func favoritesCellViewModell(at indexPath: IndexPath) -> FavoritesCellViewModel {
+        return FavoritesCellViewModel(menu: menu[indexPath.row])
+    }
 }
 

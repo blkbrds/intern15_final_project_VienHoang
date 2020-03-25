@@ -95,7 +95,6 @@ final class DetailViewController: UIViewController {
             twitterLabel.text = "twitterforvien"
         }
         facebookNameLabel.text = viewModel.menu.detailImage?.facebookName
- //       ratingLabel.text = viewModel.menu.detailImage?.rating
         addressLabel.text = viewModel.menu.detailImage?.address
         cityLabel.text = viewModel.menu.detailImage?.city
         let formattedPhone = viewModel.menu.detailImage?.formattedPhone

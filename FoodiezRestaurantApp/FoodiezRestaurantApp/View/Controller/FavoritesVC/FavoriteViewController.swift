@@ -33,19 +33,21 @@ final class FavoriteViewController: ViewController {
 }
 
 extension FavoriteViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
 
 extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.numberOfRowsInSection(section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as? FavoritesCell else { return UITableViewCell() }
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: App.String.favoritesCell, for: indexPath) as? FavoritesCell else {
+            return UITableViewCell()
         }
-        return UITableViewCell()
+        cell.viewModel = viewModel.favoritesCellViewModell(at: indexPath)
+        return cell
     }
 }
