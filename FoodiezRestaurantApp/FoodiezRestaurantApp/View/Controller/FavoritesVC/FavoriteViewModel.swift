@@ -9,10 +9,19 @@
 import Foundation
 import RealmSwift
 
+protocol FavoriteViewModelDelegate: class {
+    func viewModel(viewModel: FavoriteViewModel, needperfomAction action: FavoriteViewModel.Action)
+}
+
 final class FavoriteViewModel {
+    enum Action {
+        case reloadData
+    }
 
     //MARK: - Properties
     var menus: [Menu] = []
+    var notifacation: NotificationToken?
+    weak var delegate: FavoriteViewModelDelegate?
 
     func numberOfRows(in section: Int) -> Int {
         return menus.count
@@ -24,9 +33,24 @@ final class FavoriteViewModel {
             let objects = realm.objects(Menu.self).filter("isFavorite == true")
             menus = Array(objects)
             completion(.success(nil))
-         } catch {
+        } catch {
             completion(.failure(error))
         }
+    }
+    
+    func setUpObsever() {
+        do {
+            let realm = try Realm()
+            notifacation = realm.objects(Menu.self).observe({ [weak self] (action) in
+                guard let self = self else { return }
+                switch action {
+                case .update:
+                    self.delegate?.viewModel(viewModel: self, needperfomAction: .reloadData)
+                default:
+                    break
+                }
+            })
+        } catch { }
     }
 
     func favoritesCellViewModell(at indexPath: IndexPath) -> FavoritesCellViewModel {

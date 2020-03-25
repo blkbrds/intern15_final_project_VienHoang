@@ -31,8 +31,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="asdghaggsdhuagdgsdgdghjagdhjagsdgajgsdjagdjhasgdsjdhgsjhdgdghgahdgsjdgd" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i72-7g-nSl">
-                        <rect key="frame" x="125" y="72" width="179" height="81.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vien" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i72-7g-nSl">
+                        <rect key="frame" x="125" y="72" width="179" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -43,6 +43,7 @@
                     <constraint firstItem="i72-7g-nSl" firstAttribute="top" secondItem="qOq-Ix-mY7" secondAttribute="bottom" constant="10" id="Ha7-cs-rY4"/>
                     <constraint firstItem="qOq-Ix-mY7" firstAttribute="leading" secondItem="hWW-VR-ghr" secondAttribute="trailing" constant="15" id="NBt-Ys-qHa"/>
                     <constraint firstItem="i72-7g-nSl" firstAttribute="leading" secondItem="hWW-VR-ghr" secondAttribute="trailing" constant="15" id="NFJ-kg-DBc"/>
+                    <constraint firstAttribute="bottom" secondItem="i72-7g-nSl" secondAttribute="bottom" constant="6.5" id="TS4-B3-RgA"/>
                     <constraint firstAttribute="trailing" secondItem="bHV-D1-qlZ" secondAttribute="trailing" constant="15" id="ZWh-jj-eaf"/>
                     <constraint firstAttribute="bottom" secondItem="hWW-VR-ghr" secondAttribute="bottom" constant="10" id="aoP-2r-GqN"/>
                     <constraint firstItem="bHV-D1-qlZ" firstAttribute="leading" secondItem="hWW-VR-ghr" secondAttribute="trailing" constant="15" id="bc0-U8-uHs"/>
@@ -58,7 +59,8 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="addressLocationLabel" destination="i72-7g-nSl" id="dUR-Tv-Hpf"/>
+                <outlet property="addressLabel" destination="qOq-Ix-mY7" id="oAb-sa-tGM"/>
+                <outlet property="likeCountLocatinLabel" destination="i72-7g-nSl" id="dUR-Tv-Hpf"/>
                 <outlet property="locationImageView" destination="hWW-VR-ghr" id="F0C-uJ-PBO"/>
                 <outlet property="nameLocationLabel" destination="bHV-D1-qlZ" id="GM4-Mw-JdJ"/>
             </connections>

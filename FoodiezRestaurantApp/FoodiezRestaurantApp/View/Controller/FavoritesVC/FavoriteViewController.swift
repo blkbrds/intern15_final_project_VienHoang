@@ -23,6 +23,8 @@ final class FavoriteViewController: ViewController {
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
+        viewModel.setUpObsever() 
     }
 
     override func setupUI() {
@@ -56,7 +58,7 @@ final class FavoriteViewController: ViewController {
 
 extension FavoriteViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return UITableView.automaticDimension
     }
 }
 
@@ -71,5 +73,11 @@ extension FavoriteViewController: UITableViewDataSource {
         }
         cell.viewModel = viewModel.favoritesCellViewModell(at: indexPath)
         return cell
+    }
+}
+
+extension FavoriteViewController: FavoriteViewModelDelegate {
+    func viewModel(viewModel: FavoriteViewModel, needperfomAction action: FavoriteViewModel.Action) {
+        fetchData()
     }
 }

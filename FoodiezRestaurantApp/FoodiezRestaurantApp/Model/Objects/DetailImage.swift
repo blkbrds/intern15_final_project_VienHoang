@@ -27,7 +27,7 @@ final class DetailImage: Object, Mappable {
     var formattedPhone: String = ""
     var twitter: String = ""
     var facebookName: String = ""
-    var count: Int = 0
+    @objc dynamic var count: Int = 0
     var city: String = ""
     var country: String = ""
     var groups: JSArray = []
@@ -89,7 +89,7 @@ final class DetailImage: Object, Mappable {
     }
 
     override class func ignoredProperties() -> [String] {
-        return ["nameSource", "firstName", "prefixUser", "suffixUser", "lastName", "formattedPhone", "twitter", "facebookName", "count", "city", "country", "groups", "idFacebook"]
+        return ["nameSource", "firstName", "prefixUser", "suffixUser", "lastName", "formattedPhone", "twitter", "facebookName", "city", "country", "groups", "idFacebook"]
     }
 }
 
