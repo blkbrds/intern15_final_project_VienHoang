@@ -6,6 +6,7 @@
 //  Copyright © 2020 VienH. All rights reserved.
 //
 import UIKit
+import RealmSwift
 
 final class DetailViewController: UIViewController {
 
@@ -26,7 +27,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet private weak var nameUserLabel: UILabel!
     @IBOutlet private weak var likeCount: UILabel!
     @IBOutlet private weak var idFacebookLabel: UILabel!
-    
+
     //MARK: - Properties
     var viewModel: DetailViewModel?
 
@@ -34,12 +35,7 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadApi()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        blurViewDetail.layer.cornerRadius = Config.connerBlurView
-        
+        print(Realm.Configuration.defaultConfiguration.fileURL?.absoluteURL)
     }
 
     //MARK: - Life cycle
@@ -47,7 +43,16 @@ final class DetailViewController: UIViewController {
         return .lightContent
     }
 
-    //MARK: - Public functions
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchDataRealm()
+    }
+
+    //MARK: - Public funtions
+    func setupUI() {
+        configFavoritesCustom(isFavorites: false, sender: nil)
+    }
+
     func loadApi() {
         fetchData()
     }
@@ -58,6 +63,7 @@ final class DetailViewController: UIViewController {
             switch reslut {
             case .success:
                 self.updateUI()
+                self.fetchDataRealm()
             case.failure(let error):
                 self.alert(error: error)
             }
@@ -68,19 +74,80 @@ final class DetailViewController: UIViewController {
         guard let viewModel = viewModel else {
             return
         }
-        let imageDetail = "\(viewModel.menu?.detailImage?.prefix ?? "")400x800\(viewModel.menu?.detailImage?.suffix ?? "")"
+        let imageUser = "\(viewModel.menu.detailImage?.prefixUser ?? "")60x60\(viewModel.menu.detailImage?.suffixUser ?? "")"
+        userImageView.setImage(url: imageUser)
+        userImageView.layer.cornerRadius = userImageView.frame.width / 2
+        let imageDetail = "\(viewModel.menu.detailImage?.prefix ?? "")400x800\(viewModel.menu.detailImage?.suffix ?? "")"
+        let userName = "\(viewModel.menu.detailImage?.firstName ?? "").\(viewModel.menu.detailImage?.lastName ?? ""))"
+        nameUserLabel.text = userName
         imageView.setImage(url: imageDetail, defaultImage: #imageLiteral(resourceName: "ic-detail"))
-        countryLabel.text = viewModel.menu?.detailImage?.country
-        nameLocationLabel.text = viewModel.menu?.detailImage?.name
-        twitterLabel.text = viewModel.menu?.detailImage?.twitter
-        facebookNameLabel.text = viewModel.menu?.detailImage?.facebookName
-        ratingLabel.text = viewModel.menu?.detailImage?.rating
-        addressLabel.text = viewModel.menu?.detailImage?.address
-        cityLabel.text = viewModel.menu?.detailImage?.city
-        formattedPhoneLabel.text = "\(viewModel.menu?.detailImage?.formattedPhone ?? "")"
-        nameUserLabel.text = "\(viewModel.menu?.detailImage?.lastName ?? "").\(viewModel.menu?.detailImage?.firstName ?? "")"
-        likeCount.text = "\(viewModel.menu?.detailImage?.count ?? 0)"
-        idFacebookLabel.text = viewModel.menu?.detailImage?.idFacebook
+        countryLabel.text = viewModel.menu.detailImage?.country
+        let nameLocation = viewModel.menu.detailImage?.name
+        if nameLocation != "" {
+            nameLocationLabel.text = "\(nameLocation ?? "")"
+        } else {
+            nameLocationLabel.text = "NhàViên"
+        }
+        let twitters = viewModel.menu.detailImage?.twitter
+        if twitters != "" {
+            twitterLabel.text = "\(twitters ?? "")"
+        } else {
+            twitterLabel.text = "twitterforvien"
+        }
+        facebookNameLabel.text = viewModel.menu.detailImage?.facebookName
+ //       ratingLabel.text = viewModel.menu.detailImage?.rating
+        addressLabel.text = viewModel.menu.detailImage?.address
+        cityLabel.text = viewModel.menu.detailImage?.city
+        let formattedPhone = viewModel.menu.detailImage?.formattedPhone
+        if formattedPhone != "" {
+            formattedPhoneLabel.text = "\(formattedPhone ?? "")"
+        } else {
+            formattedPhoneLabel.text = "\(0799118690)"
+        }
+        nameUserLabel.text = "\(viewModel.menu.detailImage?.lastName ?? "").\(viewModel.menu.detailImage?.firstName ?? "")"
+        likeCount.text = "\(viewModel.menu.detailImage?.count ?? 0)"
+        idFacebookLabel.text = viewModel.menu.detailImage?.idFacebook
+    }
+
+    @IBAction func favoriteButtonTapped(sender: UIButton) {
+        guard let viewModel = viewModel?.menu.isFavorite else {
+            return
+        }
+        configFavoritesCustom(isFavorites: viewModel, sender: sender)
+    }
+
+    func configFavoritesCustom(isFavorites: Bool, sender: UIButton?) {
+        var image: UIImage?
+        if !isFavorites {
+            image = #imageLiteral(resourceName: "icons8-love-32")
+        } else {
+            image = #imageLiteral(resourceName: "icons8-love-31")
+        }
+        guard let sender = sender else {
+            return
+        }
+        sender.setImage(image, for: .normal)
+        handleFavoritesButton()
+    }
+
+    func handleFavoritesButton() {
+        viewModel?.isFavorites { [weak self] (result) in
+            guard let self = self else { return }
+            switch result {
+            case .success:
+                guard let isFavorites = self.viewModel?.menu.isFavorite else { return }
+                self.configFavoritesCustom(isFavorites: isFavorites, sender: nil)
+            case .failure(let error):
+                self.alert(error: error)
+            }
+        }
+    }
+
+    func fetchDataRealm() {
+        viewModel?.loadFavoritesStatus { [weak self] (isFavorites) in
+            guard let self = self else { return }
+            self.configFavoritesCustom(isFavorites: isFavorites, sender: nil)
+        }
     }
 }
 

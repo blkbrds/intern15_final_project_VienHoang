@@ -8,25 +8,32 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
-final class Menu: Mappable {
+final class Menu: Object, Mappable {
 
     //MARK: - Properties
     var name: String = ""
     var lat: String = ""
     var long: String = ""
-    var detailImage: DetailImage?
-    var id: String = ""
-    var contact: Contact?
+    @objc dynamic var detailImage: DetailImage?
+    @objc dynamic var id: String = ""
     var category: JSArray = []
     var prefixCategories = ""
     var suffixCategories = ""
     var address: String = ""
+    var distance: String = ""
+ //   var rating: String = ""
+    @objc dynamic var isFavorite: Bool = false
 
     //MARK: - Init
     init?(map: Map) { }
 
-    init() { }
+    required init() { }
+
+    struct GoogleApiResult {
+        var places: [Menu]
+    }
 
     //MARK: Public functions
     func mapping(map: Map) {
@@ -42,5 +49,13 @@ final class Menu: Mappable {
         }
         id <- map["id"]
         address <- map["location.address"]
+    }
+
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+
+    override class func ignoredProperties() -> [String] {
+        return ["name", "lat", "long", "tagcategorys", "prefixCategories", "suffixCategories", "address", "distance", "rating"]
     }
 }
