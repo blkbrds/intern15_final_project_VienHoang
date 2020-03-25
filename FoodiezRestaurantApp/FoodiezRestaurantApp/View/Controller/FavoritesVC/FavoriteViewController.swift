@@ -23,29 +23,25 @@ final class FavoriteViewController: ViewController {
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = UITableView.automaticDimension
     }
 
     override func setupUI() {
         tableView.register(name: App.String.favoritesCell)
-        tableView.delegate = self
         tableView.dataSource = self
     }
 }
 
-extension FavoriteViewController: UITableViewDelegate {
-    
-}
-
 extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.numberOfRows(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as? FavoritesCell else { return UITableViewCell() }
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: App.String.favoritesCell, for: indexPath) as? FavoritesCell else {
+            return UITableViewCell()
         }
-        return UITableViewCell()
+        cell.viewModel = viewModel.favoritesCellViewModell(at: indexPath)
+        return cell
     }
 }
