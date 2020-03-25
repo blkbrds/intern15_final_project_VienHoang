@@ -13,7 +13,7 @@ final class FavoriteViewModel {
     //MARK: - Properties
     var menu: [Menu] = []
     
-    func numberOfRowsInSection(section: Int) -> Int {
+    func numberOfRows(section: Int) -> Int {
         return menu.count
     }
     

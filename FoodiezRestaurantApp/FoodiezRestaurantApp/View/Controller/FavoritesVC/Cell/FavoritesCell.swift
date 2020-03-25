@@ -21,6 +21,7 @@ final class FavoritesCell: UITableViewCell {
             updateUI()
         }
     }
+
     func updateUI() {
         addressLocationLabel.text = viewModel?.addressLocation
         phoneLocationLabel.text = viewModel?.phoneNumberLocation
