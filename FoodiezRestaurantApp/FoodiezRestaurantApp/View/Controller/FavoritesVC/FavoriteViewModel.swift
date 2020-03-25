@@ -37,7 +37,7 @@ final class FavoriteViewModel {
             completion(.failure(error))
         }
     }
-    
+
     func setUpObsever() {
         do {
             let realm = try Realm()
@@ -56,5 +56,19 @@ final class FavoriteViewModel {
     func favoritesCellViewModell(at indexPath: IndexPath) -> FavoritesCellViewModel {
         return FavoritesCellViewModel(menu: menus[indexPath.row])
     }
-}
 
+    func removeAllFavorites(completion: RealmCompletion) {
+        do {
+            let realm = try Realm()
+            let objects = realm.objects(Menu.self).filter("isFavorite == true")
+            for item in objects {
+                try realm.write {
+                    item.isFavorite = false
+                }
+            }
+            completion(.success(nil))
+        } catch {
+            completion(.failure(error))
+        }
+    }
+}

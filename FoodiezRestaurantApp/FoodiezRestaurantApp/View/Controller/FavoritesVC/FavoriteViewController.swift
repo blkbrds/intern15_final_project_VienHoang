@@ -28,6 +28,8 @@ final class FavoriteViewController: ViewController {
     }
 
     override func setupUI() {
+        let barButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic-deleteAll"), style: .plain, target: self, action: #selector(deleteAll))
+        navigationItem.rightBarButtonItem = barButtonItem
         let nib = UINib(nibName: "FavoritesCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "FavoritesCell")
         tableView.register(name: App.String.favoritesCell)
@@ -37,6 +39,25 @@ final class FavoriteViewController: ViewController {
 
     override func setupData() {
         fetchData()
+    }
+    
+    @objc func deleteAll() {
+        let alertButton = UIAlertAction(title: App.String.yes, style: .default) { _ in
+            self.viewModel.removeAllFavorites { [weak self] (result) in
+                guard let self = self else { return }
+                switch result {
+                case .success:
+                    self.updateUI()
+                case .failure(let error):
+                    self.alert(error: error)
+                }
+            }
+        }
+        let cancelButton = UIAlertAction(title: App.String.no, style: .cancel, handler: nil)
+        let alert = UIAlertController(title: App.String.warning, message: App.String.removeAll, preferredStyle: .alert)
+        alert.addAction(alertButton)
+        alert.addAction(cancelButton)
+        present(alert, animated: true, completion: nil)
     }
 
     func fetchData() {
