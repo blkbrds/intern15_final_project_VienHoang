@@ -42,8 +42,8 @@ final class FavoriteViewController: ViewController {
     }
 
     @objc private func deleteAllCell() {
-        let alertButton = UIAlertAction(title: App.String.yes, style: .default) { _ in
-            self.viewModel.removeAllFavorites { [weak self] (result) in
+        let alertButton = UIAlertAction(title: App.String.yes, style: .default) { [weak self] _ in
+            self?.viewModel.removeAllFavorites { [weak self] (result) in
                 guard let self = self else { return }
                 switch result {
                 case .success:
