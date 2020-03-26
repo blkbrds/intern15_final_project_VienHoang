@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 protocol FavoriteViewModelDelegate: class {
-    func viewModel(viewModel: FavoriteViewModel, needperfomAction action: FavoriteViewModel.Action)
+    func viewModel(viewModel: FavoriteViewModel, needperform action: FavoriteViewModel.Action)
 }
 
 final class FavoriteViewModel {
@@ -20,7 +20,7 @@ final class FavoriteViewModel {
 
     //MARK: - Properties
     var menus: [Menu] = []
-    var notifacation: NotificationToken?
+    var notificationBlock: NotificationToken?
     weak var delegate: FavoriteViewModelDelegate?
 
     func numberOfRows(in section: Int) -> Int {
@@ -41,11 +41,11 @@ final class FavoriteViewModel {
     func setUpObsever() {
         do {
             let realm = try Realm()
-            notifacation = realm.objects(Menu.self).observe({ [weak self] (action) in
+            notificationBlock = realm.objects(Menu.self).observe({ [weak self] (action) in
                 guard let self = self else { return }
                 switch action {
                 case .update:
-                    self.delegate?.viewModel(viewModel: self, needperfomAction: .reloadData)
+                    self.delegate?.viewModel(viewModel: self, needperform: .reloadData)
                 default:
                     break
                 }
@@ -64,6 +64,20 @@ final class FavoriteViewModel {
             for item in objects {
                 try realm.write {
                     item.isFavorite = false
+                }
+            }
+            completion(.success(nil))
+        } catch {
+            completion(.failure(error))
+        }
+    }
+    
+    func handleUnFavorite(at indexPath: IndexPath, completion: RealmCompletion) {
+        do {
+            let realm = try Realm()
+            if let object = realm.object(ofType: Menu.self, forPrimaryKey: menus[indexPath.row].id)  {
+                try realm.write {
+                    object.isFavorite = false
                 }
             }
             completion(.success(nil))

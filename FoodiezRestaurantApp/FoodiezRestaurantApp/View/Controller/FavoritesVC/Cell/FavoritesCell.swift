@@ -14,7 +14,7 @@ final class FavoritesCell: UITableViewCell {
     @IBOutlet private weak var likeCountLocatinLabel: UILabel!
     @IBOutlet private weak var nameLocationLabel: UILabel!
     @IBOutlet private weak var locationImageView: UIImageView!
-    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet private weak var addressLabel: UILabel!
     
     var viewModel: FavoritesCellViewModel? {
         didSet {
@@ -28,7 +28,6 @@ final class FavoritesCell: UITableViewCell {
             addressLabel.text = viewModel.addressLocation
             nameLocationLabel.text = viewModel.nameLacation
             locationImageView.setImage(url: viewModel.imageLocation, defaultImage: #imageLiteral(resourceName: "icons8-user-60"))
-            
         }
     }
 }

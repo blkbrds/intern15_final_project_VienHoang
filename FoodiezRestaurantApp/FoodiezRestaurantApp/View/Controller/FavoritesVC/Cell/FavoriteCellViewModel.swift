@@ -11,7 +11,6 @@ import Foundation
 final class FavoritesCellViewModel {
     var nameLacation: String = ""
     var addressLocation: String = ""
-//    var phoneNumberLocation: String = ""
     var imageLocation: String = ""
     var likeCountLocation: Int = 0
     

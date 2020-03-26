@@ -24,8 +24,9 @@ extension App.String {
     static let v = "20162504"
     static let slideImageCell = "SlideImageCell"
     static let favoritesCell = "FavoritesCell"
-    static let yes = "ok"
+    static let yes = "yes"
     static let no = "no"
     static let warning = "warning"
-    static let removeAll = "BAN CO CHAC RANG MINH XOA TAT CA DU LIEU KHONG"
+    static let removeAll = "Do you want delete all?"
+    static let identifier = "FavoritesCell"
 }
