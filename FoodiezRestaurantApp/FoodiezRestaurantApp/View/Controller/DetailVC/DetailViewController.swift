@@ -117,10 +117,10 @@ final class DetailViewController: UIViewController {
 
     func configFavoritesCustom(isFavorites: Bool, sender: UIButton?) {
         var image: UIImage?
-        if !isFavorites {
-            image = #imageLiteral(resourceName: "icons8-love-32")
-        } else {
+        if isFavorites {
             image = #imageLiteral(resourceName: "icons8-love-31")
+        } else {
+            image = #imageLiteral(resourceName: "icons8-love-32")
         }
         guard let sender = sender else {
             return

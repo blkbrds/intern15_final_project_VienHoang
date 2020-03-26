@@ -23,7 +23,6 @@ final class Menu: Object, Mappable {
     var suffixCategories = ""
     var address: String = ""
     var distance: String = ""
- //   var rating: String = ""
     @objc dynamic var isFavorite: Bool = false
 
     //MARK: - Init

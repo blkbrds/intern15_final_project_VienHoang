@@ -20,9 +20,13 @@ extension App {
 extension App.String {
     static let clientID = "YFZVFSOQIN043IXQOKIXVU5X0GHRBHIJFHQLTFR31XHPX4Y5"
     static let clientSecret = "3BK3KV0LYKRO0SK5EZXI5SLPDY4ZUY21O22R3TZ3ISYTVOCO"
-
     static let ll = "40.7,-74"
     static let v = "20162504"
     static let slideImageCell = "SlideImageCell"
     static let favoritesCell = "FavoritesCell"
+    static let yes = "yes"
+    static let no = "no"
+    static let warning = "warning"
+    static let removeAll = "Do you want delete all?"
+    static let identifier = "FavoritesCell"
 }

@@ -63,7 +63,5 @@ final class DetailViewModel {
            completion(false)
         }
     }
-    
-    
 }
 
