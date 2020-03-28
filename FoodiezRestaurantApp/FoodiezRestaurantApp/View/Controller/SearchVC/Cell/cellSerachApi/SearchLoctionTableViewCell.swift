@@ -10,15 +10,19 @@ import UIKit
 
 class SearchLoctionTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBOutlet weak var imageLocationImageView: UIImageView!
+    @IBOutlet weak var nameLoactionLabel: UILabel!
+    
+    var viewModel: SerachLocationViewModel? {
+        didSet {
+            updateUI()
+        }
     }
     
+    private func updateUI() {
+        guard let viewModel = viewModel else { return }
+        nameLoactionLabel.text = viewModel.name
+        let image = "\(viewModel.prefix)bg_88\(viewModel.suffix)"
+        imageLocationImageView.setImage(url: image)
+    }
 }

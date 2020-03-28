@@ -14,7 +14,7 @@ final class DetailViewModel {
 
     //MARK: - Properties
     var menu: Menu
-    var imageUser: String = ""
+    var id: String = ""
 
     //MARK: Init
     init(menu: Menu = Menu()) {

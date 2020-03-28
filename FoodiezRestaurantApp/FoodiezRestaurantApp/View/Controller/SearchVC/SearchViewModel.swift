@@ -50,17 +50,21 @@ final class SearchViewModel {
         }
     }
 
-    func saveKeyword(text: String, completion: RealmCompletion) {
+    func saveKeyword(text: String, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let keyword = Keyword(keyword: text, searchTime: Date())
             try realm.write {
                 realm.create(Keyword.self, value: keyword, update: .all)
             }
-            completion(.success(nil))
+            searchLocation(keyword: text, completion: completion)
         } catch {
             completion(.failure(error))
         }
+    }
+    
+    func getKeyword(at indexPath: IndexPath) -> String {
+        return keywords[indexPath.row].keyword
     }
 
     func numberOfRowsInSection(section: Int) -> Int {
@@ -77,7 +81,25 @@ final class SearchViewModel {
         case .keyword:
             return SearchKeyCellViewModel(key: keywords[indexPath.row].keyword)
         case .menu:
-            return FavoritesCellViewModel(menu: menus[indexPath.row])
+            return SerachLocationViewModel(menu: menus[indexPath.row])
         }
+    }
+
+    private func searchLocation(keyword: String, completion: @escaping APICompletion) {
+        let param = Api.Search.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll, query: keyword)
+        Api.Search.getSearch(params: param) { [weak self] (result) in
+            guard let self = self else { return }
+            switch result {
+            case .success(let menus):
+                self.menus = menus
+                completion(.success)
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func viewModelForDetail(at indexPath: IndexPath) -> DetailViewModel {
+        return DetailViewModel(menu: menus[indexPath.row])
     }
 }

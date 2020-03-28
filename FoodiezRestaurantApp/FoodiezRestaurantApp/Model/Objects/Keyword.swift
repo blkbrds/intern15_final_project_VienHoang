@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+
 @objcMembers final class Keyword: Object {
     dynamic var keyword: String = ""
     dynamic var searchTime: Date = Date()

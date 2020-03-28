@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+final class SerachLocationViewModel: SearchCellViewModel {
+    var prefix: String = ""
+    var name: String = ""
+    var suffix: String = ""
+
+    //MARK: Init
+    init(menu: Menu) {
+        prefix = menu.prefixCategories
+        name = menu.name
+        suffix = menu.suffixCategories
+    }
+}
