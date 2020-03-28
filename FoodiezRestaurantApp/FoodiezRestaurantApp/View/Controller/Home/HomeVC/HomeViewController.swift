@@ -46,6 +46,9 @@ final class HomeViewController: BaseViewController {
         collectionView.dataSource = self
     }
 
+    
+    
+    
     //MARK: - Public functions
     func setupData() {
         loadApi()

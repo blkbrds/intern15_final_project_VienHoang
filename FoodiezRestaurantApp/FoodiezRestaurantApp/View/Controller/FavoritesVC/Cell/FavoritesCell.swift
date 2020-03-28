@@ -27,7 +27,7 @@ final class FavoritesCell: UITableViewCell {
             likeCountLocatinLabel.text = "\(viewModel.likeCountLocation)"
             addressLabel.text = viewModel.addressLocation
             nameLocationLabel.text = viewModel.nameLacation
-            locationImageView.setImage(url: viewModel.imageLocation, defaultImage: #imageLiteral(resourceName: "icons8-user-60"))
+            locationImageView.setImage(url: viewModel.imageLocation, defaultImage: #imageLiteral(resourceName: "hinhnen11"))
         }
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class FavoritesCellViewModel {
+final class FavoritesCellViewModel: SearchCellViewModel {
     var nameLacation: String = ""
     var addressLocation: String = ""
     var imageLocation: String = ""

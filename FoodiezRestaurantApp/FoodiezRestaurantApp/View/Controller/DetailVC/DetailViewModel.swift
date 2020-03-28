@@ -15,7 +15,7 @@ final class DetailViewModel {
     //MARK: - Properties
     var menu: Menu
     var imageUser: String = ""
-    
+
     //MARK: Init
     init(menu: Menu = Menu()) {
         self.menu = menu
@@ -49,19 +49,18 @@ final class DetailViewModel {
             completion(.failure(error))
         }
     }
-    
+
     func loadFavoritesStatus(completion: (Bool) -> Void) {
         do {
-        let realm = try Realm()
-            let objects = realm.objects(Menu.self) .filter("id = %d AND isFavorite == true ", menu.id)
+            let realm = try Realm()
+            let objects = realm.objects(Menu.self) .filter("id = %d AND isFavorite == true", menu.id)
             if !objects.isEmpty {
                 completion(true)
             } else {
                 completion(false)
             }
         } catch {
-           completion(false)
+            completion(false)
         }
     }
 }
-
