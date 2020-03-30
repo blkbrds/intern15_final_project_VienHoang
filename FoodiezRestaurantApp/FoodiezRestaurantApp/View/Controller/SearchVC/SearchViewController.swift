@@ -14,9 +14,10 @@ final class SearchViewController: ViewController {
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
 
-    //MARK: Lyfe cycle
+    //MARK: Properties
     var viewModel = SearchViewModel()
 
+    //MARK: Lyfe cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -68,6 +69,7 @@ final class SearchViewController: ViewController {
     }
 }
 
+//MARK: Extension SearchViewController
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section: section)
@@ -90,12 +92,14 @@ extension SearchViewController: UITableViewDataSource {
         return UITableViewCell()
     }
 }
+
+//MARK: Extension TableViewDelegate
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
-    func  tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (tableView.cellForRow(at: indexPath) as? SearchKeyCell) != nil {
             searchBar.text = viewModel.getKeyword(at: indexPath)
             handleSearch()
@@ -107,6 +111,7 @@ extension SearchViewController: UITableViewDelegate {
     }
 }
 
+//MARK: Extension SearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.loadKeywords(text: searchText) { [weak self] (result) in
@@ -123,13 +128,14 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         handleSearch()
     }
-    
+
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         setupData()
     }
 }
 
+//MARK: Extension: CollectionViewDelegate
 extension SearchViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         dissmissKeyboard()

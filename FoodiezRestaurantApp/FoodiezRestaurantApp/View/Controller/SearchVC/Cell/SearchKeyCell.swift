@@ -8,16 +8,19 @@
 
 import UIKit
 
-class SearchKeyCell: UITableViewCell {
+final class SearchKeyCell: UITableViewCell {
 
-    @IBOutlet weak var keyLabel: UILabel!
+    //MARK: IBOutlet
+    @IBOutlet private weak var keyLabel: UILabel!
 
+    //MARK: Properties
     var viewModel: SearchKeyCellViewModel? {
         didSet {
             updateUI()
         }
     }
 
+    //MARK: Private functions
     private func updateUI() {
         self.keyLabel.text = viewModel?.key
     }

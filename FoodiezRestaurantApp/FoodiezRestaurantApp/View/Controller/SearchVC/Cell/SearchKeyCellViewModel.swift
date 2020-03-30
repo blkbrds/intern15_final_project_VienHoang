@@ -11,8 +11,11 @@ import Foundation
 protocol SearchCellViewModel { }
 
 final class SearchKeyCellViewModel: SearchCellViewModel {
+    
+    //MARK: Properties
     var key: String
 
+    //MARK: Init
     init(key: String) {
         self.key = key
     }

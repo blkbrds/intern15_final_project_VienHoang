@@ -35,7 +35,6 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadApi()
-  //      view.isHidden = true
         print(Realm.Configuration.defaultConfiguration.fileURL?.absoluteURL)
     }
 
@@ -109,13 +108,13 @@ final class DetailViewController: UIViewController {
         likeCount.text = "\(viewModel.menu.detailImage?.count ?? 0)"
         idFacebookLabel.text = viewModel.menu.detailImage?.idFacebook
     }
-    
+
     func configFavoriteButton(isFavorite: Bool) {
         var color: UIColor?
         if isFavorite {
-          color = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+            color = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
         } else {
-          color = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            color = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         }
         let favoriteButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icons8-love-31"), style: .plain, target: self, action: #selector(handleFavoriteButton))
         navigationItem.rightBarButtonItem = favoriteButtonItem

@@ -8,17 +8,20 @@
 
 import UIKit
 
-class SearchLoctionTableViewCell: UITableViewCell {
+final class SearchLoctionTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var imageLocationImageView: UIImageView!
-    @IBOutlet weak var nameLoactionLabel: UILabel!
+    //MARK: IBOutlet
+    @IBOutlet private weak var imageLocationImageView: UIImageView!
+    @IBOutlet private weak var nameLoactionLabel: UILabel!
     
+    //MARK: Properties
     var viewModel: SerachLocationViewModel? {
         didSet {
             updateUI()
         }
     }
     
+    //MARK: Private functions
     private func updateUI() {
         guard let viewModel = viewModel else { return }
         nameLoactionLabel.text = viewModel.name

@@ -9,6 +9,8 @@
 import Foundation
 
 final class SerachLocationViewModel: SearchCellViewModel {
+    
+    //MARK: Properties
     var prefix: String = ""
     var name: String = ""
     var suffix: String = ""

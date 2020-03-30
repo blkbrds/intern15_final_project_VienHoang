@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+
 final class SearchViewModel {
 
     enum DisplayType {
@@ -15,10 +16,12 @@ final class SearchViewModel {
         case menu
     }
 
+    //MARK: Properties
     var displayType: DisplayType = .keyword
     var menus: [Menu] = []
     var keywords: [Keyword] = []
 
+    //MARK: Public functions
     func numberOfRowsInSection(in section: Int) -> Int {
         return menus.count
     }
@@ -62,7 +65,7 @@ final class SearchViewModel {
             completion(.failure(error))
         }
     }
-    
+
     func getKeyword(at indexPath: IndexPath) -> String {
         return keywords[indexPath.row].keyword
     }
@@ -98,7 +101,7 @@ final class SearchViewModel {
             }
         }
     }
-    
+
     func viewModelForDetail(at indexPath: IndexPath) -> DetailViewModel {
         return DetailViewModel(menu: menus[indexPath.row])
     }
