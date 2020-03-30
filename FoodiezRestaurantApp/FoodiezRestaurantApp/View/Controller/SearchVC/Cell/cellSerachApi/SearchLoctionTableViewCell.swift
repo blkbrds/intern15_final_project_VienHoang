@@ -15,7 +15,7 @@ final class SearchLoctionTableViewCell: UITableViewCell {
     @IBOutlet private weak var nameLoactionLabel: UILabel!
     
     //MARK: Properties
-    var viewModel: SerachLocationViewModel? {
+    var viewModel: SearchLocationViewModel? {
         didSet {
             updateUI()
         }

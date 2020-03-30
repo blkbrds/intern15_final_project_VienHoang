@@ -82,7 +82,7 @@ extension SearchViewController: UITableViewDataSource {
             }
             cell.viewModel = cellViewModel
             return cell
-        } else if let cellViewModel = viewModel.viewModelForCell(at: indexPath) as? SerachLocationViewModel {
+        } else if let cellViewModel = viewModel.viewModelForCell(at: indexPath) as? SearchLocationViewModel {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchLoctionTableViewCell", for: indexPath) as? SearchLoctionTableViewCell else {
                 return UITableViewCell()
             }

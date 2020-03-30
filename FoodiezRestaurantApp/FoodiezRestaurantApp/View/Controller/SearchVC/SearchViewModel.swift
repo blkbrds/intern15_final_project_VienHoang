@@ -22,7 +22,7 @@ final class SearchViewModel {
     var keywords: [Keyword] = []
 
     //MARK: Public functions
-    func numberOfRowsInSection(in section: Int) -> Int {
+    func numberOfRows(in section: Int) -> Int {
         return menus.count
     }
 
@@ -84,7 +84,7 @@ final class SearchViewModel {
         case .keyword:
             return SearchKeyCellViewModel(key: keywords[indexPath.row].keyword)
         case .menu:
-            return SerachLocationViewModel(menu: menus[indexPath.row])
+            return SearchLocationViewModel(menu: menus[indexPath.row])
         }
     }
 

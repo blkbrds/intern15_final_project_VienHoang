@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class SerachLocationViewModel: SearchCellViewModel {
+final class SearchLocationViewModel: SearchCellViewModel {
     
     //MARK: Properties
     var prefix: String = ""
