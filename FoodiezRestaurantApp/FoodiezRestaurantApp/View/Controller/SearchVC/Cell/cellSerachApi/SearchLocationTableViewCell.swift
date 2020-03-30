@@ -1,5 +1,5 @@
 //
-//  SearchLoctionTableViewCell.swift
+//  SearchLocationTableViewCell.swift
 //  FoodiezRestaurantApp
 //
 //  Created by user on 3/28/20.
