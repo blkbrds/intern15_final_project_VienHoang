@@ -12,7 +12,7 @@ final class SearchLocationTableViewCell: UITableViewCell {
 
     //MARK: IBOutlet
     @IBOutlet private weak var imageLocationImageView: UIImageView!
-    @IBOutlet private weak var nameLoactionLabel: UILabel!
+    @IBOutlet private weak var nameLocationLabel: UILabel!
     
     //MARK: Properties
     var viewModel: SearchLocationViewModel? {
@@ -24,7 +24,7 @@ final class SearchLocationTableViewCell: UITableViewCell {
     //MARK: Private functions
     private func updateUI() {
         guard let viewModel = viewModel else { return }
-        nameLoactionLabel.text = viewModel.name
+        nameLocationLabel.text = viewModel.name
         let image = "\(viewModel.prefix)bg_88\(viewModel.suffix)"
         imageLocationImageView.setImage(url: image)
     }

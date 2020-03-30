@@ -15,6 +15,7 @@ extension App {
      */
 
     struct String { }
+    struct Identifier { }
 }
 
 extension App.String {
@@ -22,11 +23,17 @@ extension App.String {
     static let clientSecret = "4YPRBPIW0AYAM5DH0OLUTN1IOCGIXINXPUPWFNBI3RVKG2TU"
     static let ll = "40.7,-74"
     static let v = "20162504"
-    static let slideImageCell = "SlideImageCell"
-    static let favoritesCell = "FavoritesCell"
     static let yes = "yes"
     static let no = "no"
     static let warning = "warning"
     static let removeAll = "Do you want delete all?"
-    static let identifier = "FavoritesCell"
 }
+
+extension App.Identifier {
+    static let slideImageCell = "SlideImageCell"
+    static let favoritesCell = "FavoritesCell"
+    static let searchKeyCell = "SearchKeyCell"
+    static let searchLoctionTableViewCell = "SearchLoctionTableViewCell"
+    static let collectionViewCell = "CollectionViewCell"
+}
+

@@ -40,8 +40,8 @@ final class HomeViewController: BaseViewController {
 
     //MARK: - Private functions
     private func setupUI() {
-        let nib = UINib(nibName: Identifier.collectionViewCell, bundle: .main)
-        collectionView.register(nib, forCellWithReuseIdentifier: Identifier.collectionViewCell)
+        let nib = UINib(nibName: App.Identifier.collectionViewCell, bundle: .main)
+        collectionView.register(nib, forCellWithReuseIdentifier: App.Identifier.collectionViewCell)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -80,7 +80,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.collectionViewCell, for: indexPath) as? CollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: App.Identifier.collectionViewCell, for: indexPath) as? CollectionViewCell else {
             return UICollectionViewCell()
         }
         cell.viewModel = viewModel.viewModelForCell(at: indexPath)
@@ -120,10 +120,6 @@ extension HomeViewController {
         static let screenWidth = UIScreen.main.bounds.width - 30
         static let widthSize = (Config.screenWidth / 2) - 15
         static let heightSize = (Config.screenWidth / 3) * 6 / 4
-    }
-
-    struct Identifier {
-        static let collectionViewCell = "CollectionViewCell"
     }
 }
 

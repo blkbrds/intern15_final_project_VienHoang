@@ -16,32 +16,32 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Nd-r0-1XR">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Nd-r0-1XR">
+                        <rect key="frame" x="5" y="5" width="100" height="90"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="2OA-Oh-Efm"/>
+                            <constraint firstAttribute="width" constant="100" id="hc8-ND-9Eh"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sf-Vw-pID">
-                        <rect key="frame" x="120" y="39.5" width="180" height="21"/>
+                        <rect key="frame" x="120" y="39.5" width="185" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="6Nd-r0-1XR" secondAttribute="bottom" id="D5m-J9-2CU"/>
-                    <constraint firstItem="6Nd-r0-1XR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ty5-Va-NU1"/>
-                    <constraint firstItem="7sf-Vw-pID" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="X3j-jA-Ndf"/>
-                    <constraint firstAttribute="trailing" secondItem="7sf-Vw-pID" secondAttribute="trailing" constant="20" id="fo8-N2-8Os"/>
-                    <constraint firstItem="7sf-Vw-pID" firstAttribute="leading" secondItem="6Nd-r0-1XR" secondAttribute="trailing" constant="20" id="krC-n2-S24"/>
-                    <constraint firstItem="6Nd-r0-1XR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="osU-1F-fAi"/>
+                    <constraint firstAttribute="trailing" secondItem="7sf-Vw-pID" secondAttribute="trailing" constant="15" id="3xn-PI-8Ad"/>
+                    <constraint firstItem="6Nd-r0-1XR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="69o-XI-otQ"/>
+                    <constraint firstAttribute="bottom" secondItem="6Nd-r0-1XR" secondAttribute="bottom" constant="5" id="CG1-Pv-NcX"/>
+                    <constraint firstItem="7sf-Vw-pID" firstAttribute="leading" secondItem="6Nd-r0-1XR" secondAttribute="trailing" constant="15" id="S0d-Vc-K2o"/>
+                    <constraint firstItem="7sf-Vw-pID" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="YX6-N8-hQU"/>
+                    <constraint firstItem="6Nd-r0-1XR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="cFr-NC-QdS"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="imageLocationImageView" destination="6Nd-r0-1XR" id="tyE-eh-N44"/>
-                <outlet property="nameLoactionLabel" destination="7sf-Vw-pID" id="tmE-W3-z82"/>
+                <outlet property="nameLocationLabel" destination="7sf-Vw-pID" id="tmE-W3-z82"/>
             </connections>
             <point key="canvasLocation" x="444.92753623188412" y="152.67857142857142"/>
         </tableViewCell>

@@ -39,8 +39,8 @@ final class SearchViewController: ViewController {
 
     override func setupUI() {
         super.setupUI()
-        tableView.register(name: "SearchKeyCell")
-        tableView.register(name: "SearchLoctionTableViewCell")
+        tableView.register(name: App.Identifier.searchKeyCell)
+        tableView.register(name: App.Identifier.searchLoctionTableViewCell)
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -80,13 +80,14 @@ extension SearchViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cellViewModel = viewModel.viewModelForCell(at: indexPath) as? SearchKeyCellViewModel {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchKeyCell", for: indexPath) as? SearchKeyCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: App.Identifier.searchKeyCell, for: indexPath) as? SearchKeyCell else {
                 return UITableViewCell()
             }
             cell.viewModel = cellViewModel
             return cell
-        } else if let cellViewModel = viewModel.viewModelForCell(at: indexPath) as? SearchLocationViewModel {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchLoctionTableViewCell", for: indexPath) as? SearchLocationTableViewCell else {
+        } else
+        if let cellViewModel = viewModel.viewModelForCell(at: indexPath) as? SearchLocationViewModel {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: App.Identifier.searchLoctionTableViewCell, for: indexPath) as? SearchLocationTableViewCell else {
                 return UITableViewCell()
             }
             cell.viewModel = cellViewModel

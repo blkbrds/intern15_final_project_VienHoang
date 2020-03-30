@@ -16,7 +16,6 @@ final class FavoriteViewController: ViewController {
 
     //MARK: - Properties
     private var refreshControl = UIRefreshControl()
-    private var cellRegister: String = "FavoritesCell"
     private var notificationToken = NotificationToken()
     var viewModel = FavoriteViewModel()
 
@@ -30,9 +29,8 @@ final class FavoriteViewController: ViewController {
     override func setupUI() {
         let barButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic-deleteAll"), style: .plain, target: self, action: #selector(deleteAllCell))
         navigationItem.rightBarButtonItem = barButtonItem
-        let nib = UINib(nibName: App.String.identifier, bundle: .main)
-        tableView.register(nib, forCellReuseIdentifier: App.String.identifier)
-        tableView.register(name: App.String.favoritesCell)
+        let nib = UINib(nibName: App.Identifier.favoritesCell, bundle: .main)
+        tableView.register(nib, forCellReuseIdentifier: App.Identifier.favoritesCell)
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -90,7 +88,7 @@ extension FavoriteViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: App.String.identifier, for: indexPath) as? FavoritesCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: App.Identifier.collectionViewCell, for: indexPath) as? FavoritesCell else {
             return UITableViewCell()
         }
         cell.viewModel = viewModel.favoritesCellViewModell(at: indexPath)

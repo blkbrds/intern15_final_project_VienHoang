@@ -9,6 +9,7 @@
 import Foundation
 
 protocol SearchCellViewModel { }
+
 final class SearchKeyCellViewModel: SearchCellViewModel {
     
     //MARK: Properties
