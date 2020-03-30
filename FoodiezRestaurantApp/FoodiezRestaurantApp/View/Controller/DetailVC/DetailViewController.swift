@@ -45,12 +45,13 @@ final class DetailViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
         fetchDataRealm()
     }
 
     //MARK: - Public funtions
-    func setupUI() {
-        configFavoritesCustom(isFavorites: false, sender: nil)
+    func setupNavigation() {
+        configFavoriteButton(isFavorite: false)
     }
 
     func loadApi() {
@@ -108,34 +109,25 @@ final class DetailViewController: UIViewController {
         idFacebookLabel.text = viewModel.menu.detailImage?.idFacebook
     }
 
-    @IBAction func favoriteButtonTapped(sender: UIButton) {
-        guard let viewModel = viewModel?.menu.isFavorite else {
-            return
-        }
-        configFavoritesCustom(isFavorites: viewModel, sender: sender)
-    }
-
-    func configFavoritesCustom(isFavorites: Bool, sender: UIButton?) {
-        var image: UIImage?
-        if isFavorites {
-            image = #imageLiteral(resourceName: "icons8-love-31")
+    func configFavoriteButton(isFavorite: Bool) {
+        var color: UIColor?
+        if isFavorite {
+            color = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
         } else {
-            image = #imageLiteral(resourceName: "icons8-love-32")
+            color = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         }
-        guard let sender = sender else {
-            return
-        }
-        sender.setImage(image, for: .normal)
-        handleFavoritesButton()
+        let favoriteButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icons8-love-31"), style: .plain, target: self, action: #selector(handleFavoriteButton))
+        navigationItem.rightBarButtonItem = favoriteButtonItem
+        favoriteButtonItem.tintColor = color
     }
 
-    func handleFavoritesButton() {
+    @objc func handleFavoriteButton() {
         viewModel?.isFavorites { [weak self] (result) in
             guard let self = self else { return }
             switch result {
             case .success:
                 guard let isFavorites = self.viewModel?.menu.isFavorite else { return }
-                self.configFavoritesCustom(isFavorites: isFavorites, sender: nil)
+                self.configFavoriteButton(isFavorite: isFavorites)
             case .failure(let error):
                 self.alert(error: error)
             }
@@ -145,7 +137,7 @@ final class DetailViewController: UIViewController {
     func fetchDataRealm() {
         viewModel?.loadFavoritesStatus { [weak self] (isFavorites) in
             guard let self = self else { return }
-            self.configFavoritesCustom(isFavorites: isFavorites, sender: nil)
+            self.configFavoriteButton(isFavorite: isFavorites)
         }
     }
 }
