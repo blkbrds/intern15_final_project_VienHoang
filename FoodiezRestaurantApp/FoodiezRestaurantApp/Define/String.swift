@@ -33,7 +33,7 @@ extension App.Identifier {
     static let slideImageCell = "SlideImageCell"
     static let favoritesCell = "FavoritesCell"
     static let searchKeyCell = "SearchKeyCell"
-    static let searchLoctionTableViewCell = "SearchLoctionTableViewCell"
+    static let searchLocationTableViewCell = "SearchLocationTableViewCell"
     static let collectionViewCell = "CollectionViewCell"
 }
 
