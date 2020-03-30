@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SearchLoctionTableViewCell: UITableViewCell {
+final class SearchLocationTableViewCell: UITableViewCell {
 
     //MARK: IBOutlet
     @IBOutlet private weak var imageLocationImageView: UIImageView!

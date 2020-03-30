@@ -59,7 +59,7 @@
 		CEEB3B2C242CEBF800A1CB18 /* SearchKeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB3B2A242CEBF800A1CB18 /* SearchKeyCell.swift */; };
 		CEEB3B2D242CEBF800A1CB18 /* SearchKeyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEB3B2B242CEBF800A1CB18 /* SearchKeyCell.xib */; };
 		CEEB3B2F242CEC9C00A1CB18 /* SearchKeyCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB3B2E242CEC9C00A1CB18 /* SearchKeyCellViewModel.swift */; };
-		CEF79D9B242F481F0030566D /* SearchLoctionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF79D99242F481F0030566D /* SearchLoctionTableViewCell.swift */; };
+		CEF79D9B242F481F0030566D /* SearchLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF79D99242F481F0030566D /* SearchLocationTableViewCell.swift */; };
 		CEF79D9C242F481F0030566D /* SearchLoctionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF79D9A242F481F0030566D /* SearchLoctionTableViewCell.xib */; };
 		CEF79D9E242F48E60030566D /* SearchLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF79D9D242F48E60030566D /* SearchLocationViewModel.swift */; };
 		CEFEF2F424189E120003B352 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF2F324189E120003B352 /* StringExt.swift */; };
@@ -128,7 +128,7 @@
 		CEEB3B2A242CEBF800A1CB18 /* SearchKeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKeyCell.swift; sourceTree = "<group>"; };
 		CEEB3B2B242CEBF800A1CB18 /* SearchKeyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchKeyCell.xib; sourceTree = "<group>"; };
 		CEEB3B2E242CEC9C00A1CB18 /* SearchKeyCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKeyCellViewModel.swift; sourceTree = "<group>"; };
-		CEF79D99242F481F0030566D /* SearchLoctionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLoctionTableViewCell.swift; sourceTree = "<group>"; };
+		CEF79D99242F481F0030566D /* SearchLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewCell.swift; sourceTree = "<group>"; };
 		CEF79D9A242F481F0030566D /* SearchLoctionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchLoctionTableViewCell.xib; sourceTree = "<group>"; };
 		CEF79D9D242F48E60030566D /* SearchLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewModel.swift; sourceTree = "<group>"; };
 		CEFEF2F324189E120003B352 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
@@ -442,7 +442,7 @@
 		CEF79D92242F44E90030566D /* cellSerachApi */ = {
 			isa = PBXGroup;
 			children = (
-				CEF79D99242F481F0030566D /* SearchLoctionTableViewCell.swift */,
+				CEF79D99242F481F0030566D /* SearchLocationTableViewCell.swift */,
 				CEF79D9A242F481F0030566D /* SearchLoctionTableViewCell.xib */,
 				CEF79D9D242F48E60030566D /* SearchLocationViewModel.swift */,
 			);
@@ -604,7 +604,7 @@
 				CEF79D9E242F48E60030566D /* SearchLocationViewModel.swift in Sources */,
 				CEFEF2F424189E120003B352 /* StringExt.swift in Sources */,
 				CEEAAF7C240CC27C00BEF784 /* ApiManager.swift in Sources */,
-				CEF79D9B242F481F0030566D /* SearchLoctionTableViewCell.swift in Sources */,
+				CEF79D9B242F481F0030566D /* SearchLocationTableViewCell.swift in Sources */,
 				CE3A6070240613790031B935 /* String.swift in Sources */,
 				CEFEF3022418BED70003B352 /* DetailImage.swift in Sources */,
 				CEFEF30F241A3FBA0003B352 /* UITextFieldExt.swift in Sources */,

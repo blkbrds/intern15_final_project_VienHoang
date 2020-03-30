@@ -26,7 +26,8 @@ extension Api.Search {
             ["client_id": clientID,
                 "client_secret": clientSecret,
                 "v": v,
-                "ll": ll, "query": query]
+                "ll": ll,
+                "query": query]
         }
     }
 

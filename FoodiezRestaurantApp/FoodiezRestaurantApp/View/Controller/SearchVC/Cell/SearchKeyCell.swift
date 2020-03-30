@@ -22,8 +22,6 @@ final class SearchKeyCell: UITableViewCell {
 
     //MARK: Private functions
     private func updateUI() {
-        self.keyLabel.text = viewModel?.key
+        keyLabel.text = viewModel?.key
     }
-
-    
 }

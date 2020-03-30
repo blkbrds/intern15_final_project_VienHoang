@@ -21,11 +21,6 @@ final class SearchViewModel {
     var menus: [Menu] = []
     var keywords: [Keyword] = []
 
-    //MARK: Public functions
-    func numberOfRows(in section: Int) -> Int {
-        return menus.count
-    }
-
     func loadKeywords(completion: RealmCompletion) {
         do {
             let realm = try Realm()
@@ -70,7 +65,7 @@ final class SearchViewModel {
         return keywords[indexPath.row].keyword
     }
 
-    func numberOfRowsInSection(section: Int) -> Int {
+    func numberOfRows(section: Int) -> Int {
         switch displayType {
         case .keyword:
             return keywords.count

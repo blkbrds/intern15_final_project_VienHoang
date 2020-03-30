@@ -22,6 +22,7 @@ final class SearchViewController: ViewController {
         super.viewDidLoad()
     }
 
+    //MARK: Lyfe cycle
     override func setupData() {
         super.setupData()
         viewModel.displayType = .keyword
@@ -46,10 +47,12 @@ final class SearchViewController: ViewController {
         searchBar.delegate = self
     }
 
+    //MARK: Private functions
     private func dissmissKeyboard() {
         view.endEditing(true)
     }
 
+    //MARK: Public functions
     func updateUI() {
         tableView.reloadData()
     }
@@ -72,7 +75,7 @@ final class SearchViewController: ViewController {
 //MARK: Extension SearchViewController
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection(section: section)
+        return viewModel.numberOfRows(section: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,7 +86,7 @@ extension SearchViewController: UITableViewDataSource {
             cell.viewModel = cellViewModel
             return cell
         } else if let cellViewModel = viewModel.viewModelForCell(at: indexPath) as? SearchLocationViewModel {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchLoctionTableViewCell", for: indexPath) as? SearchLoctionTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchLoctionTableViewCell", for: indexPath) as? SearchLocationTableViewCell else {
                 return UITableViewCell()
             }
             cell.viewModel = cellViewModel
@@ -103,7 +106,7 @@ extension SearchViewController: UITableViewDelegate {
         if (tableView.cellForRow(at: indexPath) as? SearchKeyCell) != nil {
             searchBar.text = viewModel.getKeyword(at: indexPath)
             handleSearch()
-        } else if (tableView.cellForRow(at: indexPath) as? SearchLoctionTableViewCell) != nil {
+        } else if (tableView.cellForRow(at: indexPath) as? SearchLocationTableViewCell) != nil {
             let vc = DetailViewController()
             vc.viewModel = viewModel.viewModelForDetail(at: indexPath)
             navigationController?.pushViewController(vc, animated: true)
