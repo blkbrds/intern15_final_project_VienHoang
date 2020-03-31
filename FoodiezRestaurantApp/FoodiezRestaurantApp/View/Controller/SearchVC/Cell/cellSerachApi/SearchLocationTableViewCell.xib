@@ -43,7 +43,7 @@
                 <outlet property="imageLocationImageView" destination="6Nd-r0-1XR" id="tyE-eh-N44"/>
                 <outlet property="nameLocationLabel" destination="7sf-Vw-pID" id="tmE-W3-z82"/>
             </connections>
-            <point key="canvasLocation" x="444.92753623188412" y="152.67857142857142"/>
+            <point key="canvasLocation" x="171.01449275362319" y="82.366071428571431"/>
         </tableViewCell>
     </objects>
 </document>

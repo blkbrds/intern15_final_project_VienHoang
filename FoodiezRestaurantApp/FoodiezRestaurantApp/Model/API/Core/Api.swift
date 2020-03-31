@@ -29,6 +29,11 @@ extension Api.Path {
         static var path: String {
             return baseURL / "search"
         }
+        
+        static var basePath: String = ""
+        static var homePath: String {
+            return baseURL / basePath
+        }
     }
 
     struct Detail {

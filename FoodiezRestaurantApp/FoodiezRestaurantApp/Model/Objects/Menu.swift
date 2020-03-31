@@ -23,7 +23,11 @@ final class Menu: Object, Mappable {
     var suffixCategories = ""
     var address: String = ""
     var distance: String = ""
+    var prefixThumnail: String = ""
+    var suffixThumnail: String = ""
     @objc dynamic var isFavorite: Bool = false
+  //  var string: String = ""
+    var image: String?
 
     //MARK: - Init
     init?(map: Map) { }
@@ -48,13 +52,23 @@ final class Menu: Object, Mappable {
         }
         id <- map["id"]
         address <- map["location.address"]
+        var items: JSArray = []
+        items <- map["items"]
+        for item in items {
+            guard let prefix = item["prefix"] as? String else { return }
+            self.prefixThumnail = prefix
+
+            guard let suffix = item["suffix"] as? String else { return }
+            self.suffixThumnail = suffix
+        }
     }
+
 
     override static func primaryKey() -> String? {
         return "id"
     }
 
     override class func ignoredProperties() -> [String] {
-        return ["name", "lat", "long", "tagcategorys", "prefixCategories", "suffixCategories", "address", "distance", "rating"]
+        return ["name", "lat", "long", "tagcategorys", "prefixCategories", "suffixCategories", "address", "distance", "rating", "image"]
     }
 }

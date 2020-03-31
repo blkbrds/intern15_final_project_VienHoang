@@ -8,14 +8,25 @@
 
 import UIKit
 
+protocol CollectionViewCellDelegate: class {
+    func cell(_ cell: CollectionViewCell, needPerforms action: CollectionViewCell.Action)
+}
+
 final class CollectionViewCell: UICollectionViewCell {
+
+    enum Action {
+        case getImage(indexPath: IndexPath?)
+    }
 
     //MARK: - IBOutlet
     @IBOutlet private weak var blurView: UIView!
     @IBOutlet private weak var nameImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var thumbnailImage: UIImageView!
 
     //MARK: - Properties
+    weak var delegate: CollectionViewCellDelegate?
+    var indexPath: IndexPath?
     var viewModel: CollectionCellViewModel? {
         didSet {
             updateUI()
@@ -42,10 +53,23 @@ final class CollectionViewCell: UICollectionViewCell {
 
     //MARK: - Private functions
     private func updateUI() {
+
         guard let viewModel = viewModel else { return }
+        if let image = viewModel.image {
+            thumbnailImage.setImage(url: image)
+        } else {
+            thumbnailImage.image = nil
+            delegate?.cell(self, needPerforms: .getImage(indexPath: indexPath))
+        }
         nameLabel.text = viewModel.name
         let image = "\(viewModel.prefix)bg_88\(viewModel.suffix)"
         nameImageView.setImage(url: image)
+        if let image = viewModel.image {
+            thumbnailImage.setImage(url: image)
+        } else {
+            thumbnailImage.image = nil
+            delegate?.cell(self, needPerforms: .getImage(indexPath: indexPath))
+        }
     }
 }
 

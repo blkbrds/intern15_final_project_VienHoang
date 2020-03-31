@@ -9,7 +9,7 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    
+
     //MARK: - Life cycle
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -83,6 +83,8 @@ extension HomeViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: App.Identifier.collectionViewCell, for: indexPath) as? CollectionViewCell else {
             return UICollectionViewCell()
         }
+        cell.delegate = self
+        cell.indexPath = indexPath
         cell.viewModel = viewModel.viewModelForCell(at: indexPath)
         return cell
     }
@@ -120,6 +122,26 @@ extension HomeViewController {
         static let screenWidth = UIScreen.main.bounds.width - 30
         static let widthSize = (Config.screenWidth / 2) - 15
         static let heightSize = (Config.screenWidth / 3) * 6 / 4
+    }
+}
+
+extension HomeViewController: CollectionViewCellDelegate {
+    func cell(_ cell: CollectionViewCell, needPerforms action: CollectionViewCell.Action) {
+        switch action {
+        case .getImage(let indexPath):
+            if let indexPath = indexPath {
+                viewModel.loadImage(at: indexPath) { [weak self] (result) in
+                    guard let this = self else { return }
+                    switch result {
+                    case .success:
+                        if this.collectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
+                            this.collectionView.reloadItems(at: [indexPath])
+                        }
+                    case .failure: break
+                    }
+                }
+            }
+        }
     }
 }
 

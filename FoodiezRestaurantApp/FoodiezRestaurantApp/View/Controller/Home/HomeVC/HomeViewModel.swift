@@ -39,4 +39,19 @@ final class HomeViewModel {
     func numberOfRows(in section: Int) -> Int {
         return menus.count
     }
+    
+    func loadImage(at indexPath: IndexPath, completion: @escaping APICompletion) {
+        Api.Path.Home.basePath = menus[indexPath.row].id
+        let params = Api.Home.ParamsThumnail(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll)
+        Api.Home.getImage(params: params) { [weak self] (result) in
+            guard let this = self else { return }
+            switch result {
+            case .success(let image):
+                this.menus[indexPath.row].image = image
+                completion(.success)
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }
