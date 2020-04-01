@@ -53,7 +53,6 @@ final class CollectionViewCell: UICollectionViewCell {
 
     //MARK: - Private functions
     private func updateUI() {
-
         guard let viewModel = viewModel else { return }
         if let image = viewModel.image {
             thumbnailImage.setImage(url: image)

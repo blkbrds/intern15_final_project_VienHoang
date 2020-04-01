@@ -100,7 +100,7 @@ final class SearchViewModel {
     func viewModelForDetail(at indexPath: IndexPath) -> DetailViewModel {
         return DetailViewModel(menu: menus[indexPath.row])
     }
-    
+
     func heightForRowAt(at indexPath: IndexPath) -> CGFloat {
         guard let sectionType = DisplayType(rawValue: indexPath.section) else { return .zero }
         switch sectionType {

@@ -43,7 +43,6 @@ final class SearchViewController: ViewController {
         tableView.register(name: App.Identifier.searchLocationTableViewCell)
         tableView.delegate = self
         tableView.dataSource = self
-
         searchBar.delegate = self
     }
 

@@ -92,7 +92,6 @@ extension Api.Home {
                         let photos = venue["photos"] as? JSObject,
                         let groups = photos["groups"] as? JSArray else { return }
                     var image: String = ""
-                    
                     for item in groups {
                         guard let items = item["items"] as? JSArray else { return }
                         for index in items {

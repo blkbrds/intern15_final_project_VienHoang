@@ -23,6 +23,7 @@ final class FavoriteViewModel {
     var notificationBlock: NotificationToken?
     weak var delegate: FavoriteViewModelDelegate?
 
+    //
     func numberOfRows(in section: Int) -> Int {
         return menus.count
     }
