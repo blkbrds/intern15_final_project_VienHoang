@@ -9,25 +9,40 @@
 import Foundation
 
 final class HomeViewModel {
-    
+
     //MARK: Properties
     var menus: [Menu] = []
-
+    let limit: Int = 5
+    var dem: Int = 0
+    var id: String = ""
+    var dispatchGroup = DispatchGroup()
+    
     //MARK: - Public functions
     func loadAPIForHome(completion: @escaping APICompletion) {
-        let params = Api.Home.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll)
+        let params = Api.Home.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll, limit: limit)
         Api.Home.getMenus(params: params) { [weak self] (result) in
-            guard let this = self else { return }
+            guard let self = self else {
+                completion(.failure(Api.Error.invalidRequest))
+                return }
             switch result {
             case .success(let result):
-                this.menus = result.menu
-                completion(.success)
+                self.menus = result.menu
+                for index in 0 ..< self.menus.count {
+                    self.dispatchGroup.enter()
+                    self.loadImage(at: index) { (result) in
+                        self.dispatchGroup.leave()
+                    }
+                }
+                self.dispatchGroup.notify(queue: .main) {
+                    print("Da goi xong het api trong vong lap for")
+                    completion(.success)
+                }
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
-    
+
     func viewModelForDetailCell(at indexPath: IndexPath) -> DetailViewModel {
         return DetailViewModel(menu: menus[indexPath.row])
     }
@@ -40,14 +55,17 @@ final class HomeViewModel {
         return menus.count
     }
     
-    func loadImage(at indexPath: IndexPath, completion: @escaping APICompletion) {
-        Api.Path.Home.basePath = menus[indexPath.row].id
+    func loadImage(at index: Int, completion: @escaping APICompletion) {
+        id = menus[index].id
+        Api.Path.Home.basePath = id
         let params = Api.Home.ParamsThumnail(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll)
         Api.Home.getImage(params: params) { [weak self] (result) in
-            guard let this = self else { return }
+            guard let this = self else {
+                completion(.failure(Api.Error.invalidRequest))
+                return }
             switch result {
             case .success(let image):
-                this.menus[indexPath.row].image = image
+                this.menus[index].image = image
                 completion(.success)
             case .failure(let error):
                 completion(.failure(error))

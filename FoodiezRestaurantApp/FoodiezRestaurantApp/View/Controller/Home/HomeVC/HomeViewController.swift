@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class BaseViewController: UIViewController {
 
@@ -30,7 +31,7 @@ final class HomeViewController: BaseViewController {
 
     //MARK: - Properties
     var viewModel = HomeViewModel()
-
+    var dispatchGroup = DispatchGroup()
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,15 +53,21 @@ final class HomeViewController: BaseViewController {
     }
 
     func loadApi() {
+        SVProgressHUD.show()
         viewModel.loadAPIForHome { [weak self] (reslut) in
+            SVProgressHUD.dismiss()
             guard let self = self else { return }
             switch reslut {
             case .success:
-                self.collectionView.reloadData()
+                self.updateUI()
             case .failure(let error):
                 self.alert(error: error)
             }
         }
+    }
+
+    func updateUI() {
+        collectionView.reloadData()
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -83,8 +90,6 @@ extension HomeViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: App.Identifier.collectionViewCell, for: indexPath) as? CollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.delegate = self
-        cell.indexPath = indexPath
         cell.viewModel = viewModel.viewModelForCell(at: indexPath)
         return cell
     }
@@ -122,26 +127,6 @@ extension HomeViewController {
         static let screenWidth = UIScreen.main.bounds.width - 30
         static let widthSize = (Config.screenWidth / 2) - 15
         static let heightSize = (Config.screenWidth / 3) * 6 / 4
-    }
-}
-
-extension HomeViewController: CollectionViewCellDelegate {
-    func cell(_ cell: CollectionViewCell, needPerforms action: CollectionViewCell.Action) {
-        switch action {
-        case .getImage(let indexPath):
-            if let indexPath = indexPath {
-                viewModel.loadImage(at: indexPath) { [weak self] (result) in
-                    guard let this = self else { return }
-                    switch result {
-                    case .success:
-                        if this.collectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
-                            this.collectionView.reloadItems(at: [indexPath])
-                        }
-                    case .failure: break
-                    }
-                }
-            }
-        }
     }
 }
 

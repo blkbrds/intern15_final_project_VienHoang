@@ -13,11 +13,11 @@ import RealmSwift
 final class Menu: Object, Mappable {
 
     //MARK: - Properties
+    @objc dynamic var id: String = ""
     var name: String = ""
     var lat: String = ""
     var long: String = ""
     @objc dynamic var detailImage: DetailImage?
-    @objc dynamic var id: String = ""
     var category: JSArray = []
     var prefixCategories = ""
     var suffixCategories = ""
@@ -26,7 +26,6 @@ final class Menu: Object, Mappable {
     var prefixThumnail: String = ""
     var suffixThumnail: String = ""
     @objc dynamic var isFavorite: Bool = false
-  //  var string: String = ""
     var image: String?
 
     //MARK: - Init
@@ -50,7 +49,6 @@ final class Menu: Object, Mappable {
             prefixCategories = (icon["prefix"] as? String) ?? ""
             suffixCategories = (icon["suffix"] as? String) ?? ""
         }
-        id <- map["id"]
         address <- map["location.address"]
         var items: JSArray = []
         items <- map["items"]

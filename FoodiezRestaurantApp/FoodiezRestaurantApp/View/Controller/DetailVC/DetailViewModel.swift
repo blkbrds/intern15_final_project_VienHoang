@@ -26,7 +26,9 @@ final class DetailViewModel {
         Api.Path.Detail.basePath = menu.id
         let params = Api.Detail.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll)
         Api.Detail.getLocation(params: params) { [weak self] (result) in
-            guard let self = self else { return }
+            guard let self = self else {
+                completion(.failure(Api.Error.invalidRequest))
+                return }
             switch result {
             case .success(let channel):
                 self.menu.detailImage = channel

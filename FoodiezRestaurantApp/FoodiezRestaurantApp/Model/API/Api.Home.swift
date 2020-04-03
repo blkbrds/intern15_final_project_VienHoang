@@ -19,18 +19,19 @@ extension Api.Home {
         var clientSecret: String
         var v: String
         var ll: String
+        var limit: Int
 
         //MARK: Public Functions
         func toJSON() -> [String: Any] {
             ["client_id": clientID,
                 "client_secret": clientSecret,
                 "v": v,
-                "ll": ll]
+                "ll": ll,
+                "limit": limit]
         }
     }
 
     struct ParamsThumnail {
-
         //MARK: - Properties
         var clientID: String
         var clientSecret: String
