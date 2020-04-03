@@ -461,6 +461,7 @@
 				CE3A6049240612800031B935 /* Frameworks */,
 				CE3A604A240612800031B935 /* Resources */,
 				25A2ECE5F3DCF45F030248A0 /* [CP] Embed Pods Frameworks */,
+				9ECCEBFAF43BACB49953CC66 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -541,6 +542,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodiezRestaurantApp/Pods-FoodiezRestaurantApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9ECCEBFAF43BACB49953CC66 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoodiezRestaurantApp/Pods-FoodiezRestaurantApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoodiezRestaurantApp/Pods-FoodiezRestaurantApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodiezRestaurantApp/Pods-FoodiezRestaurantApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C5DFDD67B48D166275EBBD29 /* [CP] Check Pods Manifest.lock */ = {

@@ -9,14 +9,18 @@
 import Foundation
 import ObjectMapper
 import RealmSwift
+import GoogleMaps
+
+struct Position {
+       var lat: CLLocationDegrees = 0
+     var long: CLLocationDegrees = 0
+}
 
 final class Menu: Object, Mappable {
 
     //MARK: - Properties
     @objc dynamic var id: String = ""
     var name: String = ""
-    var lat: String = ""
-    var long: String = ""
     @objc dynamic var detailImage: DetailImage?
     var category: JSArray = []
     var prefixCategories = ""
@@ -27,6 +31,7 @@ final class Menu: Object, Mappable {
     var suffixThumnail: String = ""
     @objc dynamic var isFavorite: Bool = false
     var image: String?
+    var position = Position()
 
     //MARK: - Init
     init?(map: Map) { }
@@ -41,9 +46,9 @@ final class Menu: Object, Mappable {
     func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]
-        lat <- map["location.lat"]
-        long <- map["location.long"]
         category <- map["categories"]
+        position.lat <- map["location.lat"]
+        position.long <- map["location.long"]
         for item in category {
             guard let icon = item["icon"] as? JSObject else { return }
             prefixCategories = (icon["prefix"] as? String) ?? ""

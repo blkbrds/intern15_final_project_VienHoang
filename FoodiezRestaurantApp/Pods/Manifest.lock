@@ -1,5 +1,12 @@
 PODS:
   - Alamofire (4.8.2)
+  - GoogleMaps (3.8.0):
+    - GoogleMaps/Maps (= 3.8.0)
+  - GoogleMaps/Base (3.8.0)
+  - GoogleMaps/Maps (3.8.0):
+    - GoogleMaps/Base
+  - GooglePlaces (3.8.0):
+    - GoogleMaps/Base (= 3.8.0)
   - IQKeyboardManagerSwift (6.0.5)
   - Kingfisher (4.10.1)
   - MVVM-Swift (1.1.0)
@@ -36,12 +43,14 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (= 4.8.2)
+  - GoogleMaps
+  - GooglePlaces
   - IQKeyboardManagerSwift (~> 6.0.4)
   - Kingfisher
   - MVVM-Swift (= 1.1.0)
   - ObjectMapper (= 3.3.0)
   - RealmSwift
-  - SVProgressHUD (= 2.2.5)
+  - SVProgressHUD
   - SwifterSwift (~> 5.0)
   - SwiftLint (= 0.27.0)
   - SwiftUtils (= 4.2)
@@ -49,6 +58,8 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - GoogleMaps
+    - GooglePlaces
     - IQKeyboardManagerSwift
     - Kingfisher
     - MVVM-Swift
@@ -62,6 +73,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  GoogleMaps: 7c8d66d70e4e8c300f43a7219d8fdaad7b325a9a
+  GooglePlaces: d5f70c3e9e427964fdeca1301a665d276ccd8754
   IQKeyboardManagerSwift: c14eca30f6001457d6ddf25e313f23fb6578c41c
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   MVVM-Swift: 54749cc12bb30af41632f30a2c576a18bf9e4bc8
@@ -73,6 +86,6 @@ SPEC CHECKSUMS:
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   SwiftUtils: de77bcd1df216c9be6ec7011777302c60a2018a6
 
-PODFILE CHECKSUM: fe1597e08287a25743bbb90d79cfb51edac1a554
+PODFILE CHECKSUM: 11d06b4e4171725c00962b9d9b74107342f35474
 
 COCOAPODS: 1.8.4
