@@ -30,7 +30,7 @@ final class Menu: Object, Mappable {
 
     //MARK: - Init
     init?(map: Map) { }
-
+    
     required init() { }
 
     struct GoogleApiResult {
@@ -60,7 +60,6 @@ final class Menu: Object, Mappable {
             self.suffixThumnail = suffix
         }
     }
-
 
     override static func primaryKey() -> String? {
         return "id"
