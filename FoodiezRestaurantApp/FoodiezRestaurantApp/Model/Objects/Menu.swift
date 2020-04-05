@@ -26,7 +26,7 @@ final class Menu: Object, Mappable {
     var prefixThumbnail: String = ""
     var suffixThumbnail: String = ""
     @objc dynamic var isFavorite: Bool = false
-    var image: String?
+    var placeImage: String?
 
     //MARK: - Init
     init?(map: Map) { }
