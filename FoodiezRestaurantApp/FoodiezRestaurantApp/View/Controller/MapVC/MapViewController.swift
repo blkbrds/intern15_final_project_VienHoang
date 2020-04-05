@@ -7,186 +7,191 @@
 //
 
 import UIKit
-import MapKit
+import GoogleMaps
+import GooglePlaces
 
-final class MapViewController: UIViewController {
-    
-    //MARK: - Properties
-    let locationManager = CLLocationManager()
-    
-    //MARK: - IBOutlet
-    @IBOutlet private weak var mapView: MKMapView!
+protocol MapViewControllerDataSource: class {
+    func getPlaces() -> [Menu]
+}
 
-    //MARK: Life cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
+final class MapViewController: ViewController {
 
-        //MARK: - Properties
-        let dannangLocation = CLLocation(latitude: 16.072163, longitude: 108.227071)
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-        let region = MKCoordinateRegion(center: dannangLocation.coordinate, span: span)
-        mapView.region = region
+    private let defaultLocation = CLLocation(latitude: 40.7, longitude: -74)
+    private var locationManager = CLLocationManager()
+    private var currentLocation = CLLocation()
+    private var destinationLocation = CLLocation()
+    private var placesClient: GMSPlacesClient!
+    private var mapView: GMSMapView!
+    private var zoomLevel: Float = 14.5
+    private var path: GMSPolyline!
+
+    weak var dataSource: MapViewControllerDataSource?
+    var destinationLatitude: Double = 0
+    var destinationLongtitude: Double = 0
+    var travelMode = TravelModes.driving
+    var selectedPlace: GMSPlace?
+    var viewModel = MapViewModel()
+
+    // MARK: - Life cycle
+    override func setupUI() {
+        super.setupUI()
+        setupNavigation()
+        setupMap()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mapView.clear()
+        getData()
+        if let idPlace = UserDefaults.standard.value(forKey: "placeSelected") {
+            guard let idPlace = idPlace as? String else { return }
+            directionWithPlaceSelected(with: idPlace)
+            UserDefaults.standard.set(nil, forKey: "placeSelected")
+        } else {
+            getMarkers()
+            addMarkerIntoMap()
+        }
+    }
+}
+
+// MARK: - Setup Data
+extension MapViewController {
+
+    private func getData() {
+        guard let places = dataSource?.getPlaces() else { return }
+        viewModel.places = places
+    }
+
+    private func getMarkers() {
+        viewModel.createMarkers()
+    }
+
+    private func directionWithPlaceSelected(with idPlace: String) {
+        let place = viewModel.getPlaceSelected(with: idPlace)
+        destinationLatitude = place.position.lat
+        destinationLongtitude = place.position.long
+        destinationLocation = CLLocation(latitude: destinationLatitude, longitude: destinationLongtitude)
+        direction()
+    }
+}
+
+// MARK: - Setup Map
+extension MapViewController {
+
+    private func setupNavigation() {
+        title = "Map"
+    }
+
+    private func setupMap() {
+        // Initialize the location manager
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 100
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+
+        placesClient = GMSPlacesClient.shared()
+
+        // Create a map
+        let camera = GMSCameraPosition.camera(withLatitude: defaultLocation.coordinate.latitude, longitude: defaultLocation.coordinate.longitude, zoom: zoomLevel)
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView.settings.myLocationButton = true
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mapView.isMyLocationEnabled = true
         mapView.delegate = self
-        let source = CLLocationCoordinate2D(latitude: 16.071668, longitude: 108.230178)
-        addPin(coordinate: source, title: "Vincom", subTitle: "Da Nang, Viet Nam")
-        let destination = CLLocationCoordinate2D(latitude: 16.080838, longitude: 108.238573)
-        addPin(coordinate: destination, title: "Asian Tech", subTitle: "Da Nang, Viet Nam")
-        routing(source: source, destination: destination)
+        mapView.frame = view.bounds
+        view.addSubview(mapView)
     }
 
-    //MARK: - Public functions
-    func addAnnotation() {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 16.071763, longitude: 108.223963)
-        annotation.title = "Point 0001"
-        annotation.subtitle = "subtitle 0001"
-        mapView.addAnnotation(annotation)
+    private func addMarkerIntoMap() {
+        viewModel.markers.forEach { $0.map = mapView }
+    }
+}
+
+// MARK: - Conform Direction on Google Map
+extension MapViewController {
+
+    private func prepareForDirection() {
+        self.mapView.clear()
+        let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: destinationLatitude, longitude: destinationLongtitude))
+        marker.appearAnimation = .pop
+        marker.map = mapView
     }
 
-    func addPin(coordinate: CLLocationCoordinate2D) {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        mapView.addAnnotation(annotation)
-    }
-
-    func addPin(coordinate: CLLocationCoordinate2D, title: String, subTitle: String) {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        annotation.title = title
-        annotation.subtitle = subTitle
-        mapView.addAnnotation(annotation)
-    }
-
-    func addAnnotations() {
-        let pins: [MyPin] = [MyPin(title: "Point 0001", locationName: "Point 0001", coordinate: CLLocationCoordinate2D(latitude: 16.071763, longitude: 108.223963)),
-            MyPin(title: "Point 0002", locationName: "Point 0002", coordinate: CLLocationCoordinate2D(latitude: 16.074443, longitude: 108.224443)),
-            MyPin(title: "Point 0003", locationName: "Point 0003", coordinate: CLLocationCoordinate2D(latitude: 16.073969, longitude: 108.228798)),
-            MyPin(title: "Point 0004", locationName: "Point 0004", coordinate: CLLocationCoordinate2D(latitude: 16.069783, longitude: 108.225086)),
-            MyPin(title: "Point 0005", locationName: "Point 0005", coordinate: CLLocationCoordinate2D(latitude: 16.070629, longitude: 108.228563))]
-        mapView.addAnnotations(pins)
-    }
-
-    func center(location: CLLocation) {
-        mapView.setCenter(location.coordinate, animated: true)
-        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
-        let region = MKCoordinateRegion(center: location.coordinate, span: span)
-        mapView.setRegion(region, animated: true)
-        mapView.showsUserLocation = true
-        addAnnotation()
-    }
-
-    func zoom(location: CLLocation, span: Float) {
-        let span = MKCoordinateSpan(latitudeDelta: CLLocationDegrees(span), longitudeDelta: CLLocationDegrees(span))
-        let region = MKCoordinateRegion(center: location.coordinate, span: span)
-        mapView.setRegion(region, animated: true)
-    }
-
-    func addOverlayData() {
-        let coordinates = [
-            CLLocationCoordinate2D(latitude: 16.071763, longitude: 108.223963),
-            CLLocationCoordinate2D(latitude: 16.074443, longitude: 108.224443),
-            CLLocationCoordinate2D(latitude: 16.073969, longitude: 108.228798),
-            CLLocationCoordinate2D(latitude: 16.069783, longitude: 108.225086),
-            CLLocationCoordinate2D(latitude: 16.070629, longitude: 108.228563)
-        ]
-        for center in coordinates {
-            let radius = 100.0
-            let overlay = MKCircle(center: center, radius: radius)
-            mapView.addOverlay(overlay)
-            addPin(coordinate: center)
-        }
-    }
-
-    func routing(source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
-        let request = MKDirections.Request()
-        request.source = MKMapItem(placemark: MKPlacemark(coordinate: source, addressDictionary: nil))
-        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: destination, addressDictionary: nil))
-        request.requestsAlternateRoutes = true
-        request.transportType = .automobile
-        let directions = MKDirections(request: request)
-        directions.calculate { [unowned self] response, error in
-            guard let unwrappedResponse = response else { return }
-            for route in unwrappedResponse.routes {
-                self.mapView.addOverlay(route.polyline)
-                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+    // Draw a path on google map view
+    private func direction() {
+        prepareForDirection()
+        viewModel.getPoints(currentLocation: currentLocation, destinationLocation: destinationLocation, travelMode: travelMode) { (done, stringResult) in
+            if done {
+                // Create a direction path
+                let path = GMSPath.init(fromEncodedPath: stringResult)
+                let polyline = GMSPolyline.init(path: path)
+                polyline.strokeColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
+                polyline.strokeWidth = 3
+                polyline.map = self.mapView
+            } else {
+                self.alert(title: App.Home.alertTitle, msg: stringResult, buttons: ["OK"], preferButton: "OK", handler: nil)
             }
-        }
-    }
-
-    //MARK: - Actions
-    @IBAction private func movetoCurrentLocaltion(_ sender: Any) {
-        LocationManager.shared().getCurrentLocation { (location) in
-            self.center(location: location)
         }
     }
 }
 
-//MARK: - MapViewDelegate
-extension MapViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if let pin = annotation as? MKPointAnnotation {
-            let identifier = "pin"
-            var view: MKPinAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView {
-                dequeuedView.annotation = annotation
-                view = dequeuedView
-            } else {
-                view = MKPinAnnotationView(annotation: pin, reuseIdentifier: identifier)
-                view.animatesDrop = true
-                view.pinTintColor = .green
-                view.canShowCallout = true
-            }
-            return view
-        } else if let annotation = annotation as? MyPin {
-            let identifier = "mypin"
-            var view: MyPinView
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MyPinView {
-                dequeuedView.annotation = annotation
-                view = dequeuedView
-            } else {
-                view = MyPinView(annotation: annotation, reuseIdentifier: identifier)
-                let button = UIButton(type: .detailDisclosure)
-                button.addTarget(self, action: #selector(selectPinView(_:)), for: .touchDown)
-                view.rightCalloutAccessoryView = button
-                view.leftCalloutAccessoryView = UIImageView(image: UIImage(named: "macker"))
-                view.canShowCallout = true
-            }
-            return view
-        } else {
-            return nil
-        }
+// MARK: - GMS Google Delegate
+extension MapViewController: GMSMapViewDelegate {
+
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        // tap on annotation
+        self.destinationLatitude = marker.position.latitude
+        self.destinationLongtitude = marker.position.longitude
+        destinationLocation = CLLocation(latitude: destinationLatitude, longitude: destinationLongtitude)
+        direction()
     }
 
-    //MARK: - Action
-    @objc func selectPinView(_ sender: UIButton?) {
-        print("select button detail")
-    }
-
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        print("selected callout")
-    }
-
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print("selected pin")
-    }
-
-    //MARK: - Public functions
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        if let polyline = overlay as? MKPolyline {
-            let renderer = MKPolylineRenderer(polyline: polyline)
-            renderer.strokeColor = UIColor.blue
-            renderer.lineWidth = 3
-            return renderer
-        } else if let circle = overlay as? MKCircle {
-            let circleRenderer = MKCircleRenderer(circle: circle)
-            circleRenderer.fillColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.5)
-            circleRenderer.strokeColor = .blue
-            circleRenderer.lineWidth = 1
-            circleRenderer.lineDashPhase = 10
-            return circleRenderer
-        } else {
-            return MKOverlayRenderer()
-        }
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        mapView.clear()
+        getMarkers()
+        addMarkerIntoMap()
     }
 }
 
+// MARK: - CLLocation Manager Delegate
+extension MapViewController: CLLocationManagerDelegate {
+
+    // Handle incoming location events.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location: CLLocation = locations.last!
+        currentLocation = location
+        let camera = GMSCameraPosition.camera(withLatitude: defaultLocation.coordinate.latitude, longitude: location.coordinate.longitude, zoom: zoomLevel)
+        if mapView.isHidden {
+            mapView.isHidden = false
+            mapView.camera = camera
+        } else {
+            mapView.animate(to: camera)
+        }
+    }
+
+    // Handle authorization for the location manager.
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted:
+            print("Location access was restricted")
+        case .denied:
+            print("User denied access to location")
+            // Display the map using the default location.
+            mapView.isHidden = false
+        case .notDetermined:
+            print("Location status not determined")
+        case .authorizedAlways: fallthrough
+        case .authorizedWhenInUse:
+            print("Location status is OK")
+            @unknown default:
+            fatalError()
+        }
+    }
+
+    // Handle location manager errors.
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+        print("Error: \(error)")
+    }
+}

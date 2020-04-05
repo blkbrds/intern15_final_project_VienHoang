@@ -26,6 +26,7 @@ target 'FoodiezRestaurantApp' do
   pod 'SwiftLint', '0.27.0'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'NVActivityIndicatorView'
 end
 
 # Check pods for support swift version

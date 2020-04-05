@@ -45,6 +45,8 @@
 		CE3A60C6240625D60031B935 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3A60C4240625D60031B935 /* CollectionViewCell.xib */; };
 		CE52E5472415E1060090B9A0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52E5452415E1060090B9A0 /* DetailViewController.swift */; };
 		CE52E5482415E1060090B9A0 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE52E5462415E1060090B9A0 /* DetailViewController.xib */; };
+		CE65F30F2437202800EEE52D /* Api.Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65F30E2437202800EEE52D /* Api.Direction.swift */; };
+		CE65F3112437241700EEE52D /* Api+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65F3102437241700EEE52D /* Api+Data.swift */; };
 		CEEAAF78240CBEB800BEF784 /* RequestSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF77240CBEB800BEF784 /* RequestSerializer.swift */; };
 		CEEAAF7A240CC26300BEF784 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF79240CC26300BEF784 /* Error.swift */; };
 		CEEAAF7C240CC27C00BEF784 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAAF7B240CC27C00BEF784 /* ApiManager.swift */; };
@@ -114,6 +116,8 @@
 		CE3A60C4240625D60031B935 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		CE52E5452415E1060090B9A0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CE52E5462415E1060090B9A0 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		CE65F30E2437202800EEE52D /* Api.Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Direction.swift; sourceTree = "<group>"; };
+		CE65F3102437241700EEE52D /* Api+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Api+Data.swift"; sourceTree = "<group>"; };
 		CEEAAF77240CBEB800BEF784 /* RequestSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSerializer.swift; sourceTree = "<group>"; };
 		CEEAAF79240CC26300BEF784 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		CEEAAF7B240CC27C00BEF784 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
@@ -394,6 +398,7 @@
 				CE367092240D3B2900684C1D /* Api.Home.swift */,
 				CE309D5C2411407E00E817E1 /* Api.Detail.swift */,
 				CE2FA7D9242F30A80026C3EC /* Api.Search.swift */,
+				CE65F30E2437202800EEE52D /* Api.Direction.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 				CEEAAF7B240CC27C00BEF784 /* ApiManager.swift */,
 				CEEAAF7D240CC2A600BEF784 /* ResponseSerializer.swift */,
 				CEEAAF7F240CC2CD00BEF784 /* Api.swift */,
+				CE65F3102437241700EEE52D /* Api+Data.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -629,6 +635,8 @@
 				CE13FE7E242866D700D25315 /* ViewController.swift in Sources */,
 				CE3A6050240612800031B935 /* AppDelegate.swift in Sources */,
 				CE33DAAB2406531E00DB6127 /* HomeViewModel.swift in Sources */,
+				CE65F30F2437202800EEE52D /* Api.Direction.swift in Sources */,
+				CE65F3112437241700EEE52D /* Api+Data.swift in Sources */,
 				CEEAAF85240CC42000BEF784 /* NSErrorExt.swift in Sources */,
 				CE3A60C024061EB00031B935 /* HomeViewController.swift in Sources */,
 				CEFEF30D241A3F760003B352 /* UITextViewExt.swift in Sources */,

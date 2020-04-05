@@ -15,13 +15,24 @@ final class Api {
         static let baseURL = "https://api.foursquare.com/v2/venues"
     }
 
+    struct BasePath {
+        static let baseURLL = "https://api.foursquare.com/v2/"
+        static let baseURLDirection = "https://maps.googleapis.com/maps/api/directions/json?"
+    }
+
+    struct Key {
+        static let GoogleAPI = "AIzaSyBQkw6VyislF_3TCB7l0MfQH_2E0BwigHg"
+    }
+
     struct Home { }
 
     struct Categories { }
 
     struct Detail { }
-    
+
     struct Search { }
+
+    struct Direction { }
 }
 
 extension Api.Path {
@@ -29,7 +40,7 @@ extension Api.Path {
         static var path: String {
             return baseURL / "search"
         }
-        
+
         static var basePath: String = ""
         static var homePath: String {
             return baseURL / basePath
@@ -42,7 +53,7 @@ extension Api.Path {
             return baseURL / basePath
         }
     }
-    
+
     struct Search {
         static var path: String {
             return baseURL / "search"

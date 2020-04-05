@@ -19,7 +19,7 @@ class ViewController: UIViewController, MVVM.View {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.accessibilityIdentifier = String(describing: type(of: self))
-        view.removeMultiTouch()
+ //       view.removeMultiTouch()
         setupUI()
         setupData()
     }

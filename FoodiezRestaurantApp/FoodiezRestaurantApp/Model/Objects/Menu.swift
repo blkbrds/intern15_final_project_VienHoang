@@ -12,8 +12,8 @@ import RealmSwift
 import GoogleMaps
 
 struct Position {
-       var lat: CLLocationDegrees = 0
-     var long: CLLocationDegrees = 0
+    var lat: CLLocationDegrees = 0
+    var long: CLLocationDegrees = 0
 }
 
 final class Menu: Object, Mappable {
@@ -35,7 +35,7 @@ final class Menu: Object, Mappable {
 
     //MARK: - Init
     init?(map: Map) { }
-    
+
     required init() { }
 
     struct GoogleApiResult {

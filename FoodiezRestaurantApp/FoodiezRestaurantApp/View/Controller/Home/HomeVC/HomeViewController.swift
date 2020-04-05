@@ -9,21 +9,21 @@
 import UIKit
 import SVProgressHUD
 
-class BaseViewController: UIViewController {
+//class BaseViewController: UIViewController {
+//
+//    //MARK: - Life cycle
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
+//
+//    //MARK: - Life cycle
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        navigationController?.setNavigationBarHidden(true, animated: animated)
+//    }
+//}
 
-    //MARK: - Life cycle
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-
-    //MARK: - Life cycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-}
-
-final class HomeViewController: BaseViewController {
+final class HomeViewController: UIViewController {
 
     //MARK: - IBOutlet
     @IBOutlet private weak var backgroundImageView: UIImageView!

@@ -12,7 +12,7 @@ final class HomeViewModel {
 
     //MARK: Properties
     var menus: [Menu] = []
-    let limit: Int = 5
+    let limit: Int = 10
     var dem: Int = 0
     var id: String = ""
     var dispatchGroup = DispatchGroup()
@@ -34,7 +34,7 @@ final class HomeViewModel {
                     }
                 }
                 self.dispatchGroup.notify(queue: .main) {
-                    print("Da goi xong het api trong vong lap for")
+                    print("Don't call Api")
                     completion(.success)
                 }
             case .failure(let error):
