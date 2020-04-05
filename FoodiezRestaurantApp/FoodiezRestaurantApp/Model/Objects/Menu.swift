@@ -23,8 +23,8 @@ final class Menu: Object, Mappable {
     var suffixCategories = ""
     var address: String = ""
     var distance: String = ""
-    var prefixThumnail: String = ""
-    var suffixThumnail: String = ""
+    var prefixThumbnail: String = ""
+    var suffixThumbnail: String = ""
     @objc dynamic var isFavorite: Bool = false
     var image: String?
 
@@ -54,10 +54,10 @@ final class Menu: Object, Mappable {
         items <- map["items"]
         for item in items {
             guard let prefix = item["prefix"] as? String else { return }
-            self.prefixThumnail = prefix
+            prefixThumbnail = prefix
 
             guard let suffix = item["suffix"] as? String else { return }
-            self.suffixThumnail = suffix
+            suffixThumbnail = suffix
         }
     }
 

@@ -19,7 +19,7 @@ target 'FoodiezRestaurantApp' do
   pod 'SwiftUtils', '4.2', :inhibit_warnings => true
 
   # UI
-  pod 'SVProgressHUD',
+  pod 'SVProgressHUD'
 
   pod 'Kingfisher'
   # Tool to enforce Swift style and conventions

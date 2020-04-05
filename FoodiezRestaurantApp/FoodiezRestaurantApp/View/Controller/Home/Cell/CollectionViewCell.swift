@@ -25,13 +25,13 @@ final class CollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.nameImageView.layer.cornerRadius = self.nameImageView.frame.width / 2
-        self.layer.cornerRadius = 40
+        nameImageView.layer.cornerRadius = self.nameImageView.frame.width / 2
+        layer.cornerRadius = 40
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.blurView.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.blurView.addSubview(blurEffectView)
+        blurView.addSubview(blurEffectView)
     }
 
     //MARK: - Life cycle

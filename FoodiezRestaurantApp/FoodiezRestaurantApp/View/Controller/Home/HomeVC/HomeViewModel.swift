@@ -21,20 +21,19 @@ final class HomeViewModel {
     func loadAPIForHome(completion: @escaping APICompletion) {
         let params = Api.Home.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll, limit: limit)
         Api.Home.getMenus(params: params) { [weak self] (result) in
-            guard let self = self else {
+            guard let this = self else {
                 completion(.failure(Api.Error.invalidRequest))
                 return }
             switch result {
             case .success(let result):
-                self.menus = result.menu
-                for index in 0 ..< self.menus.count {
-                    self.dispatchGroup.enter()
-                    self.loadImage(at: index) { (result) in
-                        self.dispatchGroup.leave()
+                this.menus = result.menu
+                for index in 0 ..< this.menus.count {
+                    this.dispatchGroup.enter()
+                    this.loadImage(at: index) { (result) in
+                        this.dispatchGroup.leave()
                     }
                 }
-                self.dispatchGroup.notify(queue: .main) {
-                    print("Da goi xong het api trong vong lap for")
+                this.dispatchGroup.notify(queue: .main) {
                     completion(.success)
                 }
             case .failure(let error):
@@ -58,7 +57,7 @@ final class HomeViewModel {
     func loadImage(at index: Int, completion: @escaping APICompletion) {
         id = menus[index].id
         Api.Path.Home.basePath = id
-        let params = Api.Home.ParamsThumnail(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll)
+        let params = Api.Home.ParamsThumbnail(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll)
         Api.Home.getImage(params: params) { [weak self] (result) in
             guard let this = self else {
                 completion(.failure(Api.Error.invalidRequest))

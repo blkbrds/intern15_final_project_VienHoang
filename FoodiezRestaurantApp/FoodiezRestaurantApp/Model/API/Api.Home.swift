@@ -31,7 +31,7 @@ extension Api.Home {
         }
     }
 
-    struct ParamsThumnail {
+    struct ParamsThumbnail {
         //MARK: - Properties
         var clientID: String
         var clientSecret: String
@@ -79,7 +79,7 @@ extension Api.Home {
     }
 
     @discardableResult
-    static func getImage(params: ParamsThumnail, completion: @escaping Completion<String>) -> Request? {
+    static func getImage(params: ParamsThumbnail, completion: @escaping Completion<String>) -> Request? {
         let path = Api.Path.Home.homePath
         return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
             DispatchQueue.main.async {
@@ -92,16 +92,16 @@ extension Api.Home {
                         let venue = response["venue"] as? JSObject,
                         let photos = venue["photos"] as? JSObject,
                         let groups = photos["groups"] as? JSArray else { return }
-                    var image: String = ""
+                    var imageLocation: String = ""
                     for item in groups {
                         guard let items = item["items"] as? JSArray else { return }
                         for index in items {
                             let prefix = index["prefix"] as? String
                             let suffix = index["suffix"] as? String
-                            image = "\(prefix ?? "")100x100\(suffix ?? "")"
+                            imageLocation = "\(prefix ?? "")100x100\(suffix ?? "")"
                         }
                     }
-                    completion(.success(image))
+                    completion(.success(imageLocation))
                 }
             }
         }
