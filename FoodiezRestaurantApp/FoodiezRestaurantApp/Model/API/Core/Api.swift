@@ -21,7 +21,7 @@ final class Api {
     }
 
     struct Key {
-        static let GoogleAPI = "AIzaSyBQkw6VyislF_3TCB7l0MfQH_2E0BwigHg"
+        static let GoogleAPI = "AIzaSyAZGlweYtcWgzVKTUt5nz961P0ipsCtO3c"
     }
 
     struct Home { }
