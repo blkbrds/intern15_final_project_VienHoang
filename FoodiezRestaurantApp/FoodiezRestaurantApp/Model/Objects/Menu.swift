@@ -30,7 +30,7 @@ final class Menu: Object, Mappable {
     var prefixThumnail: String = ""
     var suffixThumnail: String = ""
     @objc dynamic var isFavorite: Bool = false
-    var image: String?
+    var placeImage: String?
     var position = Position()
 
     //MARK: - Init
@@ -71,6 +71,6 @@ final class Menu: Object, Mappable {
     }
 
     override class func ignoredProperties() -> [String] {
-        return ["name", "lat", "long", "tagcategorys", "prefixCategories", "suffixCategories", "address", "distance", "rating", "image"]
+        return ["name", "tagcategorys", "prefixCategories", "suffixCategories", "address", "distance", "rating", "image"]
     }
 }

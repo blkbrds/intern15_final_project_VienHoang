@@ -22,15 +22,14 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let favoritesVC = FavoriteViewController()
         let favoritesNavi = UINavigationController(rootViewController: favoritesVC)
         favoritesNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "favorite"), selectedImage: UIImage(named: "favorite"))
-        
-        let mapVC = MapViewController()
-        mapVC.dataSource = homeVC as? MapViewControllerDataSource
-        let mapNavi = UINavigationController(rootViewController: mapVC)
-        mapNavi.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "icons8-map-marker-30"), selectedImage: #imageLiteral(resourceName: "macker"))
 
         let searchVC = SearchViewController()
         let searchNavi = UINavigationController(rootViewController: searchVC)
         searchNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "search"), tag: 2)
+        
+        let mapVC = MapViewController()
+        let mapNavi = UINavigationController(rootViewController: mapVC)
+        mapNavi.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "icons8-map-marker-30"), tag: 2)
 
         let tabbarController = UITabBarController()
         tabbarController.viewControllers = [homeNavi, favoritesNavi, searchNavi, mapNavi]

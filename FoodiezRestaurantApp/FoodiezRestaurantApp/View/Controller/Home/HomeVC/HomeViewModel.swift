@@ -65,7 +65,7 @@ final class HomeViewModel {
                 return }
             switch result {
             case .success(let image):
-                this.menus[index].image = image
+                this.menus[index].placeImage = image
                 completion(.success)
             case .failure(let error):
                 completion(.failure(error))

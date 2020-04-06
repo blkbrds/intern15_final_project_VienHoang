@@ -78,6 +78,11 @@ final class HomeViewController: UIViewController {
             cell.transform = .identity
         }
     }
+    
+    @objc private func moveToMap() {
+        UserDefaults.standard.set(viewModel.id, forKey: "placeSelected")
+        tabBarController?.selectedIndex = 1
+    }
 }
 
 //MARK: - Extention CollectionViewDataSource

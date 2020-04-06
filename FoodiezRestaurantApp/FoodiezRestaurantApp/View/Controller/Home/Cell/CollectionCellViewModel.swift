@@ -21,6 +21,6 @@ final class CollectionCellViewModel {
         prefix = menu.prefixCategories
         name = menu.name
         suffix = menu.suffixCategories
-        image = menu.image
+        image = menu.placeImage
     }
 }
