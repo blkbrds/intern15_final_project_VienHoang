@@ -16,7 +16,9 @@ final class LocationManager: NSObject {
     //singleton
     private static var sharedLocationManager: LocationManager = {
         let locationManager = LocationManager()
+        let places: [Menu] = []
         return locationManager
+
     }()
 
     class func shared() -> LocationManager {

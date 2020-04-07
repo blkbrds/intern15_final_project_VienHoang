@@ -41,7 +41,7 @@ DEPENDENCIES:
   - MVVM-Swift (= 1.1.0)
   - ObjectMapper (= 3.3.0)
   - RealmSwift
-  - SVProgressHUD (= 2.2.5)
+  - SVProgressHUD
   - SwifterSwift (~> 5.0)
   - SwiftLint (= 0.27.0)
   - SwiftUtils (= 4.2)
@@ -73,6 +73,6 @@ SPEC CHECKSUMS:
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   SwiftUtils: de77bcd1df216c9be6ec7011777302c60a2018a6
 
-PODFILE CHECKSUM: fe1597e08287a25743bbb90d79cfb51edac1a554
+PODFILE CHECKSUM: 01f17098e1a5886ab6d3c7a69c152c4f70e10019
 
 COCOAPODS: 1.8.4

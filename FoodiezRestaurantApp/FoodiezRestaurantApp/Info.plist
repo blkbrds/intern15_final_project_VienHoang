@@ -37,12 +37,12 @@
 			</array>
 		</dict>
 	</dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Can lay vi tri nguoi dung</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Can lay vi tri nguoi dung</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Can lay vi tri nguoi dung</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
