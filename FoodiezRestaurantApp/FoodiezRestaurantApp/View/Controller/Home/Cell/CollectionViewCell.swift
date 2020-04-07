@@ -45,7 +45,7 @@ final class CollectionViewCell: UICollectionViewCell {
         nameLabel.text = viewModel.name
         let image = "\(viewModel.prefix)bg_88\(viewModel.suffix)"
         nameImageView.setImage(url: image)
-        thumbnailImage.setImage(url: viewModel.image)
+        thumbnailImage.setImage(url: viewModel.imageCell)
     }
 }
 
