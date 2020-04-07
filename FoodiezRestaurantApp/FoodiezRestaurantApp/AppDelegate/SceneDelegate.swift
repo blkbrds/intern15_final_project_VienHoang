@@ -23,12 +23,16 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let favoritesNavi = UINavigationController(rootViewController: favoritesVC)
         favoritesNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "favorite"), selectedImage: UIImage(named: "favorite"))
 
+        let mapVC = MapViewController()
+        let mapNavi = UINavigationController(rootViewController: mapVC)
+        favoritesVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "map"), selectedImage: UIImage(named: "map"))
+
         let searchVC = SearchViewController()
         let searchNavi = UINavigationController(rootViewController: searchVC)
         searchNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "search"), tag: 2)
 
         let tabbarController = UITabBarController()
-        tabbarController.viewControllers = [homeNavi, favoritesNavi, searchNavi]
+        tabbarController.viewControllers = [homeNavi, favoritesNavi, searchNavi, mapNavi]
         tabbarController.tabBar.tintColor = #colorLiteral(red: 0.2078431373, green: 0.1843137255, blue: 0.3294117647, alpha: 1)
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = tabbarController

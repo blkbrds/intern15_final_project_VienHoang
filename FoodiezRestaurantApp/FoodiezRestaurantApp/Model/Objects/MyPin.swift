@@ -9,25 +9,45 @@
 import Foundation
 import MapKit
 
-final class MyPin: NSObject, MKAnnotation {
-    
+final class MyPin {
+
     //MARk: - Properties
-    let title: String?
-    let locationName: String
-    let coordinate: CLLocationCoordinate2D
-    
+    var title: String?
+    var locationName: String?
+    var location: CLLocationCoordinate2D?
+    var country: String?
+    var id: String?
+    var prefix: String?
+
     //MARK: - Init
-    init(title: String, locationName: String, coordinate: CLLocationCoordinate2D) {
-        self.title = title
-        self.locationName = locationName
-        self.coordinate = coordinate
-        super.init()
-    }
-    
-    //MARK: - Properties
-    var subtitle: String? {
-        return locationName
+    init(json: JSON) {
+        if let location = json["location"] as? [String: Any],
+            let lat = location["lat"] as? Double,
+            let long = location["long"] as? Double,
+            let lng = location["lng"] as? Double,
+            let country = location["location"] as? String {
+            self.location = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+            self.country = country
+        }
+        if let categories = json["categories"] as? JSArray {
+            for item in categories {
+                guard let icon = item["icon"] as? JSObject else { return }
+                prefix = (icon["prefix"] as? String)
+            }
+        }
+        locationName = json["name"] as? String
+        id = json["id"] as? String
     }
 }
 
+extension MyPin: Equatable {
+    static func == (lhs: MyPin, rhs: MyPin) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
 
+class PlaceManager {
+    static var shared: PlaceManager = PlaceManager()
+    var places: [Menu] = []
+    private init() { }
+}

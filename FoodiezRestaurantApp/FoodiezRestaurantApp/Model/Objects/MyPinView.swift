@@ -10,10 +10,10 @@ import Foundation
 import MapKit
 
 final class MyPinView: MKPinAnnotationView {
-    
+
     //MARK: - Properties
     private var imageView: UIImageView!
-    
+
     //MARk: Life cycle
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
@@ -24,7 +24,7 @@ final class MyPinView: MKPinAnnotationView {
         imageView.layer.cornerRadius = 5.0
         imageView.layer.masksToBounds = true
     }
-    
+
     //MARK: - Life cycle
     override var image: UIImage? {
         get {

@@ -10,91 +10,29 @@ import UIKit
 import MapKit
 
 final class MapViewController: UIViewController {
-    
+
     //MARK: - Properties
     let locationManager = CLLocationManager()
-    
+    var currentLocation = CLLocationCoordinate2D()
+
     //MARK: - IBOutlet
     @IBOutlet private weak var mapView: MKMapView!
 
     //MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        LocationManager.shared().getCurrentLocation(completion: { [weak self] (location) in
+            guard let this = self else { return }
+            this.currentLocation = location.coordinate
+            this.center(location: location.coordinate)
+        })
+    }
 
-        //MARK: - Properties
-        let dannangLocation = CLLocation(latitude: 16.072163, longitude: 108.227071)
+    func center(location: CLLocationCoordinate2D) {
+        mapView.setCenter(location, animated: true)
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-        let region = MKCoordinateRegion(center: dannangLocation.coordinate, span: span)
-        mapView.region = region
-        mapView.delegate = self
-        let source = CLLocationCoordinate2D(latitude: 16.071668, longitude: 108.230178)
-        addPin(coordinate: source, title: "Vincom", subTitle: "Da Nang, Viet Nam")
-        let destination = CLLocationCoordinate2D(latitude: 16.080838, longitude: 108.238573)
-        addPin(coordinate: destination, title: "Asian Tech", subTitle: "Da Nang, Viet Nam")
-        routing(source: source, destination: destination)
-    }
-
-    //MARK: - Public functions
-    func addAnnotation() {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 16.071763, longitude: 108.223963)
-        annotation.title = "Point 0001"
-        annotation.subtitle = "subtitle 0001"
-        mapView.addAnnotation(annotation)
-    }
-
-    func addPin(coordinate: CLLocationCoordinate2D) {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        mapView.addAnnotation(annotation)
-    }
-
-    func addPin(coordinate: CLLocationCoordinate2D, title: String, subTitle: String) {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        annotation.title = title
-        annotation.subtitle = subTitle
-        mapView.addAnnotation(annotation)
-    }
-
-    func addAnnotations() {
-        let pins: [MyPin] = [MyPin(title: "Point 0001", locationName: "Point 0001", coordinate: CLLocationCoordinate2D(latitude: 16.071763, longitude: 108.223963)),
-            MyPin(title: "Point 0002", locationName: "Point 0002", coordinate: CLLocationCoordinate2D(latitude: 16.074443, longitude: 108.224443)),
-            MyPin(title: "Point 0003", locationName: "Point 0003", coordinate: CLLocationCoordinate2D(latitude: 16.073969, longitude: 108.228798)),
-            MyPin(title: "Point 0004", locationName: "Point 0004", coordinate: CLLocationCoordinate2D(latitude: 16.069783, longitude: 108.225086)),
-            MyPin(title: "Point 0005", locationName: "Point 0005", coordinate: CLLocationCoordinate2D(latitude: 16.070629, longitude: 108.228563))]
-        mapView.addAnnotations(pins)
-    }
-
-    func center(location: CLLocation) {
-        mapView.setCenter(location.coordinate, animated: true)
-        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
-        let region = MKCoordinateRegion(center: location.coordinate, span: span)
+        let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
-        mapView.showsUserLocation = true
-        addAnnotation()
-    }
-
-    func zoom(location: CLLocation, span: Float) {
-        let span = MKCoordinateSpan(latitudeDelta: CLLocationDegrees(span), longitudeDelta: CLLocationDegrees(span))
-        let region = MKCoordinateRegion(center: location.coordinate, span: span)
-        mapView.setRegion(region, animated: true)
-    }
-
-    func addOverlayData() {
-        let coordinates = [
-            CLLocationCoordinate2D(latitude: 16.071763, longitude: 108.223963),
-            CLLocationCoordinate2D(latitude: 16.074443, longitude: 108.224443),
-            CLLocationCoordinate2D(latitude: 16.073969, longitude: 108.228798),
-            CLLocationCoordinate2D(latitude: 16.069783, longitude: 108.225086),
-            CLLocationCoordinate2D(latitude: 16.070629, longitude: 108.228563)
-        ]
-        for center in coordinates {
-            let radius = 100.0
-            let overlay = MKCircle(center: center, radius: radius)
-            mapView.addOverlay(overlay)
-            addPin(coordinate: center)
-        }
     }
 
     func routing(source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
@@ -110,13 +48,6 @@ final class MapViewController: UIViewController {
                 self.mapView.addOverlay(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
             }
-        }
-    }
-
-    //MARK: - Actions
-    @IBAction private func movetoCurrentLocaltion(_ sender: Any) {
-        LocationManager.shared().getCurrentLocation { (location) in
-            self.center(location: location)
         }
     }
 }
@@ -141,10 +72,10 @@ extension MapViewController: MKMapViewDelegate {
             let identifier = "mypin"
             var view: MyPinView
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MyPinView {
-                dequeuedView.annotation = annotation
+                dequeuedView.annotation = annotation as? MKAnnotation
                 view = dequeuedView
             } else {
-                view = MyPinView(annotation: annotation, reuseIdentifier: identifier)
+                view = MyPinView(annotation: annotation as? MKAnnotation, reuseIdentifier: identifier)
                 let button = UIButton(type: .detailDisclosure)
                 button.addTarget(self, action: #selector(selectPinView(_:)), for: .touchDown)
                 view.rightCalloutAccessoryView = button
