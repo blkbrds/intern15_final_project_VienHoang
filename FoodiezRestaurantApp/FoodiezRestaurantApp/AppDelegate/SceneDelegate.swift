@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SVProgressHUD
+
+typealias HUD = SVProgressHUD
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -25,7 +28,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let mapVC = MapViewController()
         let mapNavi = UINavigationController(rootViewController: mapVC)
-        favoritesVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "map"), selectedImage: UIImage(named: "map"))
+        mapNavi.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "map"), selectedImage: UIImage(named: "map"))
 
         let searchVC = SearchViewController()
         let searchNavi = UINavigationController(rootViewController: searchVC)

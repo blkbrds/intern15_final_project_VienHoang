@@ -7,9 +7,12 @@
 ////
 //
 import Foundation
+import CoreLocation
 
-//final class MapViewModel {
-//    func getPlace(id: String, completion: @escaping APICompletion) {
-//        Api.Search.Params.init(clientID: <#T##String#>, clientSecret: <#T##String#>, v: <#T##String#>, ll: <#T##String#>, query: <#T##String#>)
-//    }
-//}
+final class MapViewModel {
+    var location: CLLocationCoordinate2D?
+
+    init(lag: Double, log: Double) {
+        location = CLLocationCoordinate2D(latitude: lag, longitude: log)
+    }
+}
