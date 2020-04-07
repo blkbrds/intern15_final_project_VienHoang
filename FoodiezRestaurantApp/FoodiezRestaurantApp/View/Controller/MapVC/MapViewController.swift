@@ -21,6 +21,8 @@ final class MapViewController: UIViewController {
     //MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
         LocationManager.shared().getCurrentLocation(completion: { [weak self] (location) in
             guard let this = self else { return }
             this.currentLocation = location.coordinate
@@ -48,6 +50,32 @@ final class MapViewController: UIViewController {
                 self.mapView.addOverlay(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
             }
+        }
+    }
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print("location manager authorization status changed")
+        
+        switch status {
+        case .authorizedAlways:
+            print("user allow app to get location data when app is active or in background")
+            
+        case .authorizedWhenInUse:
+            print("user allow app to get location data only when app is active")
+            
+        case .denied:
+            print("user tap 'disallow' on the permission dialog, cant get location data")
+            
+        case .restricted:
+            print("parental control setting disallow location data")
+            
+        case .notDetermined:
+            print("the location permission dialog haven't shown before, user haven't tap allow/disallow")
+            
+        default:
+            print("default")
         }
     }
 }

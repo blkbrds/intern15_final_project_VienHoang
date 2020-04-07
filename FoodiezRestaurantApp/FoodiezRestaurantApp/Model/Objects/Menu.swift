@@ -55,7 +55,7 @@ final class Menu: Object, Mappable {
         for item in items {
             guard let prefix = item["prefix"] as? String else { return }
             prefixThumbnail = prefix
-
+            
             guard let suffix = item["suffix"] as? String else { return }
             suffixThumbnail = suffix
         }

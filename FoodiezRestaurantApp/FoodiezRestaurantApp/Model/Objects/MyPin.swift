@@ -45,9 +45,3 @@ extension MyPin: Equatable {
         return lhs.id == rhs.id
     }
 }
-
-class PlaceManager {
-    static var shared: PlaceManager = PlaceManager()
-    var places: [Menu] = []
-    private init() { }
-}
