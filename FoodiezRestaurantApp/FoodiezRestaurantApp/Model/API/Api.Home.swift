@@ -19,8 +19,25 @@ extension Api.Home {
         var clientSecret: String
         var v: String
         var ll: String
+        var limit: Int
 
         //MARK: Public Functions
+        func toJSON() -> [String: Any] {
+            ["client_id": clientID,
+                "client_secret": clientSecret,
+                "v": v,
+                "ll": ll,
+                "limit": limit]
+        }
+    }
+
+    struct ParamsThumbnail {
+        //MARK: - Properties
+        var clientID: String
+        var clientSecret: String
+        var v: String
+        var ll: String
+
         func toJSON() -> [String: Any] {
             ["client_id": clientID,
                 "client_secret": clientSecret,
@@ -28,6 +45,7 @@ extension Api.Home {
                 "ll": ll]
         }
     }
+
 
     struct ValueResult: Mappable {
         var venues: JSArray = []
@@ -55,6 +73,35 @@ extension Api.Home {
                         return
                     }
                     completion(.success(result))
+                }
+            }
+        }
+    }
+
+    @discardableResult
+    static func getImage(params: ParamsThumbnail, completion: @escaping Completion<String>) -> Request? {
+        let path = Api.Path.Home.homePath
+        return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    completion(.failure(error))
+                case .success(let json):
+                    guard let json = json as? JSObject,
+                        let response = json["response"] as? JSObject,
+                        let venue = response["venue"] as? JSObject,
+                        let photos = venue["photos"] as? JSObject,
+                        let groups = photos["groups"] as? JSArray else { return }
+                    var imageLocation: String = ""
+                    for item in groups {
+                        guard let items = item["items"] as? JSArray else { return }
+                        for index in items {
+                            let prefix = index["prefix"] as? String
+                            let suffix = index["suffix"] as? String
+                            imageLocation = "\(prefix ?? "")100x100\(suffix ?? "")"
+                        }
+                    }
+                    completion(.success(imageLocation))
                 }
             }
         }

@@ -14,11 +14,13 @@ final class CollectionCellViewModel {
     var prefix: String = ""
     var name: String = ""
     var suffix: String = ""
+    var imageCell: String?
 
     //MARK: Init
     init(menu: Menu) {
         prefix = menu.prefixCategories
         name = menu.name
         suffix = menu.suffixCategories
+        imageCell = menu.placeImage
     }
 }

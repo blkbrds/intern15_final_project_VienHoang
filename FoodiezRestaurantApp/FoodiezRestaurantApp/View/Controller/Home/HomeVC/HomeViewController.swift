@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class BaseViewController: UIViewController {
-    
+
     //MARK: - Life cycle
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -30,7 +31,7 @@ final class HomeViewController: BaseViewController {
 
     //MARK: - Properties
     var viewModel = HomeViewModel()
-
+    var dispatchGroup = DispatchGroup()
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,15 +53,21 @@ final class HomeViewController: BaseViewController {
     }
 
     func loadApi() {
+        SVProgressHUD.show()
         viewModel.loadAPIForHome { [weak self] (reslut) in
+            SVProgressHUD.dismiss()
             guard let self = self else { return }
             switch reslut {
             case .success:
-                self.collectionView.reloadData()
+                self.updateUI()
             case .failure(let error):
                 self.alert(error: error)
             }
         }
+    }
+
+    func updateUI() {
+        collectionView.reloadData()
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

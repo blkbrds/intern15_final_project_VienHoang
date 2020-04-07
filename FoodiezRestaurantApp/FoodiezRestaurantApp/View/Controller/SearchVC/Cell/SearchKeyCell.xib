@@ -12,7 +12,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="43" id="KGk-i7-Jjw" customClass="SearchKeyCell" customModule="FoodiezRestaurantApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -24,7 +24,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKx-a4-eGu">
-                        <rect key="frame" x="47" y="13.5" width="239" height="18"/>
+                        <rect key="frame" x="47" y="13" width="239" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -40,11 +40,12 @@
                 <constraints>
                     <constraint firstItem="JCc-Eu-RjM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="0LI-il-hGZ"/>
                     <constraint firstItem="JCc-Eu-RjM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6F4-zr-1ic"/>
+                    <constraint firstAttribute="bottom" secondItem="YKx-a4-eGu" secondAttribute="bottom" constant="13" id="EpM-uu-cjG"/>
                     <constraint firstItem="fmN-5X-G2A" firstAttribute="centerY" secondItem="JCc-Eu-RjM" secondAttribute="centerY" id="Hfz-UO-ToB"/>
-                    <constraint firstItem="YKx-a4-eGu" firstAttribute="leading" secondItem="JCc-Eu-RjM" secondAttribute="trailing" constant="15" id="LEn-tZ-v3P"/>
-                    <constraint firstItem="YKx-a4-eGu" firstAttribute="centerY" secondItem="JCc-Eu-RjM" secondAttribute="centerY" id="eKX-Ja-aS3"/>
                     <constraint firstAttribute="trailing" secondItem="fmN-5X-G2A" secondAttribute="trailing" constant="7" id="iBz-OI-lRq"/>
-                    <constraint firstItem="fmN-5X-G2A" firstAttribute="leading" secondItem="YKx-a4-eGu" secondAttribute="trailing" constant="15" id="nOx-U5-pEL"/>
+                    <constraint firstItem="YKx-a4-eGu" firstAttribute="leading" secondItem="JCc-Eu-RjM" secondAttribute="trailing" constant="15" id="kNo-9E-O70"/>
+                    <constraint firstItem="fmN-5X-G2A" firstAttribute="leading" secondItem="YKx-a4-eGu" secondAttribute="trailing" constant="15" id="ncN-BQ-tQT"/>
+                    <constraint firstItem="YKx-a4-eGu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="ndE-pM-pgc"/>
                     <constraint firstItem="JCc-Eu-RjM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="uOY-dA-Gzf"/>
                 </constraints>
             </tableViewCellContentView>

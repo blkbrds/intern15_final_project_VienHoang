@@ -16,7 +16,6 @@ final class DetailImage: Object, Mappable {
     @objc dynamic var prefix: String = ""
     @objc dynamic var suffix: String = ""
     @objc dynamic var name: String = ""
-//    @objc dynamic var rating: String = ""
     @objc dynamic var address: String = ""
     @objc dynamic var id: String = ""
     var nameSource: String = ""
@@ -46,7 +45,6 @@ final class DetailImage: Object, Mappable {
         formattedPhone <- map["contact.formattedPhone"]
         twitter <- map["contact.twitter"]
         facebookName <- map["contact.facebookName"]
-  //      rating <- map["rating"]
         count <- map["likes.count"]
         address <- map["location.address"]
         city <- map["city"]

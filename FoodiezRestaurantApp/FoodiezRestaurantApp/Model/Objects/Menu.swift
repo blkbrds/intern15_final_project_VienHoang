@@ -13,21 +13,24 @@ import RealmSwift
 final class Menu: Object, Mappable {
 
     //MARK: - Properties
+    @objc dynamic var id: String = ""
     var name: String = ""
     var lat: String = ""
     var long: String = ""
     @objc dynamic var detailImage: DetailImage?
-    @objc dynamic var id: String = ""
     var category: JSArray = []
     var prefixCategories = ""
     var suffixCategories = ""
     var address: String = ""
     var distance: String = ""
+    var prefixThumbnail: String = ""
+    var suffixThumbnail: String = ""
     @objc dynamic var isFavorite: Bool = false
+    var placeImage: String?
 
     //MARK: - Init
     init?(map: Map) { }
-
+    
     required init() { }
 
     struct GoogleApiResult {
@@ -46,8 +49,16 @@ final class Menu: Object, Mappable {
             prefixCategories = (icon["prefix"] as? String) ?? ""
             suffixCategories = (icon["suffix"] as? String) ?? ""
         }
-        id <- map["id"]
         address <- map["location.address"]
+        var items: JSArray = []
+        items <- map["items"]
+        for item in items {
+            guard let prefix = item["prefix"] as? String else { return }
+            prefixThumbnail = prefix
+
+            guard let suffix = item["suffix"] as? String else { return }
+            suffixThumbnail = suffix
+        }
     }
 
     override static func primaryKey() -> String? {
@@ -55,6 +66,6 @@ final class Menu: Object, Mappable {
     }
 
     override class func ignoredProperties() -> [String] {
-        return ["name", "lat", "long", "tagcategorys", "prefixCategories", "suffixCategories", "address", "distance", "rating"]
+        return ["name", "lat", "long", "tagcategorys", "prefixCategories", "suffixCategories", "address", "distance", "rating", "image"]
     }
 }

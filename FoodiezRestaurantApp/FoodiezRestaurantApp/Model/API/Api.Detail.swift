@@ -38,8 +38,10 @@ extension Api.Detail {
                 case .failure(let error):
                     completion(.failure(error))
                 case .success(let json):
-                    guard let json = json as? JSObject, let response = json["response"] as? JSObject, let venue = response["venue"] as? JSObject else {
-                        return
+                    guard let json = json as? JSObject,
+                        let response = json["response"] as? JSObject,
+                        let venue = response["venue"] as? JSObject else {
+                            return
                     }
                     let channel = Mapper<DetailImage>().map(JSONObject: venue)
                     completion(.success(channel))

@@ -43,7 +43,6 @@ final class SearchViewController: ViewController {
         tableView.register(name: App.Identifier.searchLocationTableViewCell)
         tableView.delegate = self
         tableView.dataSource = self
-
         searchBar.delegate = self
     }
 
@@ -92,15 +91,16 @@ extension SearchViewController: UITableViewDataSource {
             }
             cell.viewModel = cellViewModel
             return cell
+        } else {
+            return UITableViewCell()
         }
-        return UITableViewCell()
     }
 }
 
 //MARK: Extension TableViewDelegate
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return viewModel.heightForRowAt(at: indexPath)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

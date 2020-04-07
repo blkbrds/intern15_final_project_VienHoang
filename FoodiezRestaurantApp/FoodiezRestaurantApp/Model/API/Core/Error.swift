@@ -53,6 +53,7 @@ extension Api {
         static let emptyCode = NSError(domain: NSCocoaErrorDomain, code: 992, message: "Your session has expired. Please log in and try again.")
         static let loginAccountPF = NSError(domain: NSCocoaErrorDomain, code: 993, message: "ログインに失敗しました。")
         static let downloadAsset = NSError(domain: NSCocoaErrorDomain, code: 994, message: "")
+        static let invalidRequest = NSError(domain: nil, code: 1_000, message: "Cancel request")
     }
 }
 

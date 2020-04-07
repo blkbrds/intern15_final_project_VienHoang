@@ -14,6 +14,7 @@ final class CollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var blurView: UIView!
     @IBOutlet private weak var nameImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var thumbnailImage: UIImageView!
 
     //MARK: - Properties
     var viewModel: CollectionCellViewModel? {
@@ -24,15 +25,13 @@ final class CollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        DispatchQueue.main.async {
-            self.nameImageView.layer.cornerRadius = self.nameImageView.frame.width / 2
-            self.layer.cornerRadius = 40
-            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-            let blurEffectView = UIVisualEffectView(effect: blurEffect)
-            blurEffectView.frame = self.blurView.bounds
-            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            self.blurView.addSubview(blurEffectView)
-        }
+        nameImageView.layer.cornerRadius = self.nameImageView.frame.width / 2
+        layer.cornerRadius = 40
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.blurView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurView.addSubview(blurEffectView)
     }
 
     //MARK: - Life cycle
@@ -46,8 +45,8 @@ final class CollectionViewCell: UICollectionViewCell {
         nameLabel.text = viewModel.name
         let image = "\(viewModel.prefix)bg_88\(viewModel.suffix)"
         nameImageView.setImage(url: image)
+        thumbnailImage.setImage(url: viewModel.imageCell)
     }
 }
-
 
 
