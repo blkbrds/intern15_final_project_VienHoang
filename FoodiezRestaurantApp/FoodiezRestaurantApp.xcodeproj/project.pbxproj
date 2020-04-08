@@ -63,7 +63,7 @@
 		CEF79D9C242F481F0030566D /* SearchLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF79D9A242F481F0030566D /* SearchLocationTableViewCell.xib */; };
 		CEF79D9E242F48E60030566D /* SearchLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF79D9D242F48E60030566D /* SearchLocationViewModel.swift */; };
 		CEFEF2F424189E120003B352 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF2F324189E120003B352 /* StringExt.swift */; };
-		CEFEF3022418BED70003B352 /* DetailImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF3012418BED70003B352 /* DetailImage.swift */; };
+		CEFEF3022418BED70003B352 /* VenuesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF3012418BED70003B352 /* VenuesDetail.swift */; };
 		CEFEF3062418C2F90003B352 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF3052418C2F90003B352 /* DetailViewModel.swift */; };
 		CEFEF30D241A3F760003B352 /* UITextViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF30C241A3F760003B352 /* UITextViewExt.swift */; };
 		CEFEF30F241A3FBA0003B352 /* UITextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEF30E241A3FBA0003B352 /* UITextFieldExt.swift */; };
@@ -132,7 +132,7 @@
 		CEF79D9A242F481F0030566D /* SearchLocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchLocationTableViewCell.xib; sourceTree = "<group>"; };
 		CEF79D9D242F48E60030566D /* SearchLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewModel.swift; sourceTree = "<group>"; };
 		CEFEF2F324189E120003B352 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
-		CEFEF3012418BED70003B352 /* DetailImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImage.swift; sourceTree = "<group>"; };
+		CEFEF3012418BED70003B352 /* VenuesDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesDetail.swift; sourceTree = "<group>"; };
 		CEFEF3052418C2F90003B352 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		CEFEF30C241A3F760003B352 /* UITextViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExt.swift; sourceTree = "<group>"; };
 		CEFEF30E241A3FBA0003B352 /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
@@ -213,7 +213,7 @@
 				CE33DAB124065E7700DB6127 /* Menu.swift */,
 				CE309D562410F27B00E817E1 /* MyPin.swift */,
 				CE309D5A2410FD7100E817E1 /* MyPinView.swift */,
-				CEFEF3012418BED70003B352 /* DetailImage.swift */,
+				CEFEF3012418BED70003B352 /* VenuesDetail.swift */,
 				CEEB3B25242CEA1B00A1CB18 /* Keyword.swift */,
 			);
 			path = Objects;
@@ -599,7 +599,7 @@
 				CEEAAF7C240CC27C00BEF784 /* ApiManager.swift in Sources */,
 				CEF79D9B242F481F0030566D /* SearchLocationTableViewCell.swift in Sources */,
 				CE3A6070240613790031B935 /* String.swift in Sources */,
-				CEFEF3022418BED70003B352 /* DetailImage.swift in Sources */,
+				CEFEF3022418BED70003B352 /* VenuesDetail.swift in Sources */,
 				CEFEF30F241A3FBA0003B352 /* UITextFieldExt.swift in Sources */,
 				CE13FE7E242866D700D25315 /* ViewController.swift in Sources */,
 				CE3A6050240612800031B935 /* AppDelegate.swift in Sources */,

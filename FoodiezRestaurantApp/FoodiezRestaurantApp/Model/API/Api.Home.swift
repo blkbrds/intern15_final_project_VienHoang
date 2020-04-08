@@ -78,7 +78,7 @@ extension Api.Home {
     }
 
     @discardableResult
-    static func getVenues(params: ParamsThumbnail, completion: @escaping Completion<DetailImage?>) -> Request? {
+    static func getVenues(params: ParamsThumbnail, completion: @escaping Completion<VenuesDetail?>) -> Request? {
         let path = Api.Path.Home.homePath
         return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
             DispatchQueue.main.async {
@@ -91,7 +91,7 @@ extension Api.Home {
                         let venue = response["venue"] as? JSObject else {
                             return
                     }
-                    let channel = Mapper<DetailImage>().map(JSONObject: venue)
+                    let channel = Mapper<VenuesDetail>().map(JSONObject: venue)
                     completion(.success(channel))
                 }
             }

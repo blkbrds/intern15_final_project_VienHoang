@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 import RealmSwift
 
-final class DetailImage: Object, Mappable {
+final class VenuesDetail: Object, Mappable {
 
     //MARK: - Properties
     @objc dynamic var prefix: String = ""
