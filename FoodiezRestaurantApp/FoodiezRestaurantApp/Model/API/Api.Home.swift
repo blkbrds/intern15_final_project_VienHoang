@@ -46,7 +46,6 @@ extension Api.Home {
         }
     }
 
-
     struct ValueResult: Mappable {
         var venues: JSArray = []
         var menu: [Menu] = []

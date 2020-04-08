@@ -20,8 +20,10 @@ final class Api {
     struct Categories { }
 
     struct Detail { }
-    
+
     struct Search { }
+
+    struct Map { }
 }
 
 extension Api.Path {
@@ -29,7 +31,7 @@ extension Api.Path {
         static var path: String {
             return baseURL / "search"
         }
-        
+
         static var basePath: String = ""
         static var homePath: String {
             return baseURL / basePath
@@ -42,10 +44,16 @@ extension Api.Path {
             return baseURL / basePath
         }
     }
-    
+
     struct Search {
         static var path: String {
             return baseURL / "search"
+        }
+    }
+
+    struct Map {
+        static var path: String {
+            return baseURL / "Search"
         }
     }
 }
