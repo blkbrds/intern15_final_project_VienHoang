@@ -8,24 +8,9 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
-
-    //MARK: - Life cycle
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-
-    //MARK: - Life cycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-}
-
-final class HomeViewController: BaseViewController {
+final class HomeViewController: UIViewController {
 
     //MARK: - IBOutlet
-    @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var collectionView: UICollectionView!
 
     //MARK: - Properties
@@ -44,11 +29,22 @@ final class HomeViewController: BaseViewController {
         collectionView.register(nib, forCellWithReuseIdentifier: App.Identifier.collectionViewCell)
         collectionView.delegate = self
         collectionView.dataSource = self
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icons8-place-marker-30.png"), style: .done, target: self, action: #selector(movetoMap))
+        navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) 
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
 
     //MARK: - Public functions
     func setupData() {
         loadApi()
+    }
+    
+    @objc private func movetoMap() {
+        let moveMap = MapViewController()
+        navigationController?.pushViewController(moveMap, animated: true)
     }
 
     func loadApi() {

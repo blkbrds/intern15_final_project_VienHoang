@@ -58,13 +58,13 @@ final class HomeViewModel {
         id = menus[index].id
         Api.Path.Home.basePath = id
         let params = Api.Home.ParamsThumbnail(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll)
-        Api.Home.getImage(params: params) { [weak self] (result) in
+        Api.Home.getVenues(params: params) { [weak self] (result) in
             guard let this = self else {
                 completion(.failure(Api.Error.invalidRequest))
                 return }
             switch result {
-            case .success(let image):
-                this.menus[index].placeImage = image
+            case .success(let result):
+                this.menus[index].placeImage = result?.detailImage
                 completion(.success)
             case .failure(let error):
                 completion(.failure(error))

@@ -24,8 +24,8 @@ final class DetailViewModel {
     //MARK: - Public functions
     func loadApiDetail(completion: @escaping APICompletion) {
         Api.Path.Detail.basePath = menu.id
-        let params = Api.Detail.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll)
-        Api.Detail.getLocation(params: params) { [weak self] (result) in
+        let params = Api.Home.ParamsThumbnail(clientID: App.String.clientIDDetail, clientSecret: App.String.clientSecretDetail, v: App.String.v, ll: App.String.ll)
+        Api.Home.getVenues(params: params) { [weak self] (result) in
             guard let self = self else {
                 completion(.failure(Api.Error.invalidRequest))
                 return }

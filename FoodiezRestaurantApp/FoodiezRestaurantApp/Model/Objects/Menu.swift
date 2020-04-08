@@ -17,7 +17,7 @@ final class Menu: Object, Mappable {
     var name: String = ""
     var lat: String = ""
     var long: String = ""
-    @objc dynamic var detailImage: DetailImage?
+    @objc dynamic var detailImage: VenuesDetail?
     var category: JSArray = []
     var prefixCategories = ""
     var suffixCategories = ""

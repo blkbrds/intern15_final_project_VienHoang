@@ -57,9 +57,11 @@ final class SearchViewController: ViewController {
     }
 
     func handleSearch() {
+        HUD.show()
         guard let text = searchBar.text else { return }
         viewModel.displayType = .menu
         viewModel.saveKeyword(text: text) { [weak self] (result) in
+            HUD.popActivity()
             guard let self = self else { return }
             switch result {
             case.success:
