@@ -16,23 +16,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window = self.window
+        
+        let homeVC = HomeViewController()
+        let homeNavi = UINavigationController(rootViewController: homeVC)
+        homeNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
+
+        let favoritesVC = FavoriteViewController()
+        let favoritesNavi = UINavigationController(rootViewController: favoritesVC)
+        favoritesNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "favorite"), selectedImage: UIImage(named: "favorite"))
+
+        let mapVC = MapViewController()
+        let mapNavi = UINavigationController(rootViewController: mapVC)
+        mapNavi.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "map"), selectedImage: UIImage(named: "map"))
+
+        let searchVC = SearchViewController()
+        let searchNavi = UINavigationController(rootViewController: searchVC)
+        searchNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "search"), tag: 2)
+
+        let tabbarController = UITabBarController()
+        tabbarController.viewControllers = [homeNavi, favoritesNavi, searchNavi, mapNavi]
+        tabbarController.tabBar.tintColor = #colorLiteral(red: 0.2078431373, green: 0.1843137255, blue: 0.3294117647, alpha: 1)
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = tabbarController
+        self.window = window
+        window.makeKeyAndVisible()
+
+        let Tcontroller = self.window?.rootViewController as? UITabBarController
+        Tcontroller?.tabBar.barTintColor = #colorLiteral(red: 0.2588235294, green: 0.2470588235, blue: 0.3725490196, alpha: 1)
+        UITabBar.appearance().barTintColor = #colorLiteral(red: 0.2588235294, green: 0.2470588235, blue: 0.3725490196, alpha: 1)
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-
-
 }
 

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SVProgressHUD
 
 class BaseViewController: UIViewController {
 
@@ -53,9 +52,9 @@ final class HomeViewController: BaseViewController {
     }
 
     func loadApi() {
-        SVProgressHUD.show()
+        HUD.show()
         viewModel.loadAPIForHome { [weak self] (reslut) in
-            SVProgressHUD.dismiss()
+            HUD.popActivity()
             guard let self = self else { return }
             switch reslut {
             case .success:

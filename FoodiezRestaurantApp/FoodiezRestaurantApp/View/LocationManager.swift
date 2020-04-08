@@ -2,7 +2,7 @@
 //  LocationManager.swift
 //  FoodiezRestaurantApp
 //
-//  Created by user on 3/5/20.
+//  Created by user on 4/6/20.
 //  Copyright © 2020 VienH. All rights reserved.
 //
 
@@ -12,11 +12,13 @@ import CoreLocation
 typealias LocationCompletion = (CLLocation) -> ()
 
 final class LocationManager: NSObject {
-    
-    //MARK: - Properties
+
+    //singleton
     private static var sharedLocationManager: LocationManager = {
         let locationManager = LocationManager()
+        let places: [Menu] = []
         return locationManager
+
     }()
 
     class func shared() -> LocationManager {
@@ -28,7 +30,7 @@ final class LocationManager: NSObject {
     private var currentLocation: CLLocation?
     private var currentCompletion: LocationCompletion?
     private var locationCompletion: LocationCompletion?
-    private var isUpdatingLocation: Bool = false
+    private var isUpdatingLocation = false
 
     //MARK: - init
     override init() {
@@ -36,16 +38,19 @@ final class LocationManager: NSObject {
         configLocationManager()
     }
 
-    //MARK: - Public functions
-    func requestStatus() {
+    //MARK: - Public Methods
+    func request() {
         let status = CLLocationManager.authorizationStatus()
+
         if(status == .denied || status == .restricted || !CLLocationManager.locationServicesEnabled()) {
             return
         }
+
         if(status == .notDetermined) {
             locationManager.requestWhenInUseAuthorization()
             return
         }
+
         locationManager.requestLocation()
     }
 
@@ -69,16 +74,16 @@ final class LocationManager: NSObject {
         isUpdatingLocation = false
     }
 
-    //MARK: - Private functions
+    //MARK: - Private Methods
     private func configLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = CLLocationDistance(Config.distanceFilter)
+        locationManager.distanceFilter = 10
         locationManager.allowsBackgroundLocationUpdates = true
     }
 }
 
-//MARK: - Extension LocationManager
+//MARK: - Location Manager
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         print("location manager authorization status changed")
@@ -109,9 +114,11 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             self.currentLocation = location
+
             if let current = currentCompletion {
                 current(location)
             }
+
             if isUpdatingLocation, let updating = locationCompletion {
                 updating(location)
             }
@@ -123,8 +130,3 @@ extension LocationManager: CLLocationManagerDelegate {
     }
 }
 
-extension LocationManager {
-    struct Config {
-        static var distanceFilter: Int = 10
-    }
-}
