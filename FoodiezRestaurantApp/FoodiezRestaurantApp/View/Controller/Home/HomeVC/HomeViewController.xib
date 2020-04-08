@@ -44,7 +44,7 @@
                 <constraint firstItem="YeE-yj-ryX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-20" id="qo8-eN-cIG"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="494" y="73"/>
+            <point key="canvasLocation" x="493.60000000000002" y="72.413793103448285"/>
         </view>
     </objects>
     <resources>
