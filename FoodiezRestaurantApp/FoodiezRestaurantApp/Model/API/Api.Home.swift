@@ -78,7 +78,7 @@ extension Api.Home {
     }
 
     @discardableResult
-    static func getImage(params: ParamsThumbnail, completion: @escaping Completion<String>) -> Request? {
+    static func getImage(params: ParamsThumbnail, completion: @escaping Completion<DetailImage?>) -> Request? {
         let path = Api.Path.Home.homePath
         return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
             DispatchQueue.main.async {
@@ -88,19 +88,11 @@ extension Api.Home {
                 case .success(let json):
                     guard let json = json as? JSObject,
                         let response = json["response"] as? JSObject,
-                        let venue = response["venue"] as? JSObject,
-                        let photos = venue["photos"] as? JSObject,
-                        let groups = photos["groups"] as? JSArray else { return }
-                    var imageLocation: String = ""
-                    for item in groups {
-                        guard let items = item["items"] as? JSArray else { return }
-                        for index in items {
-                            let prefix = index["prefix"] as? String
-                            let suffix = index["suffix"] as? String
-                            imageLocation = "\(prefix ?? "")100x100\(suffix ?? "")"
-                        }
+                        let venue = response["venue"] as? JSObject else {
+                            return
                     }
-                    completion(.success(imageLocation))
+                    let channel = Mapper<DetailImage>().map(JSONObject: venue)
+                    completion(.success(channel))
                 }
             }
         }

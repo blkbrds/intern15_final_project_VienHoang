@@ -63,8 +63,8 @@ final class HomeViewModel {
                 completion(.failure(Api.Error.invalidRequest))
                 return }
             switch result {
-            case .success(let image):
-                this.menus[index].placeImage = image
+            case .success(let result):
+                this.menus[index].placeImage = result?.detailImage
                 completion(.success)
             case .failure(let error):
                 completion(.failure(error))

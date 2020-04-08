@@ -59,7 +59,9 @@ final class DetailViewController: UIViewController {
     }
 
     func fetchData() {
+        HUD.show()
         viewModel?.loadApiDetail { [weak self] (reslut) in
+            HUD.popActivity()
             guard let self = self else { return }
             switch reslut {
             case .success:

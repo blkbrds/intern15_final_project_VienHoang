@@ -31,6 +31,7 @@ final class DetailImage: Object, Mappable {
     var country: String = ""
     var groups: JSArray = []
     var idFacebook: String = ""
+    var detailImage: String  = ""
 
     //MARK: - Init
     init?(map: Map) { }
@@ -62,6 +63,7 @@ final class DetailImage: Object, Mappable {
 
             guard let suffix = item["suffix"] as? String else { return }
             self.suffix = suffix
+            detailImage = "\(prefix)100x80\(suffix)"
             guard let user = item["user"] as? JSObject else {
                 return
             }
