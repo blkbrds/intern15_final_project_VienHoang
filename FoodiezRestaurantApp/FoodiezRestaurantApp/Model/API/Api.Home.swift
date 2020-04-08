@@ -78,7 +78,7 @@ extension Api.Home {
     }
 
     @discardableResult
-    static func getImage(params: ParamsThumbnail, completion: @escaping Completion<DetailImage?>) -> Request? {
+    static func getVenues(params: ParamsThumbnail, completion: @escaping Completion<DetailImage?>) -> Request? {
         let path = Api.Path.Home.homePath
         return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
             DispatchQueue.main.async {

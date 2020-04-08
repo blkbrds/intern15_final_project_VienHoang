@@ -25,7 +25,7 @@ final class DetailViewModel {
     func loadApiDetail(completion: @escaping APICompletion) {
         Api.Path.Detail.basePath = menu.id
         let params = Api.Home.ParamsThumbnail(clientID: App.String.clientIDDetail, clientSecret: App.String.clientSecretDetail, v: App.String.v, ll: App.String.ll)
-        Api.Home.getImage(params: params) { [weak self] (result) in
+        Api.Home.getVenues(params: params) { [weak self] (result) in
             guard let self = self else {
                 completion(.failure(Api.Error.invalidRequest))
                 return }
