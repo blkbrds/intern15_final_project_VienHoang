@@ -9,14 +9,15 @@
 import Foundation
 import ObjectMapper
 import RealmSwift
+import MapKit
 
 final class Menu: Object, Mappable {
 
     //MARK: - Properties
     @objc dynamic var id: String = ""
     var name: String = ""
-    var lat: String = ""
-    var long: String = ""
+    var lat: Double = 0.0
+    var long: Double = 0.0
     @objc dynamic var detailImage: VenuesDetail?
     var category: JSArray = []
     var prefixCategories = ""
@@ -27,6 +28,8 @@ final class Menu: Object, Mappable {
     var suffixThumbnail: String = ""
     @objc dynamic var isFavorite: Bool = false
     var placeImage: String?
+    var locationCoordinate: CLLocationCoordinate2D?
+    
 
     //MARK: - Init
     init?(map: Map) { }
@@ -42,7 +45,8 @@ final class Menu: Object, Mappable {
         id <- map["id"]
         name <- map["name"]
         lat <- map["location.lat"]
-        long <- map["location.long"]
+        long <- map["location.lng"]
+        locationCoordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
         category <- map["categories"]
         for item in category {
             guard let icon = item["icon"] as? JSObject else { return }
