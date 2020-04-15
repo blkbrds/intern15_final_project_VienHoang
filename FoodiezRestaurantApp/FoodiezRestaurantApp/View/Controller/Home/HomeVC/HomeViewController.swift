@@ -22,6 +22,7 @@ final class HomeViewController: UIViewController {
         setupData()
         setupUI()
     }
+    
 
     //MARK: - Private functions
     private func setupUI() {
