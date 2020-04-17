@@ -7,18 +7,31 @@
 //
 
 import UIKit
+import MapKit
 
 class FourSectionTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    //MARK: - Properties
+     let locationManager = CLLocationManager()
+     let newYorkLocation = CLLocation(latitude: 40.7, longitude: -74)
+    
+    @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet weak var connerView: UIView!
+    
+    var viewModel: FourSectionViewModel? {
+        didSet {
+            updateUI()
+        }
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        mapView.layer.cornerRadius = 30
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 5, right: 10))
+    }
+    
+    func updateUI() {
+        guard let viewModel = viewModel else { return }
+        
+    }
 }

@@ -8,17 +8,28 @@
 
 import UIKit
 
-class SecondSectionTableViewCell: UITableViewCell {
+final class SecondSectionTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBOutlet private weak var connerView: UIView!
+    @IBOutlet private weak var nameLocationLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
+    @IBOutlet private weak var stackView: UIStackView!
+    
+    var viewModel: SecondSectionViewModel? {
+        didSet {
+            updateUI()
+        }
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        connerView.layer.cornerRadius = 30
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
+    }
+
+    func updateUI() {
+        guard let viewModel = viewModel else { return }
+        nameLocationLabel.text = viewModel.nameLocation
+        ratingLabel.text = viewModel.ratingLocation
+    }
 }

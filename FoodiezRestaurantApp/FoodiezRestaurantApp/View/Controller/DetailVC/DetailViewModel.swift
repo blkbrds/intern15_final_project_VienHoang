@@ -20,6 +20,10 @@ final class DetailViewModel {
     init(menu: Menu = Menu()) {
         self.menu = menu
     }
+    
+    func numberOfSections() -> Int {
+      return SectionType.allCases.count
+    }
 
     //MARK: - Public functions
     func loadApiDetail(completion: @escaping APICompletion) {
@@ -65,4 +69,41 @@ final class DetailViewModel {
             completion(false)
         }
     }
+    
+    func numberOfItime(section: Int) -> Int {
+      guard let sectionType = SectionType(rawValue: section) else { return 0 }
+      switch sectionType {
+      case .firstSection, .secondSection, .thirdSection, .fourSection:
+        return 1
+      }
+    }
+    
+    func heightForRowAt(at indexPath: IndexPath) -> CGFloat {
+      guard let sectionType = SectionType(rawValue: indexPath.section) else { return .zero }
+      switch sectionType {
+      case .fourSection, .secondSection, .thirdSection, .firstSection:
+        return UITableView.automaticDimension
+      }
+    }
+    
+    func secondSectionCellForCell() -> SecondSectionViewModel {
+        return SecondSectionViewModel(menus: menu)
+    }
+    
+    func thirdSectionForCell() -> ThirdSectionViewModel {
+        return ThirdSectionViewModel(menus: menu)
+    }
+    
+    func firstSectionForCell() -> FirstSectionViewModel {
+        return FirstSectionViewModel(menus: menu)
+    }
+}
+
+extension DetailViewModel {
+     enum SectionType: Int, CaseIterable {
+       case firstSection
+       case secondSection
+       case thirdSection
+       case fourSection
+     }
 }

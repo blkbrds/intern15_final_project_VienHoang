@@ -9,6 +9,7 @@
 import Foundation
 import ObjectMapper
 import RealmSwift
+import CoreLocation
 
 final class VenuesDetail: Object, Mappable {
 
@@ -32,6 +33,10 @@ final class VenuesDetail: Object, Mappable {
     var groups: JSArray = []
     var idFacebook: String = ""
     var detailImage: String  = ""
+    var rating: String = ""
+    var descriptionLocation: String = ""
+    var lat: Double = 0.0
+    var long: Double = 0.0
 
     //MARK: - Init
     init?(map: Map) { }
@@ -40,6 +45,8 @@ final class VenuesDetail: Object, Mappable {
 
     //MARK: Public Func
     func mapping(map: Map) {
+        lat <- map["location.lat"]
+        long <- map["location.long"]
         id <- map["id"]
         nameSource <- map["source.name"]
         name <- map["name"]
@@ -52,6 +59,7 @@ final class VenuesDetail: Object, Mappable {
         country <- map["country"]
         groups <- map["photos.groups"]
         idFacebook <- map["contact.facebook"]
+        rating <- map["rating"]
         var array: JSArray = []
         for index in groups {
             guard let items = index["items"] as? JSArray else { return }
@@ -89,7 +97,7 @@ final class VenuesDetail: Object, Mappable {
     }
 
     override class func ignoredProperties() -> [String] {
-        return ["nameSource", "firstName", "prefixUser", "suffixUser", "lastName", "formattedPhone", "twitter", "facebookName", "city", "country", "groups", "idFacebook"]
+        return ["nameSource", "firstName", "prefixUser", "suffixUser", "lastName", "formattedPhone", "twitter", "facebookName", "city", "country", "groups", "idFacebook", "rating"]
     }
 }
 
