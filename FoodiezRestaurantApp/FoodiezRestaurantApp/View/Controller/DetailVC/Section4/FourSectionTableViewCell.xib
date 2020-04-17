@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
                             </mapView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="R9I-Qm-B2f" firstAttribute="top" secondItem="gw7-Hb-bRx" secondAttribute="top" id="1SF-ix-ucR"/>
                             <constraint firstAttribute="trailing" secondItem="R9I-Qm-B2f" secondAttribute="trailing" id="7j4-r4-jVc"/>
@@ -32,6 +32,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="gw7-Hb-bRx" secondAttribute="bottom" id="2fj-Xf-oC0"/>
                     <constraint firstItem="gw7-Hb-bRx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="B81-Ji-zfy"/>
@@ -39,6 +40,7 @@
                     <constraint firstAttribute="trailing" secondItem="gw7-Hb-bRx" secondAttribute="trailing" id="CHo-Xy-sao"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="connerView" destination="gw7-Hb-bRx" id="II7-mF-7Oj"/>

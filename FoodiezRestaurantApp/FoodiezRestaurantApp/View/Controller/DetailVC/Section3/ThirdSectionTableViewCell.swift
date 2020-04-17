@@ -9,21 +9,21 @@
 import UIKit
 
 final class ThirdSectionTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var connerView: UIView!
     @IBOutlet weak var addressLabelView: UILabel!
-    @IBOutlet private  weak var likeCount: UILabel!
+    @IBOutlet private weak var likeCount: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var addressLabel: UILabel!
     @IBOutlet private weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var phoneNumberLabelView: UILabel!
-    
+
     var viewModel: ThirdSectionViewModel? {
         didSet {
             updateUI()
         }
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         connerView.layer.cornerRadius = 30
@@ -31,18 +31,18 @@ final class ThirdSectionTableViewCell: UITableViewCell {
         addressLabelView.layer.cornerRadius = 30
         phoneNumberLabelView.layer.cornerRadius = 30
     }
-    
+
     func updateUI() {
         guard let viewModel = viewModel else { return }
         addressLabel.text = viewModel.address
         phoneNumberLabel.text = viewModel.phoneNumber
         likeCount.text = "\(viewModel.like)"
         let descriptionPlace = viewModel.descriptions
-               if descriptionPlace != "" {
-                descriptionLabel.text = "\(descriptionPlace )"
-               } else {
-                   descriptionLabel.text = "! ! ! ! Y A Y ! ! ! ! a deviate's guide to the city"
-               }
+        if descriptionPlace != "" {
+            descriptionLabel.text = "\(descriptionPlace)"
+        } else {
+            descriptionLabel.text = "! ! ! ! Y A Y ! ! ! ! a deviate's guide to the city"
+        }
         let phone = viewModel.phoneNumber
         if phone != "" {
             phoneNumberLabel.text = "\(phone)"

@@ -12,7 +12,7 @@ import CoreLocation
 final class MapViewModel {
     var location: CLLocationCoordinate2D?
     var menus: [Menu]
-    
+
     init(menus: [Menu] = []) {
         self.menus = menus
     }

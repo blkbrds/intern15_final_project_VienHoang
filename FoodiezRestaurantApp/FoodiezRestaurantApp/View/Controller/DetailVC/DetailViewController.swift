@@ -12,7 +12,8 @@ final class DetailViewController: UIViewController {
 
     //MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
-    
+
+    @IBOutlet private weak var imageView: UIImageView!
     //MARK: - Properties
     var viewModel = DetailViewModel()
 
@@ -21,9 +22,10 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
         loadApi()
         setupUI()
+//        self.imageView.image = #imageLiteral(resourceName: "hinhnen")
         print(Realm.Configuration.defaultConfiguration.fileURL?.absoluteURL)
         title = "Detail"
- //       tableView.backgroundView = UIImageView(image: UIImage(named: "ic-detail"))
+        //       tableView.backgroundView = UIImageView(image: UIImage(named: "ic-detail"))
     }
 
     //MARK: - Life cycle
@@ -36,14 +38,14 @@ final class DetailViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         fetchDataRealm()
     }
-    
-    
+
+
     func setupUI() {
         tableView.register(name: "FirstSectionTableViewCell")
         tableView.register(name: "SecondSectionTableViewCell")
         tableView.register(name: "ThirdSectionTableViewCell")
         tableView.register(name: "FourSectionTableViewCell")
-        
+
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -71,7 +73,7 @@ final class DetailViewController: UIViewController {
             }
         }
     }
-    
+
     func updateUI() {
         tableView.reloadData()
     }
@@ -94,8 +96,8 @@ final class DetailViewController: UIViewController {
             switch result {
             case .success:
                 break
-                guard let isFavorites = self.viewModel.menu.isFavorite else { return }
-                self.configFavoriteButton(isFavorite: isFavorites)
+                // guard let isFavorites = self.viewModel.menu.isFavorite else { return }
+                //          self.configFavoriteButton(isFavorite: isFavorites)
             case .failure(let error):
                 self.alert(error: error)
             }
@@ -111,40 +113,40 @@ final class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: UITableViewDataSource {
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfItime(section: section)
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let type = DetailViewModel.SectionType(rawValue: indexPath.section) else {
-          return UITableViewCell()
+            return UITableViewCell()
         }
         switch type {
         case .firstSection:
-          guard let cell = tableView.dequeueReusableCell(withIdentifier: "FirstSectionTableViewCell", for: indexPath) as? FirstSectionTableViewCell else {
-            return UITableViewCell()
-          }
-          cell.viewModel = viewModel.firstSectionForCell()
-          return cell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "FirstSectionTableViewCell", for: indexPath) as? FirstSectionTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.viewModel = viewModel.firstSectionForCell()
+            return cell
         case .secondSection:
-          guard let cell = tableView.dequeueReusableCell(withIdentifier: "SecondSectionTableViewCell", for: indexPath) as? SecondSectionTableViewCell else {
-            return UITableViewCell()
-          }
-          cell.viewModel = viewModel.secondSectionCellForCell()
-          return cell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SecondSectionTableViewCell", for: indexPath) as? SecondSectionTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.viewModel = viewModel.secondSectionCellForCell()
+            return cell
         case .thirdSection:
-          guard let cell = tableView.dequeueReusableCell(withIdentifier: "ThirdSectionTableViewCell", for: indexPath) as? ThirdSectionTableViewCell else {
-            return UITableViewCell()
-          }
-          cell.viewModel = viewModel.thirdSectionForCell()
-          return cell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ThirdSectionTableViewCell", for: indexPath) as? ThirdSectionTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.viewModel = viewModel.thirdSectionForCell()
+            return cell
         case .fourSection:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "FourSectionTableViewCell", for: indexPath) as? FourSectionTableViewCell else {
-              return UITableViewCell()
+                return UITableViewCell()
             }
             return cell
         }

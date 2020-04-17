@@ -9,10 +9,10 @@
 import Foundation
 
 final class SecondSectionViewModel {
-    
+
     var nameLocation: String = ""
     var ratingLocation: String = ""
-    
+
     init(menus: Menu) {
         nameLocation = menus.detailImage?.name ?? ""
         ratingLocation = menus.detailImage?.rating ?? ""

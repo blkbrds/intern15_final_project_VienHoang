@@ -28,7 +28,7 @@
                                             <constraint firstAttribute="height" constant="20" id="3y2-gy-9pG"/>
                                             <constraint firstAttribute="width" constant="20" id="Ayd-VO-0wA"/>
                                         </constraints>
-                                        <state key="normal" image="icons8-star-50"/>
+                                        <state key="normal" image="icons8-star-30 (1)"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hx-qf-pGD">
                                         <rect key="frame" x="20" y="0.0" width="20" height="20"/>
@@ -36,7 +36,7 @@
                                             <constraint firstAttribute="width" constant="20" id="1aI-wm-GPa"/>
                                             <constraint firstAttribute="height" constant="20" id="pll-B7-bKH"/>
                                         </constraints>
-                                        <state key="normal" image="icons8-star-50"/>
+                                        <state key="normal" image="icons8-star-30 (1)"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEo-ad-96Y">
                                         <rect key="frame" x="40" y="0.0" width="20" height="20"/>
@@ -44,7 +44,7 @@
                                             <constraint firstAttribute="width" constant="20" id="WcP-em-p3m"/>
                                             <constraint firstAttribute="height" constant="20" id="ryX-OZ-2mU"/>
                                         </constraints>
-                                        <state key="normal" image="icons8-star-50"/>
+                                        <state key="normal" image="icons8-star-30 (1)"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hh9-Sd-f5H">
                                         <rect key="frame" x="60" y="0.0" width="20" height="20"/>
@@ -52,7 +52,7 @@
                                             <constraint firstAttribute="width" constant="20" id="CzS-9t-Qbs"/>
                                             <constraint firstAttribute="height" constant="20" id="NRr-TF-eAb"/>
                                         </constraints>
-                                        <state key="normal" image="icons8-star-50"/>
+                                        <state key="normal" image="icons8-star-30 (1)"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ws4-PV-kij">
                                         <rect key="frame" x="80" y="0.0" width="20" height="20"/>
@@ -90,6 +90,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="TFJ-aG-CRG" secondAttribute="bottom" id="aaW-Gy-sDO"/>
                     <constraint firstAttribute="trailing" secondItem="TFJ-aG-CRG" secondAttribute="trailing" id="fzc-8R-hSX"/>
@@ -97,6 +98,7 @@
                     <constraint firstItem="TFJ-aG-CRG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="zNm-wI-oP8"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="connerView" destination="TFJ-aG-CRG" id="8Ge-K8-bpV"/>
@@ -108,6 +110,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="icons8-star-30 (1)" width="30" height="30"/>
         <image name="icons8-star-50" width="50" height="50"/>
     </resources>
 </document>

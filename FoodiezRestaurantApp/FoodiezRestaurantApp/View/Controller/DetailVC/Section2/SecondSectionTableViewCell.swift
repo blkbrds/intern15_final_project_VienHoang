@@ -14,13 +14,13 @@ final class SecondSectionTableViewCell: UITableViewCell {
     @IBOutlet private weak var nameLocationLabel: UILabel!
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var stackView: UIStackView!
-    
+
     var viewModel: SecondSectionViewModel? {
         didSet {
             updateUI()
         }
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         connerView.layer.cornerRadius = 30

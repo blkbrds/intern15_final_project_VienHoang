@@ -16,7 +16,7 @@ final class FirstSectionViewModel {
     var userSuffix: String = ""
     var firstNameUser: String = ""
     var lastNameUser: String = ""
-    
+
     init(menus: Menu) {
         prefix = menus.detailImage?.prefix ?? ""
         suffix = menus.detailImage?.suffix ?? ""

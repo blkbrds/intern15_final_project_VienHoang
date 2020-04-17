@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mU9-jT-hzq" firstAttribute="leading" secondItem="DGM-Ni-k7G" secondAttribute="leading" constant="15" id="47W-hj-DCQ"/>
                             <constraint firstAttribute="trailing" secondItem="3br-zn-MNd" secondAttribute="trailing" id="6oM-SI-EB3"/>
@@ -50,6 +50,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="DGM-Ni-k7G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1q3-HK-7mJ"/>
                     <constraint firstAttribute="bottom" secondItem="DGM-Ni-k7G" secondAttribute="bottom" id="bm8-sx-sIN"/>
@@ -57,6 +58,7 @@
                     <constraint firstItem="DGM-Ni-k7G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jSk-1N-9le"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="connerView" destination="DGM-Ni-k7G" id="cz0-L2-5zF"/>
