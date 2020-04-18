@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFJ-aG-CRG">
+                    <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFJ-aG-CRG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="haN-Ho-4NS">
@@ -77,7 +77,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.25490096210000002" green="0.25090974570000002" blue="0.25490266080000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0HT-Ud-Wjg" secondAttribute="trailing" constant="25" id="7Mr-K7-DU2"/>
                             <constraint firstItem="J8Y-A6-QB1" firstAttribute="leading" secondItem="TFJ-aG-CRG" secondAttribute="leading" constant="25" id="ITq-CQ-Ssp"/>

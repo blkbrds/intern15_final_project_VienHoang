@@ -10,12 +10,9 @@ import Foundation
 import CoreLocation
 
 final class FourSectionViewModel {
-    var location: CLLocationCoordinate2D?
-    var latLocation: Double = 0
-    var longLocation: Double = 0
+    var menus: Menu
     
-    init(menus: Menu) {
-        latLocation = menus.detailImage?.lat ?? 0
-        longLocation = menus.detailImage?.long ?? 0
+    init(menus: Menu = Menu()) {
+        self.menus = menus
     }
 }

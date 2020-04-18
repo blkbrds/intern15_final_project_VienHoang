@@ -97,6 +97,9 @@ final class DetailViewModel {
     func firstSectionForCell() -> FirstSectionViewModel {
         return FirstSectionViewModel(menus: menu)
     }
+    func fourSectionForCell() -> FourSectionViewModel {
+        return FourSectionViewModel(menus: menu)
+    }
 }
 
 extension DetailViewModel {

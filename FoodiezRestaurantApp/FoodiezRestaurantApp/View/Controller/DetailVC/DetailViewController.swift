@@ -95,9 +95,8 @@ final class DetailViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success:
-                break
-                // guard let isFavorites = self.viewModel.menu.isFavorite else { return }
-                //          self.configFavoriteButton(isFavorite: isFavorites)
+                let isFavorites = self.viewModel.menu.isFavorite
+                self.configFavoriteButton(isFavorite: isFavorites)
             case .failure(let error):
                 self.alert(error: error)
             }
@@ -148,6 +147,7 @@ extension DetailViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "FourSectionTableViewCell", for: indexPath) as? FourSectionTableViewCell else {
                 return UITableViewCell()
             }
+            cell.viewModel = viewModel.fourSectionForCell()
             return cell
         }
     }

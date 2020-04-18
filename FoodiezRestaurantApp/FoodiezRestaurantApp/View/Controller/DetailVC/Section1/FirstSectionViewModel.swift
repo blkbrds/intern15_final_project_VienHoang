@@ -18,11 +18,13 @@ final class FirstSectionViewModel {
     var lastNameUser: String = ""
 
     init(menus: Menu) {
-        prefix = menus.detailImage?.prefix ?? ""
-        suffix = menus.detailImage?.suffix ?? ""
-        userPrefix = menus.detailImage?.prefixUser ?? ""
-        userSuffix = menus.detailImage?.suffixUser ?? ""
-        firstNameUser = menus.detailImage?.firstName ?? ""
-        lastNameUser = menus.detailImage?.lastName ?? ""
+        if let menus = menus.detailImage {
+            prefix = menus.prefix
+            suffix = menus.suffix
+            userPrefix = menus.prefixUser
+            userSuffix = menus.suffixUser
+            firstNameUser = menus.firstName
+            lastNameUser = menus.lastName
+        }
     }
 }

@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NrU-Pg-uT7">
+                    <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NrU-Pg-uT7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIl-Rn-HQa">
@@ -140,7 +140,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.32162016630000001" green="0.31750705839999999" blue="0.32549160719999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ped-TE-EmQ" firstAttribute="top" secondItem="Af0-nN-txy" secondAttribute="bottom" constant="15" id="9i1-YI-dub"/>
                             <constraint firstItem="Ped-TE-EmQ" firstAttribute="centerX" secondItem="NrU-Pg-uT7" secondAttribute="centerX" id="Gr7-a2-74O"/>

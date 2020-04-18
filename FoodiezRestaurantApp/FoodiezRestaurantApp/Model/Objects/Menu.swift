@@ -26,11 +26,11 @@ final class Menu: Object, Mappable {
     var prefixThumbnail: String = ""
     var suffixThumbnail: String = ""
     @objc dynamic var isFavorite: Bool = false
-    var placeImage: String?
-
+    var placeImage: String = ""
+    
     //MARK: - Init
     init?(map: Map) { }
-    
+
     required init() { }
 
     struct GoogleApiResult {
@@ -55,7 +55,7 @@ final class Menu: Object, Mappable {
         for item in items {
             guard let prefix = item["prefix"] as? String else { return }
             prefixThumbnail = prefix
-            
+
             guard let suffix = item["suffix"] as? String else { return }
             suffixThumbnail = suffix
         }
