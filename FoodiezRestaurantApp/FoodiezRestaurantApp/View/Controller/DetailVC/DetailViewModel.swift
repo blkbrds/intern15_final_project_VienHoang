@@ -27,7 +27,7 @@ final class DetailViewModel {
 
     //MARK: - Public functions
     func loadApiDetail(completion: @escaping APICompletion) {
-        Api.Path.Detail.basePath = menu.id
+        Api.Path.Home.basePath = menu.id
         let params = Api.Home.ParamsThumbnail(clientID: App.String.clientIDDetail, clientSecret: App.String.clientSecretDetail, v: App.String.v, ll: App.String.ll)
         Api.Home.getVenues(params: params) { [weak self] (result) in
             guard let self = self else {
