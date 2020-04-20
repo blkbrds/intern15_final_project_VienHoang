@@ -44,8 +44,9 @@ final class HomeViewController: UIViewController {
     }
 
     @objc private func movetoMap() {
-        let moveMap = MapViewController()
-        navigationController?.pushViewController(moveMap, animated: true)
+        let vc = MapViewController()
+        vc.viewModel = viewModel.viewModelForMap()
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     func loadApi() {

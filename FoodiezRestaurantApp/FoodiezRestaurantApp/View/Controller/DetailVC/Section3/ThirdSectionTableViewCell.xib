@@ -12,7 +12,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="193" id="KGk-i7-Jjw" customClass="ThirdSectionTableViewCell" customModule="FoodiezRestaurantApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="194"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.59999999999999998" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.69999999999999996" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="194"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -125,7 +125,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="2D6-A5-4hi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="7aL-I6-cdv"/>
                     <constraint firstItem="Af0-nN-txy" firstAttribute="top" secondItem="dIl-Rn-HQa" secondAttribute="bottom" constant="10" id="Ank-JT-mCC"/>

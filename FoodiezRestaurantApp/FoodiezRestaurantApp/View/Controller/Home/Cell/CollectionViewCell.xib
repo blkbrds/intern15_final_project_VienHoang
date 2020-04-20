@@ -57,7 +57,6 @@
             <size key="customSize" width="168" height="170"/>
             <connections>
                 <outlet property="blurView" destination="wcd-Et-Pw4" id="Vgx-CX-6Cs"/>
-                <outlet property="nameImageView" destination="nuV-hv-RYp" id="DJf-Lv-OS0"/>
                 <outlet property="nameLabel" destination="suF-dW-SBk" id="oRF-B3-oXX"/>
                 <outlet property="thumbnailImage" destination="nJg-J0-WAG" id="GIH-XT-6Ud"/>
             </connections>

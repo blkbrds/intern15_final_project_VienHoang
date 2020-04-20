@@ -25,7 +25,7 @@ final class CollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        nameImageView.layer.cornerRadius = self.nameImageView.frame.width / 2
+//        nameImageView.layer.cornerRadius = self.nameImageView.frame.width / 2
         layer.cornerRadius = 40
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -43,8 +43,8 @@ final class CollectionViewCell: UICollectionViewCell {
     private func updateUI() {
         guard let viewModel = viewModel else { return }
         nameLabel.text = viewModel.name
-        let image = "\(viewModel.prefix)bg_88\(viewModel.suffix)"
-        nameImageView.setImage(url: image)
+//        let image = "\(viewModel.prefix)bg_88\(viewModel.suffix)"
+//        nameImageView.setImage(url: image)
         thumbnailImage.setImage(url: viewModel.imageCell)
     }
 }

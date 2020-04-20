@@ -18,53 +18,53 @@ final class MapViewController: UIViewController {
     //MARK: - IBOutlet
     @IBOutlet private weak var mapView: MKMapView!
 
+    var viewModel = MapViewModel()
+    let newYorkLocation = CLLocation(latitude: 40.7, longitude: -74)
+
     //MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        LocationManager.shared().getCurrentLocation(completion: { [weak self] (location) in
-            guard let this = self else { return }
-            this.currentLocation = location.coordinate
-            this.center(location: location.coordinate)
-        })
+        mapView.delegate = self
+        center(location: newYorkLocation)
+        addPin()
+        title = "New York"
     }
 
-    func center(location: CLLocationCoordinate2D) {
-        mapView.setCenter(location, animated: true)
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-        let region = MKCoordinateRegion(center: location, span: span)
+    //MARK: - Display Map
+    func center(location: CLLocation) {
+        mapView.setCenter(location.coordinate, animated: true)
+        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+        let region = MKCoordinateRegion(center: location.coordinate, span: span)
         mapView.setRegion(region, animated: true)
+        mapView.setCameraZoomRange(.none, animated: true)
     }
 
-    func routing(source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
-        let request = MKDirections.Request()
-        request.source = MKMapItem(placemark: MKPlacemark(coordinate: source, addressDictionary: nil))
-        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: destination, addressDictionary: nil))
-        request.requestsAlternateRoutes = true
-        request.transportType = .automobile
-        let directions = MKDirections(request: request)
-        directions.calculate { [unowned self] response, error in
-            guard let unwrappedResponse = response else { return }
-            for route in unwrappedResponse.routes {
-                self.mapView.addOverlay(route.polyline)
-                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+    //MARK: Public functions
+    func addPin() {
+        viewModel.menus.forEach { (item) in
+            if let location = item.locationCoordinate {
+                let annotations = MKPointAnnotation()
+                annotations.coordinate = location
+                annotations.title = item.name
+                annotations.subtitle = item.address
+                self.mapView.addAnnotation(annotations)
             }
         }
     }
 }
 
-extension MapViewController: CLLocationManagerDelegate { }
-
-//MARK: - MapViewDelegate
+//MARK: - MapView Delegate
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
         if let pin = annotation as? MKPointAnnotation {
             let identifier = "pin"
             var view: MKPinAnnotationView
+
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView {
                 dequeuedView.annotation = annotation
                 view = dequeuedView
+
             } else {
                 view = MKPinAnnotationView(annotation: pin, reuseIdentifier: identifier)
                 view.animatesDrop = true
@@ -72,20 +72,24 @@ extension MapViewController: MKMapViewDelegate {
                 view.canShowCallout = true
             }
             return view
-        } else if let annotation = annotation as? MyPin {
+        } else if
+            let annotation = annotation as? MyPin {
             let identifier = "mypin"
             var view: MyPinView
+
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MyPinView {
-                dequeuedView.annotation = annotation as? MKAnnotation
+                dequeuedView.annotation = annotation
                 view = dequeuedView
+
             } else {
-                view = MyPinView(annotation: annotation as? MKAnnotation, reuseIdentifier: identifier)
+                view = MyPinView(annotation: annotation, reuseIdentifier: identifier)
                 let button = UIButton(type: .detailDisclosure)
                 button.addTarget(self, action: #selector(selectPinView(_:)), for: .touchDown)
                 view.rightCalloutAccessoryView = button
-                view.leftCalloutAccessoryView = UIImageView(image: UIImage(named: "macker"))
+                view.leftCalloutAccessoryView = UIImageView(image: UIImage(named: "pin"))
                 view.canShowCallout = true
             }
+
             return view
         } else {
             return nil
@@ -94,7 +98,7 @@ extension MapViewController: MKMapViewDelegate {
 
     //MARK: - Action
     @objc func selectPinView(_ sender: UIButton?) {
-        print("select button detail")
+        print("detail is me")
     }
 
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
@@ -102,16 +106,20 @@ extension MapViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print("selected pin")
+        //        let vc = DetailViewController()
+        //        vc.viewModel = viewModel.viewModelForDetailCell(at:
+        //        navigationController?.pushViewController(vc, animated: true)
     }
 
-    //MARK: - Public functions
+    //MARK: - Renderer
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+
         if let polyline = overlay as? MKPolyline {
             let renderer = MKPolylineRenderer(polyline: polyline)
             renderer.strokeColor = UIColor.blue
             renderer.lineWidth = 3
             return renderer
+
         } else if let circle = overlay as? MKCircle {
             let circleRenderer = MKCircleRenderer(circle: circle)
             circleRenderer.fillColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.5)
@@ -119,9 +127,10 @@ extension MapViewController: MKMapViewDelegate {
             circleRenderer.lineWidth = 1
             circleRenderer.lineDashPhase = 10
             return circleRenderer
+
         } else {
             return MKOverlayRenderer()
         }
+
     }
 }
-

@@ -53,6 +53,10 @@ final class HomeViewModel {
     func numberOfRows(in section: Int) -> Int {
         return menus.count
     }
+    
+    func viewModelForMap() -> MapViewModel {
+        return MapViewModel(menus: menus)
+    }
 
     func loadImage(at index: Int, completion: @escaping APICompletion) {
         id = menus[index].id

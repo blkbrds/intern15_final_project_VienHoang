@@ -33,18 +33,49 @@ class FourSectionTableViewCell: UITableViewCell {
     func updateUI() {
         mapView.delegate = self
         center(location: newYorkLocation)
-        addPin()
+        addAnnotation()
+        chiDuong()
+        center(location: newYorkLocation)
     }
 
     func center(location: CLLocation) {
         mapView.setCenter(location.coordinate, animated: true)
-        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+        let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
         let region = MKCoordinateRegion(center: location.coordinate, span: span)
+//        let span = MKCoordinateSpanMake(0.05, 0.05)
+//        let region = MKCoordinateRegionMake(location.coordinate, span)
         mapView.setRegion(region, animated: true)
-        mapView.setCameraZoomRange(.none, animated: true)
     }
 
-    func addPin() {
+    func chiDuong() {
+        guard let vien = viewModel?.menus.detailImage else {
+            return
+        }
+        let source = CLLocationCoordinate2D(latitude: 40.7, longitude: -74)
+        let destination = CLLocationCoordinate2D(latitude: vien.lat, longitude: vien.lng)
+        routing(source: source, destination: destination)
+    }
+
+    func routing(source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: source, addressDictionary: nil))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: destination, addressDictionary: nil))
+        request.requestsAlternateRoutes = true
+        request.transportType = .automobile
+
+        let directions = MKDirections(request: request)
+
+        directions.calculate { [unowned self] response, error in
+            guard let unwrappedResponse = response else { return }
+
+            for route in unwrappedResponse.routes {
+                self.mapView.addOverlay(route.polyline)
+                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+            }
+        }
+    }
+
+    func addAnnotation() {
         guard let viewModel = viewModel else {
             return
         }
@@ -54,6 +85,7 @@ class FourSectionTableViewCell: UITableViewCell {
             annotations.title = viewModel.menus.detailImage?.name
             annotations.accessibilityHint = viewModel.menus.detailImage?.id
             self.mapView.addAnnotation(annotations)
+            mapView.showsUserLocation = true
         }
     }
 }
@@ -80,15 +112,16 @@ extension FourSectionTableViewCell: MKMapViewDelegate {
             let identifier = "mypin"
             var view: MyPinView
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MyPinView {
-                dequeuedView.annotation = annotation as? MKAnnotation
+                dequeuedView.annotation = annotation
                 view = dequeuedView
             } else {
-                view = MyPinView(annotation: annotation as? MKAnnotation, reuseIdentifier: identifier)
+                view = MyPinView(annotation: annotation , reuseIdentifier: identifier)
                 let button = UIButton(type: .detailDisclosure)
                 button.addTarget(self, action: #selector(selectPinView(_:)), for: .touchDown)
-                button.accessibilityHint = annotation.id
+                button.accessibilityHint = viewModel?.menus.detailImage?.id
                 view.rightCalloutAccessoryView = button
-                view.leftCalloutAccessoryView = UIImageView(image: UIImage(named: "pin"))
+                let imagePlace = "\(viewModel?.menus.detailImage?.prefix ?? "")70x70\(viewModel?.menus.detailImage?.suffix ?? "")"
+                view.leftCalloutAccessoryView = UIImageView(image: UIImage(named: imagePlace))
                 view.canShowCallout = true
             }
             return view
@@ -100,7 +133,7 @@ extension FourSectionTableViewCell: MKMapViewDelegate {
         guard let id = viewModel?.menus.detailImage?.id, sender?.accessibilityHint == id else {
             return
         }
-        let vc = DetailViewController()
+        let vc = MapViewController()
         vc.navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -117,14 +150,14 @@ extension FourSectionTableViewCell: MKMapViewDelegate {
 
         if let polyline = overlay as? MKPolyline {
             let renderer = MKPolylineRenderer(polyline: polyline)
-            renderer.strokeColor = UIColor.blue
+            renderer.strokeColor = UIColor.red
             renderer.lineWidth = 3
             return renderer
 
         } else if let circle = overlay as? MKCircle {
             let circleRenderer = MKCircleRenderer(circle: circle)
             circleRenderer.fillColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.5)
-            circleRenderer.strokeColor = .blue
+            circleRenderer.strokeColor = .red
             circleRenderer.lineWidth = 1
             circleRenderer.lineDashPhase = 10
             return circleRenderer
@@ -132,6 +165,5 @@ extension FourSectionTableViewCell: MKMapViewDelegate {
         } else {
             return MKOverlayRenderer()
         }
-
     }
 }

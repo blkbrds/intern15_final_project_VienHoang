@@ -30,6 +30,11 @@ final class ThirdSectionTableViewCell: UITableViewCell {
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
         addressLabelView.layer.cornerRadius = 30
         phoneNumberLabelView.layer.cornerRadius = 30
+//        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = self.connerView.bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//    connerView.addSubview(blurEffectView)
     }
 
     func updateUI() {

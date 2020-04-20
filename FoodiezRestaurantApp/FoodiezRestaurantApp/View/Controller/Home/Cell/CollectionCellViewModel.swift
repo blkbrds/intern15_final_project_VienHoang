@@ -18,9 +18,9 @@ final class CollectionCellViewModel {
 
     //MARK: Init
     init(menu: Menu) {
-        prefix = menu.prefixCategories
+//        prefix = menu.prefixCategories
         name = menu.name
-        suffix = menu.suffixCategories
+  //      suffix = menu.suffixCategories
         imageCell = menu.placeImage
     }
 }

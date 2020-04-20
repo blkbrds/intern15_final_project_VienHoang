@@ -8,37 +8,35 @@
 
 import Foundation
 import MapKit
-
-final class MyPinView: MKPinAnnotationView {
-
-    //MARK: - Properties
+ 
+class MyPinView: MKPinAnnotationView {
     private var imageView: UIImageView!
-
-    //MARk: Life cycle
+    var viewModel: MapViewModel?
+    
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        imageView.image = UIImage(named: "no_image")
-        addSubview(imageView)
-        imageView.layer.cornerRadius = 5.0
-        imageView.layer.masksToBounds = true
+ 
+        self.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        self.imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        self.imageView.image = UIImage(named: "no_image")
+        self.addSubview(self.imageView)
+        self.imageView.layer.cornerRadius = 5.0
+        self.imageView.layer.masksToBounds = true
     }
-
-    //MARK: - Life cycle
+ 
     override var image: UIImage? {
         get {
-            return imageView.image
+            return self.imageView.image
         }
+ 
         set {
             if let _ = imageView {
-                imageView.image = newValue
+                self.imageView.image = newValue
             }
         }
     }
-
+ 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
