@@ -16,13 +16,17 @@ final class HomeViewController: UIViewController {
     //MARK: - Properties
     var viewModel = HomeViewModel()
     var dispatchGroup = DispatchGroup()
+    private var refreshControlCollectionView = UIRefreshControl()
+    var titleArry: [String] = Array()
+
+
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupData()
         setupUI()
+        //       pullToFresh()
     }
-
 
     //MARK: - Private functions
     private func setupUI() {
@@ -30,17 +34,28 @@ final class HomeViewController: UIViewController {
         collectionView.register(nib, forCellWithReuseIdentifier: App.Identifier.collectionViewCell)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icons8-place-marker-30.png"), style: .done, target: self, action: #selector(movetoMap))
         navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        
+        refreshControlCollectionView.tintColor = .black
+        let tableViewAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        refreshControlCollectionView.attributedTitle = NSAttributedString(string: App.String.refresh, attributes: tableViewAttributes)
+        refreshControlCollectionView.addTarget(self, action: #selector(tableViewDidScrollToTop), for: .valueChanged)
+        collectionView.addSubview(refreshControlCollectionView)
+    }
+    
+    @objc func tableViewDidScrollToTop() {
+        loadApi(isLoadMore: false)
     }
 
     //MARK: - Public functions
     func setupData() {
-        loadApi()
+        loadApi(isLoadMore: false)
     }
 
     @objc private func movetoMap() {
@@ -49,22 +64,24 @@ final class HomeViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    func loadApi() {
+    func loadApi(isLoadMore: Bool) {
         HUD.show()
-        viewModel.loadAPIForHome { [weak self] (reslut) in
+        viewModel.loadAPIForHome(isLoadMore: isLoadMore) { [weak self] (reslut) in
             HUD.popActivity()
-            guard let self = self else { return }
+            guard let this = self else { return }
             switch reslut {
             case .success:
-                self.updateUI()
+                this.updateUI()
             case .failure(let error):
-                self.alert(error: error)
+                this.alert(error: error)
             }
+            this.viewModel.isLoadding = false
         }
     }
 
     func updateUI() {
         collectionView.reloadData()
+        refreshControlCollectionView.endRefreshing()
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -75,6 +92,28 @@ final class HomeViewController: UIViewController {
             cell.transform = .identity
         }
     }
+
+//    func pullToFresh() {
+//        refreshControl.tintColor = .white
+//        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+//        collectionView.addSubview(refreshControl)
+//    }
+
+//    @objc func refreshData() {
+//        viewModel.loadAPIForHome { [weak self] (reslut) in
+//            HUD.popActivity()
+//            guard let self = self else { return }
+//            switch reslut {
+//            case .success:
+//                self.updateUI()
+//            case .failure(let error):
+//                self.alert(error: error)
+//            }
+//            if self.refreshControl.isRefreshing {
+//                self.refreshControl.endRefreshing()
+//            }
+//        }
+//    }
 }
 
 //MARK: - Extention CollectionViewDataSource
@@ -89,6 +128,22 @@ extension HomeViewController: UICollectionViewDataSource {
         }
         cell.viewModel = viewModel.viewModelForCell(at: indexPath)
         return cell
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        if offsetY >= contentHeight - scrollView.frame.size.height {
+            loadApi(isLoadMore: true)
+        }
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        if offsetY >= contentHeight - scrollView.frame.size.height {
+            loadApi(isLoadMore: true)
+        }
     }
 }
 

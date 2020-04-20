@@ -20,8 +20,8 @@ extension App {
 
 extension App.String {
 
-    static let clientIDHome = "THXPRK0KM534RFYKTTHRH4XDHEXYNESVAGHTUNJ4KI3SFXUF"
-    static let clientSecretHome = "PCGPPUBMW5EMQUEFR3FW2PI1Q2QCJ04GSPSBT4DVT5NOAGOS"
+    static let clientIDHome = "WZ4HFQNVGIZRTV4MEDA1Q0XKTRH1PXONCNEPBTSCVYW13LXG"
+    static let clientSecretHome = "W4YUOERIG4VI1HSIURMO0ZFMZRW42P3AWPGTBEVEMR0D2FDG"
     static let clientIDDetail = "WZ4HFQNVGIZRTV4MEDA1Q0XKTRH1PXONCNEPBTSCVYW13LXG"
     static let clientSecretDetail = "W4YUOERIG4VI1HSIURMO0ZFMZRW42P3AWPGTBEVEMR0D2FDG"
     static let ll = "40.7,-74"
@@ -30,6 +30,9 @@ extension App.String {
     static let no = "no"
     static let warning = "warning"
     static let removeAll = "Do you want delete all?"
+    static var alertMessage: String { return "Do you want to delete?".localized()}
+    static var alertTitle: String { return "".localized()}
+    static var refresh = "Refreshing Data..."
 }
 
 extension App.Identifier {

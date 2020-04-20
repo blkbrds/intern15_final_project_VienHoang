@@ -13,14 +13,14 @@ final class SearchLocationTableViewCell: UITableViewCell {
     //MARK: IBOutlet
     @IBOutlet private weak var imageLocationImageView: UIImageView!
     @IBOutlet private weak var nameLocationLabel: UILabel!
-    
+
     //MARK: Properties
     var viewModel: SearchLocationViewModel? {
         didSet {
             updateUI()
         }
     }
-    
+
     //MARK: Private functions
     private func updateUI() {
         guard let viewModel = viewModel else { return }

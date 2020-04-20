@@ -42,8 +42,6 @@ class FourSectionTableViewCell: UITableViewCell {
         mapView.setCenter(location.coordinate, animated: true)
         let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
         let region = MKCoordinateRegion(center: location.coordinate, span: span)
-//        let span = MKCoordinateSpanMake(0.05, 0.05)
-//        let region = MKCoordinateRegionMake(location.coordinate, span)
         mapView.setRegion(region, animated: true)
     }
 
@@ -115,7 +113,7 @@ extension FourSectionTableViewCell: MKMapViewDelegate {
                 dequeuedView.annotation = annotation
                 view = dequeuedView
             } else {
-                view = MyPinView(annotation: annotation , reuseIdentifier: identifier)
+                view = MyPinView(annotation: annotation, reuseIdentifier: identifier)
                 let button = UIButton(type: .detailDisclosure)
                 button.addTarget(self, action: #selector(selectPinView(_:)), for: .touchDown)
                 button.accessibilityHint = viewModel?.menus.detailImage?.id
@@ -147,7 +145,6 @@ extension FourSectionTableViewCell: MKMapViewDelegate {
 
     //MARK: - Renderer
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-
         if let polyline = overlay as? MKPolyline {
             let renderer = MKPolylineRenderer(polyline: polyline)
             renderer.strokeColor = UIColor.red

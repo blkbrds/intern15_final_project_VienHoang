@@ -12,13 +12,18 @@ final class HomeViewModel {
 
     //MARK: Properties
     var menus: [Menu] = []
-    let limit: Int = 5
+    var limit: Int = 10
     var dem: Int = 0
     var id: String = ""
     var dispatchGroup = DispatchGroup()
+    var isLoadding: Bool = false
 
     //MARK: - Public functions
-    func loadAPIForHome(completion: @escaping APICompletion) {
+    func loadAPIForHome(isLoadMore: Bool, completion: @escaping APICompletion) {
+        guard !isLoadding else {
+            completion(.failure(Api.Error.invalidRequest))
+            return }
+        isLoadding = true
         let params = Api.Home.Params(clientID: App.String.clientIDHome, clientSecret: App.String.clientSecretHome, v: App.String.v, ll: App.String.ll, limit: limit)
         Api.Home.getMenus(params: params) { [weak self] (result) in
             guard let this = self else {
@@ -26,13 +31,24 @@ final class HomeViewModel {
                 return }
             switch result {
             case .success(let result):
-                this.menus = result.menu
-                for index in 0 ..< this.menus.count {
-                    this.dispatchGroup.enter()
-                    this.loadImage(at: index) { (result) in
-                        this.dispatchGroup.leave()
+                if isLoadMore {
+                    this.menus.append(contentsOf: result.menu)
+                    for index in 0 ..< this.menus.count {
+                        this.dispatchGroup.enter()
+                        this.loadImage(at: index) { (result) in
+                            this.dispatchGroup.leave()
+                        }
+                    }
+                } else {
+                    this.menus = result.menu
+                    for index in 0 ..< this.menus.count {
+                        this.dispatchGroup.enter()
+                        this.loadImage(at: index) { (result) in
+                            this.dispatchGroup.leave()
+                        }
                     }
                 }
+                this.limit += 5
                 this.dispatchGroup.notify(queue: .main) {
                     completion(.success)
                 }
@@ -53,7 +69,7 @@ final class HomeViewModel {
     func numberOfRows(in section: Int) -> Int {
         return menus.count
     }
-    
+
     func viewModelForMap() -> MapViewModel {
         return MapViewModel(menus: menus)
     }
@@ -74,5 +90,9 @@ final class HomeViewModel {
                 completion(.failure(error))
             }
         }
+    }
+
+    func loadMore(completion: @escaping APICompletion) {
+
     }
 }

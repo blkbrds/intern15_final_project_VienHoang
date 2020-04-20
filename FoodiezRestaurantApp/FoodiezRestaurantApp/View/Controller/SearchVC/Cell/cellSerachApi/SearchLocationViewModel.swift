@@ -17,8 +17,8 @@ final class SearchLocationViewModel: SearchCellViewModel {
 
     //MARK: Init
     init(menu: Menu) {
-        prefix = menu.prefixThumbnail
+        prefix = menu.prefixCategories
         name = menu.name
-        suffix = menu.suffixThumbnail
+        suffix = menu.suffixCategories
     }
 }
