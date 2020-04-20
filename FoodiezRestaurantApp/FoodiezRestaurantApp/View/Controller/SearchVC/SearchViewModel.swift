@@ -84,7 +84,7 @@ final class SearchViewModel {
     }
 
     private func searchLocation(keyword: String, completion: @escaping APICompletion) {
-        let param = Api.Search.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll, query: keyword)
+        let param = Api.Search.Params(clientID: App.String.clientIDHome, clientSecret: App.String.clientSecretHome, v: App.String.v, ll: App.String.ll, query: keyword)
         Api.Search.getSearch(params: param) { [weak self] (result) in
             guard let self = self else { return }
             switch result {

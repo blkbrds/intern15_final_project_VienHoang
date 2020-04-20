@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="haN-Ho-4NS">
-                                <rect key="frame" x="25" y="59" width="100" height="20"/>
+                                <rect key="frame" x="25" y="58" width="100" height="20"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjN-jR-7I6">
                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -81,6 +81,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0HT-Ud-Wjg" secondAttribute="trailing" constant="25" id="7Mr-K7-DU2"/>
                             <constraint firstItem="J8Y-A6-QB1" firstAttribute="leading" secondItem="TFJ-aG-CRG" secondAttribute="leading" constant="25" id="ITq-CQ-Ssp"/>
+                            <constraint firstAttribute="bottom" secondItem="haN-Ho-4NS" secondAttribute="bottom" constant="20" id="K5j-aW-gmG"/>
                             <constraint firstItem="haN-Ho-4NS" firstAttribute="top" secondItem="TFJ-aG-CRG" secondAttribute="centerY" constant="10" id="Q5p-Cm-nWi"/>
                             <constraint firstItem="J8Y-A6-QB1" firstAttribute="bottom" secondItem="TFJ-aG-CRG" secondAttribute="centerY" constant="-10" id="cod-j1-APc"/>
                             <constraint firstItem="haN-Ho-4NS" firstAttribute="leading" secondItem="TFJ-aG-CRG" secondAttribute="leading" constant="25" id="f4I-ZX-raw"/>

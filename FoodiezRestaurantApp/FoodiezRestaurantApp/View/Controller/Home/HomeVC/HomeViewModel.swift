@@ -19,7 +19,7 @@ final class HomeViewModel {
 
     //MARK: - Public functions
     func loadAPIForHome(completion: @escaping APICompletion) {
-        let params = Api.Home.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll, limit: limit)
+        let params = Api.Home.Params(clientID: App.String.clientIDHome, clientSecret: App.String.clientSecretHome, v: App.String.v, ll: App.String.ll, limit: limit)
         Api.Home.getMenus(params: params) { [weak self] (result) in
             guard let this = self else {
                 completion(.failure(Api.Error.invalidRequest))
@@ -57,7 +57,7 @@ final class HomeViewModel {
     func loadImage(at index: Int, completion: @escaping APICompletion) {
         id = menus[index].id
         Api.Path.Home.basePath = id
-        let params = Api.Home.ParamsThumbnail(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll)
+        let params = Api.Home.ParamsThumbnail(clientID: App.String.clientIDHome, clientSecret: App.String.clientSecretHome, v: App.String.v, ll: App.String.ll)
         Api.Home.getVenues(params: params) { [weak self] (result) in
             guard let this = self else {
                 completion(.failure(Api.Error.invalidRequest))

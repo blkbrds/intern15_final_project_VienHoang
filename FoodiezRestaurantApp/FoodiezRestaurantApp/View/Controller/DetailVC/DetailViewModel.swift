@@ -81,8 +81,10 @@ final class DetailViewModel {
     func heightForRowAt(at indexPath: IndexPath) -> CGFloat {
       guard let sectionType = SectionType(rawValue: indexPath.section) else { return .zero }
       switch sectionType {
-      case .fourSection, .secondSection, .thirdSection, .firstSection:
+      case .fourSection, .secondSection, .thirdSection:
         return UITableView.automaticDimension
+      case .firstSection:
+        return 180
       }
     }
     

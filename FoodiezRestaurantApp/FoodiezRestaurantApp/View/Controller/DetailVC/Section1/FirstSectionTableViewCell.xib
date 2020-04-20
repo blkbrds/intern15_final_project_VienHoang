@@ -16,55 +16,42 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGM-Ni-k7G">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Db3-PC-wH8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3br-zn-MNd">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mU9-jT-hzq">
-                                <rect key="frame" x="15" y="69" width="70" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="0c4-AD-0gy"/>
-                                    <constraint firstAttribute="height" constant="70" id="Uje-mb-5wp"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V.Hoang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7P4-BM-P9z">
-                                <rect key="frame" x="95" y="109" width="82.5" height="20"/>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iBG-qN-3hn">
+                        <rect key="frame" x="15" y="69" width="70" height="70"/>
                         <constraints>
-                            <constraint firstItem="mU9-jT-hzq" firstAttribute="leading" secondItem="DGM-Ni-k7G" secondAttribute="leading" constant="15" id="47W-hj-DCQ"/>
-                            <constraint firstAttribute="trailing" secondItem="3br-zn-MNd" secondAttribute="trailing" id="6oM-SI-EB3"/>
-                            <constraint firstItem="3br-zn-MNd" firstAttribute="top" secondItem="DGM-Ni-k7G" secondAttribute="top" id="83s-h5-7DD"/>
-                            <constraint firstItem="3br-zn-MNd" firstAttribute="leading" secondItem="DGM-Ni-k7G" secondAttribute="leading" id="JR0-47-BSq"/>
-                            <constraint firstItem="7P4-BM-P9z" firstAttribute="leading" secondItem="mU9-jT-hzq" secondAttribute="trailing" constant="10" id="Med-bi-gip"/>
-                            <constraint firstAttribute="bottom" secondItem="mU9-jT-hzq" secondAttribute="bottom" id="mTy-rn-Off"/>
-                            <constraint firstAttribute="bottom" secondItem="3br-zn-MNd" secondAttribute="bottom" id="sYW-U5-1XN"/>
-                            <constraint firstAttribute="bottom" secondItem="7P4-BM-P9z" secondAttribute="bottom" constant="10" id="w0b-9L-Ush"/>
+                            <constraint firstAttribute="width" constant="70" id="ey2-8Y-c5l"/>
+                            <constraint firstAttribute="height" constant="70" id="qGm-Oa-9n6"/>
                         </constraints>
-                    </view>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vien.Hoang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vK9-HH-N1Q">
+                        <rect key="frame" x="100" y="105" width="107.5" height="19"/>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="19"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="DGM-Ni-k7G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1q3-HK-7mJ"/>
-                    <constraint firstAttribute="bottom" secondItem="DGM-Ni-k7G" secondAttribute="bottom" id="bm8-sx-sIN"/>
-                    <constraint firstAttribute="trailing" secondItem="DGM-Ni-k7G" secondAttribute="trailing" id="cNH-vj-jfj"/>
-                    <constraint firstItem="DGM-Ni-k7G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jSk-1N-9le"/>
+                    <constraint firstItem="iBG-qN-3hn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="7AW-Kw-DgC"/>
+                    <constraint firstItem="iBG-qN-3hn" firstAttribute="bottom" secondItem="Db3-PC-wH8" secondAttribute="bottom" id="HzG-eZ-3oT"/>
+                    <constraint firstItem="Db3-PC-wH8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="SO9-ia-5Nk"/>
+                    <constraint firstAttribute="bottom" secondItem="Db3-PC-wH8" secondAttribute="bottom" id="Zvl-Y1-rVK"/>
+                    <constraint firstItem="vK9-HH-N1Q" firstAttribute="bottom" secondItem="Db3-PC-wH8" secondAttribute="bottom" constant="-15" id="fZf-b3-FmQ"/>
+                    <constraint firstItem="Db3-PC-wH8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qee-iJ-p9t"/>
+                    <constraint firstAttribute="trailing" secondItem="Db3-PC-wH8" secondAttribute="trailing" id="uqV-bi-z2H"/>
+                    <constraint firstItem="vK9-HH-N1Q" firstAttribute="leading" secondItem="iBG-qN-3hn" secondAttribute="trailing" constant="15" id="wZv-ge-Rxm"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="connerView" destination="DGM-Ni-k7G" id="cz0-L2-5zF"/>
-                <outlet property="locationImageView" destination="3br-zn-MNd" id="YLn-zv-38j"/>
-                <outlet property="userImageView" destination="mU9-jT-hzq" id="BsL-ss-cos"/>
-                <outlet property="userNameLabel" destination="7P4-BM-P9z" id="OGx-SE-c2O"/>
+                <outlet property="connerView" destination="H2p-sc-9uM" id="grl-z1-Xbc"/>
+                <outlet property="locationImageView" destination="Db3-PC-wH8" id="bi2-KZ-AzP"/>
+                <outlet property="userImageView" destination="iBG-qN-3hn" id="1iD-Uu-eW6"/>
+                <outlet property="userNameLabel" destination="vK9-HH-N1Q" id="5yE-bM-eod"/>
             </connections>
             <point key="canvasLocation" x="150.72463768115944" y="76.004464285714278"/>
         </tableViewCell>
