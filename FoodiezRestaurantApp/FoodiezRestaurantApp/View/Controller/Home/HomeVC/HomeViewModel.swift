@@ -16,7 +16,7 @@ final class HomeViewModel {
     var dem: Int = 0
     var id: String = ""
     var dispatchGroup = DispatchGroup()
-    
+
     //MARK: - Public functions
     func loadAPIForHome(completion: @escaping APICompletion) {
         let params = Api.Home.Params(clientID: App.String.clientID, clientSecret: App.String.clientSecret, v: App.String.v, ll: App.String.ll, limit: limit)
@@ -53,7 +53,7 @@ final class HomeViewModel {
     func numberOfRows(in section: Int) -> Int {
         return menus.count
     }
-    
+
     func loadImage(at index: Int, completion: @escaping APICompletion) {
         id = menus[index].id
         Api.Path.Home.basePath = id
@@ -64,7 +64,7 @@ final class HomeViewModel {
                 return }
             switch result {
             case .success(let result):
-                this.menus[index].placeImage = result?.detailImage
+                this.menus[index].placeImage = result?.imageHome ?? ""
                 completion(.success)
             case .failure(let error):
                 completion(.failure(error))

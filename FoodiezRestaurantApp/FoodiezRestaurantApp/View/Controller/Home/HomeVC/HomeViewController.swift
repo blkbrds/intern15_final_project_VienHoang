@@ -23,6 +23,7 @@ final class HomeViewController: UIViewController {
         setupUI()
     }
 
+
     //MARK: - Private functions
     private func setupUI() {
         let nib = UINib(nibName: App.Identifier.collectionViewCell, bundle: .main)
@@ -31,7 +32,7 @@ final class HomeViewController: UIViewController {
         collectionView.dataSource = self
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icons8-place-marker-30.png"), style: .done, target: self, action: #selector(movetoMap))
         navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) 
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
@@ -41,7 +42,7 @@ final class HomeViewController: UIViewController {
     func setupData() {
         loadApi()
     }
-    
+
     @objc private func movetoMap() {
         let moveMap = MapViewController()
         navigationController?.pushViewController(moveMap, animated: true)

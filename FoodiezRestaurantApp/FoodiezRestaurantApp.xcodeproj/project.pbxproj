@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE01A3012449430D00FE353D /* FourSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01A3002449430D00FE353D /* FourSectionViewModel.swift */; };
 		CE13FE7424285F3D00D25315 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE13FE7224285F3D00D25315 /* FavoriteViewController.swift */; };
 		CE13FE7524285F3D00D25315 /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE13FE7324285F3D00D25315 /* FavoriteViewController.xib */; };
 		CE13FE792428603000D25315 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE13FE772428603000D25315 /* SearchViewController.swift */; };
@@ -30,6 +31,19 @@
 		CE367093240D3B2900684C1D /* Api.Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE367092240D3B2900684C1D /* Api.Home.swift */; };
 		CE367095240D428400684C1D /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE367094240D428400684C1D /* UIImageExt.swift */; };
 		CE367097240D474000684C1D /* UIKitExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE367096240D474000684C1D /* UIKitExt.swift */; };
+		CE3811FB2448A8840065F423 /* SecondSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3811FA2448A8840065F423 /* SecondSectionViewModel.swift */; };
+		CE3811FD2448B1710065F423 /* ThirdSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3811FC2448B1710065F423 /* ThirdSectionViewModel.swift */; };
+		CE3811FF2448B67C0065F423 /* FirstSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3811FE2448B67C0065F423 /* FirstSectionViewModel.swift */; };
+		CE3969372447350F0073432C /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3969352447350F0073432C /* PageViewController.swift */; };
+		CE3969382447350F0073432C /* PageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3969362447350F0073432C /* PageViewController.xib */; };
+		CE3974B0244847BD0005A7BD /* FirstSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3974AE244847BD0005A7BD /* FirstSectionTableViewCell.swift */; };
+		CE3974B1244847BD0005A7BD /* FirstSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3974AF244847BD0005A7BD /* FirstSectionTableViewCell.xib */; };
+		CE3974B524484B790005A7BD /* SecondSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3974B324484B790005A7BD /* SecondSectionTableViewCell.swift */; };
+		CE3974B624484B790005A7BD /* SecondSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3974B424484B790005A7BD /* SecondSectionTableViewCell.xib */; };
+		CE3974BA244851E60005A7BD /* ThirdSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3974B8244851E60005A7BD /* ThirdSectionTableViewCell.swift */; };
+		CE3974BB244851E60005A7BD /* ThirdSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3974B9244851E60005A7BD /* ThirdSectionTableViewCell.xib */; };
+		CE3974BF2448585D0005A7BD /* FourSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3974BD2448585D0005A7BD /* FourSectionTableViewCell.swift */; };
+		CE3974C02448585D0005A7BD /* FourSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3974BE2448585D0005A7BD /* FourSectionTableViewCell.xib */; };
 		CE3A6050240612800031B935 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A604F240612800031B935 /* AppDelegate.swift */; };
 		CE3A6052240612800031B935 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A6051240612800031B935 /* SceneDelegate.swift */; };
 		CE3A6059240612830031B935 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3A6058240612830031B935 /* Assets.xcassets */; };
@@ -74,6 +88,7 @@
 /* Begin PBXFileReference section */
 		4466C0203A8E3D49EF1C1A8E /* Pods-FoodiezRestaurantApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodiezRestaurantApp.release.xcconfig"; path = "Target Support Files/Pods-FoodiezRestaurantApp/Pods-FoodiezRestaurantApp.release.xcconfig"; sourceTree = "<group>"; };
 		AB9D42BDC312D9C7D84F6345 /* Pods-FoodiezRestaurantApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodiezRestaurantApp.debug.xcconfig"; path = "Target Support Files/Pods-FoodiezRestaurantApp/Pods-FoodiezRestaurantApp.debug.xcconfig"; sourceTree = "<group>"; };
+		CE01A3002449430D00FE353D /* FourSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSectionViewModel.swift; sourceTree = "<group>"; };
 		CE13FE7224285F3D00D25315 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		CE13FE7324285F3D00D25315 /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
 		CE13FE772428603000D25315 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +112,19 @@
 		CE367092240D3B2900684C1D /* Api.Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Home.swift; sourceTree = "<group>"; };
 		CE367094240D428400684C1D /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		CE367096240D474000684C1D /* UIKitExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExt.swift; sourceTree = "<group>"; };
+		CE3811FA2448A8840065F423 /* SecondSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSectionViewModel.swift; sourceTree = "<group>"; };
+		CE3811FC2448B1710065F423 /* ThirdSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdSectionViewModel.swift; sourceTree = "<group>"; };
+		CE3811FE2448B67C0065F423 /* FirstSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSectionViewModel.swift; sourceTree = "<group>"; };
+		CE3969352447350F0073432C /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		CE3969362447350F0073432C /* PageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageViewController.xib; sourceTree = "<group>"; };
+		CE3974AE244847BD0005A7BD /* FirstSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSectionTableViewCell.swift; sourceTree = "<group>"; };
+		CE3974AF244847BD0005A7BD /* FirstSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstSectionTableViewCell.xib; sourceTree = "<group>"; };
+		CE3974B324484B790005A7BD /* SecondSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSectionTableViewCell.swift; sourceTree = "<group>"; };
+		CE3974B424484B790005A7BD /* SecondSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondSectionTableViewCell.xib; sourceTree = "<group>"; };
+		CE3974B8244851E60005A7BD /* ThirdSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdSectionTableViewCell.swift; sourceTree = "<group>"; };
+		CE3974B9244851E60005A7BD /* ThirdSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThirdSectionTableViewCell.xib; sourceTree = "<group>"; };
+		CE3974BD2448585D0005A7BD /* FourSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSectionTableViewCell.swift; sourceTree = "<group>"; };
+		CE3974BE2448585D0005A7BD /* FourSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FourSectionTableViewCell.xib; sourceTree = "<group>"; };
 		CE3A604C240612800031B935 /* FoodiezRestaurantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodiezRestaurantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3A604F240612800031B935 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE3A6051240612800031B935 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +247,55 @@
 			path = Objects;
 			sourceTree = "<group>";
 		};
+		CE396934244734F20073432C /* PageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE3969352447350F0073432C /* PageViewController.swift */,
+				CE3969362447350F0073432C /* PageViewController.xib */,
+			);
+			path = PageViewController;
+			sourceTree = "<group>";
+		};
+		CE3974AD244847970005A7BD /* Section1 */ = {
+			isa = PBXGroup;
+			children = (
+				CE3974AE244847BD0005A7BD /* FirstSectionTableViewCell.swift */,
+				CE3974AF244847BD0005A7BD /* FirstSectionTableViewCell.xib */,
+				CE3811FE2448B67C0065F423 /* FirstSectionViewModel.swift */,
+			);
+			path = Section1;
+			sourceTree = "<group>";
+		};
+		CE3974B224484B640005A7BD /* Section2 */ = {
+			isa = PBXGroup;
+			children = (
+				CE3974B324484B790005A7BD /* SecondSectionTableViewCell.swift */,
+				CE3974B424484B790005A7BD /* SecondSectionTableViewCell.xib */,
+				CE3811FA2448A8840065F423 /* SecondSectionViewModel.swift */,
+			);
+			path = Section2;
+			sourceTree = "<group>";
+		};
+		CE3974B7244851D20005A7BD /* Section3 */ = {
+			isa = PBXGroup;
+			children = (
+				CE3974B8244851E60005A7BD /* ThirdSectionTableViewCell.swift */,
+				CE3974B9244851E60005A7BD /* ThirdSectionTableViewCell.xib */,
+				CE3811FC2448B1710065F423 /* ThirdSectionViewModel.swift */,
+			);
+			path = Section3;
+			sourceTree = "<group>";
+		};
+		CE3974BC244858380005A7BD /* Section4 */ = {
+			isa = PBXGroup;
+			children = (
+				CE3974BD2448585D0005A7BD /* FourSectionTableViewCell.swift */,
+				CE3974BE2448585D0005A7BD /* FourSectionTableViewCell.xib */,
+				CE01A3002449430D00FE353D /* FourSectionViewModel.swift */,
+			);
+			path = Section4;
+			sourceTree = "<group>";
+		};
 		CE3A6043240612800031B935 = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +342,7 @@
 		CE3A6073240613B70031B935 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE396934244734F20073432C /* PageViewController */,
 				CEF4ACB0243B8DBB002E2168 /* LocationManager.swift */,
 				CE3A6074240613B70031B935 /* Controller */,
 				CE3A6076240613B70031B935 /* Base */,
@@ -347,6 +425,10 @@
 		CE52E5492415E10D0090B9A0 /* DetailVC */ = {
 			isa = PBXGroup;
 			children = (
+				CE3974BC244858380005A7BD /* Section4 */,
+				CE3974B7244851D20005A7BD /* Section3 */,
+				CE3974B224484B640005A7BD /* Section2 */,
+				CE3974AD244847970005A7BD /* Section1 */,
 				CE52E5452415E1060090B9A0 /* DetailViewController.swift */,
 				CE52E5462415E1060090B9A0 /* DetailViewController.xib */,
 				CEFEF3052418C2F90003B352 /* DetailViewModel.swift */,
@@ -502,10 +584,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE3A605C240612830031B935 /* LaunchScreen.storyboard in Resources */,
+				CE3974C02448585D0005A7BD /* FourSectionTableViewCell.xib in Resources */,
 				CEF79D9C242F481F0030566D /* SearchLocationTableViewCell.xib in Resources */,
+				CE3974B1244847BD0005A7BD /* FirstSectionTableViewCell.xib in Resources */,
 				CE3A6059240612830031B935 /* Assets.xcassets in Resources */,
+				CE3969382447350F0073432C /* PageViewController.xib in Resources */,
 				CE13FE7524285F3D00D25315 /* FavoriteViewController.xib in Resources */,
 				CE309D532410E84500E817E1 /* MapViewController.xib in Resources */,
+				CE3974B624484B790005A7BD /* SecondSectionTableViewCell.xib in Resources */,
+				CE3974BB244851E60005A7BD /* ThirdSectionTableViewCell.xib in Resources */,
 				CE52E5482415E1060090B9A0 /* DetailViewController.xib in Resources */,
 				CEEB3B2D242CEBF800A1CB18 /* SearchKeyCell.xib in Resources */,
 				CE3A60C124061EB00031B935 /* HomeViewController.xib in Resources */,
@@ -570,10 +657,14 @@
 				CE52E5472415E1060090B9A0 /* DetailViewController.swift in Sources */,
 				CE33DAB224065E7700DB6127 /* Menu.swift in Sources */,
 				CE33DAB42406636400DB6127 /* CollectionCellViewModel.swift in Sources */,
+				CE3974B0244847BD0005A7BD /* FirstSectionTableViewCell.swift in Sources */,
+				CE3974BA244851E60005A7BD /* ThirdSectionTableViewCell.swift in Sources */,
 				CE367093240D3B2900684C1D /* Api.Home.swift in Sources */,
 				CE309D5B2410FD7100E817E1 /* MyPinView.swift in Sources */,
 				CE36708F240CED6200684C1D /* Data.Ext.swift in Sources */,
+				CE3974B524484B790005A7BD /* SecondSectionTableViewCell.swift in Sources */,
 				CE13FE7C242861CD00D25315 /* FavoriteViewModel.swift in Sources */,
+				CE01A3012449430D00FE353D /* FourSectionViewModel.swift in Sources */,
 				CE2FA7DA242F30A80026C3EC /* Api.Search.swift in Sources */,
 				CE13FE7424285F3D00D25315 /* FavoriteViewController.swift in Sources */,
 				CE3A60C5240625D60031B935 /* CollectionViewCell.swift in Sources */,
@@ -597,6 +688,7 @@
 				CEF79D9E242F48E60030566D /* SearchLocationViewModel.swift in Sources */,
 				CEFEF2F424189E120003B352 /* StringExt.swift in Sources */,
 				CEEAAF7C240CC27C00BEF784 /* ApiManager.swift in Sources */,
+				CE3811FB2448A8840065F423 /* SecondSectionViewModel.swift in Sources */,
 				CEF79D9B242F481F0030566D /* SearchLocationTableViewCell.swift in Sources */,
 				CE3A6070240613790031B935 /* String.swift in Sources */,
 				CEFEF3022418BED70003B352 /* VenuesDetail.swift in Sources */,
@@ -605,7 +697,11 @@
 				CE3A6050240612800031B935 /* AppDelegate.swift in Sources */,
 				CE33DAAB2406531E00DB6127 /* HomeViewModel.swift in Sources */,
 				CEEAAF85240CC42000BEF784 /* NSErrorExt.swift in Sources */,
+				CE3811FF2448B67C0065F423 /* FirstSectionViewModel.swift in Sources */,
 				CE3A60C024061EB00031B935 /* HomeViewController.swift in Sources */,
+				CE3974BF2448585D0005A7BD /* FourSectionTableViewCell.swift in Sources */,
+				CE3969372447350F0073432C /* PageViewController.swift in Sources */,
+				CE3811FD2448B1710065F423 /* ThirdSectionViewModel.swift in Sources */,
 				CEFEF30D241A3F760003B352 /* UITextViewExt.swift in Sources */,
 				CEFEF311241A3FF50003B352 /* UITableViewExt.swift in Sources */,
 				CEEAAF7E240CC2A600BEF784 /* ResponseSerializer.swift in Sources */,

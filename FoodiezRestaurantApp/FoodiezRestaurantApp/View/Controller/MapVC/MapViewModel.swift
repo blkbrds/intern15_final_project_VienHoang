@@ -11,8 +11,9 @@ import CoreLocation
 
 final class MapViewModel {
     var location: CLLocationCoordinate2D?
+    var menus: [Menu]
 
-    init(lag: Double, log: Double) {
-        location = CLLocationCoordinate2D(latitude: lag, longitude: log)
+    init(menus: [Menu] = []) {
+        self.menus = menus
     }
 }

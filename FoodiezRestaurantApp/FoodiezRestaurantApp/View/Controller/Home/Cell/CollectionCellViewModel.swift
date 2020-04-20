@@ -9,7 +9,7 @@
 import Foundation
 
 final class CollectionCellViewModel {
-    
+
     //MARK: Properties
     var prefix: String = ""
     var name: String = ""

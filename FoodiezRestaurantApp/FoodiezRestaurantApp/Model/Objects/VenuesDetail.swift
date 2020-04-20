@@ -9,6 +9,7 @@
 import Foundation
 import ObjectMapper
 import RealmSwift
+import CoreLocation
 
 final class VenuesDetail: Object, Mappable {
 
@@ -31,7 +32,12 @@ final class VenuesDetail: Object, Mappable {
     var country: String = ""
     var groups: JSArray = []
     var idFacebook: String = ""
-    var detailImage: String  = ""
+    var imageHome: String  = ""
+    var rating: String = ""
+    var descriptionLocation: String = ""
+    var lat: Double = 0.0
+    var lng: Double = 0.0
+    var locationCoordinate: CLLocationCoordinate2D?
 
     //MARK: - Init
     init?(map: Map) { }
@@ -40,6 +46,11 @@ final class VenuesDetail: Object, Mappable {
 
     //MARK: Public Func
     func mapping(map: Map) {
+        idFacebook <- map["contact.facebook"]
+        rating <- map["rating"]
+        lat <- map["location.lat"]
+        lng <- map["location.lng"]
+        locationCoordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
         id <- map["id"]
         nameSource <- map["source.name"]
         name <- map["name"]
@@ -51,7 +62,6 @@ final class VenuesDetail: Object, Mappable {
         city <- map["city"]
         country <- map["country"]
         groups <- map["photos.groups"]
-        idFacebook <- map["contact.facebook"]
         var array: JSArray = []
         for index in groups {
             guard let items = index["items"] as? JSArray else { return }
@@ -63,7 +73,7 @@ final class VenuesDetail: Object, Mappable {
 
             guard let suffix = item["suffix"] as? String else { return }
             self.suffix = suffix
-            detailImage = "\(prefix)100x80\(suffix)"
+            imageHome = "\(prefix)100x80\(suffix)"
             guard let user = item["user"] as? JSObject else {
                 return
             }
@@ -89,7 +99,7 @@ final class VenuesDetail: Object, Mappable {
     }
 
     override class func ignoredProperties() -> [String] {
-        return ["nameSource", "firstName", "prefixUser", "suffixUser", "lastName", "formattedPhone", "twitter", "facebookName", "city", "country", "groups", "idFacebook"]
+        return ["nameSource", "firstName", "prefixUser", "suffixUser", "lastName", "formattedPhone", "twitter", "facebookName", "city", "country", "groups", "idFacebook", "rating"]
     }
 }
 
