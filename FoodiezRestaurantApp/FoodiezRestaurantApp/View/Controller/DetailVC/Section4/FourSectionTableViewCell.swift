@@ -35,7 +35,6 @@ class FourSectionTableViewCell: UITableViewCell {
         center(location: newYorkLocation)
         addAnnotation()
         chiDuong()
-        center(location: newYorkLocation)
     }
 
     func center(location: CLLocation) {

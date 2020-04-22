@@ -24,6 +24,8 @@ final class Api {
     struct Search { }
 
     struct Map { }
+
+    struct Photo { }
 }
 
 extension Api.Path {
@@ -35,6 +37,13 @@ extension Api.Path {
         static var basePath: String = ""
         static var homePath: String {
             return baseURL / basePath
+        }
+    }
+    
+    struct Photo {
+        static var basePath: String = ""
+        static var path: String {
+            return baseURL / "photos"
         }
     }
 

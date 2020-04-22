@@ -17,14 +17,17 @@ class ViewController: UIViewController, MVVM.View {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        view.accessibilityIdentifier = String(describing: type(of: self))
-        view.removeMultiTouch()
+//        view.backgroundColor = .white
+//        view.accessibilityIdentifier = String(describing: type(of: self))
+//        view.removeMultiTouch()
         setupUI()
         setupData()
+        setNavi()
     }
     
     func setupUI() {}
+    
+    func setNavi() {}
     
     func setupData() {}
 }

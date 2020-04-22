@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 final class HomeViewModel {
 
@@ -16,8 +17,19 @@ final class HomeViewModel {
     var dem: Int = 0
     var id: String = ""
     var dispatchGroup = DispatchGroup()
+    var isShowTableView: Bool = true
     var isLoadding: Bool = false
-
+    var location: CLLocationCoordinate2D?
+    func changeDisplay(completion: (Bool) -> ()) {
+        //data
+        isShowTableView = !isShowTableView
+        //call back
+        completion(true)
+    }
+    
+    init(menus: [Menu] = []) {
+        self.menus = menus
+    }
     //MARK: - Public functions
     func loadAPIForHome(isLoadMore: Bool, completion: @escaping APICompletion) {
         guard !isLoadding else {
